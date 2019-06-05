@@ -1,0 +1,83 @@
+add menu creation animation (plus sign)
+add targeting
+add main menu
+add death trigger for enemies
+
+menu{
+	gate{
+		explore{
+			zone(forest,factory,tundra,volcano,corruption){
+				difficulty(normal,heavy,severe,xceed)
+			}
+		}
+		
+		request mission
+	}
+	
+	shop{
+		weapon shop
+		item shop
+		trader
+	}
+	
+	social{
+		general hub
+		player rooms
+	}
+}
+
+unlocking characters
+	Blaze/Witchy/Altai:
+		join after clearing invitational
+	Seethe/Levia:
+		Levia will join temporarily if encountered during a dungeon, return her to Seethe in that dungeon to complete the first part
+		After part 1 and having Ari in your party, Seethe will be available in social area
+		Complete Seethe's quest chain and both will join
+	Mina:
+		
+	Jack:
+		Give her 100 items at the trader to unlock her quest chain, complete the chain and she will join
+	Harzer:
+		Will encounter during invitational preliminary
+		If helped, joins temporarily to bring her to her team, and joins after defeating her team in invitational
+		If fought, her team does not get into invitational and does not join
+	Ari:
+		Available in social area after unlocking Factory zone
+		Complete Ari's quest chain and she'll join
+		
+request missions
+	Ari's Final Exam
+		Zone: Factory
+		Depth: 300m
+		Boss: Ari
+		Party Reqs: Aile only
+	Scavenger Hunt: Forest I
+	Scavenger Hunt: Forest II
+	Scavenger Hunt: Factory I
+	Scavenger Hunt: Factory II
+	Scavenger Hunt: Tundra I
+	Scavenger Hunt: Tundra II
+	Scavenger Hunt: Tundra III
+		
+quests
+	Ari
+		Show Me the Forest Was No Fluke!
+			Clear any exploration or request mission in Factory
+		A Show of Power Unyielding!
+			Clear Factory Exploration on Heavy difficulty or higher with an A rank or higher in Destruction
+		A Sibling Rivalry Burning Pink Hot!
+			Clear [Ari's Final Exam]
+			Reward: Ari joins party
+	Jack
+		Jack of All Trades I
+			Clear [Scavenger Hunt: Forest I]
+			Clear [Scavenger Hunt: Forest II]
+		Jack of All Trades II
+			Clear [Scavenger Hunt: Factory I]
+			Clear [Scavenger Hunt: Factory II]
+		Jack of All Trades III
+			Clear [Scavenger Hunt: Tundra I]
+			Clear [Scavenger Hunt: Tundra II]
+		Jack of All Trades IV
+			Clear [Scavenger Hunt: Tundra III]
+			Reward: Jack joins party

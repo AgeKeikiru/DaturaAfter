@@ -1,0 +1,2 @@
+
+global.playerControl = true;

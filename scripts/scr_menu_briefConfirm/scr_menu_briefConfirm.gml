@@ -1,0 +1,1 @@
+scr_menu_confirmWindow("message/confirm/..","Accept mission?",scr_menu_briefConfirm_yes,scr_menu_briefConfirm_no);

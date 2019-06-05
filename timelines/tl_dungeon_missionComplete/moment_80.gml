@@ -1,0 +1,50 @@
+
+map_results[? MCS_MVP] = instance_create_depth(950,room_height,0,obj_fpo_parent);
+with map_results[? MCS_MVP]{
+    layer = global.ly_obj[4];
+    tween_xPos = true;
+    x += 200;
+    
+    tween_alpha = true;
+    tgt_alpha = 1;
+    image_alpha = 0;
+    
+    var _map = global.grd_party_player[# 0,0].src;
+    
+    sprite_index = _map[? CHAR_VAR_SPR_NEUTRAL];
+}
+
+map_results[? MCS_SPD] = instance_create_depth(MCS_ALIGNX,MCS_STARTY,0,obj_fpo_panel);
+with map_results[? MCS_SPD]{
+    layer = global.ly_obj[4];
+    crosshair_alpha = 0;
+    
+    tween_xPos = true;
+    x += 200;
+    
+    tween_xScale = true;
+    tween_yScale = false;
+    image_xscale = 200;
+    tgt_xScale = image_xscale + 200;
+    image_yscale = 2;
+    
+    tween_alpha = true;
+    tgt_alpha = 1;
+    image_alpha = 0;
+    
+    fill_col = c_gray;
+    fill_alpha = 1;
+    
+    txt[0] = "CLEAR TIME";
+    txt_ft[0] = ft_menuSub;
+    txt_x[0] = 5;
+    txt_y[0] = 3;
+    txt_col[0] = c_gray;
+    
+    txt_ft[1] = ft_dungeonBoldLarge;
+    txt_x[1] = txt_x[0] + 390;
+    txt_y[1] = txt_y[0] + 5;
+    txt_valign[1] = fa_bottom;
+    txt_halign[1] = fa_right;
+    txt_col[1] = c_gray;
+}

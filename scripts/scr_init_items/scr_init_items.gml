@@ -1,0 +1,57 @@
+global.map_item_held[? ITEM_HEAL1] = 0;
+global.map_item_held[? ITEM_HEAL2] = 0;
+global.map_item_held[? ITEM_HEAL3] = 0;
+global.map_item_held[? ITEM_RAISE1] = 0;
+global.map_item_held[? ITEM_RAISE2] = 0;
+global.map_item_held[? ITEM_CURE1] = 0;
+global.map_item_held[? ITEM_CURE2] = 0;
+global.map_item_held[? ITEM_IMM_FIR] = 0;
+global.map_item_held[? ITEM_IMM_ICE] = 0;
+global.map_item_held[? ITEM_IMM_LGT] = 0;
+global.map_item_held[? ITEM_IMM_DRK] = 0;
+global.map_item_held[? ITEM_IMM_ELC] = 0;
+global.map_item_held[? ITEM_IMM_NAT] = 0;
+
+global.map_item_name[? ITEM_HEAL1] = "Aider";
+global.map_item_name[? ITEM_HEAL2] = "Alkaider";
+global.map_item_name[? ITEM_HEAL3] = "Fullaider";
+global.map_item_name[? ITEM_RAISE1] = "Raiser";
+global.map_item_name[? ITEM_RAISE2] = "Fullraiser";
+global.map_item_name[? ITEM_CURE1] = "Fixer ST";
+global.map_item_name[? ITEM_CURE2] = "Fixer DE";
+global.map_item_name[? ITEM_IMM_FIR] = "Firblocker";
+global.map_item_name[? ITEM_IMM_ICE] = "Iceblocker";
+global.map_item_name[? ITEM_IMM_LGT] = "Lgtblocker";
+global.map_item_name[? ITEM_IMM_DRK] = "Drkblocker";
+global.map_item_name[? ITEM_IMM_ELC] = "Elcblocker";
+global.map_item_name[? ITEM_IMM_NAT] = "Natblocker";
+
+global.map_item_desc[? ITEM_HEAL1] = "Restore 30% of active party members' HP.";
+global.map_item_desc[? ITEM_HEAL2] = "Restore 60% of active party members' HP.";
+global.map_item_desc[? ITEM_HEAL3] = "Restore 100% of active party members' HP.";
+global.map_item_desc[? ITEM_RAISE1] = "Revive any fallen active party members with 50% HP.";
+global.map_item_desc[? ITEM_RAISE2] = "Revive any fallen active party members with 100% HP.";
+global.map_item_desc[? ITEM_CURE1] = "Removes status effects from active party members.";
+global.map_item_desc[? ITEM_CURE2] = "Removes debuffs from active party members.";
+global.map_item_desc[? ITEM_IMM_FIR] = "Temporarily increases party Fire Resistance by 100.";
+global.map_item_desc[? ITEM_IMM_ICE] = "Temporarily increases party Ice Resistance by 100.";
+global.map_item_desc[? ITEM_IMM_LGT] = "Temporarily increases party Light Resistance by 100.";
+global.map_item_desc[? ITEM_IMM_DRK] = "Temporarily increases party Dark Resistance by 100.";
+global.map_item_desc[? ITEM_IMM_ELC] = "Temporarily increases party Elec Resistance by 100.";
+global.map_item_desc[? ITEM_IMM_NAT] = "Temporarily increases party Nature Resistance by 100.";
+
+var SV_temp = 1000;
+
+global.map_item_price[? ITEM_HEAL1] = SV_temp * 1;
+global.map_item_price[? ITEM_HEAL2] = SV_temp * 2;
+global.map_item_price[? ITEM_HEAL3] = SV_temp * 3;
+global.map_item_price[? ITEM_RAISE1] = SV_temp * 5;
+global.map_item_price[? ITEM_RAISE2] = SV_temp * 10;
+global.map_item_price[? ITEM_CURE1] = SV_temp * 1.5;
+global.map_item_price[? ITEM_CURE2] = SV_temp * 1.5;
+global.map_item_price[? ITEM_IMM_FIR] = SV_temp * 5;
+global.map_item_price[? ITEM_IMM_ICE] = SV_temp * 5;
+global.map_item_price[? ITEM_IMM_LGT] = SV_temp * 5;
+global.map_item_price[? ITEM_IMM_DRK] = SV_temp * 5;
+global.map_item_price[? ITEM_IMM_ELC] = SV_temp * 5;
+global.map_item_price[? ITEM_IMM_NAT] = SV_temp * 5;
