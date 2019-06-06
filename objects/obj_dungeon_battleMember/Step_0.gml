@@ -1,11 +1,22 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(true){
+if(true){ //check if outside of pause menus/events
 	for(var _i = 0;_i < 6;_i++){
 		if(ailment[_i] > 0){
 			ailment[_i] += -1;
-			ailment[_i] = max(ailment[_i],0);
+			
+			if(ailment[_i] <= 0){
+				ailment[_i] = 0;
+				scr_cEvent(id,EVENT_BATTLM_ICONREFRESH);
+			}
 		}
+	}
+}
+
+if(ailment[CHAR_SA_PAR] > 0){
+	if(scr_exists(stance,asset_object)){
+		instance_destroy(stance);
+		stance = noone;
 	}
 }
 

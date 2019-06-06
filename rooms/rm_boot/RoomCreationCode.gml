@@ -124,6 +124,7 @@
 	_temp.src = scr_data_getMap(global.grd_chars,CHAR_IMOLEI);
 	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_SWD);
 	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_ICE);
+	_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_evok_mRdmr,0);
 	_temp.src[? CHAR_VAR_CLS0] = instance_find(obj_handler_class_evoker,0);
 	//_temp.src[? CHAR_VAR_CLS0].src = _temp;
 	scr_cEvent(_temp,EVENT_BATTLM_INIT);
@@ -171,7 +172,15 @@ global.missionCurr = MSN_DEBUG;
 
 instance_create_depth(0,0,0,obj_handler_dungeon);
 
-global.grd_party_player[# 0,0].ailment[CHAR_SA_SLW] = 9999;
+//global.grd_party_player[# 0,0].ailment[CHAR_SA_SLW] = 9999;
+//global.grd_party_player[# 0,0].ailment[CHAR_SA_SLC] = 9999;
+//global.grd_party_player[# 1,0].ailment[CHAR_SA_BRN] = 9999;
+//global.grd_party_player[# 1,0].ailment[CHAR_SA_BLD] = 9999;
+//global.grd_party_player[# 1,0].ailment[CHAR_SA_PSN] = 9999;
+global.grd_party_player[# 0,0].ailment[CHAR_SA_PAR] = 9999;
+
+scr_cEvent(global.grd_party_player[# 0,0],EVENT_BATTLM_ICONREFRESH);
+scr_cEvent(global.grd_party_player[# 1,0],EVENT_BATTLM_ICONREFRESH);
 
 scr_cEvent(obj_handler_dungeon,EVENT_DND_ENCOUNTER);
 /**/

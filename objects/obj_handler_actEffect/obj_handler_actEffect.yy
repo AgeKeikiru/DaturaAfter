@@ -83,6 +83,48 @@
             "value": "0",
             "varName": "debuff",
             "varType": 3
+        },
+        {
+            "id": "39a9132e-259d-449f-903b-62ec17cc4559",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "src",
+            "varType": 4
+        },
+        {
+            "id": "4a0d7d35-2a46-4673-a2cc-d39a581d7664",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "\"\"",
+            "varName": "cEvent",
+            "varType": 2
+        },
+        {
+            "id": "5faa5942-7510-4c4e-8038-46d791fdfd1a",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "cArgs",
+            "varType": 4
         }
     ],
     "solid": false,

@@ -319,6 +319,14 @@
             }
         },
         {
+            "Key": "3484d201-c83f-436e-aeec-1aa8e9c59e57",
+            "Value": {
+                "id": "48c64ff8-059e-4868-b6cc-a26a6f007ced",
+                "resourcePath": "objects\\obj_handler_actEffect_evok_mRdmr\\obj_handler_actEffect_evok_mRdmr.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "36e17e4c-faf8-45c0-8f7a-e9a1eb0c2582",
             "Value": {
                 "id": "bcc91ae1-7554-44cd-98ca-e79fcffd5e00",
@@ -783,6 +791,14 @@
             }
         },
         {
+            "Key": "84d469f4-e5c7-4957-8dd9-381f2226ccea",
+            "Value": {
+                "id": "ad3161fa-9124-4bba-8339-6a625b5cd86b",
+                "resourcePath": "views\\84d469f4-e5c7-4957-8dd9-381f2226ccea.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "876dbcef-5755-438f-bdce-c1336703d61f",
             "Value": {
                 "id": "cf7769ab-855b-496d-a1f5-8dba320e67ee",
@@ -820,6 +836,14 @@
                 "id": "e92a2b4c-b9a5-6936-c4b0-d95c6ef99272",
                 "resourcePath": "scripts\/scr_menu_market_wpnArmConfirm\/scr_menu_market_wpnArmConfirm.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8c15274c-ac35-4baa-9175-ab9cfb30b06a",
+            "Value": {
+                "id": "f1240018-9a0c-4cc8-9b09-9df0b7450405",
+                "resourcePath": "sprites\\spr_statusIcons\\spr_statusIcons.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

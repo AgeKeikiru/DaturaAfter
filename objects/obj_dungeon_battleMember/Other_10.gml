@@ -1,6 +1,7 @@
 /// @description custom events
 
 switch(cEvent){
+	
 	case EVENT_BATTLM_INIT:
 		if(src != noone){
 			name = src[? CHAR_VAR_NAMEDISP];
@@ -151,6 +152,82 @@ switch(cEvent){
 			if(instance_number(obj_handler_dungeon) < 1 || allyParty == global.grd_party_enemy){
 				hpCurr = hpMax;
 				enCurr = enMax;
+			}
+		}
+		
+		break;
+		
+	case EVENT_BATTLM_ICONREFRESH:
+		ds_list_clear(lst_statusIcons);
+		var _map = ds_map_create();
+		
+		_map[? CHAR_VAR_MATK] = 0;
+		_map[? CHAR_VAR_MDEF] = 0;
+		_map[? CHAR_VAR_FATK] = 0;
+		_map[? CHAR_VAR_FDEF] = 0;
+		_map[? CHAR_VAR_SATK] = 0;
+		_map[? CHAR_VAR_SDEF] = 0;
+		_map[? CHAR_VAR_ACC] = 0;
+		_map[? CHAR_VAR_EVA] = 0;
+		_map[? CHAR_VAR_SPD] = 0;
+		
+		for(var _i = ds_list_size(lst_effects) + -1;_i >= 0;_i--){
+			var _obj = lst_effects[| _i];
+			
+			if(scr_exists(_obj,asset_object)){
+				_map[? CHAR_VAR_MATK] += _obj.map_statMod[? CHAR_VAR_MATK];
+				_map[? CHAR_VAR_MDEF] += _obj.map_statMod[? CHAR_VAR_MDEF];
+				_map[? CHAR_VAR_FATK] += _obj.map_statMod[? CHAR_VAR_FATK];
+				_map[? CHAR_VAR_FDEF] += _obj.map_statMod[? CHAR_VAR_FDEF];
+				_map[? CHAR_VAR_SATK] += _obj.map_statMod[? CHAR_VAR_SATK];
+				_map[? CHAR_VAR_SDEF] += _obj.map_statMod[? CHAR_VAR_SDEF];
+				_map[? CHAR_VAR_ACC] += _obj.map_statMod[? CHAR_VAR_ACC];
+				_map[? CHAR_VAR_EVA] += _obj.map_statMod[? CHAR_VAR_EVA];
+				_map[? CHAR_VAR_SPD] += _obj.map_statMod[? CHAR_VAR_SPD];
+			}else{
+				ds_list_delete(lst_effects,_i);
+			}
+		}
+		
+		if(_map[? CHAR_VAR_MATK] != 0){
+			ds_list_add(lst_statusIcons,_map[? CHAR_VAR_MATK] > 0 ? CHAR_SI_MATKUP : CHAR_SI_MATKDN);
+		}
+		
+		if(_map[? CHAR_VAR_MDEF] != 0){
+			ds_list_add(lst_statusIcons,_map[? CHAR_VAR_MDEF] > 0 ? CHAR_SI_MDEFUP : CHAR_SI_MDEFDN);
+		}
+		
+		if(_map[? CHAR_VAR_FATK] != 0){
+			ds_list_add(lst_statusIcons,_map[? CHAR_VAR_FATK] > 0 ? CHAR_SI_FATKUP : CHAR_SI_FATKDN);
+		}
+		
+		if(_map[? CHAR_VAR_FDEF] != 0){
+			ds_list_add(lst_statusIcons,_map[? CHAR_VAR_FDEF] > 0 ? CHAR_SI_FDEFUP : CHAR_SI_FDEFDN);
+		}
+		
+		if(_map[? CHAR_VAR_SATK] != 0){
+			ds_list_add(lst_statusIcons,_map[? CHAR_VAR_SATK] > 0 ? CHAR_SI_SATKUP : CHAR_SI_SATKDN);
+		}
+		
+		if(_map[? CHAR_VAR_SDEF] != 0){
+			ds_list_add(lst_statusIcons,_map[? CHAR_VAR_SDEF] > 0 ? CHAR_SI_SDEFUP : CHAR_SI_SDEFDN);
+		}
+		
+		if(_map[? CHAR_VAR_ACC] != 0){
+			ds_list_add(lst_statusIcons,_map[? CHAR_VAR_ACC] > 0 ? CHAR_SI_ACCUP : CHAR_SI_ACCDN);
+		}
+		
+		if(_map[? CHAR_VAR_EVA] != 0){
+			ds_list_add(lst_statusIcons,_map[? CHAR_VAR_EVA] > 0 ? CHAR_SI_EVAUP : CHAR_SI_EVADN);
+		}
+		
+		if(_map[? CHAR_VAR_SPD] != 0){
+			ds_list_add(lst_statusIcons,_map[? CHAR_VAR_SPD] > 0 ? CHAR_SI_SPDUP : CHAR_SI_SPDDN);
+		}
+		
+		for(var _i = 0;_i < 6;_i++){
+			if(ailment[_i] > 0){
+				ds_list_add(lst_statusIcons,CHAR_SI_BRN + _i);
 			}
 		}
 		

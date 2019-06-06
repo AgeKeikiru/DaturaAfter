@@ -539,7 +539,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "noone",
-            "varName": "stanceAct",
+            "varName": "stance",
             "varType": 4
         },
         {
@@ -765,6 +765,34 @@
             "value": "0",
             "varName": "ailment[5]",
             "varType": 0
+        },
+        {
+            "id": "5ab08e3d-d120-4503-9319-bd967d68d8ad",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "lst_statusIcons",
+            "varType": 4
+        },
+        {
+            "id": "5c2a39e9-5bf4-4520-9072-dcf81d1fd9ac",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "lst_effects",
+            "varType": 4
         }
     ],
     "solid": false,

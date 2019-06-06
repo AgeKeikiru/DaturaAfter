@@ -59,7 +59,7 @@ stat_flightAggro = 1;
     grd_skillDesc[# _ix,_iy] = "Stance Act. While active, killing an enemy has a chance of inflicting a random debuff to remaining enemies.";
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
     grd_skillRate[# _ix,_iy] = 18;
-    grd_skillAct[# _ix,_iy] = noone;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_evok_mRdmr);
     
     _iy++;
     
@@ -124,3 +124,5 @@ stat_flightAggro = 1;
     grd_skillRate[# _ix,_iy] = 3000;
 
 #endregion
+
+scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);

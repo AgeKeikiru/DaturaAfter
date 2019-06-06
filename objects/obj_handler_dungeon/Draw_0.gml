@@ -502,83 +502,99 @@ if(!state_event && !state_results){
 			
 			draw_set_color(_mem != noone ? _uiCol[0] : _uiCol[1]);
 	
-			//hp/en
-			_drawX += -(_hbSize + _hbGap) * 4;
-			_drawY += _barGap + -_hbGap + ((_hbGap + _hbSize) * 2);
-			_drawW = ((_hbSize + _hbGap) * 4) + -_hbGap;
-			_drawH = _barH;
+			#region //hp/en
 			
-			draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + _drawH,false);
+				_drawX += -(_hbSize + _hbGap) * 4;
+				_drawY += _barGap + -_hbGap + ((_hbGap + _hbSize) * 2);
+				_drawW = ((_hbSize + _hbGap) * 4) + -_hbGap;
+				_drawH = _barH;
+				
+				draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + _drawH,false);
+				
+				if(_mem != noone){
+					draw_set_color(_uiCol[1]);
+				
+					draw_rectangle(_drawX + _barBS,_drawY,_drawX + _drawW,_drawY + _drawH + -_barBB,false);
+					
+					draw_set_color(CC_HPGREEN);
+				
+					draw_rectangle(_drawX + _barBS,_drawY,_drawX + _barBS + ((_drawW + -_barBS) * (_mem.hpCurr / _mem.hpMax)),_drawY + _drawH + -_barBB,false);
+				
+					draw_set_color(_uiCol[1]);
+					draw_set_halign(fa_left);
+					
+					draw_text(_drawX + 3,_drawY + 3,"HP");
+					
+					draw_set_halign(fa_right);
+					
+					ktk_scr_draw_text_stroke(_drawX + _drawW + -3,_drawY + -2,string(ceil(_mem.hpCurr)),c_white,c_dkgray,1,20);
+					
+					draw_set_color(_uiCol[0]);
+					
+					var
+					_tx1 = _drawX + _barBS + -1,
+					_ty1 = _drawY + -1,
+					_tx2 = _tx1,
+					_ty2 = _ty1 + _barH + -_barBB + 1,
+					_tx3 = _tx1 + 8,
+					_ty3 = _ty2;
+					
+					draw_triangle(_tx1,_ty1,_tx2,_ty2,_tx3,_ty3,false);
+				}
+				
+				_drawY += _barH + _barGap;
+				
+				draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + _drawH,false);
+				
+				if(_mem != noone){
+					draw_set_color(_uiCol[1]);
+				
+					draw_rectangle(_drawX + _barBS,_drawY,_drawX + _drawW,_drawY + _drawH + -_barBB,false);
+					
+					draw_set_color(CC_ENBLUE);
+				
+					draw_rectangle(_drawX + _barBS,_drawY,_drawX + _barBS + ((_drawW + -_barBS) * (_mem.enCurr / _mem.enMax)),_drawY + _drawH + -_barBB,false);
+					
+					draw_set_color(_uiCol[1]);
+					draw_set_halign(fa_left);
+					
+					draw_text(_drawX + 3,_drawY + 3,"EN");
+					
+					draw_set_halign(fa_right);
+					
+					ktk_scr_draw_text_stroke(_drawX + _drawW + -3,_drawY + -2,string(floor(_mem.enCurr)),c_white,c_dkgray,1,20);
+					
+					draw_set_color(_uiCol[0]);
+					
+					var
+					_tx1 = _drawX + _barBS + -1,
+					_ty1 = _drawY + -1,
+					_tx2 = _tx1,
+					_ty2 = _ty1 + _barH + -_barBB + 1,
+					_tx3 = _tx1 + 8,
+					_ty3 = _ty2;
+					
+					draw_triangle(_tx1,_ty1,_tx2,_ty2,_tx3,_ty3,false);
+				}
+				
+				if(instance_exists(_mem) && _mem.hpCurr <= 0){
+					image_blend = c_gray;
+				}
 			
-			if(_mem != noone){
-				draw_set_color(_uiCol[1]);
+			#endregion
 			
-				draw_rectangle(_drawX + _barBS,_drawY,_drawX + _drawW,_drawY + _drawH + -_barBB,false);
-				
-				draw_set_color(CC_HPGREEN);
+			#region //stance
 			
-				draw_rectangle(_drawX + _barBS,_drawY,_drawX + _barBS + ((_drawW + -_barBS) * (_mem.hpCurr / _mem.hpMax)),_drawY + _drawH + -_barBB,false);
-			
-				draw_set_color(_uiCol[1]);
-				draw_set_halign(fa_left);
-				
-				draw_text(_drawX + 3,_drawY + 3,"HP");
-				
-				draw_set_halign(fa_right);
-				
-				ktk_scr_draw_text_stroke(_drawX + _drawW + -3,_drawY + -2,string(ceil(_mem.hpCurr)),c_white,c_dkgray,1,20);
-				
 				draw_set_color(_uiCol[0]);
 				
-				var
-				_tx1 = _drawX + _barBS + -1,
-				_ty1 = _drawY + -1,
-				_tx2 = _tx1,
-				_ty2 = _ty1 + _barH + -_barBB + 1,
-				_tx3 = _tx1 + 8,
-				_ty3 = _ty2;
-				
-				draw_triangle(_tx1,_ty1,_tx2,_ty2,_tx3,_ty3,false);
-			}
+				if(scr_exists(_mem,asset_object) && scr_exists(_mem.stance,asset_object)){
+					_drawY += _barH + _barGap;
+					
+					draw_rectangle(_drawX,_drawY,_drawX + (_drawW * .65),_drawY + (_drawH * 1.5),false);
+					scr_cEvent(_mem.stance,EVENT_EFFECT_STANCEDRAW,_drawX,_drawY,_uiCol[0]);
+				}
 			
-			_drawY += _barH + _barGap;
-			
-			draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + _drawH,false);
-			
-			if(_mem != noone){
-				draw_set_color(_uiCol[1]);
-			
-				draw_rectangle(_drawX + _barBS,_drawY,_drawX + _drawW,_drawY + _drawH + -_barBB,false);
-				
-				draw_set_color(CC_ENBLUE);
-			
-				draw_rectangle(_drawX + _barBS,_drawY,_drawX + _barBS + ((_drawW + -_barBS) * (_mem.enCurr / _mem.enMax)),_drawY + _drawH + -_barBB,false);
-				
-				draw_set_color(_uiCol[1]);
-				draw_set_halign(fa_left);
-				
-				draw_text(_drawX + 3,_drawY + 3,"EN");
-				
-				draw_set_halign(fa_right);
-				
-				ktk_scr_draw_text_stroke(_drawX + _drawW + -3,_drawY + -2,string(floor(_mem.enCurr)),c_white,c_dkgray,1,20);
-				
-				draw_set_color(_uiCol[0]);
-				
-				var
-				_tx1 = _drawX + _barBS + -1,
-				_ty1 = _drawY + -1,
-				_tx2 = _tx1,
-				_ty2 = _ty1 + _barH + -_barBB + 1,
-				_tx3 = _tx1 + 8,
-				_ty3 = _ty2;
-				
-				draw_triangle(_tx1,_ty1,_tx2,_ty2,_tx3,_ty3,false);
-			}
-			
-			if(instance_exists(_mem) && _mem.hpCurr <= 0){
-				image_blend = c_gray;
-			}
+			#endregion
 			
 			surface_reset_target();
 			draw_set_color(c_white);
@@ -605,7 +621,27 @@ if(!state_event && !state_results){
 				_ch_w2 = 2,
 				_tg_y = -150, //target grid
 				_tg_size = 0,
-				_tg_gap = 2;
+				_tg_gap = 2,
+				_si_scale = 2,
+				_si_gap = 25,
+				_si_startX = _uiDrawX + -100,
+				_si_startY = _uiDrawY + 50,
+				_si_maxX = 12;
+				
+				//status icons
+				for(var _i = 0;_i < ds_list_size(_mem.lst_statusIcons);_i++){
+					draw_sprite_ext(
+						spr_statusIcons,
+						_mem.lst_statusIcons[| _i],
+						_si_startX + ((_i mod _si_maxX) * _si_gap),
+						_si_startY + -(floor(_i / _si_maxX) * _si_gap),
+						_si_scale,
+						_si_scale,
+						0,
+						c_white,
+						1
+					);
+				}
 				
 				if(_partyI == tgtSlot){
 					draw_set_color(c_white);
@@ -689,7 +725,7 @@ if(!state_event && !state_results){
 				_i = scr_checkInput(IC_CHECK_DOWN,IC_KEY_PARTYSHIFT) * 4,
 				_a = 105,
 				_actArr = [0,1,3,2,4,5,7,6],
-				_crossX = 640,
+				_crossX = _uiDrawX + 50,
 				_crossY = _uiDrawY + 60,
 				_crossR = 70;
 				

@@ -125,10 +125,43 @@
 	
 		#macro CHAR_SA_BRN 0
 		#macro CHAR_SA_SLW 1
-		#macro CHAR_SA_PAR 2
-		#macro CHAR_SA_SLC 3
-		#macro CHAR_SA_BLD 4
-		#macro CHAR_SA_PSN 5
+		#macro CHAR_SA_SLC 2
+		#macro CHAR_SA_PAR 3
+		#macro CHAR_SA_PSN 4
+		#macro CHAR_SA_BLD 5
+	
+	#endregion
+	
+	#region //status icons
+	
+		#macro CHAR_SI_MATKUP 0
+		#macro CHAR_SI_MATKDN 1
+		#macro CHAR_SI_MDEFUP 2
+		#macro CHAR_SI_MDEFDN 3
+		
+		#macro CHAR_SI_FATKUP 4
+		#macro CHAR_SI_FATKDN 5
+		#macro CHAR_SI_FDEFUP 6
+		#macro CHAR_SI_FDEFDN 7
+		
+		#macro CHAR_SI_SATKUP 8
+		#macro CHAR_SI_SATKDN 9
+		#macro CHAR_SI_SDEFUP 10
+		#macro CHAR_SI_SDEFDN 11
+		
+		#macro CHAR_SI_ACCUP 12
+		#macro CHAR_SI_ACCDN 13
+		#macro CHAR_SI_EVAUP 14
+		#macro CHAR_SI_EVADN 15
+		#macro CHAR_SI_SPDUP 16
+		#macro CHAR_SI_SPDDN 17
+		
+		#macro CHAR_SI_BRN 18
+		#macro CHAR_SI_SLW 19
+		#macro CHAR_SI_SLC 20
+		#macro CHAR_SI_PAR 21
+		#macro CHAR_SI_PSN 22
+		#macro CHAR_SI_BLD 23
 	
 	#endregion
 	
@@ -455,6 +488,7 @@
 #region //event listeners
 
 	#macro EVENT_BATTLM_INIT "event_battlm_init"
+	#macro EVENT_BATTLM_ICONREFRESH "event_battlm_iconRefresh"
 	
 	#macro EVENT_DND_ENCOUNTER "event_dnd_encounter"
 	#macro EVENT_DND_ENCOUNTER_FIXED "event_dnd_encounter_fixed"
@@ -470,7 +504,11 @@
 	#macro EVENT_DIA_NEXTLINE "event_dia_nextLine"
 	
 	#macro EVENT_CLASS_BASESTATADD "event_class_baseStatAdd" //called during battlm_init
-	#macro EVENT_CLASS_TXTREFRESH "event_class_txtRefresh"
+	#macro EVENT_CLASS_SKILLREFRESH "event_class_skillRefresh"
+	
+	#macro EVENT_EFFECT_STANCEDRAW "event_effect_stanceDraw"
+	
+	#macro EVENT_BATTLE_ENEMYKILLED "event_battle_enemyKilled"
 
 #endregion
 
