@@ -16,6 +16,7 @@ switch(cEvent){
 		for(var _i2 = 0;_i2 < 3;_i2++){
 			if(grd_mobPool[# _i,_i2] != noone){
 				var _o = instance_create_depth(_x,_y,0,obj_dungeon_battleMember);
+				_o.image_alpha = -abs(ceil((_i2 + -1) * 1.5)) * 1;
 				_o.src = scr_data_getMap(global.grd_chars,grd_mobPool[# _i,_i2]);
 				_o.allyParty = global.grd_party_enemy;
 				_o.enemyParty = global.grd_party_player;

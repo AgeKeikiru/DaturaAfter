@@ -11,6 +11,8 @@ if(true){ //check if outside of pause menus/events
 			}
 		}
 	}
+	
+	iFrames--;
 }
 
 if(ailment[CHAR_SA_PAR] > 0){
@@ -35,7 +37,7 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && enCurr >= actUsing.enCos
 	for(var _i = 0;_i < 8;_i++){
 		var _act = act[_i];
 		
-		if(instance_exists(_act)){
+		if(scr_exists(_act,asset_object) && !_act.xAct){
 			_act.cdCurr += UNIVERSAL_COOLDOWN;
 			_act.cdMax = _act.cdCurr;
 		}
@@ -56,10 +58,68 @@ if(hpCurr > 0){
 	}
 	
 	if(enemyWait > 0){
-		enemyWait += -(100 + spd) / (1 + (ailment[CHAR_SA_SLW] > 0));
+		var _spd = spd;
+		
+		global.tempFloat = 0;
+		scr_cEvent(all,EVENT_BATTLE_SPDMOD,id);
+		_spd += spd * global.tempFloat;
+		
+		_spd = max(_spd,-99);
+		
+		enemyWait += -(100 + _spd) / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3));
 	
 		if(enemyWait <= 0){
-			var _act = act[0];
+			var
+			_act = act[0],
+			_aggroHi = -99,
+			_aggroIndex = -1,
+			_tgts = ds_list_create();
+			
+			ds_list_add(_tgts,
+				0,
+				1,
+				2
+			);
+			
+			for(var _i = 0;_i < 3;_i++){
+				var _obj = global.grd_party_player[# _i,0];
+				
+				if(scr_exists(_obj,asset_object) && _obj.hpCurr > 0){
+					repeat(abs(_obj.aggro)){
+						if(_obj.aggro > 0){
+							ds_list_add(_tgts,_i);
+						}else{
+							ds_list_add(_tgts,(_i + 1) mod 3,(_i + 2) mod 3);
+						}
+					}
+					
+					if(_obj.aggro > _aggroHi){
+						_aggroHi = _obj.aggro;
+						_aggroIndex = _i;
+					}
+				}
+			}
+			
+			if(_aggroIndex != -1){
+				repeat(2){
+					ds_list_add(_tgts,_aggroIndex);
+				}
+			}
+			
+			ds_list_shuffle(_tgts);
+			
+			var _obj;
+			
+			do{
+				scr_trace(scr_list_toString(_tgts));
+				
+				tgtIndex = _tgts[| 0];
+				ds_list_delete(_tgts,0);
+				_obj = global.grd_party_player[# tgtIndex,0];
+			}until(
+				(scr_exists(_obj,asset_object) && _obj.hpCurr > 0)
+				|| ds_list_size(_tgts) == 0
+			)
 		
 			enemyWait = UNIVERSAL_COOLDOWN;
 		

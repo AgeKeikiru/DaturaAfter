@@ -158,6 +158,8 @@ switch(cEvent){
 		break;
 		
 	case EVENT_BATTLM_ICONREFRESH:
+		aggro = 0;
+	
 		ds_list_clear(lst_statusIcons);
 		var _map = ds_map_create();
 		
@@ -184,6 +186,8 @@ switch(cEvent){
 				_map[? CHAR_VAR_ACC] += _obj.map_statMod[? CHAR_VAR_ACC];
 				_map[? CHAR_VAR_EVA] += _obj.map_statMod[? CHAR_VAR_EVA];
 				_map[? CHAR_VAR_SPD] += _obj.map_statMod[? CHAR_VAR_SPD];
+				
+				aggro += _obj.aggro;
 			}else{
 				ds_list_delete(lst_effects,_i);
 			}
@@ -229,6 +233,31 @@ switch(cEvent){
 			if(ailment[_i] > 0){
 				ds_list_add(lst_statusIcons,CHAR_SI_BRN + _i);
 			}
+		}
+		
+		break;
+		
+	case EVENT_BATTLM_ICONDRAW:
+		var
+		_si_scale = 2,
+		_si_gap = 25,
+		_si_startX = x + -160,
+		_si_startY = y + (allyParty == global.grd_party_player ? -120 : 0),
+		_si_maxX = 12;
+		
+		//status icons
+		for(var _i = 0;_i < ds_list_size(lst_statusIcons);_i++){
+			draw_sprite_ext(
+				spr_statusIcons,
+				lst_statusIcons[| _i],
+				_si_startX + ((_i mod _si_maxX) * _si_gap),
+				_si_startY + -(floor(_i / _si_maxX) * _si_gap),
+				_si_scale,
+				_si_scale,
+				0,
+				c_white,
+				1
+			);
 		}
 		
 		break;

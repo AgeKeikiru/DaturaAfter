@@ -19,8 +19,17 @@ if(state_battle){
 	if(_mem != noone){
 		var _i = scr_checkInput(IC_CHECK_DOWN,IC_KEY_PARTYSHIFT) * 4;
 		
+		global.tempBool = true;
+		global.tempObj = _mem;
+		
+		with(obj_handler_act){
+			if(src == global.tempObj && using){
+				global.tempBool = false;
+			}
+		}
+		
 		repeat(4){
-			if(_mem.act[_i] != noone && scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP + (_i mod 4))){
+			if(_mem.act[_i] != noone && global.tempBool && scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP + (_i mod 4))){
 				_mem.actUsing = _mem.act[_i];
 				_mem.tgtIndex = tgtSlot;
 				_mem.tgtEnemy = _mem.actUsing.tgtEnemy;

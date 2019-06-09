@@ -4,20 +4,7 @@
 if(effect_start != noone && hitLoopRemaining == hitCount){
 	var
 	_tgt = eSelf_start ? src : dc_tgt,
-	_eff = instance_create_depth(0,0,0,effect_start);
-	
-	ds_list_add(_tgt.lst_effects,_eff);
-	_eff.src = _tgt;
-	
-	if(stanceAct){
-		if(scr_exists(_tgt.stance,asset_object)){
-			instance_destroy(_tgt.stance);
-		}
-		
-		_tgt.stance = _eff;
-	}
-	
-	
+	_eff = scr_act_createEffect(effect_start,_tgt,rare,stanceAct,special);
 }
 
 if(!nonAttack){
@@ -27,20 +14,7 @@ if(!nonAttack){
 		_dmg = irandom_range(dc_dmgMin,dc_dmgMax),
 		_pX = dc_tgt.x + random_range(-60,60),
 		_pY = dc_tgt.y + -70 + random_range(-30,30),
-		_p = instance_create_depth(_pX,_pY,-999,obj_fpo_parent);
-		
-		_p.txt_shadow[0] = true;
-		_p.txt_ft[0] = ft_dungeonBoldLarge;
-		_p.txt_col[0] = c_white;
-		_p.txt_col2[0] = c_dkgray;
-		_p.txt_xScale[0] = 1.3;
-		_p.txt_yScale[0] = _p.txt_xScale[0];
-		_p.txt_weight[0] = 4;
-		_p.txt_halign[0] = fa_center;
-		_p.vspeed = -2;
-		_p.alarm[0] = 70;
-		_p.alarm[1] = 60;
-		_p.layer = global.ly_obj[4];
+		_p = scr_createEffectTxt(_pX,_pY,"");
 		
 		scr_trace("\naimCheck " + string(_aimCheck) + " > " + string(100 + -acc));
 		
@@ -52,6 +26,7 @@ if(!nonAttack){
 			)
 			&& !(src.ailment[CHAR_SA_BLD] > 0 && choose(true,false))
 			&& !(src.ailment[CHAR_SA_SLC] > 0 && ele != "")
+			&& !(tgtEnemy && dc_tgt.iFrames > 0)
 		){
 			_p.visible = pwr > 0;
 			_p.y += -100;
@@ -59,10 +34,20 @@ if(!nonAttack){
 			_p.txt[0] = string(_dmg);
 			_p.txt_col[0] = tgtEnemy ? c_white : CC_HEALGREEN;
 			
+			if(pwr > 0){
+				scr_cEvent(all,tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt,id);
+			}
+			
 			src.enCurr = min(src.enCurr + 30,src.enMax);
+			
+			var _overkill = (tgtEnemy && dc_tgt.hpCurr <= 0);
 			
 			dc_tgt.hpCurr += tgtEnemy ? -_dmg : _dmg;
 			dc_tgt.hpCurr = clamp(dc_tgt.hpCurr,0,dc_tgt.hpMax);
+			
+			if(!_overkill && dc_tgt.hpCurr <= 0){
+				scr_cEvent(all,EVENT_BATTLE_ENEMYKILLED,src,dc_tgt);
+			}
 			
 			if(sprite_exists(spark_hit)){
 				_p = instance_create_depth(_pX,_pY,-999,obj_fpo_parent);

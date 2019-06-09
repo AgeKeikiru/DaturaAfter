@@ -793,6 +793,34 @@
             "value": "ds_list_create()",
             "varName": "lst_effects",
             "varType": 4
+        },
+        {
+            "id": "221604bd-2661-494c-a5ce-a031f9f28d54",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "aggro",
+            "varType": 1
+        },
+        {
+            "id": "c90b9b3f-39c0-4411-b38f-b180afdcfaf2",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "iFrames",
+            "varType": 0
         }
     ],
     "solid": false,

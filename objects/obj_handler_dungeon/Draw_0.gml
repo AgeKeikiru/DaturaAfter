@@ -219,7 +219,10 @@ if(!state_event && !state_results){
 			draw_set_color(c_white);
 			
 			if(instance_exists(_o) && sprite_exists(_o.src[? CHAR_VAR_SPR_BATTLEPORT])){
-				draw_sprite_ext(_o.src[? CHAR_VAR_SPR_BATTLEPORT],0,_x + (sin(_o.direction) * _o.hurtShake * 20),_y + (cos(_o.direction) * _o.hurtShake * 20),1,1,0,make_color_rgb(255,255 * (1 + -_o.hurtShake),255 * (1 + -_o.hurtShake)),1);
+				draw_sprite_ext(_o.src[? CHAR_VAR_SPR_BATTLEPORT],0,_x + (sin(_o.direction) * _o.hurtShake * 20),_y + ((1 + -_o.image_alpha) * -150) + (cos(_o.direction) * _o.hurtShake * 20),1,1,0,make_color_rgb(255,255 * (1 + -_o.hurtShake),255 * (1 + -_o.hurtShake)),_o.image_alpha);
+				scr_cEvent(_o,EVENT_BATTLM_ICONDRAW);
+				
+				_o.image_alpha = ktk_scr_tween(_o.image_alpha,1,5,.2);
 				
 				var
 				_fill = ceil(360 * (_o.enemyWait / _o.enemyWaitMax)),
@@ -382,8 +385,14 @@ if(!state_event && !state_results){
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_top);
 			
-			if(_mem != noone){
-				draw_text(_drawX,_drawY + _portH + _hbGap,_mem.src[? CHAR_VAR_NAMEDISP]);
+			if(scr_exists(_mem,asset_object)){
+				var _name = _mem.src[? CHAR_VAR_NAMEDISP];
+				
+				if(_mem.aggro != 0){
+					_name += "\n" + (_mem.aggro > 0 ? "+" : "") + string(_mem.aggro);
+				}
+				
+				draw_text(_drawX,_drawY + _portH + _hbGap,_name);
 			}
 		
 			_drawX += _portW + _hbGap;
@@ -408,7 +417,7 @@ if(!state_event && !state_results){
 							draw_set_color(instance_exists(_act) ? _uiCol[0] : _uiCol[1]);
 							
 							if(instance_exists(_act)){
-								draw_set_color(_act.enCost > _mem.enCurr ? c_red : _uiCol[0]);
+								draw_set_color(_act.enCost > _mem.enCurr ? c_red : (_act.xAct ? CC_STANCE_EVOK : _uiCol[0]));
 							}else{
 								draw_set_color(_uiCol[1]);
 							}
@@ -420,6 +429,14 @@ if(!state_event && !state_results){
 								draw_set_alpha(.5);
 							
 								draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + (_drawH * (_act.cdCurr / _act.cdMax)),false);
+								
+								if(_act.cdCurr > 0){
+									draw_set_alpha(.2);
+									
+									draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + _drawH,false);
+									
+									draw_set_alpha(.5);
+								}
 								
 								if(_mem.actUsing == _act){
 									var
@@ -610,8 +627,12 @@ if(!state_event && !state_results){
 		
 			draw_surface_ext(sfc_party,_uiDrawX + _shakeX,_uiDrawY + _shakeY,1,1,-30,image_blend,1);
 			
-			if(_mem != noone && ds_map_exists(_mem.src,CHAR_VAR_SPR_BATTLEPORT)){
-				draw_sprite_ext(_mem.src[? CHAR_VAR_SPR_BATTLEPORT],0,_portX + _shakeX,_portY + _shakeY,1,1,0,image_blend,1);
+			if(scr_exists(_mem,asset_object) && ds_map_exists(_mem.src,CHAR_VAR_SPR_BATTLEPORT)){
+				draw_set_alpha((_mem.iFrames > 0 && ceil(current_time / 10) mod 2 == 0) ? .6 : 1);
+				
+				draw_sprite_ext(_mem.src[? CHAR_VAR_SPR_BATTLEPORT],0,_portX + _shakeX,_portY + _shakeY,1,1,0,image_blend,draw_get_alpha());
+				
+				draw_set_alpha(1);
 				
 				var
 				_ch_offX = 0,
@@ -621,27 +642,9 @@ if(!state_event && !state_results){
 				_ch_w2 = 2,
 				_tg_y = -150, //target grid
 				_tg_size = 0,
-				_tg_gap = 2,
-				_si_scale = 2,
-				_si_gap = 25,
-				_si_startX = _uiDrawX + -100,
-				_si_startY = _uiDrawY + 50,
-				_si_maxX = 12;
+				_tg_gap = 2;
 				
-				//status icons
-				for(var _i = 0;_i < ds_list_size(_mem.lst_statusIcons);_i++){
-					draw_sprite_ext(
-						spr_statusIcons,
-						_mem.lst_statusIcons[| _i],
-						_si_startX + ((_i mod _si_maxX) * _si_gap),
-						_si_startY + -(floor(_i / _si_maxX) * _si_gap),
-						_si_scale,
-						_si_scale,
-						0,
-						c_white,
-						1
-					);
-				}
+				scr_cEvent(_mem,EVENT_BATTLM_ICONDRAW);
 				
 				if(_partyI == tgtSlot){
 					draw_set_color(c_white);
@@ -768,7 +771,7 @@ if(CANARY){
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_top);
 			
-			ktk_scr_draw_text_shadow(_o.x,_o.y,string(_o.hpCurr) + "/" + string(_o.hpMax),c_white,c_dkgray,5);
+			ktk_scr_draw_text_shadow(_o.x,_o.y,string(_o.hpCurr) + "/" + string(_o.hpMax),c_white,c_dkgray,2);
 		}
 	}
 }

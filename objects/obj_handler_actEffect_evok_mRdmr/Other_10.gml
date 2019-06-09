@@ -16,7 +16,7 @@ switch(cEvent){
 	    
 	    draw_rectangle(_x1,_y1,_x2,_y2,false);
 	    
-	    draw_set_color(c_orange);
+	    draw_set_color(CC_STANCE_EVOK);
 	    draw_set_alpha((abs(sin(current_time / 400)) * .3) + .7);
 	    
 	    draw_rectangle(_x1,_y1,_x2,_y2,false);
@@ -35,6 +35,26 @@ switch(cEvent){
 	    draw_text_transformed(_x2,_y1 + 1,"RDMR",1,1,0);
 	
 	    break;
+	    
+	case EVENT_BATTLE_ENEMYKILLED:
+	    var
+	    _src = cArgs[| 0],
+	    _tgt = cArgs[| 1];
+	    
+	    if(scr_exists(src,asset_object) && _src == src){
+	        for(var _i = 0;_i < 3;_i++){
+	            var _obj = src.enemyParty[# _i,0];
+	            
+	            if(scr_exists(_obj,asset_object) && _obj != _tgt && ds_list_size(special) > 0){
+	                scr_inflictAilment(src,_obj,irandom(5),special[| 0],5);
+	            }
+	        }
+	    }
+	    
+	    event_inherited();
+	    
+	    break;
+	    
 	default:
 	    event_inherited();
 }

@@ -12,6 +12,8 @@
 	#macro CC_HPGREEN make_color_hsv(106,180,230)
 	#macro CC_HEALGREEN make_color_hsv(115,200,255)
 	#macro CC_ENBLUE make_color_hsv(136,180,230)
+	
+	#macro CC_STANCE_EVOK make_color_hsv(180,140,255)
 
 #endregion
 
@@ -296,30 +298,7 @@
 	#macro ACT_TGT_SINGLE "act_tgt_single"
 	#macro ACT_TGT_WIDE "act_tgt_wide"
 	#macro ACT_TGT_RANDOM "act_tgt_random"
-	
-	#region //class skills
-		//imolei
-		//aile
-		//paprika
-		//harzer
-		//levia
-		//jack
-		//blaze
-		//witchy
-		//altai
-		//seethe
-		//mina
-		//ari
-		
-		//evoker
-		#macro ACT_EVOK_STANCE_REDEEMER "act_evok_stance_redeemer"
-		#macro ACT_EVOK_STANCE_DESTROYER "act_evok_stance_destroyer"
-		#macro ACT_EVOK_HIDE "act_evok_hide"
-		#macro ACT_EVOK_TAUNT "act_evok_taunt"
-		
-		//razer
-		//angel
-	#endregion
+	#macro ACT_TGT_SELF "act_tgt_self"
 
 #endregion
 
@@ -489,6 +468,7 @@
 
 	#macro EVENT_BATTLM_INIT "event_battlm_init"
 	#macro EVENT_BATTLM_ICONREFRESH "event_battlm_iconRefresh"
+	#macro EVENT_BATTLM_ICONDRAW "event_battlm_iconDraw"
 	
 	#macro EVENT_DND_ENCOUNTER "event_dnd_encounter"
 	#macro EVENT_DND_ENCOUNTER_FIXED "event_dnd_encounter_fixed"
@@ -506,9 +486,19 @@
 	#macro EVENT_CLASS_BASESTATADD "event_class_baseStatAdd" //called during battlm_init
 	#macro EVENT_CLASS_SKILLREFRESH "event_class_skillRefresh"
 	
+	#macro EVENT_EVOK_RBRANDCHECK "event_evok_rBrandCheck"
+	
 	#macro EVENT_EFFECT_STANCEDRAW "event_effect_stanceDraw"
 	
 	#macro EVENT_BATTLE_ENEMYKILLED "event_battle_enemyKilled"
+	#macro EVENT_BATTLE_ENEMYDEBUFFED "event_battle_enemyDebuffed"
+	#macro EVENT_BATTLE_ENEMYHIT "event_battle_enemyHit"
+	#macro EVENT_BATTLE_ATKMOD "event_battle_atkMod"
+	#macro EVENT_BATTLE_DEFMOD "event_battle_defMod"
+	#macro EVENT_BATTLE_ACCMOD "event_battle_accMod"
+	#macro EVENT_BATTLE_EVAMOD "event_battle_evaMod"
+	#macro EVENT_BATTLE_SPDMOD "event_battle_spdMod"
+	#macro EVENT_BATTLE_HEALED "event_battle_healed"
 
 #endregion
 

@@ -231,6 +231,34 @@
             "varType": 3
         },
         {
+            "id": "ee717329-e668-4d2b-a69c-45d94c2e2895",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "xAct",
+            "varType": 3
+        },
+        {
+            "id": "9d803670-7483-4cae-a9ae-4f3e21e8d637",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "xAct_chargeRate",
+            "varType": 0
+        },
+        {
             "id": "9fa7d445-070c-4497-bb2e-3d9ea18e2c6c",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -663,6 +691,34 @@
             "value": "0",
             "varName": "nonAttack",
             "varType": 3
+        },
+        {
+            "id": "151d527f-02cf-4eea-be94-2d26d0ac272d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "special",
+            "varType": 4
+        },
+        {
+            "id": "7e8a2035-659c-423e-8ea9-2a3f9fb9e6b1",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "cArgs",
+            "varType": 4
         }
     ],
     "solid": false,
