@@ -11,11 +11,11 @@ SV_rare = argument2,
 SV_stance = argument3,
 SV_special = argument4;
 
-for(var SV_i = ds_list_size(src.lst_effects) + -1;SV_i >= 0;SV_i--){
-	var SV_obj = src.lst_effects[| SV_i];
+for(var SV_i = ds_list_size(SV_src.lst_effects) + -1;SV_i >= 0;SV_i--){
+	var SV_obj = SV_src.lst_effects[| SV_i];
 	
 	if(!scr_exists(SV_obj,asset_object)){
-		ds_list_delete(src.lst_effects,SV_i);
+		ds_list_delete(SV_src.lst_effects,SV_i);
 	}else if(SV_obj.object_index == argument0){
 		instance_destroy(SV_obj);
 	}

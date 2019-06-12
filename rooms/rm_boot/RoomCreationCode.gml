@@ -113,23 +113,22 @@ room_speed = 60;
 		instance_create_depth(0,0,0,obj_handler_class_idol)
 	);
 	
-	with obj_handler_class_evoker{
-		ds_grid_set_region(grd_skills,0,0,3,2,5);
-		scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);
-	}
-	
 	with obj_handler_class_angel{
-		grd_skills[# 0,1] = 4;
+		ds_grid_set_region(grd_skills,0,0,3,2,5);
+		
+		//grd_skills[# 1,1] = 2;
+		
+		scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);
 	}
 	
 	var _temp = instance_create_depth(640 + -380,650,0,obj_dungeon_battleMember);
 	_temp.src = scr_data_getMap(global.grd_chars,CHAR_IMOLEI);
 	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_SWD);
 	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_LGT);
-	_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_evok_mDstr,0);
-	_temp.src[? CHAR_VAR_HB3] = instance_find(obj_handler_act_evok_dBrand,0);
-	_temp.src[? CHAR_VAR_CLS0] = instance_find(obj_handler_class_evoker,0);
-	//_temp.src[? CHAR_VAR_CLS0].src = _temp;
+	_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_ange_angelite,0);
+	_temp.src[? CHAR_VAR_HB3] = instance_find(obj_handler_act_ange_hRend,0);
+	_temp.src[? CHAR_VAR_CLS0] = instance_find(obj_handler_class_angel,0);
+	_temp.src[? CHAR_VAR_CLS0].src = _temp;
 	scr_cEvent(_temp,EVENT_BATTLM_INIT);
 	global.grd_party_player[# 0,0] = _temp;
 	
@@ -143,7 +142,7 @@ room_speed = 60;
 	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_HGN);
 	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_SSC_HEAL);
 	scr_cEvent(_temp,EVENT_BATTLM_INIT);
-	//global.grd_party_player[# 1,0] = _temp;
+	global.grd_party_player[# 1,0] = _temp;
 	
 	ds_list_add(global.lst_inv_acts,
 		_temp.src[? CHAR_VAR_HB0],
@@ -188,7 +187,7 @@ scr_cEvent(global.grd_party_player[# 1,0],EVENT_BATTLM_ICONREFRESH);
 with obj_handler_dungeon{
     grd_mobPool[# 0,0] = CHAR_SLIME;
     grd_mobPool[# 0,1] = CHAR_SLIME;
-    grd_mobPool[# 0,2] = noone;
+    grd_mobPool[# 0,2] = CHAR_SLIME;
 }
 
 //global.grd_party_player[# 0,0].iFrames = room_speed * 10;

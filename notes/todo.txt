@@ -1,5 +1,21 @@
 add [Debuff Love] effect to debuffs
 
+class idea:
+	Ace
+		stance act that changes to whatever type attack was used last
+			boosts damage dealt and taken with current type
+		weaponmaster type class
+	Strider
+		explorer type class, has utility skills
+		skill that heals party after battles
+		skill that increases drop rate
+	Battery
+		more straightforward s-atk dps
+		[chain cast]: stance, insta-cooldown all acts (excluding acts already used) when dealing damage to an elemental weakness
+			each proc restarts a timer on the stance, when the timer runs out the list of excluded acts is cleared
+		en+ skill
+		s-atk+ skill
+
 unlocking characters
 	Blaze/Witchy/Altai:
 		join after clearing invitational

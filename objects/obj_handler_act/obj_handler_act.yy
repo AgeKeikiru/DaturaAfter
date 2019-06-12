@@ -413,6 +413,20 @@
             "varType": 0
         },
         {
+            "id": "e7b763ec-fdf5-4e7a-94d6-bdb53f82efb2",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "usable",
+            "varType": 3
+        },
+        {
             "id": "d9553e00-afc7-461d-859c-a08380b296ba",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -450,9 +464,9 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "ds_list_create()",
             "varName": "dc_dmgMin",
-            "varType": 0
+            "varType": 4
         },
         {
             "id": "5e392155-1c93-48e4-9737-8adb02ec3f0a",
@@ -464,9 +478,9 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "ds_list_create()",
             "varName": "dc_dmgMax",
-            "varType": 0
+            "varType": 4
         },
         {
             "id": "ffd71e30-b6b8-46c7-83b1-25360bb5f350",
@@ -478,9 +492,9 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "ds_list_create()",
             "varName": "dc_aim",
-            "varType": 0
+            "varType": 4
         },
         {
             "id": "6346bb1a-5d9e-4206-beff-63a0ae9d6e58",
@@ -492,7 +506,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "noone",
+            "value": "ds_list_create()",
             "varName": "dc_tgt",
             "varType": 4
         },
@@ -550,6 +564,34 @@
             "resourceFilter": 1023,
             "value": "noone",
             "varName": "spark_end",
+            "varType": 4
+        },
+        {
+            "id": "28a16d08-ab9c-48b9-8d83-e7854e2af821",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "sa_inflict",
+            "varType": 4
+        },
+        {
+            "id": "78f7642f-59bd-4300-9189-56357956394b",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "sa_chance",
             "varType": 4
         },
         {

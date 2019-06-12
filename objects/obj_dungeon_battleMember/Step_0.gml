@@ -22,7 +22,7 @@ if(ailment[CHAR_SA_PAR] > 0){
 	}
 }
 
-if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && enCurr >= actUsing.enCost){
+if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 	enCurr += -actUsing.enCost;
 	
 	globalvar G_tmp;
@@ -62,7 +62,7 @@ if(hpCurr > 0){
 		
 		global.tempFloat = 0;
 		scr_cEvent(all,EVENT_BATTLE_SPDMOD,id);
-		_spd += spd * global.tempFloat;
+		_spd += abs(spd) * global.tempFloat;
 		
 		_spd = max(_spd,-99);
 		

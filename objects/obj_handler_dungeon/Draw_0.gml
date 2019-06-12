@@ -417,7 +417,7 @@ if(!state_event && !state_results){
 							draw_set_color(instance_exists(_act) ? _uiCol[0] : _uiCol[1]);
 							
 							if(instance_exists(_act)){
-								draw_set_color(_act.enCost > _mem.enCurr ? c_red : (_act.xAct ? CC_STANCE_EVOK : _uiCol[0]));
+								draw_set_color(!_act.usable ? c_red : (_act.xAct ? CC_STANCE_EVOK : _uiCol[0]));
 							}else{
 								draw_set_color(_uiCol[1]);
 							}
@@ -489,7 +489,11 @@ if(!state_event && !state_results){
 								_act = _mem.act[_i];
 							}
 							
-							draw_set_color(instance_exists(_act) ? _uiCol[0] : _uiCol[1]);
+							draw_set_color(_uiCol[1]);
+							
+							if(scr_exists(_act,asset_object)){
+								draw_set_color(!_act.usable ? c_red : (_act.xAct ? CC_STANCE_EVOK : _uiCol[0]));
+							}
 							
 							draw_rectangle(_drawSideX,_drawSideY,_drawSideX + _drawW,_drawSideY + _drawH,false);
 							

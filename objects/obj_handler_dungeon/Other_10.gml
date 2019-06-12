@@ -21,7 +21,7 @@ switch(cEvent){
 				_o.allyParty = global.grd_party_enemy;
 				_o.enemyParty = global.grd_party_player;
 				scr_cEvent(_o,EVENT_BATTLM_INIT);
-				_o.enemyWait = UNIVERSAL_COOLDOWN + random_range(-5000,5000);
+				_o.enemyWait = UNIVERSAL_COOLDOWN + abs(ceil((_i2 + -1) * 1.5)) * 3000;
 				_o.enemyWaitMax = _o.enemyWait;
 				
 				global.grd_party_enemy[# _i2,0] = _o;

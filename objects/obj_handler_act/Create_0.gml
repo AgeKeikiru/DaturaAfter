@@ -5,3 +5,21 @@ persistent = true;
 if(xAct){
 	cdCurr = cdMax;
 }
+
+ds_list_add(sa_inflict,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0
+);
+
+ds_list_add(sa_chance,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0
+);

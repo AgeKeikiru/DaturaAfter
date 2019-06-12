@@ -29,7 +29,7 @@ if(state_battle){
 		}
 		
 		repeat(4){
-			if(_mem.act[_i] != noone && global.tempBool && scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP + (_i mod 4))){
+			if(scr_exists(_mem.act[_i],asset_object) && global.tempBool && scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP + (_i mod 4))){
 				_mem.actUsing = _mem.act[_i];
 				_mem.tgtIndex = tgtSlot;
 				_mem.tgtEnemy = _mem.actUsing.tgtEnemy;

@@ -14,6 +14,7 @@
 	#macro CC_ENBLUE make_color_hsv(136,180,230)
 	
 	#macro CC_STANCE_EVOK make_color_hsv(180,140,255)
+	#macro CC_STANCE_ANGE make_color_hsv(80,180,230)
 
 #endregion
 
@@ -488,11 +489,15 @@
 	
 	#macro EVENT_EVOK_RBRANDCHECK "event_evok_rBrandCheck"
 	
+	#macro EVENT_ANGE_ANGELITEGAINMOD "event_ange_angeliteGainMod"
+	
 	#macro EVENT_EFFECT_STANCEDRAW "event_effect_stanceDraw"
 	
+	#macro EVENT_BATTLE_SAINFLICT "event_battle_saInflict"
 	#macro EVENT_BATTLE_ENEMYKILLED "event_battle_enemyKilled"
 	#macro EVENT_BATTLE_ENEMYDEBUFFED "event_battle_enemyDebuffed"
 	#macro EVENT_BATTLE_ENEMYHIT "event_battle_enemyHit"
+	#macro EVENT_BATTLE_MISS "event_battle_miss"
 	#macro EVENT_BATTLE_ATKMOD "event_battle_atkMod"
 	#macro EVENT_BATTLE_DEFMOD "event_battle_defMod"
 	#macro EVENT_BATTLE_ACCMOD "event_battle_accMod"

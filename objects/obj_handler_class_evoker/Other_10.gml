@@ -74,18 +74,20 @@ switch(cEvent){
 			_act = cArgs[| 2];
 			
 			if(scr_exists(src,asset_object) && _src == src){
+				//dark love
 				if(_act.ele == CHAR_VAR_ELE_DRK){
 					var _boost = grd_skills[# 1,1] * grd_skillRate[# 1,1];
 					
-					scr_trace("[" + grd_skillName[# 1,1] + "] boost: +" + string(_boost * 100) + "%");
+					scr_trace("[" + grd_skillName[# 1,1] + "] atk boost: +" + string(_boost * 100) + "%");
 					
 					global.tempFloat += _boost;
 				}
 				
+				//light love
 				if(_act.ele == CHAR_VAR_ELE_LGT){
 					var _boost = grd_skills[# 2,1] * grd_skillRate[# 2,1];
 					
-					scr_trace("[" + grd_skillName[# 2,1] + "] boost: +" + string(_boost * 100) + "%");
+					scr_trace("[" + grd_skillName[# 2,1] + "] atk boost: +" + string(_boost * 100) + "%");
 					
 					global.tempFloat += _boost;
 				}
