@@ -1,24 +1,34 @@
 {
-    "id": "5ce5f439-00fe-45af-8adc-97d9d78b90a7",
+    "id": "dd17f859-c2a0-41ca-bbcb-ea87d194cb39",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_handler_actEffect_ange_angelite",
+    "name": "obj_handler_actEffect_chef_messKit",
     "eventList": [
         {
-            "id": "86d48ed4-27d2-4613-9124-0c6224cb054b",
+            "id": "26c63ad4-f902-9e64-9457-3688d0be9709",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 1,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "dd17f859-c2a0-41ca-bbcb-ea87d194cb39"
+        },
+        {
+            "id": "b3ee3e7a-44f9-4361-b615-41087aec1dd7",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 10,
             "eventtype": 7,
-            "m_owner": "5ce5f439-00fe-45af-8adc-97d9d78b90a7"
+            "m_owner": "dd17f859-c2a0-41ca-bbcb-ea87d194cb39"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [
         {
-            "id": "5b3fb415-e511-4048-9844-32bda9490390",
+            "id": "9cafd5c4-e4a0-4688-b4c2-25391fc1e3cb",
             "modelName": "GMOverriddenProperty",
             "mvc": "1.0",
             "objectId": "686631b6-c33d-4e12-8779-22070fc8ef61",
@@ -42,7 +52,7 @@
     "physicsStartAwake": true,
     "properties": [
         {
-            "id": "96778165-7aa0-4b09-a35c-358f3779b3c6",
+            "id": "60a72b2a-a65d-452c-bce5-a358acd1d064",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,
@@ -51,23 +61,9 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "\"\"",
-            "varName": "typeCurr",
+            "value": "ds_list_create()",
+            "varName": "lst_food",
             "varType": 4
-        },
-        {
-            "id": "fab64f57-3f7a-471d-b613-b2400434a926",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "0",
-            "varName": "charge",
-            "varType": 0
         }
     ],
     "solid": false,

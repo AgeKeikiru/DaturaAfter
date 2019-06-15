@@ -86,4 +86,15 @@ switch(cEvent){
 			
 			break;
 	#endregion
+	
+	#region //effect_enRecMod
+		case EVENT_EFFECT_ENRECMOD:
+			var _src = cArgs[| 0];
+			
+			if(scr_exists(src,asset_object) && _src == src){
+				global.tempFloat += enRecover;
+			}
+			
+			break;
+	#endregion
 }

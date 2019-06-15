@@ -6,7 +6,8 @@
     "children": [
         "686631b6-c33d-4e12-8779-22070fc8ef61",
         "84d469f4-e5c7-4957-8dd9-381f2226ccea",
-        "70af769e-72be-4638-994f-afc6f9cefa45"
+        "70af769e-72be-4638-994f-afc6f9cefa45",
+        "a35f4ea6-10c4-4fd2-a4e7-fb0cfc85645d"
     ],
     "filterType": "GMObject",
     "folderName": "handler_actEffect",

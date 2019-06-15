@@ -13,47 +13,38 @@ name = "Chef";
 desc = "Hearty adventurers that feed enemies and allies alike. An unorthodox support class, Chefs use the unique pan and sling weapons with ingredient skills for various effects.";
 cName = "CHEF_" + string(global.cid++);
 
-/*
-skills
+stat_specialCd_base = 3000;
+stat_specialCd_rate = stat_specialCd_base * -.1;
 
-[HP+]
-[Kitchen Kit] Stance act - stores ingredients to be used alongside Pan/Sling weapons
-[Firm Rice] Pan: adds healing effect / Sling: increases damage dealt
-
-[Blast Pepper] Pan: adds ATK+ effect / Sling: adds Burn effect
-[Super Flour] Pan/Sling: adds wide-range property
-[Winter Green] Pan: adds DEF+ effect / Sling: adds Slow effect
-
-[Focuspice] Pan: adds ACC+ effect / Sling: adds Silence effect
-[Double Gum] Pan/Sling: increases hit count by 1
-[Citruswift] Pan: adds EVA+ effect / Sling: adds Paralyze effect
-
-[Brightbroth] Pan: adds SPD+ effect / Sling: adds Blind effect
-[Taste Test] user gains a weakened effect of their ingredients without consuming them
-[Shadestock] Pan: adds EN recovery effect / Sling: adds Poison effect
-*/
+stat_tt_base = .25;
+stat_tt_rate = .05;
 
 #region //tier 1
 
-    var
-    _ix = 0,
-    _iy = 0;
-
-    //grd_skillName[# _ix,_iy] = "LGT Res+";
-    //grd_skillDesc[# _ix,_iy] = "Decrease damage taken from Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Res: +!";
-    
-    _iy++;
-    
-    //grd_skillName[# _ix,_iy] = "TRI-DEF+";
-    //grd_skillDesc[# _ix,_iy] = "Increase Melee/Firearm/Spell Defense.";
-    //grd_skillTooltip[# _ix,_iy] = "M/F/S-Def: +!";
-    
-    _iy++;
-    
-    //grd_skillName[# _ix,_iy] = "Light Love";
-    //grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Damage: +!";
+	var
+	_ix = 0,
+	_iy = 0;
+	
+	grd_skillName[# _ix,_iy] = "HP+";
+	grd_skillDesc[# _ix,_iy] = "Increase base HP.";
+	grd_skillTooltip[# _ix,_iy] = "HP: +!";
+	grd_skillRate[# _ix,_iy] = 200;
+	
+	_iy++;
+	
+	grd_skillName[# _ix,_iy] = "Mess Kit";
+	grd_skillDesc[# _ix,_iy] = "Stance Act - store ingredients to be used alongside Pan/Sling weapons.";
+	grd_skillTooltip[# _ix,_iy] = "Max ingredients: !";
+	grd_skillRate[# _ix,_iy] = 1;
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_messKit);
+	
+	_iy++;
+	
+	grd_skillName[# _ix,_iy] = "Firm Rice";
+	grd_skillDesc[# _ix,_iy] = "[Pan] Add healing effect.\n[Sling] Add damage effect.";
+	grd_skillTooltip[# _ix,_iy] = "Effect: !";
+	grd_skillRate[# _ix,_iy] = 10;
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
 
 #endregion
 
@@ -62,24 +53,26 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Step";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Negate 1 attack, briefly increase EVA after negation.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Blast Pepper";
+	grd_skillDesc[# _ix,_iy] = "[Pan] Add ATK+ effect.\n[Sling] Add Burn chance.";
+	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
+	grd_skillRate[# _ix,_iy] = .06;
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite";
-    //grd_skillDesc[# _ix,_iy] = "Stance Act. Collect holy energy during battle to use special skills.";
-    //grd_skillTooltip[# _ix,_iy] = "Max Angelite: !";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Super Flour";
+	grd_skillDesc[# _ix,_iy] = "[Pan/Sling] Add Wide-Range effect.";
+	grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Dash";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Reset all active cooldowns.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Winter Green";
+	grd_skillDesc[# _ix,_iy] = "[Pan] Add DEF+ effect.\n[Sling] Add Slow chance.";
+	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
+	grd_skillRate[# _ix,_iy] = .06;
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
 
 #endregion
 
@@ -88,24 +81,26 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Blessing";
-    //grd_skillDesc[# _ix,_iy] = "Costs 150 Angelite. Fully restore ally allies' EN and briefly boost their stats.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Focuspice";
+	grd_skillDesc[# _ix,_iy] = "[Pan] Add ACC+ effect.\n[Sling] Add Silence chance.";
+	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
+	grd_skillRate[# _ix,_iy] = .06;
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost TRI";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when alternating between Melee/Firearm/Spell attacks.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Double Gum";
+	grd_skillDesc[# _ix,_iy] = "[Pan/Sling] Increase hit count of food attacks.";
+	grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Smite";
-    //grd_skillDesc[# _ix,_iy] = "Costs 100 Angelite. Delay the act time of all enemies and briefly reduce their Speed.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Citruswift";
+	grd_skillDesc[# _ix,_iy] = "[Pan] Add EVA+ effect.\n[Sling] Add Paralyze chance.";
+	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
+	grd_skillRate[# _ix,_iy] = .06;
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
 
 #endregion
 
@@ -114,23 +109,25 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Desynch";
-    //grd_skillDesc[# _ix,_iy] = "Only usable when Angelite is full. Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
-    //grd_skillTooltip[# _ix,_iy] = "Drain Rate: !";
-    //grd_skillRate[# _ix,_iy] = 1;
+    grd_skillName[# _ix,_iy] = "Brightbroth";
+	grd_skillDesc[# _ix,_iy] = "[Pan] Add SPD+ effect.\n[Sling] Add Blind chance.";
+	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
+	grd_skillRate[# _ix,_iy] = .06;
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost LGT";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when dealing Light damage.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Taste Test";
+    grd_skillDesc[# _ix,_iy] = "Allows the user to gain a weakened effect of their food without consuming it.";
+    grd_skillTooltip[# _ix,_iy] = "Effect: !%";
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_tasteTest);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Heaven's Rend";
-    //grd_skillDesc[# _ix,_iy] = "Costs 250 Angelite. Deal damage to each enemy equal to half their remaining HP (up to a maximum value) and inflict a long lasting Blind.";
-    //grd_skillTooltip[# _ix,_iy] = "Maximum Damage: !";
-    //grd_skillRate[# _ix,_iy] = 1000;
+    grd_skillName[# _ix,_iy] = "Shadestock";
+	grd_skillDesc[# _ix,_iy] = "[Pan] Add EN Recover+ effect.\n[Sling] Add Poison chance.";
+	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
+	grd_skillRate[# _ix,_iy] = .06;
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
 
 #endregion

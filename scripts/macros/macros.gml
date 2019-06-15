@@ -13,8 +13,33 @@
 	#macro CC_HEALGREEN make_color_hsv(115,200,255)
 	#macro CC_ENBLUE make_color_hsv(136,180,230)
 	
+	#macro CC_FIRRED make_color_hsv(5,180,220)
+	#macro CC_ICEBLUE make_color_hsv(120,140,255)
+	#macro CC_ELCYELLOW make_color_hsv(40,200,220)
+	#macro CC_NATGREEN make_color_hsv(90,180,180)
+	#macro CC_LGTBEIGE make_color_hsv(30,100,250)
+	#macro CC_DRKVIOLET make_color_hsv(180,140,255)
+	
+	#macro CC_SUPERFLOUR make_color_hsv(20,120,200)
+	#macro CC_DOUBLEGUM make_color_hsv(250,160,255)
+	
 	#macro CC_STANCE_EVOK make_color_hsv(180,140,255)
 	#macro CC_STANCE_ANGE make_color_hsv(80,180,230)
+
+#endregion
+
+#region //food types
+
+	#macro FOOD_HP "food_hp"
+	#macro FOOD_WIDE "food_wide"
+	#macro FOOD_MULTI "food_multi"
+	
+	#macro FOOD_ATK "food_atk"
+	#macro FOOD_DEF "food_def"
+	#macro FOOD_ACC "food_acc"
+	#macro FOOD_EVA "food_eva"
+	#macro FOOD_SPD "food_spd"
+	#macro FOOD_EN "food_en"
 
 #endregion
 
@@ -182,73 +207,6 @@
 	#macro RACE_CANDY "race_candy"
 	#macro RACE_SPIRIT "race_spirit"
 	#macro RACE_PLANT "race_plant"
-	
-#endregion
-
-#region //skill data
-	
-	#region //skills
-	
-		//imolei
-		#macro SKILL_IMO_MATK "skill_imo_mAtk"
-		
-		//aile
-		//paprika
-		//harzer
-		//levia
-		//jack
-		//blaze
-		//witchy
-		//altai
-		//seethe
-		//mina
-		//ari
-	
-		//evoker
-		#macro SKILL_EVOK_SDEF "skill_evok_sDef"
-		#macro SKILL_EVOK_SPD "skill_evok_spd"
-		#macro SKILL_EVOK_SATK "skill_evok_sAtk"
-		
-		#macro SKILL_EVOK_STANCE_REDEEMER "skill_evok_stance_redeemer"
-		#macro SKILL_EVOK_DMG_DRK "skill_evok_dmg_drk"
-		#macro SKILL_EVOK_STANCE_DESTROYER "skill_evok_stance_destroyer"
-		
-		#macro SKILL_EVOK_HIDE "skill_evok_hide"
-		#macro SKILL_EVOK_DMG_LGT "skill_evok_dmg_lgt"
-		#macro SKILL_EVOK_TAUNT "skill_evok_taunt"
-		
-		#macro SKILL_EVOK_REDEEMER_ENDURE "skill_evok_redeemer_endure"
-		#macro SKILL_EVOK_EXTEND_DEBUFF "skill_evok_extend_debuff"
-		#macro SKILL_EVOK_DESTROYER_RAGE "skill_evok_destroyer_rage"
-				
-		//angel
-		#macro SKILL_ANGE_RES_LGT "skill_ange_res_lgt"
-		#macro SKILL_ANGE_DEFUP "skill_ange_defUp"
-		#macro SKILL_ANGE_DMGUP_LGT "skill_ange_dmgUp_lgt"
-		
-		#macro SKILL_ANGE_ASTEP "skill_ange_aStep"
-		#macro SKILL_ANGE_ANGELITE "skill_ange_angelite"
-		#macro SKILL_ANGE_ADASH "skill_ange_aDash"
-		
-		////
-		#macro SKILL_ANGE_ABOOST_TRI "skill_ange_aBoost_tri"
-		////
-		
-		////
-		#macro SKILL_ANGE_ABOOST_LGT "skill_ange_aBoost_lgt"
-		////
-		
-		//razer
-	
-	#endregion
-	
-	#region //skill vars
-	
-	#macro SKILL_VAR_ID "skill_var_id"
-	#macro SKILL_VAR_NAME "skill_var_name"
-	#macro SKILL_VAR_DESC "skill_var_desc"
-	
-	#endregion
 	
 #endregion
 
@@ -491,7 +449,10 @@
 	
 	#macro EVENT_ANGE_ANGELITEGAINMOD "event_ange_angeliteGainMod"
 	
+	#macro EVENT_CHEF_ADDFOOD "event_chef_addFood"
+	
 	#macro EVENT_EFFECT_STANCEDRAW "event_effect_stanceDraw"
+	#macro EVENT_EFFECT_ENRECMOD "event_effect_enRecMod"
 	
 	#macro EVENT_BATTLE_SAINFLICT "event_battle_saInflict"
 	#macro EVENT_BATTLE_ENEMYKILLED "event_battle_enemyKilled"

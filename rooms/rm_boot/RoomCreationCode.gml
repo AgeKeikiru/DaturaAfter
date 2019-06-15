@@ -109,25 +109,30 @@ room_speed = 60;
 	ds_list_add(global.lst_inv_classes,
 		instance_create_depth(0,0,0,obj_handler_class_evoker),
 		instance_create_depth(0,0,0,obj_handler_class_angel),
+		instance_create_depth(0,0,0,obj_handler_class_chef),
 		instance_create_depth(0,0,0,obj_handler_class_razer),
 		instance_create_depth(0,0,0,obj_handler_class_idol)
 	);
 	
-	with obj_handler_class_angel{
+	with obj_handler_class_chef{
 		ds_grid_set_region(grd_skills,0,0,3,2,5);
 		
-		//grd_skills[# 1,1] = 2;
+		//grd_skills[# 0,1] = 2;
 		
 		scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);
 	}
 	
 	var _temp = instance_create_depth(640 + -380,650,0,obj_dungeon_battleMember);
 	_temp.src = scr_data_getMap(global.grd_chars,CHAR_IMOLEI);
-	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_SWD);
-	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_LGT);
-	_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_ange_angelite,0);
-	_temp.src[? CHAR_VAR_HB3] = instance_find(obj_handler_act_ange_hRend,0);
-	_temp.src[? CHAR_VAR_CLS0] = instance_find(obj_handler_class_angel,0);
+	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_SLG);
+	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_ICE);
+	_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_chef_messKit,0);
+	_temp.src[? CHAR_VAR_HB3] = instance_find(obj_handler_act_chef_food,0);
+	_temp.src[? CHAR_VAR_HB4] = instance_find(obj_handler_act_chef_food,1);
+	_temp.src[? CHAR_VAR_HB5] = instance_find(obj_handler_act_chef_food,2);
+	_temp.src[? CHAR_VAR_HB6] = instance_find(obj_handler_act_chef_food,5);
+	_temp.src[? CHAR_VAR_HB7] = instance_find(obj_handler_act_chef_tasteTest,0);
+	_temp.src[? CHAR_VAR_CLS0] = instance_find(obj_handler_class_chef,0);
 	_temp.src[? CHAR_VAR_CLS0].src = _temp;
 	scr_cEvent(_temp,EVENT_BATTLM_INIT);
 	global.grd_party_player[# 0,0] = _temp;

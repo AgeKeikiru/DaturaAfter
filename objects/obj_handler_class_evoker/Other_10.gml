@@ -7,7 +7,7 @@ switch(cEvent){
 			_src = cArgs[| 0],
 			_tgt = cArgs[| 1];
 			
-			if(scr_exists(src,asset_object) && _src == src){
+			if(scr_exists(src,asset_object) && _src == src && src.src[? CHAR_VAR_CLS0] == id){
 				global.tempInt += grd_skills[# 3,1] * grd_skillRate[# 3,1];
 				global.tempFloat += src.level * .005;
 				

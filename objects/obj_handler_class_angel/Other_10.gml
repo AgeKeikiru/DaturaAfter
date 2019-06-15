@@ -76,7 +76,7 @@ switch(cEvent){
 			_tgt = cArgs[| 1],
 			_act = cArgs[| 2];
 		
-			if(scr_exists(src,asset_object) && _src == src && _act.tgtEnemy){
+			if(scr_exists(src,asset_object) && _src == src && _act.tgtEnemy && src.src[? CHAR_VAR_CLS0] == id){
 				global.tempLst[| CHAR_SA_BLD] = 3;
 				global.tempLst2[| CHAR_SA_BLD] = src.level * .005;
 				

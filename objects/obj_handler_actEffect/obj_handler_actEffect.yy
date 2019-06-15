@@ -211,6 +211,20 @@
             "value": "0",
             "varName": "aggro",
             "varType": 1
+        },
+        {
+            "id": "bf6c91ed-84a6-4602-8047-91ec2bf3a5e5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "enRecover",
+            "varType": 0
         }
     ],
     "solid": false,

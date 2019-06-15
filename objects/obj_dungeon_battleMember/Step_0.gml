@@ -37,7 +37,7 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 	for(var _i = 0;_i < 8;_i++){
 		var _act = act[_i];
 		
-		if(scr_exists(_act,asset_object) && !_act.xAct){
+		if(scr_exists(_act,asset_object) && !_act.xAct && _act.cdCurr < UNIVERSAL_COOLDOWN){
 			_act.cdCurr += UNIVERSAL_COOLDOWN;
 			_act.cdMax = _act.cdCurr;
 		}
@@ -50,8 +50,14 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 }
 
 if(hpCurr > 0){
-	enCurr += .1 / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3));
-	enCurr = min(enCurr,enMax);
+	var _rec = .1;
+	
+	global.tempFloat = 0;
+	scr_cEvent(obj_handler_actEffect,EVENT_EFFECT_ENRECMOD,id);
+	_rec *= 1 + max(global.tempFloat,-1);
+	
+	enCurr += _rec / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3));
+	enCurr = clamp(enCurr,0,enMax);
 	
 	if(ailment[CHAR_SA_PSN] > 0){
 		hpCurr += -hpMax * .0005;

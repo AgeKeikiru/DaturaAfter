@@ -101,6 +101,14 @@ switch(SV_type){
 			SV_r.name = "Pan";
 			SV_r.desc = "An unorthodox weapon - weak, but feeds allies if used after preparing food.";
 			SV_r.price *= .5;
+			SV_r.enCost *= 2;
+			SV_r.cdAdd *= 8;
+			SV_r.pwr *= 1;
+			SV_r.acc = 999;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 2;
+			SV_r.atkScale = CHAR_VAR_MATK;
+			SV_r.defScale = CHAR_VAR_MDEF;
 			
 			break;
 			
@@ -172,6 +180,14 @@ switch(SV_type){
 			SV_r.name = "Sling";
 			SV_r.desc = "An unorthodox weapon - weak, but inflicts strange effects on enemies if used after preparing food.";
 			SV_r.price *= .5;
+			SV_r.enCost *= 2;
+			SV_r.cdAdd *= 8;
+			SV_r.pwr *= 1;
+			SV_r.acc = .7;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 2;
+			SV_r.atkScale = CHAR_VAR_FATK;
+			SV_r.defScale = CHAR_VAR_FDEF;
 			
 			break;
 			
@@ -257,7 +273,7 @@ switch(SV_type){
 			SV_r.hitGap *= 1;
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
-			//SV_r.spark_hit = spr_spark_slash;
+			SV_r.spark_hit = spr_spark_dot;
 			
 			break;
 			
@@ -268,6 +284,7 @@ switch(SV_type){
 			SV_r.price *= 1.5;
 			SV_ele = "";
 			SV_r.acc = 999;
+			SV_r.spark_hit = spr_spark_dot;
 			
 			break;
 			
@@ -278,6 +295,7 @@ switch(SV_type){
 			SV_r.price *= 5;
 			SV_ele = "";
 			SV_r.acc = 999;
+			SV_r.spark_hit = spr_spark_dot;
 			
 			break;
 			
@@ -292,6 +310,7 @@ switch(SV_type){
 			SV_r.price *= 1.5;
 			SV_ele = "";
 			SV_r.acc = 999;
+			SV_r.spark_hit = spr_spark_dot;
 			
 			break;
 			
@@ -302,6 +321,7 @@ switch(SV_type){
 			SV_r.price *= 1.5;
 			SV_ele = "";
 			SV_r.acc = 999;
+			SV_r.spark_hit = spr_spark_dot;
 			
 			break;
 			
@@ -312,6 +332,7 @@ switch(SV_type){
 			SV_r.price *= 2;
 			SV_ele = "";
 			SV_r.acc = 999;
+			SV_r.spark_hit = spr_spark_dot;
 			
 			break;
 			
