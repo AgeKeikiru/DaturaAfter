@@ -68,7 +68,7 @@ switch(cEvent){
 		    _src = cArgs[| 0];
 		    
 		    if(map_statMod[? CHAR_VAR_SPD] != 0 && scr_exists(src,asset_object) && _src == src){
-		        global.tempFloat += map_statMod[? CHAR_VAR_SPD];
+		        global.tempFloat += map_statMod[? CHAR_VAR_SPD] * 10;
 		    }
 		
 		    break;

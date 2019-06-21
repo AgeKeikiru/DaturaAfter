@@ -59,8 +59,9 @@ if(hpCurr > 0){
 	enCurr += _rec / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3));
 	enCurr = clamp(enCurr,0,enMax);
 	
-	if(ailment[CHAR_SA_PSN] > 0){
+	if(ailment[CHAR_SA_PSN] > 0 && hpCurr > 1){
 		hpCurr += -hpMax * .0005;
+		hpCurr = max(hpCurr,1);
 	}
 	
 	if(enemyWait > 0){

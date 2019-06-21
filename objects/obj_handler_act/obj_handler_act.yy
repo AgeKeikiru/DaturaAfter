@@ -217,6 +217,20 @@
             "varType": 0
         },
         {
+            "id": "62642e30-56b3-4046-9cc8-e5d1f8fe9c69",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "recoil",
+            "varType": 0
+        },
+        {
             "id": "6f6c4cb5-3095-4f50-8d07-9d8de805fb05",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",

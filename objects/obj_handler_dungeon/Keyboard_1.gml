@@ -4,6 +4,12 @@ if(keyboard_check_pressed(vk_home) && CANARY && global.missionCurr == MSN_DEBUG)
 	game_restart();
 }
 
+if(keyboard_check_pressed(vk_pageup) && CANARY && global.missionCurr == MSN_DEBUG){
+	with(obj_handler_actEffect_ange_angelite){
+		charge = 5;
+	}
+}
+
 if(global.playerControl){
 	var _ui = instance_find(obj_handler_menuUI,0);
 	

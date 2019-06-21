@@ -4,10 +4,7 @@ if(hitLoopRemaining == hitCount){
 	for(var _i = 0;_i < ds_list_size(dc_tgt);_i++){
 		var _tgt = eSelf_start ? src : dc_tgt[| _i];
 		
-		if(effect_start != noone){
-			scr_act_createEffect(effect_start,_tgt,rare,stanceAct,special);
-		}
-		
+		scr_act_createEffect(effect_start,eChance_start,_tgt,rare,stanceAct,special);
 		scr_createSpark(_tgt.x,_tgt.y + -70,spark_start,ele);
 	}
 }
@@ -18,16 +15,24 @@ if(!nonAttack){
 			var
 			_aimCheck = (random(1) + dc_aim[| _i]) * 100,
 			_dmg = irandom_range(dc_dmgMin[| _i],dc_dmgMax[| _i]),
-			_pX = dc_tgt[| _i].x + random_range(-60,60),
-			_pY = dc_tgt[| _i].y + -70 + random_range(-30,30),
-			_p = scr_createEffectTxt(_pX,_pY,"");
+			_p = scr_createEffectTxt(dc_tgt[| _i],""),
+			_pX = _p.x,
+			_pY = _p.y;
 			
 			//special act behaviors
 			switch(object_index){
 				case obj_handler_act_ange_hRend:
 					_dmg = round(min(dc_tgt[| _i].hpCurr / 2,special[| 0]));
 				
-					scr_trace("special case [Heaven's Rend]: dmg = half remaining hp");
+					scr_trace("special case [" + name + "]: dmg = half remaining hp");
+					
+					break;
+				case obj_handler_act_raze_rCross:
+					if(ds_list_size(special) > 0 && random(1) < special[| 0]){
+						_dmg = 99999999;
+						
+						scr_trace("special case [" + name + "]: instakill");
+					}
 					
 					break;
 			}
@@ -51,7 +56,7 @@ if(!nonAttack){
 				_p.txt_col[0] = tgtEnemy ? c_white : CC_HEALGREEN;
 				
 				if(pwr > 0){
-					scr_cEvent(all,tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt[| _i],id);
+					scr_cEvent(all,tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt[| _i],id,_dmg);
 				}
 				
 				global.tempLst = ds_list_create();
@@ -101,6 +106,10 @@ if(!nonAttack){
 					scr_cEvent(all,EVENT_BATTLE_ENEMYKILLED,src,dc_tgt[| _i]);
 				}
 				
+				var _tgt = eSelf_hit ? src : dc_tgt[| _i];
+				
+				scr_act_createEffect(effect_hit,eChance_hit,_tgt,rare,stanceAct,special);
+				
 				if(scr_createSpark(_pX,_pY,spark_hit,ele) != noone){
 					dc_tgt[| _i].hurtShake = tgtEnemy;
 				}
@@ -113,6 +122,14 @@ if(!nonAttack){
 				_p.txt[0] = "miss";
 				scr_cEvent(all,EVENT_BATTLE_MISS,src,dc_tgt[| _i],id);
 			}
+			
+			if(recoil > 0){
+				src.hpCurr += -recoil;
+				src.hpCurr = max(src.hpCurr,1);
+				
+				_p = scr_createEffectTxt(src,"");
+				_p.txt[0] = string(recoil);
+			}
 		}
 	}
 }
@@ -123,4 +140,16 @@ using = false;
 if(hitLoopRemaining > 0){
 	alarm[0] = hitGap;
 	using = true;
+}else{
+	for(var _i = 0;_i < ds_list_size(dc_tgt);_i++){
+		var _tgt = eSelf_end ? src : dc_tgt[| _i];
+		
+		scr_act_createEffect(effect_end,eChance_end,_tgt,rare,stanceAct,special);
+		scr_createSpark(_tgt.x,_tgt.y + -70,spark_end,ele);
+	}
+	
+	if(object_index == obj_handler_act_raze_dBlow){
+		recoil = 2;
+		pwr = 0;
+	}
 }

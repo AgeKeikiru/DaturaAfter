@@ -96,7 +96,7 @@ switch(cEvent){
             _i = irandom(ds_list_size(_stat) + -1);
             
             map_statMod[? _stat[| _i]] += _boost[| _i];
-            scr_createEffectTxt(src.x,src.y + -70,_txt[| _i]);
+            scr_createEffectTxt(src,_txt[| _i]);
             scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
 	    }
 	    

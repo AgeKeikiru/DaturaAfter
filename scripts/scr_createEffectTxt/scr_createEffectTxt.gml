@@ -1,13 +1,11 @@
-///@arg x
-///@arg y
+///@arg obj
 ///@arg txt
 
 var
-SV_x = argument0,
-SV_y = argument1,
-SV_r = instance_create_depth(SV_x,SV_y,-999,obj_fpo_parent);
+SV_obj = argument0,
+SV_r = instance_create_depth(SV_obj.x + random_range(-60,60),SV_obj.y + random_range(-30,30) + -70,-999,obj_fpo_parent);
 
-SV_r.txt[0] = argument2;
+SV_r.txt[0] = argument1;
 SV_r.txt_shadow[0] = true;
 SV_r.txt_ft[0] = ft_dungeonBoldLarge;
 SV_r.txt_col[0] = c_white;

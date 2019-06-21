@@ -17,5 +17,5 @@ if(scr_exists(src,asset_object)){
 		}
 	}
 	
-	usable = enCost <= src.enCurr;
+	usable = enCost <= src.enCurr && recoil < src.hpCurr;
 }

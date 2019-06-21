@@ -13,25 +13,20 @@ name = "Razer";
 desc = "Brazen warriors that see violence as its own reward. Dealing in raw damage, Razers often suffer recoil while pushing themselves to the limit to get the edge in combat.";
 cName = "RAZE_" + string(global.cid++);
 
-/*
-skills
+stat_kc_base = .45;
+stat_kc_rate = .05;
 
-[SPD+]
-[TRI-ATK+]
-[Ele Love] increase damage dealt with all elements
+stat_sb_base = 450;
+stat_sb_rate = 50;
 
-[Kneecap] melee attack that aims for the target's legs, high chance of decreasing target SPD on hit
-[M-ATK+]
-[Stressor Blow] a high power melee attack that also damages the user slightly
+stat_db_base = .5;
+stat_db_rate = .2;
 
-[Reaper Edge] a secret melee technique that vastly increases in power against foes with status effects/debuffs
-[Adapt Dodge] stance act - increase EVA every time user takes a hit, resets on dodge
-[Dire Blow] a melee desperation move that drains half the user's remaining hp, deals damage based on how much HP is drained
+stat_ae_base = 225;
+stat_ae_rate = -25;
 
-[Accelerator Edge] a melee secret technique that, while difficult to land, uses momentum to greatly increase SPD for a brief time
-[Bloodlust] stance act - slowly drain the user's HP to gain a damage buff that increases as damage is dealt
-[Recompense XX] X act - charges by taking damage. deal severe melee damage to all enemies, slight chance of instakill but leaves the user exhausted
-*/
+stat_bl_base = 20;
+stat_bl_rate = 5;
 
 #region //tier 1
 
@@ -39,21 +34,22 @@ skills
     _ix = 0,
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "LGT Res+";
-    //grd_skillDesc[# _ix,_iy] = "Decrease damage taken from Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Res: +!";
+    grd_skillName[# _ix,_iy] = "SPD+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Speed.";
+    grd_skillTooltip[# _ix,_iy] = "SPD: +!";
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "TRI-DEF+";
-    //grd_skillDesc[# _ix,_iy] = "Increase Melee/Firearm/Spell Defense.";
-    //grd_skillTooltip[# _ix,_iy] = "M/F/S-Def: +!";
+    grd_skillName[# _ix,_iy] = "TRI-ATK+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Melee/Firearm/Spell Attack.";
+    grd_skillTooltip[# _ix,_iy] = "M/F/S-ATK: +!";
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Light Love";
-    //grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Damage: +!";
+    grd_skillName[# _ix,_iy] = "Ele Love";
+    grd_skillDesc[# _ix,_iy] = "Increase damage dealt with all Elements.";
+    grd_skillTooltip[# _ix,_iy] = "ELE Damage: +!%";
+    grd_skillRate[# _ix,_iy] = .04;
 
 #endregion
 
@@ -62,24 +58,23 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Step";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Negate 1 attack, briefly increase EVA after negation.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Kneecap";
+    grd_skillDesc[# _ix,_iy] = "Melee attack that aims for the target's legs, high chance of decreasing target SPD on hit.";
+    grd_skillTooltip[# _ix,_iy] = "Effect Chance: !%";
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_kneecap);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite";
-    //grd_skillDesc[# _ix,_iy] = "Stance Act. Collect holy energy during battle to use special skills.";
-    //grd_skillTooltip[# _ix,_iy] = "Max Angelite: !";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "M-ATK+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Melee Attack.";
+    grd_skillTooltip[# _ix,_iy] = "M-ATK: +!";
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Dash";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Reset all active cooldowns.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Stressor Blow";
+    grd_skillDesc[# _ix,_iy] = "A high power Melee attack that also damages the user slightly.";
+    grd_skillTooltip[# _ix,_iy] = "Power: !";
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_sBlow);
 
 #endregion
 
@@ -88,24 +83,26 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Blessing";
-    //grd_skillDesc[# _ix,_iy] = "Costs 150 Angelite. Fully restore ally allies' EN and briefly boost their stats.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Reaper Edge";
+    grd_skillDesc[# _ix,_iy] = "A secret Melee technique that vastly increases in power against foes with status effects/debuffs.";
+    grd_skillTooltip[# _ix,_iy] = "Dmg Bonus: !%";
+    grd_skillRate[# _ix,_iy] = .2;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_rEdge);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost TRI";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when alternating between Melee/Firearm/Spell attacks.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Adapt Dodge";
+    grd_skillDesc[# _ix,_iy] = "Stance Act - increase Evasion gradually over time, resets on dodge.";
+    grd_skillTooltip[# _ix,_iy] = "Max Boost: +!%";
+    grd_skillRate[# _ix,_iy] = .4;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_aDodge);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Smite";
-    //grd_skillDesc[# _ix,_iy] = "Costs 100 Angelite. Delay the act time of all enemies and briefly reduce their Speed.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Dire Blow";
+    grd_skillDesc[# _ix,_iy] = "A Melee desperation move that drains half the user's remaining hp and deals damage based on how much HP is drained.";
+    grd_skillTooltip[# _ix,_iy] = "Conversion Rate: !%";
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_dBlow);
 
 #endregion
 
@@ -114,23 +111,25 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Desynch";
-    //grd_skillDesc[# _ix,_iy] = "Only usable when Angelite is full. Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
-    //grd_skillTooltip[# _ix,_iy] = "Drain Rate: !";
-    //grd_skillRate[# _ix,_iy] = 1;
+    grd_skillName[# _ix,_iy] = "Accelerator Edge";
+    grd_skillDesc[# _ix,_iy] = "A Melee secret technique that, while difficult to land, uses momentum to greatly increase SPD for a brief time. Slight recoil.";
+    grd_skillTooltip[# _ix,_iy] = "Recoil: !";
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_aEdge);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost LGT";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when dealing Light damage.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Bloodlust";
+    grd_skillDesc[# _ix,_iy] = "Stance Act - slowly drain the user's HP to gain a damage buff that increases as damage is dealt. Effect ends at 20% HP.";
+    grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec\nMax Boost: +@%";
+    grd_skillRate[# _ix,_iy] = .2;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_bLust);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Heaven's Rend";
-    //grd_skillDesc[# _ix,_iy] = "Costs 250 Angelite. Deal damage to each enemy equal to half their remaining HP (up to a maximum value) and inflict a long lasting Blind.";
-    //grd_skillTooltip[# _ix,_iy] = "Maximum Damage: !";
-    //grd_skillRate[# _ix,_iy] = 1000;
+    grd_skillName[# _ix,_iy] = "Recompense Cross";
+    grd_skillDesc[# _ix,_iy] = "X Act - charges by taking damage. Deal severe Melee damage to all enemies, slight chance of Instakill but leaves the user exhausted.";
+    grd_skillTooltip[# _ix,_iy] = "IK Chance: !%";
+    grd_skillRate[# _ix,_iy] = .02;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_rCross);
 
 #endregion

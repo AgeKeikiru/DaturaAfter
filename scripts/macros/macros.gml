@@ -25,6 +25,8 @@
 	
 	#macro CC_STANCE_EVOK make_color_hsv(180,140,255)
 	#macro CC_STANCE_ANGE make_color_hsv(80,180,230)
+	#macro CC_STANCE_RAZE make_color_hsv(0,255,200)
+	#macro CC_STANCE_IDOL make_color_hsv(240,150,255)
 
 #endregion
 

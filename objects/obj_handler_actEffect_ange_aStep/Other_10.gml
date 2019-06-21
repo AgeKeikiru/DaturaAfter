@@ -15,7 +15,7 @@ switch(cEvent){
 		        duration = room_speed * 2;
 		        map_statMod[? CHAR_VAR_EVA] = .5;
 		        
-		        scr_createEffectTxt(src.x,src.y + -70,"EVA++");
+		        scr_createEffectTxt(src,"EVA++");
 		        scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
 		    }
 		    

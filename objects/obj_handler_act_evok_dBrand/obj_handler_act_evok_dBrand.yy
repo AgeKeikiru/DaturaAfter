@@ -87,7 +87,7 @@
             "mvc": "1.0",
             "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
             "propertyId": "3c58f970-4694-4738-9744-e3810eb0e77f",
-            "value": "cdAdd"
+            "value": "30"
         }
     ],
     "parentObjectId": "db25dc73-975c-455a-8673-2282d60439d6",

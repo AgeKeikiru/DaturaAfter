@@ -27,7 +27,7 @@ switch(cEvent){
 				src.hpCurr = 1;
 				src.iFrames = room_speed * 3;
 				
-				scr_createEffectTxt(src.x,src.y + -70,"Endure");
+				scr_createEffectTxt(src,"Endure");
 				
 				for(var _i = 0;_i < 3;_i++){
 					var _obj = src.enemyParty[#_i,0];

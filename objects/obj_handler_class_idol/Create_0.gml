@@ -17,19 +17,19 @@ cName = "IDOL_" + string(global.cid++);
 skills
 
 [EVA+]
-[Hype Meter] stance act - generate hype by attacking to use special actions, lowers over time
+[Hype Meter] stance act - generate hype and aggro by attacking to use special actions, lowers over time
 [MISC+]
 
-[Hyper Pickup] 100 hype - cure an ally's ailments/debuffs
+[Hyper Pickup] 2 hype - cure an ally's ailments/debuffs. aggro transfer
 [Hype Boost Teamwork] increase hype gain when attacking alongside an ally
-[Hyper Pep Talk] 50+ hype - heal an ally, heal based on how much hype was used
+[Hyper Pep Talk] 1+ hype - heal an ally based on how much hype was used. brief aggro transfer
 
-[Hyper Cheer] 50+ hype - spend hype to boost an ally's stats, duration based on how much hype was used
+[Hyper Cheer] 1+ hype - spend hype to boost an ally's stats, duration based on how much hype was used. aggro transfer
 [Hype Boost Adrenaline] slowly gain hype while HP is below a certain amount
-[Hyper One-More] 200 hype - revive an ally
+[Hyper One-More] 4 hype - revive an ally. inverse aggro transfer
 
 [Stage Defamation] greatly increases Aggro and Hype
-[Hyper Grand Finale] 250 hype - instantly cooldown all party members
+[Hyper Grand Finale] 5+ hype - drain hype to greatly increase all allies' SPD and negate EN cost
 [Taunting Strike] a difficult attack to land, but generates large Hype if it hits
 */
 
@@ -39,21 +39,25 @@ skills
     _ix = 0,
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "LGT Res+";
-    //grd_skillDesc[# _ix,_iy] = "Decrease damage taken from Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Res: +!";
+    grd_skillName[# _ix,_iy] = "EVA+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Evasion.";
+    grd_skillTooltip[# _ix,_iy] = "EVA: +!";
+    grd_skillRate[# _ix,_iy] = stat_fineStatRate;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "TRI-DEF+";
-    //grd_skillDesc[# _ix,_iy] = "Increase Melee/Firearm/Spell Defense.";
-    //grd_skillTooltip[# _ix,_iy] = "M/F/S-Def: +!";
+    grd_skillName[# _ix,_iy] = "Hype Meter";
+    grd_skillDesc[# _ix,_iy] = "[Stance Act] Generate Hype and Aggro by attacking to use special actions. Lowers over time.";
+    grd_skillTooltip[# _ix,_iy] = "Gain Rate: !%";
+    grd_skillRate[# _ix,_iy] = .0001;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hype);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Light Love";
-    //grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Damage: +!";
+    grd_skillName[# _ix,_iy] = "MISC+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Misc.";
+    grd_skillTooltip[# _ix,_iy] = "MISC: +!";
+    grd_skillRate[# _ix,_iy] = stat_fineStatRate;
 
 #endregion
 

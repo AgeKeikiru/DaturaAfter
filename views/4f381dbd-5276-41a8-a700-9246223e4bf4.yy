@@ -7,7 +7,9 @@
         "db25dc73-975c-455a-8673-2282d60439d6",
         "2ca08540-1e1f-4db3-aeb0-d23efa1d0e50",
         "a80cfd74-ebae-4fba-bc8d-a7203158686e",
-        "e24f5e9c-b21c-458a-85d6-1f82fc185d87"
+        "e24f5e9c-b21c-458a-85d6-1f82fc185d87",
+        "ae11756a-976a-48a3-a8a0-e0643979136c",
+        "0416b6e1-64b9-4dbc-b472-058a78ce4a20"
     ],
     "filterType": "GMObject",
     "folderName": "handler_act",

@@ -4,114 +4,121 @@
 switch(cEvent){
 	#region //act_use
 		case EVENT_ACT_USE:
-			if(type == WTAG_TYPE_PAN || type == WTAG_TYPE_SLG){
-				pwr = 50;
-				hitCount = 1;
-				tgtType = ACT_TGT_SINGLE;
-				tgtEnemy = true;
-				nonAttack = false;
-				effect_start = noone;
-				spark_hit = type == WTAG_TYPE_PAN ? spr_spark_bash : spr_spark_pierce;
-				ds_list_clear(special);
-				
-				if(scr_exists(src.stance,asset_object) && src.stance.object_index == obj_handler_actEffect_chef_messKit && ds_list_size(src.stance.lst_food) > 0){
-					pwr = (type == WTAG_TYPE_SLG) * 50;
-					tgtEnemy = type == WTAG_TYPE_SLG;
-					nonAttack = type == WTAG_TYPE_PAN;
+			#region //special act effects
+				if(type == WTAG_TYPE_PAN || type == WTAG_TYPE_SLG){
+					pwr = 50;
+					hitCount = 1;
+					tgtType = ACT_TGT_SINGLE;
+					tgtEnemy = true;
+					nonAttack = false;
+					effect_start = noone;
+					spark_hit = type == WTAG_TYPE_PAN ? spr_spark_bash : spr_spark_pierce;
+					ds_list_clear(special);
 					
-					if(type == WTAG_TYPE_PAN){
-						spark_start = spr_spark_dot;
-						effect_start = obj_handler_actEffect_chef_pan;
-					}
-					
-					for(var _i = ds_list_size(src.stance.lst_food) + -1;_i >= 0;_i--){
-						var
-						_food = src.stance.lst_food[| _i],
-						_multi = 1;
+					if(scr_exists(src.stance,asset_object) && src.stance.object_index == obj_handler_actEffect_chef_messKit && ds_list_size(src.stance.lst_food) > 0){
+						pwr = (type == WTAG_TYPE_SLG) * 50;
+						tgtEnemy = type == WTAG_TYPE_SLG;
+						nonAttack = type == WTAG_TYPE_PAN;
 						
-						if(object_index == obj_handler_act_chef_tasteTest){
-							_multi = multi;
-							tgtType = ACT_TGT_SELF;
+						if(type == WTAG_TYPE_PAN){
+							spark_start = spr_spark_dot;
+							effect_start = obj_handler_actEffect_chef_pan;
 						}
 						
-						if(scr_exists(_food,asset_object)){
-							switch _food.special[| 0]{
-								case FOOD_ATK:
-								case FOOD_DEF:
-								case FOOD_ACC:
-								case FOOD_EVA:
-								case FOOD_SPD:
-								case FOOD_EN:
-									if(type == WTAG_TYPE_PAN){
-										ds_list_add(special,_food.special[| 0]);
-										ds_list_add(special,_food.special[| 1] * _multi);
-									}else{
-										switch(_food.special[| 0]){
-											case FOOD_ATK:
-												sa_inflict[| CHAR_SA_BRN] = 5;
-												sa_chance[| CHAR_SA_BRN] += _food.special[| 1] * 2;
-								
-												break;
-									
-											case FOOD_DEF:
-												sa_inflict[| CHAR_SA_SLW] = 5;
-												sa_chance[| CHAR_SA_SLW] += _food.special[| 1] * 2;
-								
-												break;
-									
-											case FOOD_ACC:
-												sa_inflict[| CHAR_SA_SLC] = 5;
-												sa_chance[| CHAR_SA_SLC] += _food.special[| 1] * 2;
-								
-												break;
-									
-											case FOOD_EVA:
-												sa_inflict[| CHAR_SA_PAR] = 5;
-												sa_chance[| CHAR_SA_PAR] += _food.special[| 1] * 2;
-								
-												break;
-									
-											case FOOD_SPD:
-												sa_inflict[| CHAR_SA_BLD] = 5;
-												sa_chance[| CHAR_SA_BLD] += _food.special[| 1] * 2;
-								
-												break;
-									
-											case FOOD_EN:
-												sa_inflict[| CHAR_SA_PSN] = 5;
-												sa_chance[| CHAR_SA_PSN] += _food.special[| 1] * 2;
-								
-												break;
-										}
-									}
-									
-									break;
-								
-								case FOOD_HP:
-									pwr += _food.special[| 1] * _multi;
-									nonAttack = false;
-									
-									break;
-									
-								case FOOD_WIDE:
-									tgtType = ACT_TGT_WIDE;
-									
-									break;
-									
-								case FOOD_MULTI:
-									hitCount++;
-									
-									break;
+						for(var _i = ds_list_size(src.stance.lst_food) + -1;_i >= 0;_i--){
+							var
+							_food = src.stance.lst_food[| _i],
+							_multi = 1;
+							
+							if(object_index == obj_handler_act_chef_tasteTest){
+								_multi = multi;
+								tgtType = ACT_TGT_SELF;
 							}
-						}
-						
-						if(object_index != obj_handler_act_chef_tasteTest){
-							instance_destroy(_food);
-							ds_list_delete(src.stance.lst_food,_i);
+							
+							if(scr_exists(_food,asset_object)){
+								switch _food.special[| 0]{
+									case FOOD_ATK:
+									case FOOD_DEF:
+									case FOOD_ACC:
+									case FOOD_EVA:
+									case FOOD_SPD:
+									case FOOD_EN:
+										if(type == WTAG_TYPE_PAN){
+											ds_list_add(special,_food.special[| 0]);
+											ds_list_add(special,_food.special[| 1] * _multi);
+										}else{
+											switch(_food.special[| 0]){
+												case FOOD_ATK:
+													sa_inflict[| CHAR_SA_BRN] = 5;
+													sa_chance[| CHAR_SA_BRN] += _food.special[| 1] * 2;
+									
+													break;
+										
+												case FOOD_DEF:
+													sa_inflict[| CHAR_SA_SLW] = 5;
+													sa_chance[| CHAR_SA_SLW] += _food.special[| 1] * 2;
+									
+													break;
+										
+												case FOOD_ACC:
+													sa_inflict[| CHAR_SA_SLC] = 5;
+													sa_chance[| CHAR_SA_SLC] += _food.special[| 1] * 2;
+									
+													break;
+										
+												case FOOD_EVA:
+													sa_inflict[| CHAR_SA_PAR] = 5;
+													sa_chance[| CHAR_SA_PAR] += _food.special[| 1] * 2;
+									
+													break;
+										
+												case FOOD_SPD:
+													sa_inflict[| CHAR_SA_BLD] = 5;
+													sa_chance[| CHAR_SA_BLD] += _food.special[| 1] * 2;
+									
+													break;
+										
+												case FOOD_EN:
+													sa_inflict[| CHAR_SA_PSN] = 5;
+													sa_chance[| CHAR_SA_PSN] += _food.special[| 1] * 2;
+									
+													break;
+											}
+										}
+										
+										break;
+									
+									case FOOD_HP:
+										pwr += _food.special[| 1] * _multi;
+										nonAttack = false;
+										
+										break;
+										
+									case FOOD_WIDE:
+										tgtType = ACT_TGT_WIDE;
+										
+										break;
+										
+									case FOOD_MULTI:
+										hitCount++;
+										
+										break;
+								}
+							}
+							
+							if(object_index != obj_handler_act_chef_tasteTest){
+								instance_destroy(_food);
+								ds_list_delete(src.stance.lst_food,_i);
+							}
 						}
 					}
 				}
-			}
+				
+				if(object_index == obj_handler_act_raze_dBlow && ds_list_size(special) > 0){
+					recoil = floor(src.hpCurr / 2);
+					pwr = recoil * special[| 0];
+				}
+			#endregion
 		
 			ds_list_clear(dc_tgt);
 			ds_list_clear(dc_dmgMin);
