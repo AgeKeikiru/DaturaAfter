@@ -49,6 +49,34 @@ if(instance_exists(SV_act)){
 	
 	draw_sprite_ext(SV_act.icon,0,SV_x,SV_y,1,1,SV_a,c_white,1);
 	
+	switch SV_act.ele{
+		case CHAR_VAR_ELE_FIR:
+			draw_set_color(CC_FIRRED);
+			break;
+		case CHAR_VAR_ELE_ICE:
+			draw_set_color(CC_ICEBLUE);
+			break;
+		case CHAR_VAR_ELE_NAT:
+			draw_set_color(CC_NATGREEN);
+			break;
+		case CHAR_VAR_ELE_ELC:
+			draw_set_color(CC_ELCYELLOW);
+			break;
+		case CHAR_VAR_ELE_DRK:
+			draw_set_color(CC_DRKVIOLET);
+			break;
+		case CHAR_VAR_ELE_LGT:
+			draw_set_color(CC_LGTBEIGE);
+			break;
+		default:
+			draw_set_color(c_white);
+			break;
+	}
+	
+	if(draw_get_colour() != c_white){
+		draw_sprite_ext(spr_icon_eleFrame,0,SV_x,SV_y,1,1,SV_a,draw_get_colour(),1);
+	}
+	
 	draw_set_color(c_black);
 	draw_set_alpha(.5);
 

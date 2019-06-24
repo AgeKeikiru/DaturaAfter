@@ -184,13 +184,14 @@ if(!state_event && !state_results){
 	    _timeT = missionTime / room_speed,
 	    _timeM = string_format(floor(_timeT / 60),2,0),
 	    _timeS = string_format(_timeT mod 60,2,2),
-	    _timeDebug = CANARY ? string(missionDmg) : "";
+	    _timeDebug = CANARY ? string(missionDmg) : "",
+	    _icDebug = CANARY ? ("ic:" + string(instance_count)) : "";
 	    
 	    draw_set_font(ft_dungeonBold);
 	    draw_set_halign(fa_left);
 	    draw_set_valign(fa_top);
 	    
-	    ktk_scr_draw_text_stroke(10,150,string_replace_all(_timeM," ","0") + ":" + string_replace_all(_timeS," ","0") + "\n" + _timeDebug,c_white,c_dkgray,2,10);
+	    ktk_scr_draw_text_stroke(10,150,string_replace_all(_timeM," ","0") + ":" + string_replace_all(_timeS," ","0") + "\n" + _timeDebug + "\n" + _icDebug,c_white,c_dkgray,2,10);
 	
 	#endregion
 	
@@ -323,6 +324,39 @@ if(!state_event && !state_results){
 }
 
 if(!state_event && !state_results){
+	#region //vignette effects
+	
+		var _ve_b = 200;
+		
+		global.tempBool = false;
+		
+		with(obj_handler_actEffect_shd){
+			if(scr_exists(src,asset_object) && src.allyParty == global.grd_party_player){
+				global.tempBool = true;
+			}
+		}
+		
+		ve_tgtCol = global.tempBool ? CC_ENBLUE : c_black;
+		
+		ve_col = make_color_rgb(
+			ktk_scr_tween(color_get_red(ve_col),color_get_red(ve_tgtCol),3,-1),
+			ktk_scr_tween(color_get_green(ve_col),color_get_green(ve_tgtCol),3,-1),
+			ktk_scr_tween(color_get_blue(ve_col),color_get_blue(ve_tgtCol),3,-1),
+		);
+		
+		gpu_set_blendmode(bm_add);
+		draw_set_alpha(ve_tgtCol == CC_ENBLUE ? .5 : 1);
+		
+		draw_rectangle_color(-_ve_b,-_ve_b,room_width / 2,room_height / 2,ve_col,ve_col,c_black,ve_col,false);
+		draw_rectangle_color(room_width + _ve_b,-_ve_b,room_width / 2,room_height / 2,ve_col,ve_col,ve_col,c_black,false);
+		draw_rectangle_color(room_width + _ve_b,room_height + _ve_b,room_width / 2,room_height / 2,c_black,ve_col,ve_col,ve_col,false);
+		draw_rectangle_color(-_ve_b,room_height + _ve_b,room_width / 2,room_height / 2,ve_col,c_black,ve_col,ve_col,false);
+		
+		gpu_set_blendmode(bm_normal);
+		draw_set_alpha(1);
+	
+	#endregion
+	
 	#region//draw party
 	
 		var

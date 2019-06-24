@@ -40,6 +40,7 @@ switch(SV_type){
 		case WTAG_TYPE_SWD:
 			SV_r.name = "Sword";
 			SV_r.desc = "Balanced, straightforward weapon. Solid choice for any melee class.";
+			SV_r.icon = spr_icon_swd;
 			SV_r.price *= 1;
 			SV_r.enCost *= 1.5;
 			SV_r.cdAdd *= 5;
@@ -56,6 +57,7 @@ switch(SV_type){
 		case WTAG_TYPE_AXE:
 			SV_r.name = "Axe";
 			SV_r.desc = "Violent weapon that relies on raw power. Cumbersome, but decimates when it hits.";
+			SV_r.icon = spr_icon_axe;
 			SV_r.price *= 2;
 			SV_r.enCost *= 5;
 			SV_r.cdAdd *= 12;
@@ -72,6 +74,7 @@ switch(SV_type){
 		case WTAG_TYPE_CSW:
 			SV_r.name = "Chainsaw";
 			SV_r.desc = "Reckless, difficult to use weapon that hits many times. Effective against unarmored enemies.";
+			SV_r.icon = spr_icon_csw;
 			SV_r.price *= 2;
 			
 			break;
@@ -79,6 +82,7 @@ switch(SV_type){
 		case WTAG_TYPE_SCY:
 			SV_r.name = "Scythe";
 			SV_r.desc = "A stylish weapon that trades power for wide range. Best used to get rid of adds.";
+			SV_r.icon = spr_icon_scy;
 			SV_r.price *= 1.5;
 			
 			break;
@@ -86,6 +90,7 @@ switch(SV_type){
 		case WTAG_TYPE_DGR:
 			SV_r.name = "Dagger";
 			SV_r.desc = "Lightweight, easy to use melee weapon. Accurate and swift, at the cost of power.";
+			SV_r.icon = spr_icon_dgr;
 			SV_r.price *= .5;
 			
 			break;
@@ -93,6 +98,7 @@ switch(SV_type){
 		case WTAG_TYPE_GNT:
 			SV_r.name = "Gauntlet";
 			SV_r.desc = "Provides accurate and powerful blows, but exhausts the wielder.";
+			SV_r.icon = spr_icon_gnt;
 			SV_r.price *= 1.5;
 			
 			break;
@@ -100,6 +106,7 @@ switch(SV_type){
 		case WTAG_TYPE_PAN:
 			SV_r.name = "Pan";
 			SV_r.desc = "An unorthodox weapon - weak, but feeds allies if used after preparing food.";
+			SV_r.icon = spr_icon_pan;
 			SV_r.price *= .5;
 			SV_r.enCost *= 2;
 			SV_r.cdAdd *= 8;
@@ -119,6 +126,7 @@ switch(SV_type){
 		case WTAG_TYPE_HGN:
 			SV_r.name = "Pistol";
 			SV_r.desc = "Lightweight, easy to use weapon. Good backup firearm for recovering EN.";
+			SV_r.icon = spr_icon_hgn;
 			SV_r.price *= .5;
 			SV_r.enCost *= .5;
 			SV_r.cdAdd *= 1;
@@ -135,6 +143,7 @@ switch(SV_type){
 		case WTAG_TYPE_SMG:
 			SV_r.name = "SMG";
 			SV_r.desc = "Relatively accurate and easy to use weapon, essentially a scaled up pistol.";
+			SV_r.icon = spr_icon_smg;
 			SV_r.price *= .8;
 			SV_r.enCost *= 1;
 			SV_r.cdAdd *= 1.4;
@@ -151,6 +160,7 @@ switch(SV_type){
 		case WTAG_TYPE_SHG:
 			SV_r.name = "Shotgun";
 			SV_r.desc = "Low accuracy balanced with a flurry of pellets makes this weapon inconsistent but capable of immense damage.";
+			SV_r.icon = spr_icon_shg;
 			SV_r.price *= 1.5;
 			
 			break;
@@ -158,6 +168,7 @@ switch(SV_type){
 		case WTAG_TYPE_LMG:
 			SV_r.name = "LMG";
 			SV_r.desc = "Hails high power bullets to hit all enemies at random. Unwieldly, but devastating to an isolated target.";
+			SV_r.icon = spr_icon_lmg;
 			SV_r.price *= 2;
 			
 			break;
@@ -165,6 +176,7 @@ switch(SV_type){
 		case WTAG_TYPE_RPG:
 			SV_r.name = "Launcher";
 			SV_r.desc = "Incredibly slow and exhausting to fire, but deals incredible damage to all enemies.";
+			SV_r.icon = spr_icon_rpg;
 			SV_r.price *= 3;
 			
 			break;
@@ -172,6 +184,7 @@ switch(SV_type){
 		case WTAG_TYPE_RFL:
 			SV_r.name = "Rifle";
 			SV_r.desc = "Cumbersome, but deals consistently high and accurate damage to single targets.";
+			SV_r.icon = spr_icon_rfl;
 			SV_r.price *= 1.8;
 			
 			break;
@@ -179,6 +192,7 @@ switch(SV_type){
 		case WTAG_TYPE_SLG:
 			SV_r.name = "Sling";
 			SV_r.desc = "An unorthodox weapon - weak, but inflicts strange effects on enemies if used after preparing food.";
+			SV_r.icon = spr_icon_slg;
 			SV_r.price *= .5;
 			SV_r.enCost *= 2;
 			SV_r.cdAdd *= 8;
@@ -198,6 +212,7 @@ switch(SV_type){
 		case WTAG_TYPE_ASC_ARW:
 			SV_r.name = "ARROW";
 			SV_r.desc = "Simple, easy to use scroll. Best for exploiting elemental weaknesses.";
+			SV_r.icon = spr_icon_arw;
 			SV_r.price *= .6;
 			SV_r.enCost *= 1.5;
 			SV_r.cdAdd *= 1.5;
@@ -218,6 +233,7 @@ switch(SV_type){
 		case WTAG_TYPE_ASC_RAY:
 			SV_r.name = "RAY";
 			SV_r.desc = "Scroll that casts a beam of energy as damaging as it is draining to use.";
+			SV_r.icon = spr_icon_ray;
 			SV_r.price *= 1;
 			
 			if(SV_ele == ""){
@@ -229,6 +245,7 @@ switch(SV_type){
 		case WTAG_TYPE_ASC_VRT:
 			SV_r.name = "VORTEX";
 			SV_r.desc = "Complex scroll that damages all enemies. Increases in power with rank, but difficult to use properly.";
+			SV_r.icon = spr_icon_vrt;
 			SV_r.price *= 2;
 			
 			if(SV_ele == ""){
@@ -240,6 +257,7 @@ switch(SV_type){
 		case WTAG_TYPE_ASC_BRS:
 			SV_r.name = "BURST";
 			SV_r.desc = "A reckless scroll that fires off energy at random. Becomes more consistent at higher ranks.";
+			SV_r.icon = spr_icon_brt;
 			SV_r.price *= 1.8;
 			
 			if(SV_ele == ""){
@@ -251,6 +269,7 @@ switch(SV_type){
 		case WTAG_TYPE_CSC:
 			SV_r.name = "FLICT";
 			SV_r.desc = "Inflicts ailments on a target. Easier to use at higher ranks, but susceptible to elemental resistances.";
+			SV_r.icon = spr_icon_csc;
 			SV_r.price *= 1;
 			
 			if(SV_ele == ""){
@@ -263,6 +282,7 @@ switch(SV_type){
 			SV_r.tgtEnemy = false;
 			SV_r.name = "MEDA";
 			SV_r.desc = "Restore an ally's HP. Heal rate scales with rank.";
+			SV_r.icon = spr_icon_heal;
 			SV_r.price *= 1;
 			SV_ele = "";
 			SV_r.enCost *= 3;
@@ -281,6 +301,7 @@ switch(SV_type){
 			SV_r.tgtEnemy = false;
 			SV_r.name = "PURA";
 			SV_r.desc = "Cure an ally of ailments. Becomes easier to use at higher ranks.";
+			SV_r.icon = spr_icon_cure;
 			SV_r.price *= 1.5;
 			SV_ele = "";
 			SV_r.acc = 999;
@@ -292,6 +313,7 @@ switch(SV_type){
 			SV_r.tgtEnemy = false;
 			SV_r.name = "VYRA";
 			SV_r.desc = "Revive a fallen ally. Recovery time and health restored improves with rank.";
+			SV_r.icon = spr_icon_raise;
 			SV_r.price *= 5;
 			SV_ele = "";
 			SV_r.acc = 999;
@@ -305,34 +327,71 @@ switch(SV_type){
 	
 		case WTAG_TYPE_SHD_FLS:
 			SV_r.tgtEnemy = false;
+			SV_r.tgtType = ACT_TGT_SELF;
+			SV_r.nonAttack = true;
 			SV_r.name = "Fl-Shield";
 			SV_r.desc = "Flash shield - with proper timing, moderately reduce incoming damage to allies.";
+			SV_r.icon = spr_icon_shd;
 			SV_r.price *= 1.5;
 			SV_ele = "";
+			SV_r.enCost *= 5;
+			SV_r.cdAdd *= .5;
+			SV_r.pwr = 0;
 			SV_r.acc = 999;
-			SV_r.spark_hit = spr_spark_dot;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.spark_start = spr_spark_dot;
+			SV_r.effect_start = obj_handler_actEffect_shd;
+			ds_list_clear(SV_r.special);
+			ds_list_add(SV_r.special,.6); //def
+			ds_list_add(SV_r.special,1); //duration
 			
 			break;
 			
 		case WTAG_TYPE_SHD_BRN:
 			SV_r.tgtEnemy = false;
+			SV_r.tgtType = ACT_TGT_SELF;
+			SV_r.nonAttack = true;
 			SV_r.name = "Br-Shield";
 			SV_r.desc = "Burn Shield - slightly reduce incoming damage to allies for a long duration.";
+			SV_r.icon = spr_icon_shd;
 			SV_r.price *= 1.5;
 			SV_ele = "";
+			SV_r.enCost *= 3;
+			SV_r.cdAdd *= 5;
+			SV_r.pwr = 0;
 			SV_r.acc = 999;
-			SV_r.spark_hit = spr_spark_dot;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.spark_start = spr_spark_dot;
+			SV_r.effect_start = obj_handler_actEffect_shd;
+			ds_list_clear(SV_r.special);
+			ds_list_add(SV_r.special,.2); //def
+			ds_list_add(SV_r.special,6); //duration
 			
 			break;
 			
 		case WTAG_TYPE_SHD_STC:
 			SV_r.tgtEnemy = false;
+			SV_r.tgtType = ACT_TGT_SELF;
+			SV_r.nonAttack = true;
+			SV_r.stanceAct = true;
 			SV_r.name = "St-Shield";
-			SV_r.desc = "[STANCE ACT] Stance Shield - while active, EN does not regenerate but damage to allies is reduced moderately.";
+			SV_r.desc = "[Stance Act] Stance Shield - while active, EN slowly drains but damage to allies is reduced moderately.";
+			SV_r.icon = spr_icon_shd;
 			SV_r.price *= 2;
 			SV_ele = "";
+			SV_r.enCost *= .2;
+			SV_r.cdAdd *= .5;
+			SV_r.pwr = 0;
 			SV_r.acc = 999;
-			SV_r.spark_hit = spr_spark_dot;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.spark_start = spr_spark_dot;
+			SV_r.effect_start = obj_handler_actEffect_shd;
+			ds_list_clear(SV_r.special);
+			ds_list_add(SV_r.special,.4); //def
+			ds_list_add(SV_r.special,-1); //duration
 			
 			break;
 			

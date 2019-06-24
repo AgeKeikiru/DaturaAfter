@@ -67,7 +67,16 @@ if(hpCurr > 0){
 	scr_cEvent(obj_handler_actEffect,EVENT_EFFECT_ENRECMOD,id);
 	_rec *= 1 + max(global.tempFloat,-1);
 	
-	enCurr += _rec / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3));
+	if(scr_exists(stance,asset_object) && stance.object_index == obj_handler_actEffect_shd){
+		enCurr += -(enMax * .02) / room_speed;
+		
+		if(enCurr <= 0){
+			instance_destroy(stance);
+		}
+	}else{
+		enCurr += _rec / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3));
+	}
+	
 	enCurr = clamp(enCurr,0,enMax);
 	
 	if(ailment[CHAR_SA_PSN] > 0 && hpCurr > 1){

@@ -176,10 +176,10 @@ room_speed = 60;
 	);
 	
 	//party slot 3
-	_temp = instance_create_depth(640,650,0,obj_dungeon_battleMember);
+	_temp = instance_create_depth(640 + 380,650,0,obj_dungeon_battleMember);
 	_temp.src = scr_data_getMap(global.grd_chars,CHAR_PAPRIKA);
 	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_PAN);
-	//_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_SSC_HEAL);
+	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_SHD_STC);
 	_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_chef_messKit,0);
 	_temp.src[? CHAR_VAR_HB3] = instance_find(obj_handler_act_chef_food,0);
 	_temp.src[? CHAR_VAR_HB4] = instance_find(obj_handler_act_chef_food,1);

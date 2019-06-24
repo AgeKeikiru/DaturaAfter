@@ -13,6 +13,12 @@ SV_rare = argument3,
 SV_stance = argument4;
 
 if(object_exists(argument0) && random(1) < SV_chance){
+	global.tempBool = false;
+	
+	if(scr_exists(SV_src.stance,asset_object)){
+		global.tempBool = SV_src.stance.object_index == argument0;
+	}
+	
 	SV_r = instance_create_depth(0,0,0,argument0);
 	
 	var SV_special = ds_list_create();
@@ -42,11 +48,13 @@ if(object_exists(argument0) && random(1) < SV_chance){
 	SV_r.special = SV_special;
 	
 	if(SV_stance){
-		if(scr_exists(SV_src.stance,asset_object)){
-			instance_destroy(SV_src.stance);
+		if(global.tempBool){
+			instance_destroy(SV_r);
+			SV_r = noone;
+			SV_src.stance = noone;
+		}else{
+			SV_src.stance = SV_r;
 		}
-		
-		SV_src.stance = SV_r;
 	}
 }
 

@@ -36,6 +36,19 @@ if(!nonAttack){
 					break;
 			}
 			
+			//shield handling
+			global.tempFloat = 1;
+			global.tempGrd = dc_tgt[| _i].allyParty;
+			
+			with obj_handler_actEffect_shd{
+				if(src.allyParty == global.tempGrd && ds_list_size(special) > 0){
+					global.tempFloat += -special[| 0];
+					scr_trace("shield damage cut: -" + string(special[| 0] * 100) + "%");
+				}
+			}
+			
+			_dmg = round(_dmg * global.tempFloat);
+			
 			scr_trace("\naimCheck " + string(_aimCheck) + " > " + string(100 + -acc));
 			
 			if(
@@ -110,8 +123,14 @@ if(!nonAttack){
 				
 				scr_act_createEffect(effect_hit,eChance_hit,_tgt,rare,stanceAct,special);
 				
-				if(scr_createSpark(_pX,_pY,spark_hit,ele) != noone){
-					dc_tgt[| _i].hurtShake = tgtEnemy;
+				if(scr_createSpark(_pX,_pY,spark_hit,ele) != noone && tgtEnemy){
+					dc_tgt[| _i].hurtShake = 1;
+					
+					if(dc_tgt[| _i].allyParty == global.grd_party_player){
+						with obj_handler_dungeon{
+							ve_col = ve_tgtCol == c_black ? c_red : c_white;
+						}
+					}
 				}
 				
 				if(tgtEnemy && src.allyParty == global.grd_party_player){

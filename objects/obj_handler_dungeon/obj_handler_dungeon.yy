@@ -353,6 +353,34 @@
             "value": "0",
             "varName": "missionDmg",
             "varType": 0
+        },
+        {
+            "id": "bfc31230-3e80-4e24-819f-30ed2a505997",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "c_black",
+            "varName": "ve_col",
+            "varType": 4
+        },
+        {
+            "id": "f8f102b8-5c3f-4893-8e80-adecf611b19b",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "c_black",
+            "varName": "ve_tgtCol",
+            "varType": 4
         }
     ],
     "solid": false,

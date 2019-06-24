@@ -1,6 +1,7 @@
 add [Debuff Love] effect to debuffs
 make sure all debuffs have debuff = true
 make sure all cEvent switches include a default
+fix targetting (currently changes to cursor on use instead of maintaining character lock)
 
 class idea:
 	Ace
