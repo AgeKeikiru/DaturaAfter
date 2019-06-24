@@ -53,6 +53,10 @@ SV_r[? CHAR_VAR_CLS1] = noone;
 SV_r[? CHAR_VAR_CLS2] = noone;
 SV_r[? CHAR_VAR_UCLASS] = noone;
 
+//act banner drawing offsets
+SV_r[? CHAR_VAR_ABDO_X] = 0;
+SV_r[? CHAR_VAR_ABDO_Y] = 0;
+
 //party screen drawing offsets
 SV_r[? CHAR_VAR_PSDO_ACT_X] = 0;
 SV_r[? CHAR_VAR_PSDO_ACT_Y] = 0;

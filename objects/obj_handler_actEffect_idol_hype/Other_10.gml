@@ -33,6 +33,11 @@ switch(cEvent){
 		    	draw_set_alpha(.8);
 		    }
 		    
+		    if(finaleMode){
+		    	draw_set_alpha((abs(sin(current_time / 2)) * .1) + .9);
+		    	draw_set_color(make_color_hsv((current_time / 1) mod 256,255,255));
+		    }
+		    
 		    draw_rectangle(_xFill,_y1,_x2,_y2,false);
 		    
 		    draw_set_color(_c);
@@ -59,16 +64,41 @@ switch(cEvent){
 			_act = cArgs[| 2],
 			_dmg = cArgs[| 3];
 			
-			if(scr_exists(src,asset_object) && _src == src && ds_list_size(special) > 0){
-				var _add = special[| 0] * _dmg;
+			if(scr_exists(src,asset_object) && _src == src && ds_list_size(special) > 1){
+				var
+				_add = special[| 0] * _dmg,
+				_prev = floor(charge);
 				
-				global.tempFloat = 0;
-				//scr_cEvent(obj_handler_class_angel,EVENT_ANGE_ANGELITEGAINMOD,src,typeCurr != _act.atkScale,_act.ele == CHAR_VAR_ELE_LGT);
-				_add += _add * global.tempFloat;
+				global.tempBool = false;
+				global.tempGrd = src.allyParty;
+				global.tempObj = src;
+				
+				with obj_handler_act{
+					if(using && scr_exists(src,asset_object) && src != global.tempObj && src.allyParty == global.tempGrd){
+						global.tempBool = true;
+					}
+				}
+				
+				if(global.tempBool){
+					_add += _add * special[| 1];
+					scr_trace("[Hype Boost Teamwork] hype gain boost: " + string(special[| 1] * 100) + "%");
+				}
 				
 				charge = min(charge + _add,6);
 				
 				decayDelay = room_speed * 3;
+				
+				if(CS_SRCMAINIS obj_handler_class_idol){
+					var _boost = .02 * src.level;
+					
+					decayDelay += room_speed * _boost;
+					scr_trace("[Stage Presence+] decayDelay extend: +" + string(_boost) + "sec");
+				}
+				
+				if(floor(charge) != _prev){
+					aggro = floor(charge);
+					scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+				}
 			}
 			
 			event_inherited();

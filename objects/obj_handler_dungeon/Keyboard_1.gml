@@ -8,6 +8,10 @@ if(keyboard_check_pressed(vk_pageup) && CANARY && global.missionCurr == MSN_DEBU
 	with(obj_handler_actEffect_ange_angelite){
 		charge = 5;
 	}
+	
+	with(obj_handler_actEffect_idol_hype){
+		charge = 6;
+	}
 }
 
 if(global.playerControl){

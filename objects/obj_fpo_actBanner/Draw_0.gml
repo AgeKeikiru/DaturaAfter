@@ -6,8 +6,8 @@ draw_set_alpha(1);
 
 draw_rectangle_color(0,y + -(image_yscale / 2),1280,y + (image_yscale / 2),make_color_hsv(136,120,255),c_white,c_white,c_white,false);
 
-if(sprite_exists(sprite_index)){
-	draw_sprite_part_ext(sprite_index,0,0,130,sprite_width,bSize + 1,x + -400,y + -(image_yscale / 2),1,image_yscale / bSize,c_white,1);
+if(sprite_exists(sprite_index) && scr_exists(src,asset_object)){
+	draw_sprite_part_ext(sprite_index,0,0,src.src[? CHAR_VAR_ABDO_Y],sprite_width,bSize + 1,x + src.src[? CHAR_VAR_ABDO_X],y + -(image_yscale / 2),1,image_yscale / bSize,c_white,1);
 }
 
 draw_set_color(c_white);

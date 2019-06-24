@@ -9,9 +9,9 @@
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
-            "eventtype": 3,
-            "enumb": 0,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
             "m_owner": "30ff290b-c8e2-4110-bd6b-561075eab65a"
         },
         {
@@ -78,6 +78,20 @@
             "value": "0",
             "varName": "decayDelay",
             "varType": 0
+        },
+        {
+            "id": "963aea82-8744-4600-8261-b01a2e3282de",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "finaleMode",
+            "varType": 3
         }
     ],
     "solid": false,

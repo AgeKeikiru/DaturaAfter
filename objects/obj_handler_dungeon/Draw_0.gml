@@ -365,8 +365,8 @@ if(!state_event && !state_results){
 			_barBB = 4, //bottom border
 			_drawX = 0,
 			_drawY = _hbSize + _hbGap + 20,
-			_drawSideX = 0,
-			_drawSideY = 0,
+			_drawSideX = 5,
+			_drawSideY = 5,
 			_drawW = _portW,
 			_drawH = _portH,
 			_mem = global.grd_party_player[# _partyI,0];
@@ -409,54 +409,17 @@ if(!state_event && !state_results){
 				repeat(2){
 					repeat(2){
 						repeat(2){
+							var _using = false;
 							
 							if(instance_exists(_mem)){
 								_act = _mem.act[_i];
-							}
-							
-							draw_set_color(instance_exists(_act) ? _uiCol[0] : _uiCol[1]);
-							
-							if(instance_exists(_act)){
-								draw_set_color(!_act.usable ? c_red : (_act.xAct ? CC_STANCE_EVOK : _uiCol[0]));
-							}else{
-								draw_set_color(_uiCol[1]);
-							}
-							
-							draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + _drawH,false);
-							
-							if(instance_exists(_act)){
-								draw_set_color(c_black);
-								draw_set_alpha(.5);
-							
-								draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + (_drawH * (_act.cdCurr / _act.cdMax)),false);
 								
-								if(_act.cdCurr > 0){
-									draw_set_alpha(.2);
-									
-									draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + _drawH,false);
-									
-									draw_set_alpha(.5);
-								}
-								
-								if(_mem.actUsing == _act){
-									var
-									_glowAlpha = ((sin(current_time / 100) + 1) / 20) + .8,
-									_glowSize = 1;
-									
-									draw_set_color(c_yellow);
-									
-									repeat(5){
-										draw_set_alpha(_glowAlpha);
-										
-										draw_rectangle(_drawX + -_glowSize,_drawY + -_glowSize,_drawX + _drawW + _glowSize,_drawY + _drawH + _glowSize,true);
-										
-										_glowAlpha += -.1;
-										_glowSize++;
-									}
-								}
-							
-								draw_set_alpha(1);
+								_using = (scr_exists(_act,asset_object) && _mem.actUsing == _act);
 							}
+							
+							scr_drawActIcon(_drawX,_drawY,_drawW,_act,_uiCol[0],_uiCol[1],0,_using);
+						
+							draw_set_alpha(1);
 					
 							_drawY += _hbSize + _hbGap;
 					
@@ -487,24 +450,13 @@ if(!state_event && !state_results){
 							
 							if(instance_exists(_mem)){
 								_act = _mem.act[_i];
+								
+								_using = (scr_exists(_act,asset_object) && _mem.actUsing == _act);
 							}
 							
-							draw_set_color(_uiCol[1]);
-							
-							if(scr_exists(_act,asset_object)){
-								draw_set_color(!_act.usable ? c_red : (_act.xAct ? CC_STANCE_EVOK : _uiCol[0]));
-							}
-							
-							draw_rectangle(_drawSideX,_drawSideY,_drawSideX + _drawW,_drawSideY + _drawH,false);
-							
-							if(instance_exists(_act)){
-								draw_set_color(c_black);
-								draw_set_alpha(.5);
-							
-								draw_rectangle(_drawSideX,_drawSideY,_drawSideX + _drawW,_drawSideY + (_drawH * (_act.cdCurr / _act.cdMax)),false);
-							
-								draw_set_alpha(1);
-							}
+							scr_drawActIcon(_drawSideX,_drawSideY,_drawW,_act,_uiCol[0],_uiCol[1],0,_using);
+						
+							draw_set_alpha(1);
 	
 							_drawSideY += _hbSize + _hbGap;
 					
@@ -736,7 +688,7 @@ if(!state_event && !state_results){
 				_crossY = _uiDrawY + 60,
 				_crossR = 70;
 				
-				draw_surface_ext(sfc_highlighted,_crossX + -15,_crossY + -150,1,1,-30,c_white,1);
+				draw_surface_ext(sfc_highlighted,_crossX + -15,_crossY + -155,1,1,-30,c_white,1);
 				
 				repeat(4){
 					var

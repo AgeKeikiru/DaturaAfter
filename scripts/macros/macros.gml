@@ -139,6 +139,10 @@
 		#macro CHAR_VAR_SPR_BATTLEPORT "char_var_spr_battlePort"
 		#macro CHAR_VAR_SPR_NEUTRAL "char_var_spr_neutral"
 		
+		//act banner drawing offsets
+		#macro CHAR_VAR_ABDO_X "char_var_abdo_x"
+		#macro CHAR_VAR_ABDO_Y "char_var_abdo_y"
+		
 		//party screen drawing offsets
 		#macro CHAR_VAR_PSDO_ACT_X "char_var_psdo_act_x"
 		#macro CHAR_VAR_PSDO_ACT_Y "char_var_psdo_act_y"
@@ -515,5 +519,12 @@
 #region //flags
 
 	#macro FG_SHOPPROGRESS "fg_shopProgress"
+
+#endregion
+
+#region //code shortcuts
+
+	#macro CS_SRCSTANCEIS scr_exists(src,asset_object) && scr_exists(src.stance,asset_object) && src.stance.object_index ==
+	#macro CS_SRCMAINIS scr_exists(src,asset_object) && scr_exists(src.src[? CHAR_VAR_CLS0],asset_object) && src.src[? CHAR_VAR_CLS0].object_index ==
 
 #endregion

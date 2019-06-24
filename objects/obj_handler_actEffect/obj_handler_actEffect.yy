@@ -129,6 +129,34 @@
             "varType": 3
         },
         {
+            "id": "a27fb3d6-4ad6-4a34-9b8a-12a22ea399d2",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "cure_ail",
+            "varType": 3
+        },
+        {
+            "id": "23a8222c-ebb7-459a-b7a1-8d37951bbc8d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "cure_deb",
+            "varType": 3
+        },
+        {
             "id": "39a9132e-259d-449f-903b-62ec17cc4559",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",

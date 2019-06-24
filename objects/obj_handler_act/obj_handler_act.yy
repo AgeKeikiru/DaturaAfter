@@ -91,6 +91,20 @@
             "varType": 2
         },
         {
+            "id": "c85448d9-8ea7-4f4c-8f38-4ecfafe2cb2b",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "spr_icon_test",
+            "varName": "icon",
+            "varType": 4
+        },
+        {
             "id": "f83f2e1f-8302-4d35-bbb5-6367fc64a599",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -271,6 +285,20 @@
             "value": "0",
             "varName": "xAct_chargeRate",
             "varType": 0
+        },
+        {
+            "id": "10e8dd47-86a8-4b7c-8791-3e3d5586433d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "revive",
+            "varType": 3
         },
         {
             "id": "9fa7d445-070c-4497-bb2e-3d9ea18e2c6c",

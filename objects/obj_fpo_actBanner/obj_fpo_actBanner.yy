@@ -106,6 +106,20 @@
             "value": "60",
             "varName": "bSize",
             "varType": 0
+        },
+        {
+            "id": "43b92f08-0bc7-4dea-8cda-c478d8b4078e",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "src",
+            "varType": 4
         }
     ],
     "solid": false,

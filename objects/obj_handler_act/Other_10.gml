@@ -132,6 +132,7 @@ switch(cEvent){
 		
 			var _p = instance_create_depth(0,80,-999,obj_fpo_actBanner);
 			_p.sprite_index = src.src[? CHAR_VAR_SPR_NEUTRAL];
+			_p.src = src;
 			_p.txt[0] = name;
 			_p.txt_ft[0] = ft_dungeonBoldLarge;
 			_p.txt_col[0] = c_dkgray;
@@ -156,7 +157,7 @@ switch(cEvent){
 				repeat(3){
 					var _tgt = _tgtParty[# _i,0];
 					
-					if(instance_exists(_tgt) && _tgt.hpCurr > 0){
+					if(instance_exists(_tgt) && (_tgt.hpCurr > 0 ^^ revive)){
 						_valid = true;
 						ds_list_add(dc_tgt,_tgt);
 						

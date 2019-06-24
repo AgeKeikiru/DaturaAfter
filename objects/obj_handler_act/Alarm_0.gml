@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+
 if(hitLoopRemaining == hitCount){
 	for(var _i = 0;_i < ds_list_size(dc_tgt);_i++){
 		var _tgt = eSelf_start ? src : dc_tgt[| _i];
@@ -48,6 +47,7 @@ if(!nonAttack){
 				&& !(src.ailment[CHAR_SA_BLD] > 0 && choose(true,false))
 				&& !(src.ailment[CHAR_SA_SLC] > 0 && ele != "")
 				&& !(tgtEnemy && dc_tgt[| _i].iFrames > 0)
+				&& (revive ^^ dc_tgt[| _i].hpCurr > 0)
 			){
 				_p.visible = pwr > 0;
 				_p.y += -100;

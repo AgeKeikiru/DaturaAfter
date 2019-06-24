@@ -23,7 +23,18 @@ if(ailment[CHAR_SA_PAR] > 0){
 }
 
 if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
-	enCurr += -actUsing.enCost;
+	global.tempBool = false;
+	global.tempObj = id;
+	
+	with obj_handler_actEffect_idol_finale{
+		if(src == global.tempObj){
+			global.tempBool = true;
+		}
+	}
+	
+	if(!global.tempBool){
+		enCurr += -actUsing.enCost;
+	}
 	
 	globalvar G_tmp;
 	with obj_handler_dungeon{
