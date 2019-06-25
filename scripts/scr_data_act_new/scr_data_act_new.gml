@@ -43,7 +43,7 @@ switch(SV_type){
 			SV_r.icon = spr_icon_swd;
 			SV_r.price *= 1;
 			SV_r.enCost *= 1.5;
-			SV_r.cdAdd *= 5;
+			SV_r.cdAdd *= 4;
 			SV_r.pwr *= 1.5;
 			SV_r.acc *= .9;
 			SV_r.hitCount = 3;
@@ -59,7 +59,7 @@ switch(SV_type){
 			SV_r.desc = "Violent weapon that relies on raw power. Cumbersome, but decimates when it hits.";
 			SV_r.icon = spr_icon_axe;
 			SV_r.price *= 2;
-			SV_r.enCost *= 5;
+			SV_r.enCost *= 3;
 			SV_r.cdAdd *= 12;
 			SV_r.pwr *= 8;
 			SV_r.acc *= .6;
@@ -76,6 +76,15 @@ switch(SV_type){
 			SV_r.desc = "Reckless, difficult to use weapon that hits many times. Effective against unarmored enemies.";
 			SV_r.icon = spr_icon_csw;
 			SV_r.price *= 2;
+			SV_r.enCost *= 3;
+			SV_r.cdAdd *= 6;
+			SV_r.pwr *= 1;
+			SV_r.acc *= .5;
+			SV_r.hitCount = 10;
+			SV_r.hitGap *= .2;
+			SV_r.atkScale = CHAR_VAR_MATK;
+			SV_r.defScale = CHAR_VAR_MDEF;
+			SV_r.spark_hit = spr_spark_slash;
 			
 			break;
 			
@@ -83,7 +92,17 @@ switch(SV_type){
 			SV_r.name = "Scythe";
 			SV_r.desc = "A stylish weapon that trades power for wide range. Best used to get rid of adds.";
 			SV_r.icon = spr_icon_scy;
+			SV_r.tgtType = ACT_TGT_WIDE;
 			SV_r.price *= 1.5;
+			SV_r.enCost *= 2;
+			SV_r.cdAdd *= 4;
+			SV_r.pwr *= 1.3;
+			SV_r.acc *= .9;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_MATK;
+			SV_r.defScale = CHAR_VAR_MDEF;
+			SV_r.spark_hit = spr_spark_slash;
 			
 			break;
 			
@@ -92,6 +111,15 @@ switch(SV_type){
 			SV_r.desc = "Lightweight, easy to use melee weapon. Accurate and swift, at the cost of power.";
 			SV_r.icon = spr_icon_dgr;
 			SV_r.price *= .5;
+			SV_r.enCost *= .5;
+			SV_r.cdAdd *= .5;
+			SV_r.pwr *= 1;
+			SV_r.acc *= .9;
+			SV_r.hitCount = 2;
+			SV_r.hitGap *= 1.3;
+			SV_r.atkScale = CHAR_VAR_MATK;
+			SV_r.defScale = CHAR_VAR_MDEF;
+			SV_r.spark_hit = spr_spark_pierce;
 			
 			break;
 			
@@ -100,6 +128,15 @@ switch(SV_type){
 			SV_r.desc = "Provides accurate and powerful blows, but exhausts the wielder.";
 			SV_r.icon = spr_icon_gnt;
 			SV_r.price *= 1.5;
+			SV_r.enCost *= 2.5;
+			SV_r.cdAdd *= 16;
+			SV_r.pwr *= 2;
+			SV_r.acc *= .95;
+			SV_r.hitCount = 4;
+			SV_r.hitGap *= 1.2;
+			SV_r.atkScale = CHAR_VAR_MATK;
+			SV_r.defScale = CHAR_VAR_MDEF;
+			SV_r.spark_hit = spr_spark_bash;
 			
 			break;
 			
@@ -108,7 +145,7 @@ switch(SV_type){
 			SV_r.desc = "An unorthodox weapon - weak, but feeds allies if used after preparing food.";
 			SV_r.icon = spr_icon_pan;
 			SV_r.price *= .5;
-			SV_r.enCost *= 2;
+			SV_r.enCost *= 1.6;
 			SV_r.cdAdd *= 8;
 			SV_r.pwr *= 1;
 			SV_r.acc = 999;
@@ -116,6 +153,7 @@ switch(SV_type){
 			SV_r.hitGap *= 2;
 			SV_r.atkScale = CHAR_VAR_MATK;
 			SV_r.defScale = CHAR_VAR_MDEF;
+			SV_r.spark_hit = spr_spark_bash;
 			
 			break;
 			
@@ -162,6 +200,16 @@ switch(SV_type){
 			SV_r.desc = "Low accuracy balanced with a flurry of pellets makes this weapon inconsistent but capable of immense damage.";
 			SV_r.icon = spr_icon_shg;
 			SV_r.price *= 1.5;
+			SV_r.enCost *= 3;
+			SV_r.cdAdd *= 4;
+			SV_r.pwr *= 1;
+			SV_r.acc *= .4;
+			SV_r.hitCount = 1;
+			SV_r.hitSimul = 8;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_FATK;
+			SV_r.defScale = CHAR_VAR_FDEF;
+			SV_r.spark_hit = spr_spark_shoot;
 			
 			break;
 			
@@ -169,7 +217,17 @@ switch(SV_type){
 			SV_r.name = "LMG";
 			SV_r.desc = "Hails high power bullets to hit all enemies at random. Unwieldly, but devastating to an isolated target.";
 			SV_r.icon = spr_icon_lmg;
+			SV_r.tgtType = ACT_TGT_RANDOM;
 			SV_r.price *= 2;
+			SV_r.enCost *= 3;
+			SV_r.cdAdd *= 10;
+			SV_r.pwr *= 1.2;
+			SV_r.acc *= .7;
+			SV_r.hitCount = 10;
+			SV_r.hitGap *= .2;
+			SV_r.atkScale = CHAR_VAR_FATK;
+			SV_r.defScale = CHAR_VAR_FDEF;
+			SV_r.spark_hit = spr_spark_shoot;
 			
 			break;
 			
@@ -177,7 +235,18 @@ switch(SV_type){
 			SV_r.name = "Launcher";
 			SV_r.desc = "Incredibly slow and exhausting to fire, but deals incredible damage to all enemies.";
 			SV_r.icon = spr_icon_rpg;
+			SV_r.tgtType = ACT_TGT_WIDE;
 			SV_r.price *= 3;
+			SV_r.enCost *= 5;
+			SV_r.cdAdd *= 20;
+			SV_r.pwr *= 8;
+			SV_r.acc *= .8;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_FATK;
+			SV_r.defScale = CHAR_VAR_FDEF;
+			SV_r.spark_hit = spr_spark_bash;
+			SV_r.spark_end = spr_spark_smoke;
 			
 			break;
 			
@@ -186,6 +255,15 @@ switch(SV_type){
 			SV_r.desc = "Cumbersome, but deals consistently high and accurate damage to single targets.";
 			SV_r.icon = spr_icon_rfl;
 			SV_r.price *= 1.8;
+			SV_r.enCost *= 3;
+			SV_r.cdAdd *= 8;
+			SV_r.pwr *= 8;
+			SV_r.acc *= .95;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_FATK;
+			SV_r.defScale = CHAR_VAR_FDEF;
+			SV_r.spark_hit = spr_spark_pierce;
 			
 			break;
 			
@@ -194,8 +272,8 @@ switch(SV_type){
 			SV_r.desc = "An unorthodox weapon - weak, but inflicts strange effects on enemies if used after preparing food.";
 			SV_r.icon = spr_icon_slg;
 			SV_r.price *= .5;
-			SV_r.enCost *= 2;
-			SV_r.cdAdd *= 8;
+			SV_r.enCost *= 1.5;
+			SV_r.cdAdd *= 4;
 			SV_r.pwr *= 1;
 			SV_r.acc = .7;
 			SV_r.hitCount = 1;
@@ -222,7 +300,7 @@ switch(SV_type){
 			SV_r.hitGap *= 1;
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
-			SV_r.spark_hit = spr_spark_bash;
+			SV_r.spark_hit = spr_spark_pierce;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -235,6 +313,15 @@ switch(SV_type){
 			SV_r.desc = "Scroll that casts a beam of energy as damaging as it is draining to use.";
 			SV_r.icon = spr_icon_ray;
 			SV_r.price *= 1;
+			SV_r.enCost *= 3;
+			SV_r.cdAdd *= 5;
+			SV_r.pwr *= 8;
+			SV_r.acc *= .85;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_SATK;
+			SV_r.defScale = CHAR_VAR_SDEF;
+			SV_r.spark_hit = spr_spark_bash;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -246,7 +333,17 @@ switch(SV_type){
 			SV_r.name = "VORTEX";
 			SV_r.desc = "Complex scroll that damages all enemies. Increases in power with rank, but difficult to use properly.";
 			SV_r.icon = spr_icon_vrt;
+			SV_r.tgtType = ACT_TGT_WIDE;
 			SV_r.price *= 2;
+			SV_r.enCost *= 3;
+			SV_r.cdAdd *= 4;
+			SV_r.pwr *= 4;
+			SV_r.acc *= .75;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_SATK;
+			SV_r.defScale = CHAR_VAR_SDEF;
+			SV_r.spark_hit = spr_spark_slash;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -259,6 +356,15 @@ switch(SV_type){
 			SV_r.desc = "A reckless scroll that fires off energy at random. Becomes more consistent at higher ranks.";
 			SV_r.icon = spr_icon_brt;
 			SV_r.price *= 1.8;
+			SV_r.enCost *= 1.5;
+			SV_r.cdAdd *= 1.5;
+			SV_r.pwr *= 3.5;
+			SV_r.acc *= .8;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_SATK;
+			SV_r.defScale = CHAR_VAR_SDEF;
+			SV_r.spark_hit = spr_spark_bash;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -271,10 +377,50 @@ switch(SV_type){
 			SV_r.desc = "Inflicts ailments on a target. Easier to use at higher ranks, but susceptible to elemental resistances.";
 			SV_r.icon = spr_icon_csc;
 			SV_r.price *= 1;
+			SV_r.enCost *= 2;
+			SV_r.cdAdd *= 6;
+			SV_r.pwr *= 0;
+			SV_r.acc *= .9;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_SATK;
+			SV_r.defScale = CHAR_VAR_SDEF;
+			SV_r.spark_hit = spr_spark_pierce;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
 			}
+			
+			var SV_sa = CHAR_SA_BRN;
+			
+			switch SV_ele{
+				case CHAR_VAR_ELE_FIR:
+					SV_sa = CHAR_SA_BRN;
+					break;
+					
+				case CHAR_VAR_ELE_ICE:
+					SV_sa = CHAR_SA_SLW;
+					break;
+					
+				case CHAR_VAR_ELE_NAT:
+					SV_sa = CHAR_SA_SLC;
+					break;
+					
+				case CHAR_VAR_ELE_ELC:
+					SV_sa = CHAR_SA_PAR;
+					break;
+					
+				case CHAR_VAR_ELE_DRK:
+					SV_sa = CHAR_SA_PSN;
+					break;
+					
+				case CHAR_VAR_ELE_LGT:
+					SV_sa = CHAR_SA_BLD;
+					break;
+			}
+			
+			SV_r.sa_chance[| SV_sa] = 1;
+			SV_r.sa_inflict[| SV_sa] = 10;
 			
 			break;
 			
@@ -300,24 +446,41 @@ switch(SV_type){
 		case WTAG_TYPE_SSC_CURE:
 			SV_r.tgtEnemy = false;
 			SV_r.name = "PURA";
-			SV_r.desc = "Cure an ally of ailments. Becomes easier to use at higher ranks.";
+			SV_r.desc = "Cure an ally of ailments. Recovery time improves with rank.";
 			SV_r.icon = spr_icon_cure;
 			SV_r.price *= 1.5;
 			SV_ele = "";
+			SV_r.enCost *= 5;
+			SV_r.cdAdd *= 10;
+			SV_r.pwr *= 0;
 			SV_r.acc = 999;
-			SV_r.spark_hit = spr_spark_dot;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_SATK;
+			SV_r.defScale = CHAR_VAR_SDEF;
+			SV_r.spark_start = spr_spark_dot;
+			SV_r.effect_start = obj_handler_actEffect_cure;
+			SV_r.nonAttack = true;
 			
 			break;
 			
 		case WTAG_TYPE_SSC_RAISE:
 			SV_r.tgtEnemy = false;
 			SV_r.name = "VYRA";
-			SV_r.desc = "Revive a fallen ally. Recovery time and health restored improves with rank.";
+			SV_r.desc = "Revive a fallen ally. Recovery time improves with rank.";
 			SV_r.icon = spr_icon_raise;
 			SV_r.price *= 5;
 			SV_ele = "";
+			SV_r.enCost *= 20;
+			SV_r.cdAdd *= 20;
+			SV_r.pwr *= .5;
 			SV_r.acc = 999;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_SATK;
+			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_dot;
+			SV_r.revive = true;
 			
 			break;
 			

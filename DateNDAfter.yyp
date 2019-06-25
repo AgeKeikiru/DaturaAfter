@@ -1791,6 +1791,14 @@
             }
         },
         {
+            "Key": "c8f5b00d-da10-4777-acad-a5a9b608544c",
+            "Value": {
+                "id": "a39b2df6-06a2-4856-9560-9f6b38910ea0",
+                "resourcePath": "objects\\obj_handler_actEffect_cure\\obj_handler_actEffect_cure.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c92409ef-6774-4d8b-9d11-04baa7d363eb",
             "Value": {
                 "id": "0116f6c1-22ef-4b2a-94f2-6b2cba51d6cc",

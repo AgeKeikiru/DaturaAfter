@@ -9,7 +9,11 @@ if(hitLoopRemaining == hitCount){
 }
 
 if(!nonAttack){
-	for(var _i = 0;_i < ds_list_size(dc_tgt);_i++){
+	for(var _i = 0;_i < (tgtType == ACT_TGT_RANDOM ? 1 : ds_list_size(dc_tgt));_i++){
+		if(tgtType == ACT_TGT_RANDOM){
+			_i = hitLoopRemaining + -1;
+		}
+		
 		repeat(hitSimul){
 			var
 			_aimCheck = (random(1) + dc_aim[| _i]) * 100,
