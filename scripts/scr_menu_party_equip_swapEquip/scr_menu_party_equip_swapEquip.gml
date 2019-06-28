@@ -11,8 +11,8 @@ if(object_index == obj_handler_menu_parent){
     switch(SV_menu.link_panel.txt[0]){
         
         case "party/equip/act/..":
-            if(SV_menu.menu_y < ds_list_size(global.lst_inv_acts)){
-                G_tmp = global.lst_inv_acts[| SV_menu.menu_y];
+            if(SV_menu.menu_y < ds_grid_height(SV_menu.grd_equipSrc) + -2){
+                G_tmp = SV_menu.grd_equipSrc[# SV_menu.menu_x,SV_menu.menu_y];
                 
                 //ds_list_delete(global.lst_inv_acts,SV_menu.menu_y);
             }
@@ -43,7 +43,7 @@ if(object_index == obj_handler_menu_parent){
     var
     SV_menu = ds_stack_top(global.stk_menu),
     SV_memX = global.lst_activePartySlots[| SV_menu.menu_x],
-    SV_mem = global.grd_party_player[# SV_memX,0],
+    SV_mem = global.grd_party_player[# SV_memX % 3,SV_memX > 2],
     SV_y = SV_menu.menu_y;
     
     scr_trace(SV_y);
@@ -97,7 +97,17 @@ if(object_index == obj_handler_menu_parent){
         var SV_cls = SV_mem.src[? "char_var_cls" + string(SV_y + -10)];
         
         if(instance_exists(SV_cls)){
-            //ds_list_add(global.lst_inv_classes,SV_cls);
+            for(var SV_i = 0;SV_i < 8;SV_i++){
+                var SV_act = SV_mem.src[? "char_var_hb" + string(SV_i)];
+                
+                if(scr_exists(SV_act,asset_object) && ds_grid_value_exists(SV_cls.grd_skillAct,0,0,ds_grid_width(SV_cls.grd_skillAct) + -1,ds_grid_height(SV_cls.grd_skillAct) + -1,SV_act)){
+                    SV_act.src = noone;
+                    SV_mem.src[? "char_var_hb" + string(SV_i)] = noone;
+                    SV_menu.grd_txt[# SV_menu.menu_x,SV_i] = "ACT" + string(SV_i) + ": -none-";
+    	            SV_menu.grd_desc[# SV_menu.menu_x,SV_i] = "Nothing equipped.";
+                }
+            }
+            
             SV_cls.src = noone;
         }
         

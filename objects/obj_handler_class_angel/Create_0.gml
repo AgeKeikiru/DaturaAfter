@@ -3,15 +3,19 @@
 
 event_inherited();
 
-/*
-main skill
-Blinding Light
-all attacks have a Lv*0.5% chance to blind
-*/
-
 name = "Angel";
 desc = "Soldiers equipped with specialized armor originally built to combat an alien threat. A multirole class, Angels use the power of light to support allies as well as crush foes.";
 cName = "ANGE_" + string(global.cid++);
+
+ms_name = "Blinding Light";
+ms_desc = "All attacks have a Lv*0.5% chance to Blind.";
+//ms_icon
+
+ss_name = "SPD+ (s)";
+ss_desc = "Slightly increase base Speed.";
+//ss_icon
+ss_toolTip = "SPD: +!";
+ss_rate = .5;
 
 stat_t2_base = 10000;
 stat_t2_rate = stat_t2_base * -.1;
@@ -57,7 +61,7 @@ stat_desynch_rate = -.15;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Angelite";
-    grd_skillDesc[# _ix,_iy] = "Stance Act. Collect holy energy during battle to use special skills.";
+    grd_skillDesc[# _ix,_iy] = "[Stance Act] Collect holy energy during battle to use special skills.";
     grd_skillTooltip[# _ix,_iy] = "Max Angelite: !";
     grd_skillRate[# _ix,_iy] = 1;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_angelite);
@@ -65,7 +69,7 @@ stat_desynch_rate = -.15;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Angelic Dash";
-    grd_skillDesc[# _ix,_iy] = "1 Angelite. Reset all active cooldowns.";
+    grd_skillDesc[# _ix,_iy] = "[1 Angelite] Reset all active cooldowns.";
     grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_aDash);
 
@@ -77,7 +81,7 @@ stat_desynch_rate = -.15;
     _iy = 0;
 
     grd_skillName[# _ix,_iy] = "Angelic Blessing";
-    grd_skillDesc[# _ix,_iy] = "3 Angelite. Fully restore all allies' EN and briefly boost their stats.";
+    grd_skillDesc[# _ix,_iy] = "[3 Angelite] Fully restore all allies' EN and briefly boost their stats.";
     grd_skillTooltip[# _ix,_iy] = "Duration: ! sec";
     grd_skillRate[# _ix,_iy] = 3;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_aBlessing);
@@ -92,7 +96,7 @@ stat_desynch_rate = -.15;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Angelic Smite";
-    grd_skillDesc[# _ix,_iy] = "2 Angelite. Stun all enemies and briefly reduce their Speed.";
+    grd_skillDesc[# _ix,_iy] = "[2 Angelite] Stun all enemies and briefly reduce their Speed.";
     grd_skillTooltip[# _ix,_iy] = "Duration: ! sec";
     grd_skillRate[# _ix,_iy] = 3;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_aSmite);
@@ -105,7 +109,7 @@ stat_desynch_rate = -.15;
     _iy = 0;
 
     grd_skillName[# _ix,_iy] = "Desynch";
-    grd_skillDesc[# _ix,_iy] = "X Act - only usable when Angelite is full. Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
+    grd_skillDesc[# _ix,_iy] = "[X Act] Only usable when Angelite is full - Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
     grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_desynch);
     
@@ -119,7 +123,7 @@ stat_desynch_rate = -.15;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Heaven's Rend";
-    grd_skillDesc[# _ix,_iy] = "5 Angelite. Deal damage to each enemy equal to half their remaining HP (up to a maximum value) and inflict a long lasting Blind.";
+    grd_skillDesc[# _ix,_iy] = "[5 Angelite] Deal damage to each enemy equal to half their remaining HP (up to a maximum value) and inflict a long lasting Blind.";
     grd_skillTooltip[# _ix,_iy] = "Maximum Damage: !";
     grd_skillRate[# _ix,_iy] = 1000;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_hRend);

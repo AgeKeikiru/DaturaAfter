@@ -27,12 +27,12 @@ with SV_m{
     	var
     	SV_i2 = 0, //menu y
     	SV_memX = global.lst_activePartySlots[| SV_i],
-    	SV_mem = global.grd_party_player[# SV_memX,0];
+    	SV_mem = global.grd_party_player[# SV_memX % 3,SV_memX > 2];
     	
     	repeat(8){
         	grd_txt[# SV_i,SV_i2] = "ACT" + string(SV_i2) + ": ";
         	grd_desc[# SV_i,SV_i2] = "Nothing equipped.";
-        	grd_descLabel[# SV_i,SV_i2] = "Act Chip";
+        	grd_descLabel[# SV_i,SV_i2] = "Act Slot";
         	grd_scr[# SV_i,SV_i2] = scr_menu_party_equip_changeAct;
         	
         	var SV_obj = SV_mem.act[SV_i2];
@@ -50,7 +50,7 @@ with SV_m{
     	repeat(2){
         	grd_txt[# SV_i,SV_i2] = "ARM" + string(SV_i2 + -8) + ": ";
         	grd_desc[# SV_i,SV_i2] = "Nothing equipped.";
-        	grd_descLabel[# SV_i,SV_i2] = "Armor Chip";
+        	grd_descLabel[# SV_i,SV_i2] = "Armor Slot";
         	grd_scr[# SV_i,SV_i2] = scr_menu_party_equip_changeArm;
         	
         	var SV_obj = SV_mem.src[? "char_var_arm" + string(SV_i2 + -8)];
@@ -68,7 +68,7 @@ with SV_m{
     	repeat(1){
         	grd_txt[# SV_i,SV_i2] = "CLS" + string(SV_i2 + -10) + ": ";
         	grd_desc[# SV_i,SV_i2] = "Nothing equipped.";
-        	grd_descLabel[# SV_i,SV_i2] = "Class Chip";
+        	grd_descLabel[# SV_i,SV_i2] = "Class Slot";
         	grd_scr[# SV_i,SV_i2] = scr_menu_party_equip_changeClass;
         	
         	var SV_obj = SV_mem.class[SV_i2 + -10];

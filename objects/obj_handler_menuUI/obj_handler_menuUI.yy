@@ -341,6 +341,34 @@
             "varType": 0
         },
         {
+            "id": "e080b61d-d3fb-4262-9f28-b29997b24026",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "ps_portStatus",
+            "varType": 4
+        },
+        {
+            "id": "a380f543-07af-497a-a954-5d5e2c664d07",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "ps_actSelected",
+            "varType": 0
+        },
+        {
             "id": "2c0165cc-ca11-47c9-87bb-ac29d6df845b",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -383,7 +411,7 @@
             "varType": 4
         },
         {
-            "id": "e080b61d-d3fb-4262-9f28-b29997b24026",
+            "id": "767eca9a-f8b0-4c4d-80fd-434ff5f8c80d",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,
@@ -392,9 +420,23 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "noone",
-            "varName": "ps_portStatus",
-            "varType": 4
+            "value": "0",
+            "varName": "highlight_x",
+            "varType": 0
+        },
+        {
+            "id": "3081f415-ba83-43d8-9df4-e45019ac1abf",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "highlight_y",
+            "varType": 0
         }
     ],
     "solid": false,

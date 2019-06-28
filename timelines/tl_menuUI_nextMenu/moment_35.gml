@@ -15,6 +15,9 @@ switch(menuNext){
 	case 2: //market
 		layer_background_sprite(global.ly_bg[0],bg_shop);
 		break;
+	case 3: //chip lab
+		layer_background_sprite(global.ly_bg[0],bg_lab);
+		break;
 	default: //home
 		layer_background_sprite(global.ly_bg[0],bg_city);
 		break;

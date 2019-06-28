@@ -1,5 +1,7 @@
 ///@arg *refreshNextWindow
 
+io_clear();
+
 var SV_ui = instance_find(obj_handler_menuUI,0);
 
 if(ds_stack_size(global.stk_menu) > 1 || (instance_exists(SV_ui) && SV_ui.ps_baseMenuIndex >= 0)){	

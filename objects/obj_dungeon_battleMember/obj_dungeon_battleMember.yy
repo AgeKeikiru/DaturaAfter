@@ -821,6 +821,34 @@
             "value": "0",
             "varName": "iFrames",
             "varType": 0
+        },
+        {
+            "id": "acc9ce87-f75a-41f4-b053-135a73af21bf",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1",
+            "varName": "hpBarOver",
+            "varType": 0
+        },
+        {
+            "id": "793f1fe4-6c36-41f2-91e0-c6a615269f0f",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "1",
+            "varName": "hpBarUnder",
+            "varType": 0
         }
     ],
     "solid": false,

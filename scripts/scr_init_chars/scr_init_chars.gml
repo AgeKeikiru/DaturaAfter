@@ -126,11 +126,11 @@ SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_paprika_neutral;
 SV_map[? CHAR_VAR_ABDO_X] = -150;
 SV_map[? CHAR_VAR_ABDO_Y] = 180;
 SV_map[? CHAR_VAR_PSDO_ACT_X] = 115;
-SV_map[? CHAR_VAR_PSDO_ACT_Y] = -270;
-SV_map[? CHAR_VAR_PSDO_ARM_X] = -130;
-SV_map[? CHAR_VAR_PSDO_ARM_Y] = -110;
-SV_map[? CHAR_VAR_PSDO_CLS_X] = 1;
-SV_map[? CHAR_VAR_PSDO_CLS_Y] = -60;
+SV_map[? CHAR_VAR_PSDO_ACT_Y] = -250;
+SV_map[? CHAR_VAR_PSDO_ARM_X] = -70;
+SV_map[? CHAR_VAR_PSDO_ARM_Y] = -140;
+SV_map[? CHAR_VAR_PSDO_CLS_X] = 20;
+SV_map[? CHAR_VAR_PSDO_CLS_Y] = -90;
 SV_map[? CHAR_VAR_UCLASS] = instance_create_depth(0,0,0,obj_handler_class_uPaprika);
 
 SV_map = scr_data_char_new(CHAR_SLIME);

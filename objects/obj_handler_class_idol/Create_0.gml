@@ -3,15 +3,19 @@
 
 event_inherited();
 
-/*
-main skill
-Stage Presence+
-increase time before hype begins to fall by Lv*0.02sec
-*/
-
 name = "Idol";
 desc = "Charismatic performers that make a show out of every battle. Focused on support, Idols use flashy techniques and hype to boost the abilities of their allies.";
 cName = "IDOL_" + string(global.cid++);
+
+ms_name = "Stage Presence+";
+ms_desc = "Increase time before Hype begins to fall by Lv*0.02 seconds.";
+//ms_icon
+
+ss_name = "ACC+ (s)";
+ss_desc = "Slightly increase base Accuracy.";
+//ss_icon
+ss_toolTip = "ACC: +!";
+ss_rate = .5;
 
 stat_pup_base = 5;
 stat_pup_rate = 1;
@@ -65,7 +69,7 @@ stat_gf_rate = -.1;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Hype Boost Teamwork";
+    grd_skillName[# _ix,_iy] = "Hype-Boost Teamwork";
     grd_skillDesc[# _ix,_iy] = "Increase Hype gain when attacking alongside an ally.";
     grd_skillTooltip[# _ix,_iy] = "Gain: +!%";
     grd_skillRate[# _ix,_iy] = .2;
@@ -92,7 +96,7 @@ stat_gf_rate = -.1;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Hype Boost Adrenaline";
+    grd_skillName[# _ix,_iy] = "Hype-Boost Adrenaline";
     grd_skillDesc[# _ix,_iy] = "Slowly gain Hype while HP is below a certain amount.";
     grd_skillTooltip[# _ix,_iy] = "HP Threshold: !%";
     grd_skillRate[# _ix,_iy] = .12;

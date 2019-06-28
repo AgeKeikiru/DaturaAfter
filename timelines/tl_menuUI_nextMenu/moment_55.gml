@@ -11,6 +11,10 @@ switch(menuNext){
 		scr_menu_nextMenu_market();
 		
 		break;
+	case 3: //chip lab
+		scr_menu_nextMenu_lab();
+		
+		break;
 	default:
 		scr_menu_nextMenu_home();
 		

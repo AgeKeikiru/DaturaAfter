@@ -519,13 +519,22 @@ if(!state_event && !state_results){
 				draw_rectangle(_drawX,_drawY,_drawX + _drawW,_drawY + _drawH,false);
 				
 				if(_mem != noone){
+					var _hpRatio = clamp(_mem.hpCurr / _mem.hpMax,0,1);
+					
+					_mem.hpBarOver = min(_hpRatio,ktk_scr_tween(_mem.hpBarOver,_hpRatio,1,0.007));
+					_mem.hpBarUnder = max(_hpRatio,ktk_scr_tween(_mem.hpBarUnder,_hpRatio,1,0.007));
+					
 					draw_set_color(_uiCol[1]);
 				
 					draw_rectangle(_drawX + _barBS,_drawY,_drawX + _drawW,_drawY + _drawH + -_barBB,false);
 					
+					draw_set_color(_mem.hpBarOver == _hpRatio ? c_red : c_white);
+					
+					draw_rectangle(_drawX + _barBS,_drawY,_drawX + _barBS + ((_drawW + -_barBS) * _mem.hpBarUnder),_drawY + _drawH + -_barBB,false);
+					
 					draw_set_color(CC_HPGREEN);
 				
-					draw_rectangle(_drawX + _barBS,_drawY,_drawX + _barBS + ((_drawW + -_barBS) * (_mem.hpCurr / _mem.hpMax)),_drawY + _drawH + -_barBB,false);
+					draw_rectangle(_drawX + _barBS,_drawY,_drawX + _barBS + ((_drawW + -_barBS) * _mem.hpBarOver),_drawY + _drawH + -_barBB,false);
 				
 					draw_set_color(_uiCol[1]);
 					draw_set_halign(fa_left);

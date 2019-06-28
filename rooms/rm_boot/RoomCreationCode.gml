@@ -59,7 +59,16 @@ room_speed = 60;
 	global.lst_shop_acts = ds_list_create();
 	global.lst_shop_arms = ds_list_create();
 	global.lst_shop_items = ds_list_create();
+	global.lst_shop_classes = ds_list_create();
 	scr_refreshShopList();
+	
+	ds_list_add(global.lst_shop_classes,
+		instance_create_depth(0,0,0,obj_handler_class_evoker),
+		instance_create_depth(0,0,0,obj_handler_class_angel),
+		instance_create_depth(0,0,0,obj_handler_class_chef),
+		instance_create_depth(0,0,0,obj_handler_class_razer),
+		instance_create_depth(0,0,0,obj_handler_class_idol)
+	); global.cid += -5;
 
 #endregion
 
@@ -106,6 +115,8 @@ room_speed = 60;
 
 #region //testing
 
+	global.heldGold = 10000;
+
 	ds_list_add(global.lst_inv_classes,
 		instance_create_depth(0,0,0,obj_handler_class_evoker),
 		instance_create_depth(0,0,0,obj_handler_class_angel),
@@ -114,23 +125,29 @@ room_speed = 60;
 		instance_create_depth(0,0,0,obj_handler_class_idol)
 	);
 	
+	with global.lst_inv_classes[| 3]{
+		grd_skills[# 1,0] = 1;
+		
+		scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);
+	}
+	
 	//party slot 1
 	var _temp = instance_create_depth(640 + -380,650,0,obj_dungeon_battleMember);
 	_temp.src = scr_data_getMap(global.grd_chars,CHAR_IMOLEI);
-	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_SSC_CURE);
-	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_SHG,CHAR_VAR_ELE_ICE);
+	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_SWD);
+	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_ICE);
 	//_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_idol_hype,0);
 	//_temp.src[? CHAR_VAR_HB3] = instance_find(obj_handler_act_idol_hPickup,0);
 	//_temp.src[? CHAR_VAR_HB4] = instance_find(obj_handler_act_chef_food,1);
 	//_temp.src[? CHAR_VAR_HB5] = instance_find(obj_handler_act_chef_food,2);
 	//_temp.src[? CHAR_VAR_HB6] = instance_find(obj_handler_act_chef_food,5);
 	//_temp.src[? CHAR_VAR_HB7] = instance_find(obj_handler_act_chef_tasteTest,0);
-	_temp.src[? CHAR_VAR_CLS0] = instance_find(obj_handler_class_evoker,0);
+	_temp.src[? CHAR_VAR_CLS0] = global.lst_inv_classes[| 0];
 	_temp.src[? CHAR_VAR_CLS0].src = _temp;
 	global.grd_party_player[# 0,0] = _temp;
 	
 	with _temp.src[? CHAR_VAR_CLS0]{
-		//ds_grid_set_region(grd_skills,0,0,3,2,5);
+		ds_grid_set_region(grd_skills,0,0,3,2,5);
 		
 		//grd_skills[# 0,1] = 1;
 		//grd_skills[# 2,1] = 5;
@@ -148,15 +165,15 @@ room_speed = 60;
 	//party slot 2
 	_temp = instance_create_depth(640,650,0,obj_dungeon_battleMember);
 	_temp.src = scr_data_getMap(global.grd_chars,CHAR_AILE);
-	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_LMG,CHAR_VAR_ELE_ELC);
-	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_RPG);
-	_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_idol_hype,0);
-	_temp.src[? CHAR_VAR_HB3] = instance_find(obj_handler_act_idol_hPickup,0);
+	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_HGN,CHAR_VAR_ELE_ELC);
+	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_SSC_HEAL);
+	//_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_idol_hype,0);
+	//_temp.src[? CHAR_VAR_HB3] = instance_find(obj_handler_act_idol_hPickup,0);
 	//_temp.src[? CHAR_VAR_HB4] = instance_find(obj_handler_act_ange_aSmite,0);
 	//_temp.src[? CHAR_VAR_HB5] = instance_find(obj_handler_act_chef_food,2);
 	//_temp.src[? CHAR_VAR_HB6] = instance_find(obj_handler_act_chef_food,5);
 	//_temp.src[? CHAR_VAR_HB7] = instance_find(obj_handler_act_chef_tasteTest,0);
-	_temp.src[? CHAR_VAR_CLS0] = instance_find(obj_handler_class_idol,0);
+	_temp.src[? CHAR_VAR_CLS0] = global.lst_inv_classes[| 1];
 	_temp.src[? CHAR_VAR_CLS0].src = _temp;
 	global.grd_party_player[# 1,0] = _temp;
 	
@@ -178,16 +195,16 @@ room_speed = 60;
 	//party slot 3
 	_temp = instance_create_depth(640 + 380,650,0,obj_dungeon_battleMember);
 	_temp.src = scr_data_getMap(global.grd_chars,CHAR_PAPRIKA);
-	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_SSC_RAISE);
-	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_CSC);
+	_temp.src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_PAN);
+	_temp.src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_SHD_FLS);
 	//_temp.src[? CHAR_VAR_HB2] = instance_find(obj_handler_act_chef_messKit,0);
 	//_temp.src[? CHAR_VAR_HB3] = instance_find(obj_handler_act_chef_food,0);
 	//_temp.src[? CHAR_VAR_HB4] = instance_find(obj_handler_act_chef_food,1);
 	//_temp.src[? CHAR_VAR_HB5] = instance_find(obj_handler_act_chef_food,2);
 	//_temp.src[? CHAR_VAR_HB6] = instance_find(obj_handler_act_chef_food,5);
 	//_temp.src[? CHAR_VAR_HB7] = instance_find(obj_handler_act_chef_food,3);
-	//_temp.src[? CHAR_VAR_CLS0] = instance_find(obj_handler_class_chef,0);
-	//_temp.src[? CHAR_VAR_CLS0].src = _temp;
+	_temp.src[? CHAR_VAR_CLS0] = global.lst_inv_classes[| 2];
+	_temp.src[? CHAR_VAR_CLS0].src = _temp;
 	global.grd_party_player[# 2,0] = _temp;
 	
 	with _temp.src[? CHAR_VAR_CLS0]{
@@ -221,35 +238,36 @@ room_speed = 60;
 
 #endregion
 
-//room_goto(rm_home);
-
-
-room_goto(rm_dungeon);
-scr_roomSetup();
-global.missionCurr = MSN_DEBUG;
-
-instance_create_depth(0,0,0,obj_handler_dungeon);
-
-//global.grd_party_player[# 1,0].ailment[CHAR_SA_SLW] = 9999;
-//global.grd_party_player[# 1,0].ailment[CHAR_SA_SLC] = 9999;
-//global.grd_party_player[# 1,0].ailment[CHAR_SA_BRN] = 9999;
-//global.grd_party_player[# 1,0].ailment[CHAR_SA_BLD] = 9999;
-//global.grd_party_player[# 1,0].ailment[CHAR_SA_PSN] = 9999;
-//global.grd_party_player[# 1,0].ailment[CHAR_SA_PAR] = 9999;
-
-scr_cEvent(global.grd_party_player[# 0,0],EVENT_BATTLM_ICONREFRESH);
-scr_cEvent(global.grd_party_player[# 1,0],EVENT_BATTLM_ICONREFRESH);
-
-with obj_handler_dungeon{
-	grd_mobPool[# 0,0] = noone;
-	grd_mobPool[# 0,2] = noone;
+if(true){
+	room_goto(rm_home);
+}else{
+	room_goto(rm_dungeon);
+	scr_roomSetup();
+	global.missionCurr = MSN_DEBUG;
 	
-    grd_mobPool[# 0,0] = CHAR_SLIME;
-    grd_mobPool[# 0,1] = CHAR_SLIME;
-    grd_mobPool[# 0,2] = CHAR_SLIME;
+	instance_create_depth(0,0,0,obj_handler_dungeon);
+	
+	//global.grd_party_player[# 1,0].ailment[CHAR_SA_SLW] = 9999;
+	//global.grd_party_player[# 1,0].ailment[CHAR_SA_SLC] = 9999;
+	//global.grd_party_player[# 1,0].ailment[CHAR_SA_BRN] = 9999;
+	//global.grd_party_player[# 1,0].ailment[CHAR_SA_BLD] = 9999;
+	//global.grd_party_player[# 1,0].ailment[CHAR_SA_PSN] = 9999;
+	//global.grd_party_player[# 1,0].ailment[CHAR_SA_PAR] = 9999;
+	
+	scr_cEvent(global.grd_party_player[# 0,0],EVENT_BATTLM_ICONREFRESH);
+	scr_cEvent(global.grd_party_player[# 1,0],EVENT_BATTLM_ICONREFRESH);
+	
+	with obj_handler_dungeon{
+		grd_mobPool[# 0,0] = noone;
+		grd_mobPool[# 0,2] = noone;
+		
+	    grd_mobPool[# 0,0] = CHAR_SLIME;
+	    grd_mobPool[# 0,1] = CHAR_SLIME;
+	    grd_mobPool[# 0,2] = CHAR_SLIME;
+	}
+	
+	//global.grd_party_player[# 0,0].iFrames = room_speed * 10;
+	
+	scr_cEvent(obj_handler_dungeon,EVENT_DND_ENCOUNTER_FIXED);
 }
-
-//global.grd_party_player[# 0,0].iFrames = room_speed * 10;
-
-scr_cEvent(obj_handler_dungeon,EVENT_DND_ENCOUNTER_FIXED);
 /**/

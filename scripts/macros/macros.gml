@@ -450,6 +450,7 @@
 	
 	#macro EVENT_CLASS_BASESTATADD "event_class_baseStatAdd" //called during battlm_init
 	#macro EVENT_CLASS_SKILLREFRESH "event_class_skillRefresh"
+	#macro EVENT_CLASS_FETCHTOOLTIP "event_class_fetchToolTip"
 	
 	#macro EVENT_EVOK_RBRANDCHECK "event_evok_rBrandCheck"
 	

@@ -35,7 +35,7 @@ with SV_m{
 	grd_txt[# 0,SV_i] = "Chip Lab";
 	grd_desc[# 0,SV_i] = "Upgrade Class, Weapon, and Armor Chips.";
 	grd_descLabel[# 0,SV_i] = "R&D Counter";
-	grd_scr[# 0,SV_i] = noone;
+	grd_scr[# 0,SV_i] = scr_menu_nextMenu;
 	
 	SV_i++;
 	

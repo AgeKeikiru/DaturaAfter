@@ -3,15 +3,19 @@
 
 event_inherited();
 
-/*
-main skill
-Vengeance
-increase damage dealt when HP is below (30 + Lv*0.5)%
-*/
-
 name = "Razer";
 desc = "Brazen warriors that see violence as its own reward. Dealing in raw damage, Razers often suffer recoil while pushing themselves to the limit to get the edge in combat.";
 cName = "RAZE_" + string(global.cid++);
+
+ms_name = "Vengeance";
+ms_desc = "Increase damage dealt when HP is below (30 + Lv*0.5)%.";
+//ms_icon
+
+ss_name = "HP+ (s)";
+ss_desc = "Slightly increase base HP.";
+//ss_icon
+ss_toolTip = "HP: +!";
+ss_rate = 10;
 
 stat_kc_base = .45;
 stat_kc_rate = .05;
@@ -92,7 +96,7 @@ stat_bl_rate = 5;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Adapt Dodge";
-    grd_skillDesc[# _ix,_iy] = "Stance Act - increase Evasion gradually over time, resets on dodge.";
+    grd_skillDesc[# _ix,_iy] = "[Stance Act] Increase Evasion gradually over time, resets on dodge.";
     grd_skillTooltip[# _ix,_iy] = "Max Boost: +!%";
     grd_skillRate[# _ix,_iy] = .4;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_aDodge);
@@ -119,7 +123,7 @@ stat_bl_rate = 5;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Bloodlust";
-    grd_skillDesc[# _ix,_iy] = "Stance Act - slowly drain the user's HP to gain a damage buff that increases as damage is dealt. Effect ends at 20% HP.";
+    grd_skillDesc[# _ix,_iy] = "[Stance Act] Slowly drain the user's HP to gain a damage buff that increases as damage is dealt. Effect ends at 20% HP.";
     grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec\nMax Boost: +@%";
     grd_skillRate[# _ix,_iy] = .2;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_bLust);
@@ -127,7 +131,7 @@ stat_bl_rate = 5;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Recompense Cross";
-    grd_skillDesc[# _ix,_iy] = "X Act - charges by taking damage. Deal severe Melee damage to all enemies, slight chance of Instakill but leaves the user exhausted.";
+    grd_skillDesc[# _ix,_iy] = "[X Act] Charges by taking damage - Deal severe Melee damage to all enemies, slight chance of Instakill but leaves the user exhausted.";
     grd_skillTooltip[# _ix,_iy] = "IK Chance: !%";
     grd_skillRate[# _ix,_iy] = .02;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_rCross);
