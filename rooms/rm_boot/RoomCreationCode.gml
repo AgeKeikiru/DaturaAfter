@@ -115,7 +115,7 @@ room_speed = 60;
 
 #region //testing
 
-	global.heldGold = 10000;
+	global.heldGold = 20000;
 
 	ds_list_add(global.lst_inv_classes,
 		instance_create_depth(0,0,0,obj_handler_class_evoker),

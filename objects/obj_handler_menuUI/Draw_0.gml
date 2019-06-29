@@ -30,6 +30,226 @@ var _m = ds_stack_top(global.stk_menu);
 
 #endregion
 
+#region //shop screen
+
+	if(txt_title == "MARKET" || txt_title == "CHIP LAB"){
+		var
+		_h_x = 250,
+		_h_y1 = 80,
+		_h_y2 = _h_y1 + 40,
+		_h_c = color_get_value(c_ltgray);
+		
+		gpu_set_blendmode(bm_subtract);
+		draw_set_color(make_color_hsv(0,0,_h_c * transCurr));
+		draw_set_alpha(transCurr);
+		
+		draw_rectangle(room_width,_h_y1,room_width + -_h_x,_h_y2,false);
+		draw_rectangle_color(room_width + -_h_x,_h_y1,room_width + -(_h_x * 1.5),_h_y2,c_black,draw_get_colour(),draw_get_colour(),c_black,false);
+		
+		gpu_set_blendmode(bm_add);
+		draw_set_color(make_color_hsv(0,0,255 * transCurr));
+		
+		draw_line_width(room_width,_h_y2,room_width + -_h_x,_h_y2,2);
+		draw_line_width_color(room_width + -_h_x,_h_y2,room_width + -(_h_x * 1.5),_h_y2,2,draw_get_colour(),c_black);
+		
+		gpu_set_blendmode(bm_normal);
+		draw_set_font(ft_dungeonBoldLarge);
+		draw_set_halign(fa_right);
+		draw_set_valign(fa_top);
+		
+		ktk_scr_draw_text_shadow(room_width + -40,_h_y1 + 8,string(global.heldGold) + "g",c_white,c_gray,2);
+	}
+	
+	draw_set_color(c_white);
+	draw_set_alpha(1);
+
+#endregion
+
+#region //class upgrade screen
+
+	if(
+		scr_exists(_m,asset_object)
+		&& (
+			_m.link_panel.txt[0] == "menu/lab/class1/upgrade/.."
+			|| _m.link_panel.txt[0] == "menu/lab/class1/upgrade/confirm/.."
+		)
+		&& variable_global_exists("labObj")
+		&& scr_exists(global.labObj,asset_object)
+	){
+		var
+		_d_xStart = 190,
+		_d_yStart = 360,
+		_d_x = _d_xStart,
+		_d_y = _d_yStart,
+		_d_xGap = 180,
+		_d_yGap = 80,
+		_d_b = 10,
+		_d_tx1 = 0,
+		_d_ty1 = 20,
+		_d_tx2 = 30,
+		_d_ty2 = 0,
+		_d_tx3 = 30,
+		_d_ty3 = 40,
+		_d_a = _m.link_panel.txt[0] == "menu/lab/class1/upgrade/.." ? (_m.link_panel.image_xscale / _m.link_panel.tgt_xScale) : 1,
+		_d_hx = 50,
+		_d_hy = 120,
+		_d_hy2 = _d_hy + 42,
+		_d_hw = 280,
+		_d_hh = 160,
+		_ix = 0,
+		_iy = 0,
+		_str = "";
+		
+		if(highlight_x == 0){
+			highlight_x = _d_xStart;
+			highlight_y = _d_yStart;
+		}
+		
+		if(_m.link_panel.txt[0] == "menu/lab/class1/upgrade/.."){
+			highlight_x = ktk_scr_tween(highlight_x,_d_xStart + (_d_xGap * _m.menu_x),2,-1);
+			highlight_y = ktk_scr_tween(highlight_y,_d_yStart + (_d_yGap * _m.menu_y),2,-1);
+		}
+		
+		gpu_set_blendmode(bm_subtract);
+		draw_set_color(c_ltgray);
+		
+		draw_rectangle(0,_d_hy,_d_hw,_d_hy + _d_hh,false);
+		draw_rectangle_color(_d_hw + 1,_d_hy,_d_hw + 200,_d_hy + _d_hh,c_ltgray,c_black,c_black,c_ltgray,false);
+		
+		gpu_set_blendmode(bm_add);
+		draw_set_color(c_white);
+		
+		draw_line_width(0,_d_hy2,_d_hw,_d_hy2,2);
+		draw_line_width_color(_d_hw,_d_hy2,_d_hw + 200,_d_hy2,2,c_white,c_black);
+		
+		gpu_set_blendmode(bm_normal);
+		draw_set_alpha(1 * _d_a);
+		draw_set_font(ft_dungeonBoldLarge);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		_str = global.labObj.name;
+		
+		ktk_scr_draw_text_shadow(_d_hx,_d_hy + 10,_str,c_white,c_gray,3);
+		
+		var _skills = 0;
+							
+		for(var _xx = 0;_xx < ds_grid_width(global.labObj.grd_skills);_xx++){
+			for(var _yy = 0;_yy < ds_grid_height(global.labObj.grd_skills);_yy++){
+				_skills += sign(global.labObj.grd_skills[# _xx,_yy]);
+			}
+		}
+		
+		draw_set_font(ft_dungeonBold);
+		_str = "lv." + string(global.labObj.level) + "/30\n"
+		+ "\n\"" + global.labObj.cName + "\""
+		+ "\nSkills: " + string(_skills)
+		+ "\nNext Level: " + string(scr_calcLevelupCost(global.labObj)) + "g";
+		
+		ktk_scr_draw_text_shadow(_d_hx,_d_hy + 55,_str,c_white,c_gray,2);
+		
+		draw_set_font(ft_dungeonBold);
+		draw_set_halign(fa_center);
+		
+		for(var _i = 0;_i < ds_grid_width(global.labObj.grd_skills) + 1;_i++){
+			var
+			_r = 25,
+			_x1 = _d_xStart + (_d_xGap * _i) + -_d_b,
+			_y1 = _d_yStart + -0 + -_r,
+			_x2 = _x1 + _d_xGap + -(_d_b * 2),
+			_y2 = _y1 + (_d_yGap * 3) + -30 + (_r * 2);
+			
+			draw_set_alpha(.9 * _d_a);
+			draw_set_color(c_dkgray);
+			
+			draw_roundrect_ext(_x1,_y1,_x2,_y2,_r,_r,false);
+			
+			draw_set_alpha(1 * _d_a);
+			draw_set_color(c_white);
+			
+			for(var _s = 0;_s < 2;_s += .5){
+				draw_roundrect_ext(_x1 + -_s,_y1 + -_s,_x2 + _s,_y2 + _s,_r,_r,true);
+			}
+			
+			if(_i > 1){
+				_str = "Lv." + string((_i + -1) * 5);
+				
+				ktk_scr_draw_text_stroke(mean(_x1,_x2),_y1 + -6,_str,c_dkgray,c_white,2,10);
+			}
+		}
+		
+		draw_set_color(c_gray);
+		draw_set_halign(fa_left);
+		draw_set_font(ft_menuSub);
+		
+		draw_rectangle(highlight_x + 1 + -_d_b,highlight_y + -_d_b,highlight_x + _d_xGap + -(_d_b * 3),highlight_y + 50 + _d_b,false);
+		
+		draw_set_alpha(1 * _d_a);
+		draw_set_color(c_white);
+		
+		_str = string_replace(global.labObj.ms_name," ","\n");
+		
+		draw_rectangle(_d_x,_d_y,_d_x + 35,_d_y + 35,false);
+		draw_sprite(global.labObj.ms_icon,0,_d_x,_d_y);
+		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
+		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
+		
+		_d_y += _d_yGap;
+		_str = string_replace(global.labObj.ss_name," ","\n");
+		
+		draw_rectangle(_d_x,_d_y,_d_x + 35,_d_y + 35,false);
+		draw_sprite(global.labObj.ss_icon,0,_d_x,_d_y);
+		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
+		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
+		
+		_str = string(global.labObj.ss_level) + "/30";
+		
+		ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,1);
+		ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,2);
+		
+		_d_y += _d_yGap;
+		_str = "Return";
+		
+		draw_sprite(spr_backIcon,0,_d_x,_d_y);
+		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
+		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
+		
+		_d_y = _d_yStart;
+		_d_x += _d_xGap;
+		
+		for(_ix = 0;_ix < ds_grid_width(global.labObj.grd_skills);_ix++){
+			_d_y = _d_yStart;
+			
+			for(_iy = 0;_iy < ds_grid_height(global.labObj.grd_skills);_iy++){
+				_str = string_replace(global.labObj.grd_skillName[# _ix,_iy]," ","\n");
+				
+				image_blend = (global.labObj.level >= _ix * 5) ? c_white : c_gray;
+				draw_set_color(image_blend);
+				
+				draw_rectangle(_d_x,_d_y,_d_x + 35,_d_y + 35,false);
+				draw_sprite_ext(global.labObj.grd_skillIcon[# _ix,_iy],0,_d_x,_d_y,1,1,0,image_blend,draw_get_alpha());
+				ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,image_blend,c_dkgray,1);
+				ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,image_blend,c_dkgray,2);
+				
+				_str = string(global.labObj.grd_skills[# _ix,_iy]) + "/5";
+				
+				ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,image_blend,c_dkgray,1);
+				ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,image_blend,c_dkgray,2);
+				
+				image_blend = c_white;
+				draw_set_color(image_blend);
+				
+				_d_y += _d_yGap;
+			}
+			
+			_d_x += _d_xGap;
+		}
+	}
+	
+	draw_set_alpha(1);
+	draw_set_color(c_white);
+
+#endregion
+
 #region //draw party screen
 
 	#region //background
@@ -103,6 +323,10 @@ var _m = ds_stack_top(global.stk_menu);
 		}
 		
 		draw_primitive_end();
+		
+		with ps_bg{
+			event_perform(ev_draw,0);
+		}
 	
 	#endregion
 	
@@ -480,7 +704,7 @@ var _m = ds_stack_top(global.stk_menu);
 							"---" //ele
 						];
 						_str = "";
-						_label = " PWR:\n ACC:\nCOST\n  CD\n TYP:\n TGT:\n ELE:";
+						_label = " PWR:\n ACC:\nCOST:\n  CD:\n TYP:\n TGT:\n ELE:";
 						
 						var _act = ps_equipMem.act[_menu.menu_y % array_length_1d(ps_equipMem.act)];
 						
@@ -924,8 +1148,8 @@ var _m = ds_stack_top(global.stk_menu);
 			var
 			_menu = ds_stack_top(global.stk_menu),
 			_memX = global.lst_activePartySlots[| _menu.menu_x],
-			_mem = global.grd_party_player[# _memX,0],
-			_portCenterX = 640;
+			_mem = global.grd_party_player[# _memX % 3,_memX > 2],
+			_portCenterX = 600;
 			
 			if(ps_portStatus.sprite_index != _mem.src[? CHAR_VAR_SPR_NEUTRAL]){
 				ps_portStatus.sprite_index = _mem.src[? CHAR_VAR_SPR_NEUTRAL];
@@ -935,218 +1159,293 @@ var _m = ds_stack_top(global.stk_menu);
 			draw_set_alpha(ps_portStatus.image_alpha);
 			
 			draw_sprite(ps_portStatus.sprite_index,1,_portCenterX,720);
+			
+			var
+			_vx = 0,
+			_vy = 65,
+			_vw = 450,
+			_vh = 650,
+			_va = 10;
+		
+			draw_set_color(c_dkgray);
+			draw_set_alpha(.9 * ps_portStatus.image_alpha)
+			draw_primitive_begin(pr_trianglefan);
+			
+			draw_vertex(_vx,_vy);
+			
+			_vx += _vw * ps_portStatus.image_alpha;
+			
+			draw_vertex(_vx,_vy);
+			
+			_vx += lengthdir_x(_vh,-(90 + _va));
+			_vy += lengthdir_y(_vh,-(90 + _va));
+			
+			draw_vertex(_vx,_vy);
+			
+			_vx = 0;
+			_vy = room_height;
+			
+			draw_vertex(_vx,_vy);
+			draw_vertex(0,65);
+			
+			draw_primitive_end();
+			
+			_vx = room_width;
+			_vy = room_height;
+			
+			draw_set_color(c_ltgray);
+			draw_primitive_begin(pr_trianglefan);
+			
+			draw_vertex(_vx,_vy);
+			
+			_vx += -_vw * ps_portStatus.image_alpha * 1.1;
+			
+			draw_vertex(_vx,_vy);
+			
+			_vx += lengthdir_x(_vh,90 + -_va);
+			_vy += lengthdir_y(_vh,90 + -_va);
+			
+			draw_vertex(_vx,_vy);
+			
+			_vx = room_width;
+			_vy = 65;
+			
+			draw_vertex(_vx,_vy);
+			draw_vertex(room_width,room_height);
+			
+			draw_primitive_end();
+			
+			draw_set_color(c_white);
+			draw_set_halign(fa_left);
+			draw_set_valign(fa_bottom);
+			draw_set_font(ft_menuTitle);
+			
+			draw_text_transformed(_vw * ps_portStatus.image_alpha * .78,room_height + -30,"EQUIPMENT",1,1,90 + -_va);
+			
+			draw_set_halign(fa_right);
+			draw_set_valign(fa_top);
+			draw_set_color(c_dkgray);
+			
+			draw_text_transformed(room_width + -(_vw * ps_portStatus.image_alpha * .76 * 1.1),65 + 30,"STATS",1,1,90 + -_va);
+			
+			#region //stat hex
+				var
+				_hex_ox = 980 + 150 + (200 * (1 + -ps_portStatus.image_alpha)),
+				_hex_oy = 200,
+				_hex_size = 80,
+				_hex_yGap = (_hex_size * 2) + 40,
+				_hex_xGap = -150,
+				_hex_stats = [_mem.mAtk,_mem.fAtk,_mem.sAtk,_mem.mDef,_mem.fDef,_mem.sDef],
+				_hex_txt = ["M-ATK","F-ATK","S-ATK","M-DEF","F-DEF","S-DEF"],
+				_hex_max = 60,
+				_hex_min = 0,
+				_hex_range = 30,
+				_hex_angle = 90 + 60;
+				
+				draw_set_font(ft_dungeonBold);
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_middle);
+				
+				//hex 1
+				for(var _i = 0;_i < 6;_i++){
+					_hex_min = min(_hex_min,_hex_stats[_i]);
+					_hex_max = max(_hex_max,_hex_stats[_i]);
+				}
+				
+				_hex_range = _hex_max + -_hex_min;
+				
+				draw_set_color(c_gray);
+				draw_set_alpha(.9 * ps_portStatus.image_alpha);
+				draw_primitive_begin(pr_trianglefan);
+				
+				draw_vertex(_hex_ox,_hex_oy);
+				
+				for(var _i = 0;_i < 7;_i++){
+					draw_vertex(_hex_ox + lengthdir_x(_hex_size,_hex_angle),_hex_oy + lengthdir_y(_hex_size,_hex_angle));
+					
+					_hex_angle += -60;
+				}
+				
+				draw_primitive_end();
+				
+				draw_set_color(c_white);
+				draw_set_alpha(1 * ps_portStatus.image_alpha);
+				draw_primitive_begin(pr_trianglefan);
+				_hex_angle = 90 + 60;
+				
+				draw_vertex(_hex_ox,_hex_oy);
+				
+				for(var _i = 0;_i < 7;_i++){
+					var
+					_len = max((_hex_stats[_i % 6] + -_hex_min) / _hex_range,.1);
+					
+					draw_vertex(_hex_ox + lengthdir_x(_len * _hex_size,_hex_angle),_hex_oy + lengthdir_y(_len * _hex_size,_hex_angle));
+					
+					if(_i < 6){
+						ktk_scr_draw_text_stroke(_hex_ox + lengthdir_x(_hex_size + 10,_hex_angle),_hex_oy + lengthdir_y(_hex_size + 10,_hex_angle) + 5,_hex_txt[_i % 6] + "\n" + string(round(_hex_stats[_i % 6])),c_dkgray,c_ltgray,2,10);
+					}
+					
+					_hex_angle += -60;
+				}
+				
+				draw_primitive_end();
+				
+				_hex_oy += _hex_yGap;
+				_hex_ox += _hex_xGap;
+				_hex_stats = [_mem.hpMax,_mem.acc,_mem.spd,_mem.enMax,_mem.eva,_mem.misc];
+				_hex_txt = ["HP","ACC","SPD","EN","EVA","MISC"];
+				_hex_max = 60;
+				_hex_min = 0;
+				_hex_angle = 90 + 60;
+				
+				//hex 2
+				for(var _i = 0;_i < 6;_i++){
+					if(_i % 3 == 0){
+						_hex_min = min(_hex_min,(_hex_stats[_i] + -1000) / 200);
+						_hex_max = max(_hex_max,(_hex_stats[_i] + -1000) / 200);
+					}else{
+						_hex_min = min(_hex_min,_hex_stats[_i]);
+						_hex_max = max(_hex_max,_hex_stats[_i]);
+					}
+				}
+				
+				_hex_range = _hex_max + -_hex_min;
+				
+				draw_set_color(c_gray);
+				draw_set_alpha(.9 * ps_portStatus.image_alpha);
+				draw_primitive_begin(pr_trianglefan);
+				
+				draw_vertex(_hex_ox,_hex_oy);
+				
+				for(var _i = 0;_i < 7;_i++){
+					draw_vertex(_hex_ox + lengthdir_x(_hex_size,_hex_angle),_hex_oy + lengthdir_y(_hex_size,_hex_angle));
+					
+					_hex_angle += -60;
+				}
+				
+				draw_primitive_end();
+				
+				draw_set_color(c_white);
+				draw_set_alpha(1 * ps_portStatus.image_alpha);
+				draw_primitive_begin(pr_trianglefan);
+				_hex_angle = 90 + 60;
+				
+				draw_vertex(_hex_ox,_hex_oy);
+				
+				for(var _i = 0;_i < 7;_i++){
+					var
+					_len = max((_hex_stats[_i % 6] + -_hex_min) / _hex_range,.1);
+					
+					if(_i % 3 == 0){
+						var _adjLen = (_hex_stats[_i % 6] + -1000) / 200;
+						
+						_len = max((_adjLen + -_hex_min) / _hex_range,.1);
+					}
+					
+					draw_vertex(_hex_ox + lengthdir_x(_len * _hex_size,_hex_angle),_hex_oy + lengthdir_y(_len * _hex_size,_hex_angle));
+					
+					if(_i < 6){
+						ktk_scr_draw_text_stroke(_hex_ox + lengthdir_x(_hex_size + 10,_hex_angle),_hex_oy + lengthdir_y(_hex_size + 10,_hex_angle) + 5,_hex_txt[_i % 6] + "\n" + string(round(_hex_stats[_i % 6])),c_dkgray,c_ltgray,2,10);
+					}
+					
+					_hex_angle += -60;
+				}
+				
+				draw_primitive_end();
+				
+				_hex_oy += _hex_yGap;
+				_hex_ox += -_hex_xGap;
+				_hex_stats = [_mem.ele_fir,_mem.ele_nat,_mem.ele_lgt,_mem.ele_ice,_mem.ele_elc,_mem.ele_drk];
+				_hex_txt = ["FIR","NAT","LGT","ICE","ELC","DRK"];
+				_hex_max = 60;
+				_hex_min = 0;
+				_hex_angle = 90 + 60;
+				
+				//hex 3
+				for(var _i = 0;_i < 6;_i++){
+					_hex_min = min(_hex_min,_hex_stats[_i]);
+					_hex_max = max(_hex_max,_hex_stats[_i]);
+				}
+				
+				_hex_range = _hex_max + -_hex_min;
+				
+				draw_set_color(c_gray);
+				draw_set_alpha(.9 * ps_portStatus.image_alpha);
+				draw_primitive_begin(pr_trianglefan);
+				
+				draw_vertex(_hex_ox,_hex_oy);
+				
+				for(var _i = 0;_i < 7;_i++){
+					draw_vertex(_hex_ox + lengthdir_x(_hex_size,_hex_angle),_hex_oy + lengthdir_y(_hex_size,_hex_angle));
+					
+					_hex_angle += -60;
+				}
+				
+				draw_primitive_end();
+				
+				draw_set_color(c_white);
+				draw_set_alpha(1 * ps_portStatus.image_alpha);
+				draw_primitive_begin(pr_trianglefan);
+				_hex_angle = 90 + 60;
+				
+				draw_vertex(_hex_ox,_hex_oy);
+				
+				for(var _i = 0;_i < 7;_i++){
+					var
+					_len = max((_hex_stats[_i % 6] + -_hex_min) / _hex_range,.1);
+					
+					draw_vertex(_hex_ox + lengthdir_x(_len * _hex_size,_hex_angle),_hex_oy + lengthdir_y(_len * _hex_size,_hex_angle));
+					
+					if(_i < 6){
+						ktk_scr_draw_text_stroke(_hex_ox + lengthdir_x(_hex_size + 10,_hex_angle),_hex_oy + lengthdir_y(_hex_size + 10,_hex_angle) + 5,_hex_txt[_i % 6] + "\n" + string(round(_hex_stats[_i % 6])),c_dkgray,c_ltgray,2,10);
+					}
+					
+					_hex_angle += -60;
+				}
+				
+				draw_primitive_end();
+			#endregion
+			
+			#region //equip list
+				draw_set_color(c_white);
+				draw_set_alpha(1 * ps_portStatus.image_alpha);
+				draw_set_font(ft_dungeonBold);
+				draw_set_halign(fa_left);
+				draw_set_valign(fa_top);
+				
+				var _str = "ACTS\n";
+				
+				for(var _i = 0;_i < 8;_i++){
+					var _o = _mem.act[_i];
+					_str += "\n      " + (scr_exists(_o,asset_object) ? _o.name : "--------");
+				}
+				
+				_str += "\n\n\n\nARMORS\n";
+				
+				for(var _i = 0;_i < 2;_i++){
+					var _o = _mem.src[? "char_var_arm" + string(_i)];
+					_str += "\n      " + (scr_exists(_o,asset_object) ? _o.name : "--------");
+				}
+				
+				_str += "\n\n\n\nCLASS\n";
+				
+				for(var _i = 0;_i < 1;_i++){
+					var _o = _mem.src[? "char_var_cls" + string(_i)];
+					_str += "\n      " + (scr_exists(_o,asset_object) ? _o.name : "--------");
+				}
+				
+				var
+				_x = 80 * ps_portStatus.image_alpha,
+				_y = 150;
+				
+				draw_text(_x,_y,_str);
+			#endregion
 		}
 	
 	#endregion
 	
 	draw_set_color(c_white);
 	draw_set_alpha(1);
-
-#endregion
-
-#region //shop screen
-
-	if(txt_title == "MARKET"){
-		var
-		_h_x = 100,
-		_h_y1 = 150,
-		_h_y2 = _h_y1 + 50;
-		
-		gpu_set_blendmode(bm_subtract);
-		draw_set_color(c_ltgray);
-		
-		draw_rectangle(room_width,_h_y1,room_width + -_h_x,_h_y2,false);
-		draw_rectangle_color(room_width + -_h_x + -1,_h_y1,room_width + -(_h_x * 1.5),_h_y2,c_black,draw_get_colour(),draw_get_colour(),c_black,false);
-		
-		gpu_set_blendmode(bm_add);
-		draw_set_color(c_white);
-		
-		draw_line_width(room_width,_h_y2,room_width + -_h_x,_h_y2,2);
-		draw_line_width_color(room_width + -_h_x + -1,_h_y2,room_width + -(_h_x * 1.5),_h_y2,2,c_black,draw_get_colour());
-		
-		gpu_set_blendmode(bm_normal);
-		draw_set_font(ft_dungeonBold);
-		draw_set_halign(fa_right);
-		draw_set_valign(fa_top);
-		
-		ktk_scr_draw_text_shadow(room_width + -20,_h_y1,string(global.heldGold) + "g",c_white,c_gray,2);
-	}
-
-#endregion
-
-#region //class upgrade screen
-
-	if(
-		scr_exists(_m,asset_object)
-		&& (
-			_m.link_panel.txt[0] == "menu/lab/class1/upgrade/.."
-			|| _m.link_panel.txt[0] == "menu/lab/class1/upgrade/confirm/.."
-		)
-		&& variable_global_exists("labObj")
-		&& scr_exists(global.labObj,asset_object)
-	){
-		var
-		_d_xStart = 190,
-		_d_yStart = 360,
-		_d_x = _d_xStart,
-		_d_y = _d_yStart,
-		_d_xGap = 180,
-		_d_yGap = 80,
-		_d_b = 10,
-		_d_tx1 = 0,
-		_d_ty1 = 20,
-		_d_tx2 = 30,
-		_d_ty2 = 0,
-		_d_tx3 = 30,
-		_d_ty3 = 40,
-		_d_a = _m.link_panel.txt[0] == "menu/lab/class1/upgrade/.." ? (_m.link_panel.image_xscale / _m.link_panel.tgt_xScale) : 1,
-		_d_hx = 70,
-		_d_hy = 120,
-		_d_hy2 = _d_hy + 42,
-		_d_hw = 280,
-		_d_hh = 140,
-		_ix = 0,
-		_iy = 0,
-		_str = "";
-		
-		if(highlight_x == 0){
-			highlight_x = _d_xStart;
-			highlight_y = _d_yStart;
-		}
-		
-		if(_m.link_panel.txt[0] == "menu/lab/class1/upgrade/.."){
-			highlight_x = ktk_scr_tween(highlight_x,_d_xStart + (_d_xGap * _m.menu_x),2,-1);
-			highlight_y = ktk_scr_tween(highlight_y,_d_yStart + (_d_yGap * _m.menu_y),2,-1);
-		}
-		
-		gpu_set_blendmode(bm_subtract);
-		draw_set_color(c_ltgray);
-		
-		draw_rectangle(0,_d_hy,_d_hw,_d_hy + _d_hh,false);
-		draw_rectangle_color(_d_hw + 1,_d_hy,_d_hw + 200,_d_hy + _d_hh,c_ltgray,c_black,c_black,c_ltgray,false);
-		
-		gpu_set_blendmode(bm_add);
-		draw_set_color(c_white);
-		
-		draw_line_width(0,_d_hy2,_d_hw,_d_hy2,2);
-		draw_line_width_color(_d_hw,_d_hy2,_d_hw + 200,_d_hy2,2,c_white,c_black);
-		
-		gpu_set_blendmode(bm_normal);
-		draw_set_alpha(1 * _d_a);
-		draw_set_font(ft_dungeonBoldLarge);
-		draw_set_halign(fa_left);
-		draw_set_valign(fa_top);
-		_str = global.labObj.name;
-		
-		ktk_scr_draw_text_shadow(_d_hx,_d_hy + 10,_str,c_white,c_gray,3);
-		
-		draw_set_font(ft_dungeonBold);
-		_str = "lv." + string(global.labObj.level) + "/30"
-		+ "\n\nNext Level: " + string(scr_calcLevelupCost(global.labObj)) + "g"
-		+ "\nHeld Gold: " + string(global.heldGold) + "g";
-		
-		ktk_scr_draw_text_shadow(_d_hx,_d_hy + 55,_str,c_white,c_gray,2);
-		
-		draw_set_font(ft_dungeonBold);
-		draw_set_halign(fa_center);
-		
-		for(var _i = 0;_i < ds_grid_width(global.labObj.grd_skills) + 1;_i++){
-			var
-			_r = 25,
-			_x1 = _d_xStart + (_d_xGap * _i) + -_d_b,
-			_y1 = _d_yStart + -0 + -_r,
-			_x2 = _x1 + _d_xGap + -(_d_b * 2),
-			_y2 = _y1 + (_d_yGap * 3) + -30 + (_r * 2);
-			
-			draw_set_alpha(.9 * _d_a);
-			draw_set_color(c_dkgray);
-			
-			draw_roundrect_ext(_x1,_y1,_x2,_y2,_r,_r,false);
-			
-			draw_set_alpha(1 * _d_a);
-			draw_set_color(c_white);
-			
-			for(var _s = 0;_s < 2;_s += .5){
-				draw_roundrect_ext(_x1 + -_s,_y1 + -_s,_x2 + _s,_y2 + _s,_r,_r,true);
-			}
-			
-			if(_i > 1){
-				_str = "Lv." + string((_i + -1) * 5);
-				
-				ktk_scr_draw_text_stroke(mean(_x1,_x2),_y1 + -6,_str,c_dkgray,c_white,2,10);
-			}
-		}
-		
-		draw_set_color(c_gray);
-		draw_set_halign(fa_left);
-		draw_set_font(ft_menuSub);
-		
-		draw_rectangle(highlight_x + 1 + -_d_b,highlight_y + -_d_b,highlight_x + _d_xGap + -(_d_b * 3),highlight_y + 50 + _d_b,false);
-		
-		draw_set_alpha(1 * _d_a);
-		draw_set_color(c_white);
-		
-		_str = string_replace(global.labObj.ms_name," ","\n");
-		
-		draw_rectangle(_d_x,_d_y,_d_x + 35,_d_y + 35,false);
-		draw_sprite(global.labObj.ms_icon,0,_d_x,_d_y);
-		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
-		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
-		
-		_d_y += _d_yGap;
-		_str = string_replace(global.labObj.ss_name," ","\n");
-		
-		draw_rectangle(_d_x,_d_y,_d_x + 35,_d_y + 35,false);
-		draw_sprite(global.labObj.ss_icon,0,_d_x,_d_y);
-		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
-		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
-		
-		_str = string(global.labObj.ss_level) + "/30";
-		
-		ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,1);
-		ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,2);
-		
-		_d_y += _d_yGap;
-		_str = "Return";
-		
-		draw_sprite(spr_backIcon,0,_d_x,_d_y);
-		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
-		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
-		
-		_d_y = _d_yStart;
-		_d_x += _d_xGap;
-		
-		for(_ix = 0;_ix < ds_grid_width(global.labObj.grd_skills);_ix++){
-			_d_y = _d_yStart;
-			
-			for(_iy = 0;_iy < ds_grid_height(global.labObj.grd_skills);_iy++){
-				_str = string_replace(global.labObj.grd_skillName[# _ix,_iy]," ","\n");
-				
-				image_blend = (global.labObj.level >= _ix * 5) ? c_white : c_gray;
-				draw_set_color(image_blend);
-				
-				draw_rectangle(_d_x,_d_y,_d_x + 35,_d_y + 35,false);
-				draw_sprite_ext(global.labObj.grd_skillIcon[# _ix,_iy],0,_d_x,_d_y,1,1,0,image_blend,draw_get_alpha());
-				ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,image_blend,c_dkgray,1);
-				ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,image_blend,c_dkgray,2);
-				
-				_str = string(global.labObj.grd_skills[# _ix,_iy]) + "/5";
-				
-				ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,image_blend,c_dkgray,1);
-				ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,image_blend,c_dkgray,2);
-				
-				image_blend = c_white;
-				draw_set_color(image_blend);
-				
-				_d_y += _d_yGap;
-			}
-			
-			_d_x += _d_xGap;
-		}
-	}
-	
-	draw_set_alpha(1);
-	draw_set_color(c_white);
 
 #endregion
 

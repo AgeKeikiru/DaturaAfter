@@ -8,6 +8,15 @@ txt_titleDesc = "Adjust party settings";
 txt_ctrl[2] = "";
 ps_baseMenuIndex = ds_stack_size(global.stk_menu);
 
+ps_bg = instance_create_depth(0,0,0,obj_fpo_parent);
+with ps_bg{
+	visible = false;
+	image_alpha = 0;
+	tgt_alpha = .2;
+	tween_alpha = true;
+	sprite_index = layer_background_get_sprite(global.ly_bg[0]);
+}
+
 var SV_m = scr_createMenuPanel(80,250,540,500,"party/..");
 
 with SV_m{

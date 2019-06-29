@@ -119,7 +119,7 @@ stat_dbrand_rate = 3;
     _iy = 0;
 
     grd_skillName[# _ix,_iy] = "Redeemer's Brand";
-    grd_skillDesc[# _ix,_iy] = "[Fatal blow with <Magical Redeemer> active] Endure, shed all effects, and inflict 2 random status effects on all enemies. Puts [Magical Redeemer] on a drastic cooldown.";
+    grd_skillDesc[# _ix,_iy] = "[Fatal blow with <Magical Redeemer> active] Endure, shed all effects, and inflict 2 random status effects on all enemies. Puts <Magical Redeemer> on a drastic cooldown.";
     grd_skillTooltip[# _ix,_iy] = "CD Penalty: !";
     
     _iy++;

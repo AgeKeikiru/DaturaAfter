@@ -30,10 +30,10 @@ with SV_m{
 	
 	SV_iy++;
 	
-	grd_txt[# SV_ix,SV_iy] = global.labObj.ss_name;
+	grd_txt[# SV_ix,SV_iy] = global.labObj.ss_name + " Lv." + string(global.labObj.ss_level);
 	grd_desc[# SV_ix,SV_iy] = global.labObj.ss_desc;
 	grd_descLabel[# SV_ix,SV_iy] = grd_txt[# SV_ix,SV_iy];
-	grd_scr[# SV_ix,SV_iy] = noone;
+	grd_scr[# SV_ix,SV_iy] = scr_menu_lab_class_upgradeConfirm;
 	
 	SV_iy++;
 	

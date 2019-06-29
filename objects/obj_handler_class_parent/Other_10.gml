@@ -27,15 +27,34 @@ switch(cEvent){
 			var
 			_x = cArgs[| 0],
 			_y = cArgs[| 1],
-			_str = grd_skillName[# _x,_y] + " Lv." + string(grd_skills[# _x,_y] + 1) + "\n\n" + grd_skillTooltip[# _x,_y],
-			_act = grd_skillAct[# _x,_y];
+			_str = "",
+			_act = noone;
+			
+			if(_x >= 0){
+				_str = grd_skillName[# _x,_y] + " Lv." + string(grd_skills[# _x,_y] + 1) + "\n\n" + grd_skillTooltip[# _x,_y];
+				_act = grd_skillAct[# _x,_y];
+			}else{
+				_str = ss_name + " Lv." + string(ss_level + 1) + "\n\n" + ss_toolTip;
+			}
 			
 			if(global.tempStr == ""){
-				if(string_pos("%",_str) == 0){
-					global.tempStr = string_replace_all(_str,"!",string_format((grd_skills[# _x,_y] + 1) * grd_skillRate[# _x,_y],1,2));
+				var
+				_substr = "",
+				_num = 0;
+				
+				if(_x >= 0){
+					_num = (grd_skills[# _x,_y] + 1) * grd_skillRate[# _x,_y];
 				}else{
-					global.tempStr = string_replace_all(_str,"!",string_format((grd_skills[# _x,_y] + 1) * grd_skillRate[# _x,_y] * 100,1,2));
+					_num = (ss_level + 1) * ss_rate;
 				}
+				
+				if(string_pos("%",_str) == 0){
+					_substr = string_format(_num,1,2);
+				}else{
+					_substr = string_format(_num * 100,1,2);
+				}
+				
+				global.tempStr = string_replace_all(_str,"!",_substr);
 			}
 			
 			if(scr_exists(_act,asset_object)){

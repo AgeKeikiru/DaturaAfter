@@ -5,6 +5,8 @@ if(instance_exists(obj_handler_dungeon)){
 
 visible = true;
 
+txt_title = "";
+txt_titleDesc = "";
 txt_desc = "";
 txt_descLabel = "";
 

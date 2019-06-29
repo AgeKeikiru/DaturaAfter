@@ -5,6 +5,8 @@ SV_menu = ds_stack_top(global.stk_menu),
 SV_lst = global.buyLst == global.lst_shop_acts ? global.lst_inv_acts : (global.buyLst == global.lst_shop_arms ? global.lst_inv_arms : global.lst_inv_classes),
 SV_lst2 = global.buyLst;
 
+global.heldGold += -global.itemBuy.price;
+
 if(global.buyLst == global.lst_shop_classes){
     ds_list_add(SV_lst,
         instance_create_depth(0,0,0,global.itemBuy.object_index)
