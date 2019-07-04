@@ -64,7 +64,7 @@ if(!nonAttack){
 				&& !(src.ailment[CHAR_SA_BLD] > 0 && choose(true,false))
 				&& !(src.ailment[CHAR_SA_SLC] > 0 && ele != "")
 				&& !(tgtEnemy && dc_tgt[| _i].iFrames > 0)
-				&& (revive ^^ dc_tgt[| _i].hpCurr > 0)
+				&& ((revive ^^ dc_tgt[| _i].hpCurr > 0) || dc_tgt[| _i].allyParty == global.grd_party_enemy)
 			){
 				_p.visible = pwr > 0;
 				_p.y += -100;

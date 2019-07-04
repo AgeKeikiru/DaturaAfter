@@ -9,6 +9,9 @@ SV_r[? MSN_VAR_ID] = argument0;
 SV_r[? MSN_VAR_NAME] = "???";
 SV_r[? MSN_VAR_CLIENT] = "Anonymous";
 SV_r[? MSN_VAR_REWARD] = 0;
+SV_r[? MSN_VAR_OPNAME] = "Wild Bird";
+SV_r[? MSN_VAR_OPFOR] = "???";
+SV_r[? MSN_VAR_ESR] = "0%";
 
 SV_r[? MSN_VAR_DESC_LOC] = "Lost Field";
 SV_r[? MSN_VAR_DESC_TGT] = "Unknown";
@@ -29,6 +32,11 @@ SV_r[? MSN_VAR_PAR_DMG_S] = 1000;
 SV_r[? MSN_VAR_PAR_DMG_C] = 0;
 SV_r[? MSN_VAR_PAR_EXPL_S] = 90;
 SV_r[? MSN_VAR_PAR_EXPL_C] = 50;
+
+SV_r[? MSN_VAR_LOOT_GOLDMIN] = 1;
+SV_r[? MSN_VAR_LOOT_GOLDMAX] = 2;
+SV_r[? MSN_VAR_LOOT_RANKMIN] = 0;
+SV_r[? MSN_VAR_LOOT_RANKMAX] = 0;
 
 var SV_h = ds_grid_height(global.grd_missions);
 ds_grid_resize(global.grd_missions,2,SV_h + 1);

@@ -193,6 +193,11 @@ var _m = ds_stack_top(global.stk_menu);
 		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
 		ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
 		
+		_str = "Main";
+		
+		ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,1);
+		ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,2);
+		
 		_d_y += _d_yGap;
 		_str = string_replace(global.labObj.ss_name," ","\n");
 		
@@ -531,7 +536,7 @@ var _m = ds_stack_top(global.stk_menu);
 					
 					draw_set_halign(fa_right);
 					
-					ktk_scr_draw_text_shadow_ext(_x[1] + -12,_y[1] + 2,string(_obj.hpCurr) + "/" + string(_obj.hpMax),c_white,c_white,_s.image_alpha,c_dkgray,c_dkgray,_s.image_alpha,2,0.5,0.5,30);
+					ktk_scr_draw_text_shadow_ext(_x[1] + -12,_y[1] + 2,string(ceil(_obj.hpCurr)) + "/" + string(_obj.hpMax),c_white,c_white,_s.image_alpha,c_dkgray,c_dkgray,_s.image_alpha,2,0.5,0.5,30);
 					
 					draw_set_halign(fa_left);
 					
@@ -620,7 +625,7 @@ var _m = ds_stack_top(global.stk_menu);
 					
 					draw_set_halign(fa_right);
 					
-					ktk_scr_draw_text_shadow_ext(_x[1] + -12,_y[1] + 2,string(_obj.enCurr) + "/" + string(_obj.enMax),c_white,c_white,_s.image_alpha,c_dkgray,c_dkgray,_s.image_alpha,2,0.5,0.5,30);
+					ktk_scr_draw_text_shadow_ext(_x[1] + -12,_y[1] + 2,string(ceil(_obj.enCurr)) + "/" + string(_obj.enMax),c_white,c_white,_s.image_alpha,c_dkgray,c_dkgray,_s.image_alpha,2,0.5,0.5,30);
 					
 					draw_set_halign(fa_left);
 					draw_set_alpha(1);

@@ -187,6 +187,20 @@
             "varType": 4
         },
         {
+            "id": "c7289ec7-280d-488d-aa7e-f2dc18972c7e",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_grid_create(1,1)",
+            "varName": "grd_toggle",
+            "varType": 4
+        },
+        {
             "id": "6522edca-e8c5-487a-a78a-f3fa7149319d",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",

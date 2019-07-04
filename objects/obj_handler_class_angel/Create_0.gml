@@ -9,11 +9,11 @@ cName = "ANGE_" + string(global.cid++);
 
 ms_name = "Blinding Light";
 ms_desc = "All attacks have a Lv*0.5% chance to Blind.";
-//ms_icon
+ms_icon = spr_icon_lgtUp;
 
 ss_name = "SPD+ (s)";
 ss_desc = "Slightly increase base Speed.";
-//ss_icon
+ss_icon = spr_icon_spdUp;
 ss_toolTip = "SPD: +!";
 ss_rate = .5;
 
@@ -32,12 +32,14 @@ stat_desynch_rate = -.15;
     grd_skillName[# _ix,_iy] = "LGT Res+";
     grd_skillDesc[# _ix,_iy] = "Decrease damage taken from Light Element.";
     grd_skillTooltip[# _ix,_iy] = "LGT Res: +!";
+    grd_skillIcon[# _ix,_iy] = spr_icon_lgtRes;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "TRI-DEF+";
     grd_skillDesc[# _ix,_iy] = "Increase base M/F/S-DEF.";
     grd_skillTooltip[# _ix,_iy] = "M/F/S-Def: +!";
+    grd_skillIcon[# _ix,_iy] = spr_icon_triDefUp;
     
     _iy++;
     
@@ -45,6 +47,7 @@ stat_desynch_rate = -.15;
     grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Light Element.";
     grd_skillTooltip[# _ix,_iy] = "LGT Damage: +!%";
     grd_skillRate[# _ix,_iy] = .04;
+    grd_skillIcon[# _ix,_iy] = spr_icon_lgtUp;
 
 #endregion
 
@@ -54,9 +57,10 @@ stat_desynch_rate = -.15;
     _iy = 0;
 
     grd_skillName[# _ix,_iy] = "Angelic Step";
-    grd_skillDesc[# _ix,_iy] = "1 Angelite. Negate 1 attack, briefly increase EVA after negation.";
+    grd_skillDesc[# _ix,_iy] = "[1 Angelite] Negate 1 attack, briefly increase EVA after negation.";
     grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_aStep);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceShield;
     
     _iy++;
     
@@ -65,6 +69,7 @@ stat_desynch_rate = -.15;
     grd_skillTooltip[# _ix,_iy] = "Max Angelite: !";
     grd_skillRate[# _ix,_iy] = 1;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_angelite);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
     
     _iy++;
     
@@ -72,6 +77,7 @@ stat_desynch_rate = -.15;
     grd_skillDesc[# _ix,_iy] = "[1 Angelite] Reset all active cooldowns.";
     grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_aDash);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceTimerReduce;
 
 #endregion
 
@@ -85,6 +91,7 @@ stat_desynch_rate = -.15;
     grd_skillTooltip[# _ix,_iy] = "Duration: ! sec";
     grd_skillRate[# _ix,_iy] = 3;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_aBlessing);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceCure;
     
     _iy++;
     
@@ -92,6 +99,7 @@ stat_desynch_rate = -.15;
     grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when alternating between Melee/Firearm/Spell attacks.";
     grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
     grd_skillRate[# _ix,_iy] = .2;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
     
     _iy++;
     
@@ -100,6 +108,7 @@ stat_desynch_rate = -.15;
     grd_skillTooltip[# _ix,_iy] = "Duration: ! sec";
     grd_skillRate[# _ix,_iy] = 3;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_aSmite);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceBrt;
 
 #endregion
 
@@ -112,6 +121,7 @@ stat_desynch_rate = -.15;
     grd_skillDesc[# _ix,_iy] = "[X Act] Only usable when Angelite is full - Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
     grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_desynch);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceFullShield;
     
     _iy++;
     
@@ -119,6 +129,7 @@ stat_desynch_rate = -.15;
     grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when dealing Light damage.";
     grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
     grd_skillRate[# _ix,_iy] = .2;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
     
     _iy++;
     
@@ -127,5 +138,6 @@ stat_desynch_rate = -.15;
     grd_skillTooltip[# _ix,_iy] = "Maximum Damage: !";
     grd_skillRate[# _ix,_iy] = 1000;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_hRend);
+    grd_skillIcon[# _ix,_iy] = spr_icon_hRend;
 
 #endregion

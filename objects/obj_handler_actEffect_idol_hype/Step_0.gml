@@ -19,15 +19,15 @@ if(scr_exists(src,asset_object) && ds_list_size(special) > 3){
 	finaleMode = global.tempBool;
 	
 	if(finaleMode){
-		charge = max(charge + -(special[| 3] / room_speed),0);
+		charge = max(charge + -scr_timeMod(special[| 3] / room_speed),0);
 		decayDelay = 1;
 	}else if((src.hpCurr / src.hpMax) < special[| 2]){
-		charge = min(charge + (.05 / room_speed),6);
+		charge = min(charge + scr_timeMod(.05 / room_speed),6);
 		decayDelay = 1;
 	}else if(decayDelay > 0){
-		decayDelay--;
+		decayDelay += -scr_timeMod(1);
 	}else{
-		charge = max(charge + -(.05 / room_speed),0);
+		charge = max(charge + -scr_timeMod(.05 / room_speed),0);
 	}
 	
 	if(floor(charge) != _prev){

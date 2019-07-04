@@ -201,6 +201,34 @@
             "varType": 3
         },
         {
+            "id": "048c451d-fdf6-4f64-b125-cdb8a129a0dc",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "state_fixedBattle",
+            "varType": 3
+        },
+        {
+            "id": "07073ee4-2e93-455b-b2c2-abfee2a78b97",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "state_boss",
+            "varType": 3
+        },
+        {
             "id": "ccb922c1-642c-449a-b1ad-738c79639f7e",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -238,7 +266,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "ds_grid_create(2,3)",
+            "value": "ds_grid_create(2,5)",
             "varName": "grd_mobPool",
             "varType": 4
         },
@@ -282,6 +310,20 @@
             "resourceFilter": 1023,
             "value": "0",
             "varName": "missionComplete",
+            "varType": 3
+        },
+        {
+            "id": "c973f922-d085-491b-9c0c-96632226c3ad",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "missionFailed",
             "varType": 3
         },
         {
@@ -381,6 +423,62 @@
             "value": "c_black",
             "varName": "ve_tgtCol",
             "varType": 4
+        },
+        {
+            "id": "1edc7ac9-5989-40db-ab87-634e58371fb5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "lootBannerDelay",
+            "varType": 0
+        },
+        {
+            "id": "0a0d0220-8cab-4574-9ead-e11f47018b06",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "lst_popcorn",
+            "varType": 4
+        },
+        {
+            "id": "d0ae2b78-e1b4-4c6f-aa92-13c2d05ccf60",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "lst_popcornPool",
+            "varType": 4
+        },
+        {
+            "id": "53f66315-467d-4dd3-9475-e827bbfcbd91",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "popcornTimer",
+            "varType": 0
         }
     ],
     "solid": false,

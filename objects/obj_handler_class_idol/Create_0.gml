@@ -9,11 +9,11 @@ cName = "IDOL_" + string(global.cid++);
 
 ms_name = "Stage Presence+";
 ms_desc = "Increase time before Hype begins to fall by Lv*0.02 seconds.";
-//ms_icon
+ms_icon = spr_icon_stanceUp;
 
 ss_name = "ACC+ (s)";
 ss_desc = "Slightly increase base Accuracy.";
-//ss_icon
+ss_icon = spr_icon_accUp;
 ss_toolTip = "ACC: +!";
 ss_rate = .5;
 
@@ -39,6 +39,7 @@ stat_gf_rate = -.1;
     grd_skillDesc[# _ix,_iy] = "Increase base Evasion.";
     grd_skillTooltip[# _ix,_iy] = "EVA: +!";
     grd_skillRate[# _ix,_iy] = stat_fineStatRate;
+    grd_skillIcon[# _ix,_iy] = spr_icon_evaUp;
     
     _iy++;
     
@@ -47,6 +48,7 @@ stat_gf_rate = -.1;
     grd_skillTooltip[# _ix,_iy] = "Gain Rate: !%";
     grd_skillRate[# _ix,_iy] = .0001 + (.000 * CANARY);
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hype);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
     
     _iy++;
     
@@ -54,6 +56,7 @@ stat_gf_rate = -.1;
     grd_skillDesc[# _ix,_iy] = "Increase base Misc.";
     grd_skillTooltip[# _ix,_iy] = "MISC: +!";
     grd_skillRate[# _ix,_iy] = stat_fineStatRate;
+    grd_skillIcon[# _ix,_iy] = spr_icon_miscUp;
 
 #endregion
 
@@ -66,6 +69,7 @@ stat_gf_rate = -.1;
     grd_skillDesc[# _ix,_iy] = "[2 Hype] Cure an ally's ailments/debuffs. Aggro transfer.";
     grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hPickup);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceCure;
     
     _iy++;
     
@@ -73,6 +77,7 @@ stat_gf_rate = -.1;
     grd_skillDesc[# _ix,_iy] = "Increase Hype gain when attacking alongside an ally.";
     grd_skillTooltip[# _ix,_iy] = "Gain: +!%";
     grd_skillRate[# _ix,_iy] = .2;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
     
     _iy++;
     
@@ -81,6 +86,7 @@ stat_gf_rate = -.1;
     grd_skillTooltip[# _ix,_iy] = "Conversion Rate: x!";
     grd_skillRate[# _ix,_iy] = 100;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hPep);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceHeal;
 
 #endregion
 
@@ -93,6 +99,7 @@ stat_gf_rate = -.1;
     grd_skillDesc[# _ix,_iy] = "[1+ Hype] Boost an ally's stats, duration based on how much Hype was used. Aggro transfer.";
     grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hCheer);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceCure;
     
     _iy++;
     
@@ -100,6 +107,7 @@ stat_gf_rate = -.1;
     grd_skillDesc[# _ix,_iy] = "Slowly gain Hype while HP is below a certain amount.";
     grd_skillTooltip[# _ix,_iy] = "HP Threshold: !%";
     grd_skillRate[# _ix,_iy] = .12;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
     
     _iy++;
     
@@ -108,6 +116,7 @@ stat_gf_rate = -.1;
     grd_skillTooltip[# _ix,_iy] = "Power: !";
     grd_skillRate[# _ix,_iy] = 50;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hOne);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceRaise;
 
 #endregion
 
@@ -121,6 +130,7 @@ stat_gf_rate = -.1;
     grd_skillTooltip[# _ix,_iy] = "Aggro: +!";
     grd_skillRate[# _ix,_iy] = 1;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_defame);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUpAlly;
     
     _iy++;
     
@@ -128,6 +138,7 @@ stat_gf_rate = -.1;
     grd_skillDesc[# _ix,_iy] = "[5+ Hype] Drain hype to greatly increase all allies' Speed and negate EN cost.";
     grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_finale);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceTimerReduce;
     
     _iy++;
     
@@ -135,5 +146,6 @@ stat_gf_rate = -.1;
     grd_skillDesc[# _ix,_iy] = "A difficult Melee attack to land, but generates large Hype if it hits.";
     grd_skillTooltip[# _ix,_iy] = "Accuracy: !";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_tStrike);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUpEnemy;
 
 #endregion

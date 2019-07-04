@@ -9,7 +9,7 @@ if(
 	&& ds_list_size(special) > 0
 ){
 	src.iFrames = 2;
-	src.stance.charge += -special[| 0];
+	src.stance.charge += -scr_timeMod(special[| 0]);
 	
 	if(src.stance.charge <= 0){
 		src.stance.charge = 0;

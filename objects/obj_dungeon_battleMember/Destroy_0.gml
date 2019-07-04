@@ -5,4 +5,26 @@ if(allyParty == global.grd_party_enemy){
 	for(var _i = 0;_i < 8;_i++){
 		instance_destroy(act[_i]);
 	}
+	
+	if(hpCurr <= 0){
+		if(random(1) < .3){
+			scr_getLoot(LOOT_RACE);
+		}
+		
+		if(random(1) < .2){
+			scr_getLoot(LOOT_ELE);
+		}
+		
+		if(random(1) < .1){
+			scr_getLoot(LOOT_WPN);
+		}
+		
+		if(random(1) < .5){
+			scr_getLoot(LOOT_G);
+		}
+		
+		with obj_handler_dungeon{
+			popcornTimer = .5 * room_speed;
+		}
+	}
 }

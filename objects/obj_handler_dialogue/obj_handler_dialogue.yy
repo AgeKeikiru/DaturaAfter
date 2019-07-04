@@ -149,6 +149,20 @@
             "varType": 4
         },
         {
+            "id": "696d9f9b-a102-4067-a1b1-7e11ec246456",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "tb_strLen",
+            "varType": 0
+        },
+        {
             "id": "cc559f8f-e6ca-4a88-ae34-de7106403b16",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",

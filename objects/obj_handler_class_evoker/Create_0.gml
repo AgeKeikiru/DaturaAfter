@@ -9,11 +9,11 @@ cName = "EVOK_" + string(global.cid++);
 
 ms_name = "Curse Concentrate";
 ms_desc = "Debuff/status inflict rate +Lv*0.5%";
-//ms_icon
+ms_icon = spr_icon_debuffUp;
 
 ss_name = "EVA+ (s)";
 ss_desc = "Slightly increase base Evasion.";
-//ss_icon
+ss_icon = spr_icon_evaUp;
 ss_toolTip = "EVA: +!";
 ss_rate = .5;
 
@@ -43,6 +43,7 @@ stat_dbrand_rate = 3;
     grd_skillName[# _ix,_iy] = "S-DEF+";
     grd_skillDesc[# _ix,_iy] = "Increase Spell Defense.";
     grd_skillTooltip[# _ix,_iy] = "S-DEF: +!";
+    grd_skillIcon[# _ix,_iy] = spr_icon_sDefUp;
     
     _iy++;
     
@@ -50,12 +51,14 @@ stat_dbrand_rate = 3;
     grd_skillDesc[# _ix,_iy] = "Increase Speed.";
     grd_skillTooltip[# _ix,_iy] = "SPD: +!";
     grd_skillRate[# _ix,_iy] = stat_fineStatRate;
+    grd_skillIcon[# _ix,_iy] = spr_icon_spdUp;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "S-ATK+";
     grd_skillDesc[# _ix,_iy] = "Increase Spell Attack.";
     grd_skillTooltip[# _ix,_iy] = "S-ATK: +!";
+    grd_skillIcon[# _ix,_iy] = spr_icon_sAtkUp;
 
 #endregion
 
@@ -69,6 +72,7 @@ stat_dbrand_rate = 3;
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
     grd_skillRate[# _ix,_iy] = .16;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_evok_mRdmr);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
     
     _iy++;
     
@@ -76,6 +80,7 @@ stat_dbrand_rate = 3;
     grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Dark Element.";
     grd_skillTooltip[# _ix,_iy] = "DRK Damage: +!%";
     grd_skillRate[# _ix,_iy] = .04;
+    grd_skillIcon[# _ix,_iy] = spr_icon_drkUp;
     
     _iy++;
     
@@ -84,6 +89,7 @@ stat_dbrand_rate = 3;
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
     grd_skillRate[# _ix,_iy] = .20;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_evok_mDstr);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
 
 #endregion
 
@@ -96,6 +102,7 @@ stat_dbrand_rate = 3;
     grd_skillDesc[# _ix,_iy] = "Focus on moving quickly and staying out of sight rather than defending yourself. Trades Defense for Speed and reduced aggro.";
     grd_skillTooltip[# _ix,_iy] = "M/F/S-DEF: -!%\nSPD: +@%\nAggro: -#";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_evok_sFlight);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stealthWing;
     
     _iy++;
     
@@ -103,6 +110,7 @@ stat_dbrand_rate = 3;
     grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Light Element.";
     grd_skillTooltip[# _ix,_iy] = "LGT Damage: +!%";
     grd_skillRate[# _ix,_iy] = .04;
+    grd_skillIcon[# _ix,_iy] = spr_icon_lgtUp;
     
     _iy++;
     
@@ -110,6 +118,7 @@ stat_dbrand_rate = 3;
     grd_skillDesc[# _ix,_iy] = "Focus on drawing and dodging fire rather than fighting. Trades Accuracy for Evasion and increased aggro.";
     grd_skillTooltip[# _ix,_iy] = "ACC: -!%\nEVA: +@%\nAggro: +#";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_evok_tFlight);
+    grd_skillIcon[# _ix,_iy] = spr_icon_wing;
 
 #endregion
 
@@ -121,6 +130,7 @@ stat_dbrand_rate = 3;
     grd_skillName[# _ix,_iy] = "Redeemer's Brand";
     grd_skillDesc[# _ix,_iy] = "[Fatal blow with <Magical Redeemer> active] Endure, shed all effects, and inflict 2 random status effects on all enemies. Puts <Magical Redeemer> on a drastic cooldown.";
     grd_skillTooltip[# _ix,_iy] = "CD Penalty: !";
+    grd_skillIcon[# _ix,_iy] = spr_icon_rBrand;
     
     _iy++;
     
@@ -128,6 +138,7 @@ stat_dbrand_rate = 3;
     grd_skillDesc[# _ix,_iy] = "Increase duration of debuffs/status inflicted on enemies.";
     grd_skillTooltip[# _ix,_iy] = "Duration Boost: ! sec";
     grd_skillRate[# _ix,_iy] = 2;
+    grd_skillIcon[# _ix,_iy] = spr_icon_debuffUp;
     
     _iy++;
     
@@ -136,6 +147,7 @@ stat_dbrand_rate = 3;
     grd_skillTooltip[# _ix,_iy] = "Duration: ! sec";
     grd_skillRate[# _ix,_iy] = 7;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_evok_dBrand);
+    grd_skillIcon[# _ix,_iy] = spr_icon_dBrand;
 
 #endregion
 

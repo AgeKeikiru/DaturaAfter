@@ -14,10 +14,7 @@ var SV_m = scr_createMenuPanel(-9999,-9999,-1,-1,"menu/lab/class1/upgrade/..");
 
 with SV_m{
 	ds_grid_resize(grd_txt,ds_grid_width(global.labObj.grd_skills) + 1,ds_grid_height(global.labObj.grd_skills));
-	ds_grid_resize(grd_scr,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
-	ds_grid_resize(grd_desc,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
-	ds_grid_resize(grd_descLabel,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
-	ds_grid_resize(grd_equipSrc,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
+	scr_menu_matchGrids(id,true);
 	
 	var
 	SV_ix = 0,

@@ -36,6 +36,7 @@ with SV_m{
 	grd_desc[# 0,SV_i] = "\"Potions, never leave home without 'em!\"";
 	grd_descLabel[# 0,SV_i] = "Item Rack";
 	grd_scr[# 0,SV_i] = scr_menu_market_item;
+	grd_scr[# 0,SV_i] = noone;
 	
 	SV_i++;
 	

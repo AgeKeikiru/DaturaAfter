@@ -1,16 +1,18 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(keyboard_check_pressed(vk_home) && CANARY && global.missionCurr == MSN_DEBUG){
-	game_restart();
-}
-
-if(keyboard_check_pressed(vk_pageup) && CANARY && global.missionCurr == MSN_DEBUG){
-	with(obj_handler_actEffect_ange_angelite){
-		charge = 5;
+if(CANARY && global.missionCurr == MSN_DEBUG){
+	if(keyboard_check_pressed(vk_home)){
+		game_restart();
 	}
 	
-	with(obj_handler_actEffect_idol_hype){
-		charge = 6;
+	if(keyboard_check_pressed(vk_pageup)){
+		with(obj_handler_actEffect_ange_angelite){
+			charge = 5;
+		}
+		
+		with(obj_handler_actEffect_idol_hype){
+			charge = 6;
+		}
 	}
 }
 

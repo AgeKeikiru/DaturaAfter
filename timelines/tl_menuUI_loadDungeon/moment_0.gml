@@ -2,6 +2,13 @@ global.playerControl = false;
 
 scr_refreshShopList();
 
+for(var SV_i = 0;SV_i < 3;SV_i++){
+	if(audio_exists(global.bgmTrack[SV_i])){
+		audio_sound_gain(global.bgmTrack[SV_i],0,500);
+		ds_list_add(global.lst_bgmFadeOut,global.bgmTrack[SV_i]);
+	}
+}
+
 link_load = instance_create_depth(0,0,0,obj_fpo_parent);
 
 with link_load{
@@ -18,3 +25,5 @@ with link_load{
 	
 	tweenMax = .05;
 }
+
+load_step = 0;

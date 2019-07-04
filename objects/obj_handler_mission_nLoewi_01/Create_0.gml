@@ -7,6 +7,8 @@ used to keep track of tile-triggered events
 event_inherited();
 
 ds_grid_resize(grd_events,25,3);
+//ds_grid_set_region(grd_events,0,MHE_VAR_X,ds_grid_width(grd_events) + -1,MHE_VAR_X,-1);
+//ds_grid_set_region(grd_events,0,MHE_VAR_VIS,ds_grid_width(grd_events) + -1,MHE_VAR_VIS,false);
 
 var
 _x = [2,45,12,45],
@@ -41,20 +43,22 @@ for(var _i = 0;_i < 4;_i++){
     grd_events[# _e,MHE_VAR_X] = _x[_i];
     grd_events[# _e,MHE_VAR_Y] = _y[_i] + -1;
     grd_events[# _e,MHE_VAR_VIS] = false;
+    
+    _e++;
 }
 
 repeat(4){
     //20: final encounter dialogue
-    _e++;
+    grd_events[# _e,MHE_VAR_X] = 26;
+    grd_events[# _e,MHE_VAR_Y] = 26;
+    grd_events[# _e,MHE_VAR_VIS] = true;
     
-    grd_events[# _e,MHE_VAR_X] = -1;
-    grd_events[# _e,MHE_VAR_Y] = -1;
-    grd_events[# _e,MHE_VAR_VIS] = false;
+    _e++;
 }
 
 //debug
-grd_events[# 24,MHE_VAR_X] = CANARY ? 25 : -1;
-grd_events[# 24,MHE_VAR_Y] = CANARY ? 20 : -1;
-grd_events[# 24,MHE_VAR_VIS] = CANARY ? true : false;
+grd_events[# 24,MHE_VAR_X] = false ? 25 : -1;
+grd_events[# 24,MHE_VAR_Y] = false ? 24 : -1;
+grd_events[# 24,MHE_VAR_VIS] = CANARY;
 
 map_flags[? 0] = 0; //mission progress

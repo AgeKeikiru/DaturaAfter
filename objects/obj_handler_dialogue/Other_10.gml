@@ -12,6 +12,7 @@ switch(cEvent){
 			//get next text
 			if(global.grd_dia[# DIA_TXT,tb_index] != ""){
 				talkbox.txt[0] = "";
+				tb_strLen = 0;
 				txt_tgt = global.grd_dia[# DIA_TXT,tb_index];
 			}
 			

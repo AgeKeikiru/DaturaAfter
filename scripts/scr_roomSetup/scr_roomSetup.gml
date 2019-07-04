@@ -28,11 +28,6 @@ global.ly_obj[3] = layer_create(-4000);
 global.ly_obj[4] = layer_create(-5000);
 global.ly_obj[5] = layer_create(-6000);
 
-global.bgmTrack = noone;
-global.bgmTrack_gain = 1;
-global.bgmTrack_battle = noone;
-global.bgmTrack_boss = noone;
-
 if(variable_global_exists("stk_menu")){
 	ds_stack_clear(global.stk_menu);
 }

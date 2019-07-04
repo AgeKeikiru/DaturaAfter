@@ -13,6 +13,7 @@ switch(cEvent){
 	    		        _obj.name = grd_skillName[# _ix,_iy];
 	    		        _obj.desc = grd_skillDesc[# _ix,_iy];
 	    		        _obj.rare = grd_skills[# _ix,_iy];
+	    		        _obj.icon = grd_skillIcon[# _ix,_iy];
 	    		    }
 	    		}
 			}

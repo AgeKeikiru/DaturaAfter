@@ -1,8 +1,6 @@
 add [Debuff Love] effect to debuffs
 make sure all debuffs have debuff = true
 make sure all cEvent switches include a default
-fix targetting (currently changes to cursor on use instead of maintaining character lock)
-finish adding class skills to equip menu
 implement sub skills
 
 class idea:

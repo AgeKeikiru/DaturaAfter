@@ -19,6 +19,9 @@ var SV_map;
 	SV_map[? MSN_VAR_NAME] = "Eliminate Invasive Pest";
 	SV_map[? MSN_VAR_CLIENT] = "AG Loewi";
 	SV_map[? MSN_VAR_REWARD] = 2000;
+	SV_map[? MSN_VAR_OPNAME] = "Sitting Duck";
+	SV_map[? MSN_VAR_OPFOR] = "Wildlife";
+	SV_map[? MSN_VAR_ESR] = "75%";
 	SV_map[? MSN_VAR_DESC_LOC] = "North Loewi";
 	SV_map[? MSN_VAR_DESC_TGT] = "Paraslime (x7)";
 	SV_map[? MSN_VAR_DESC_OBJ] = "Eliminate all targets";
@@ -28,10 +31,15 @@ var SV_map;
 	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
 	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
 	
-	SV_map[? MSN_VAR_PAR_TIME_S] = 4 * 60 * room_speed;
-	SV_map[? MSN_VAR_PAR_TIME_C] = 8 * 60 * room_speed;
-	SV_map[? MSN_VAR_PAR_DMG_S] = 15000;
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((2 * 60) + 40) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((5 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_DMG_S] = 20000;
 	SV_map[? MSN_VAR_PAR_DMG_C] = 5000;
+	
+	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;
+	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 20;
+	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
+	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
 	/*
 	Alright you lot, proceed to Northern Loewi's railway hub. A foreign breed of Slime has been reported in the area, likely smuggled in from a neighboring region.
 	With mutations to counter any possible natural predators, these augmented Slimes will destroy the ecosystem in a matter of days if left undealt with.

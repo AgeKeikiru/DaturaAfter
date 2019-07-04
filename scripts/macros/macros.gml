@@ -74,7 +74,8 @@
 		#macro CHAR_BLEEDINGBULLET "char_bleedingBullet"
 		#macro CHAR_DARTLILY "char_dartLily"
 		#macro CHAR_PARASLIME "char_paraSlime"
-		#macro CHAR_KINGSLIME "char_kingSlime"
+		#macro CHAR_BIGSLIME "char_bigSlime"
+		#macro CHAR_MINISLIME "char_miniSlime"
 		#macro CHAR_GREENDRAGON "char_greenDragon"
 		#macro CHAR_BLASTVENDOR "char_blastVendor"
 		#macro CHAR_SHELLVENDOR "char_shellVendor"
@@ -256,6 +257,8 @@
 	#region //enemy acts
 	
 		#macro EACT_TACKLE "eact_tackle"
+		#macro EACT_BITE "eact_bite"
+		#macro EACT_PARATACKLE "eact_paratackle"
 	
 	#endregion
 	
@@ -352,6 +355,9 @@
 		#macro MSN_VAR_NAME "msn_var_name"
 		#macro MSN_VAR_CLIENT "msn_var_client"
 		#macro MSN_VAR_REWARD "msn_var_reward"
+		#macro MSN_VAR_OPNAME "msn_var_opName"
+		#macro MSN_VAR_OPFOR "msn_var_opFor"
+		#macro MSN_VAR_ESR "msn_var_esr" //est success rate
 		
 		#macro MSN_VAR_DESC_LOC "msn_var_desc_loc" //location
 		#macro MSN_VAR_DESC_TGT "msn_var_desc_tgt" //target
@@ -372,6 +378,11 @@
 		#macro MSN_VAR_PAR_DMG_C "msn_var_par_dmg_c"
 		#macro MSN_VAR_PAR_EXPL_S "msn_var_par_expl_s" //exploration rank, in percent
 		#macro MSN_VAR_PAR_EXPL_C "msn_var_par_expl_c"
+		
+		#macro MSN_VAR_LOOT_GOLDMIN "msn_var_loot_goldMin"
+		#macro MSN_VAR_LOOT_GOLDMAX "msn_var_loot_goldMax"
+		#macro MSN_VAR_LOOT_RANKMIN "msn_var_loot_rankMin"
+		#macro MSN_VAR_LOOT_RANKMAX "msn_var_loot_rankMax"
 		
 	#endregion
 	
@@ -424,6 +435,7 @@
 	#region //terrain
 	
 		#macro DMAP_TER_FLOOR 0
+		#macro DMAP_TER_LOOT 1
 	
 	#endregion
 	
@@ -438,6 +450,7 @@
 	#macro EVENT_DND_ENCOUNTER "event_dnd_encounter"
 	#macro EVENT_DND_ENCOUNTER_FIXED "event_dnd_encounter_fixed"
 	#macro EVENT_DND_BATTLEWIN "event_dnd_battleWin"
+	#macro EVENT_DND_BATTLELOSE "event_dnd_battleLose"
 	
 	#macro EVENT_ACT_USE "event_act_use"
 	
@@ -492,6 +505,15 @@
 	#macro DIA_BG 8
 	#macro DIA_SCR 9 //used to determine grid width, must be last value
 	
+#endregion
+
+#region //loot data
+
+	#macro LOOT_RACE 0
+	#macro LOOT_ELE 1
+	#macro LOOT_WPN 2
+	#macro LOOT_G 3
+
 #endregion
 
 #region //input check

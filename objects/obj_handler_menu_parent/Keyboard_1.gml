@@ -19,17 +19,42 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 			io_clear();
 		}
 	
-		menu_x--;
+		if(
+			script_exists(grd_scr[# menu_x,menu_y])
+			&& menu_x < ds_grid_width(grd_toggle)
+			&& menu_y < ds_grid_height(grd_toggle)
+			&& grd_toggle[# menu_x,menu_y]
+		){
+			script_execute(grd_scr[# menu_x,menu_y],false);
+		}else{
+			menu_x--;
+		}
 	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_RIGHT)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_RIGHT)){
 			io_clear();
 		}
 	
-		menu_x++;
+		if(
+			script_exists(grd_scr[# menu_x,menu_y])
+			&& menu_x < ds_grid_width(grd_toggle)
+			&& menu_y < ds_grid_height(grd_toggle)
+			&& grd_toggle[# menu_x,menu_y]
+		){
+			script_execute(grd_scr[# menu_x,menu_y],true);
+		}else{
+			menu_x++;
+		}
 	}else if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUACCEPT)){
 		io_clear();
 	
-		if(script_exists(grd_scr[# menu_x,menu_y])){
+		if(
+			script_exists(grd_scr[# menu_x,menu_y])
+			&& (
+				menu_x >= ds_grid_width(grd_toggle)
+				|| menu_y >= ds_grid_height(grd_toggle)
+				|| !grd_toggle[# menu_x,menu_y]
+			)
+		){
 			script_execute(grd_scr[# menu_x,menu_y]);
 		}
 	}else if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUBACK)){

@@ -433,7 +433,7 @@ switch(SV_type){
 			SV_ele = "";
 			SV_r.enCost *= 3;
 			SV_r.cdAdd *= 5;
-			SV_r.pwr *= 1;
+			SV_r.pwr *= 2;
 			SV_r.acc = 999;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
@@ -497,7 +497,7 @@ switch(SV_type){
 			SV_r.icon = spr_icon_shd;
 			SV_r.price *= 1.5;
 			SV_ele = "";
-			SV_r.enCost *= 5;
+			SV_r.enCost *= 2;
 			SV_r.cdAdd *= .5;
 			SV_r.pwr = 0;
 			SV_r.acc = 999;
@@ -520,7 +520,7 @@ switch(SV_type){
 			SV_r.icon = spr_icon_shd;
 			SV_r.price *= 1.5;
 			SV_ele = "";
-			SV_r.enCost *= 3;
+			SV_r.enCost *= 1;
 			SV_r.cdAdd *= 5;
 			SV_r.pwr = 0;
 			SV_r.acc = 999;
@@ -574,6 +574,39 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_MATK;
 			SV_r.defScale = CHAR_VAR_MDEF;
 			SV_r.spark_hit = spr_spark_bash;
+			
+			break;
+			
+		case EACT_PARATACKLE:
+			SV_r.name = "Shock Tackle";
+			SV_r.desc = "Brute force attack. Unreliable, but has a moderate chance to paralyze.";
+			SV_r.enCost *= 0;
+			SV_r.cdAdd *= 2;
+			SV_r.pwr *= .8;
+			SV_r.acc *= .75;
+			SV_r.hitCount = 1;
+			SV_r.hitGap *= 1;
+			SV_r.atkScale = CHAR_VAR_MATK;
+			SV_r.defScale = CHAR_VAR_MDEF;
+			SV_r.spark_hit = spr_spark_bash;
+			SV_r.ele = CHAR_VAR_ELE_ELC;
+			SV_r.sa_inflict[| CHAR_SA_PAR] = 10;
+			SV_r.sa_chance[| CHAR_SA_PAR] = .4;
+			
+			break;
+			
+		case EACT_BITE:
+			SV_r.name = "Bite";
+			SV_r.desc = "Nimble piercing attack. Weak, but hits twice.";
+			SV_r.enCost *= 0;
+			SV_r.cdAdd *= 1;
+			SV_r.pwr *= .5;
+			SV_r.acc *= .8;
+			SV_r.hitCount = 2;
+			SV_r.hitGap *= 1.4;
+			SV_r.atkScale = CHAR_VAR_MATK;
+			SV_r.defScale = CHAR_VAR_MDEF;
+			SV_r.spark_hit = spr_spark_pierce;
 			
 			break;
 			

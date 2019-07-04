@@ -1,6 +1,4 @@
 /// @description Insert description here
-// You can write your code in this editor
-
 transCurr = ktk_scr_tween(transCurr,transTgt,4,.15);
 
 for(var _i = 0;_i < 4;_i++){

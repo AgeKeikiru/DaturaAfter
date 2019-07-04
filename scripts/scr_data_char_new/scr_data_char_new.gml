@@ -9,6 +9,7 @@ SV_r[? CHAR_VAR_ID] = argument0;
 SV_r[? CHAR_VAR_NAMEFULL] = "???";
 SV_r[? CHAR_VAR_NAMEDISP] = "???";
 SV_r[? CHAR_VAR_DESC] = "An unknown entity hailing from beyond the void.";
+SV_r[? CHAR_VAR_RACE] = RACE_HUMAN;
 
 //stats
 SV_r[? CHAR_VAR_LEVEL] = 0;

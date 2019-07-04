@@ -31,8 +31,10 @@ _gridGap = 20; //how much space is between map grid squares
 				_gridOffX <= 1280 + _gridW
 				&& 0 + -_gridW <= _gridOffX
 				&& _gridOffY <= 720 + _gridH
-				&& 0 + -_gridH <= _gridOffY)
-			{
+				&& 0 + -_gridH <= _gridOffY
+				&& clamp(_ix,0,ds_grid_width(global.grd_dMap_terrain)) == _ix
+				&& clamp(_iy,0,ds_grid_height(global.grd_dMap_terrain)) == _iy
+			){
 				draw_set_alpha(1);
 			
 				var
@@ -40,35 +42,35 @@ _gridGap = 20; //how much space is between map grid squares
 				_x2 = _gridOffX + (_gridW / 2),
 				_y1 = _gridOffY + -(_gridH / 2),
 				_y2 = _gridOffY + (_gridH / 2);
-			
+				
 				if(global.grd_dMap_visible[# _ix,_iy]){
 					if(global.grd_dMap_terrain[# _ix,_iy] != noone){
 						//arrows
 						draw_set_color(c_gray);
 						
 						//left
-						if(global.grd_dMap_terrain[# _ix + -1,_iy] != noone){
+						if(_ix > 0 && global.grd_dMap_terrain[# _ix + -1,_iy] != noone){
 							draw_line_width(_gridOffX,_gridOffY,_gridOffX + -(_gridW + _gridGap) / 2,_gridOffY,5);
 							
 							draw_triangle(_x1 + -(_gridGap * .4),_gridOffY,_gridOffX + -(_gridW * .35),_y1 + (_gridH * .25),_gridOffX + -(_gridW * .35),_y2 + -(_gridH * .25),false);
 						}
 						
 						//right
-						if(global.grd_dMap_terrain[# _ix + 1,_iy] != noone){
+						if(_ix < ds_grid_width(global.grd_dMap_terrain) + -1 && global.grd_dMap_terrain[# _ix + 1,_iy] != noone){
 							draw_line_width(_gridOffX,_gridOffY,_gridOffX + (_gridW + _gridGap) / 2,_gridOffY,5);
 							
 							draw_triangle(_x2 + (_gridGap * .4),_gridOffY,_gridOffX + (_gridW * .35),_y1 + (_gridH * .25),_gridOffX + (_gridW * .35),_y2 + -(_gridH * .25),false);
 						}
 						
 						//top
-						if(global.grd_dMap_terrain[# _ix,_iy + -1] != noone){
+						if(_iy > 0 && global.grd_dMap_terrain[# _ix,_iy + -1] != noone){
 							draw_line_width(_gridOffX,_gridOffY,_gridOffX,_gridOffY + -(_gridH + _gridGap) / 2,5);
 							
 							draw_triangle(_gridOffX,_y1 + -(_gridGap * .2),_gridOffX + -(_gridW * .25),_y1 + (_gridH * .15),_gridOffX + (_gridW * .25),_y1 + (_gridH * .15),false);
 						}
 						
 						//bottom
-						if(global.grd_dMap_terrain[# _ix,_iy + 1] != noone){
+						if(_iy < ds_grid_height(global.grd_dMap_terrain) + -1 && global.grd_dMap_terrain[# _ix,_iy + 1] != noone){
 							draw_line_width(_gridOffX,_gridOffY,_gridOffX,_gridOffY + (_gridH + _gridGap) / 2,5);
 							
 							draw_triangle(_gridOffX,_y2 + (_gridGap * .2),_gridOffX + -(_gridW * .25),_y2 + -(_gridH * .15),_gridOffX + (_gridW * .25),_y2 + -(_gridH * .15),false);
@@ -91,6 +93,10 @@ _gridGap = 20; //how much space is between map grid squares
 									draw_set_color(c_green);
 								}
 							}
+						}
+						
+						if(global.grd_dMap_terrain[# _ix,_iy] == DMAP_TER_LOOT){
+							draw_set_color(c_yellow);
 						}
 						
 						_x1 = _gridOffX + -(_gridW / 2.5);
@@ -127,7 +133,7 @@ _gridGap = 20; //how much space is between map grid squares
 	draw_set_alpha(1);
 	draw_set_color(c_white);
 
-	draw_sprite_ext(pIcon,-1,_pDraw_x,_pDraw_y,4,4,0,c_white,1);
+	draw_sprite_ext(pIcon,-1,_pDraw_x,_pDraw_y,1,1,0,c_white,1);
 
 #endregion
 
@@ -141,8 +147,8 @@ if(!state_event && !state_results){
 		_mm_xStart = _mm_x,
 		_mm_yStart = _mm_y,
 		_mm_a = .8,
-		_mm_ix = clamp(round(global.dMap_xPos) + -15,0,max(ds_grid_width(global.grd_dMap_terrain) + -31,0)),
-		_mm_iy = clamp(round(global.dMap_yPos) + -15,0,max(ds_grid_height(global.grd_dMap_terrain) + -31,0));
+		_mm_ix = clamp(round(global.dMap_xPos) + -15,0,max(ds_grid_width(global.grd_dMap_terrain) + -30,0)),
+		_mm_iy = clamp(round(global.dMap_yPos) + -15,0,max(ds_grid_height(global.grd_dMap_terrain) + -30,0));
 		
 		draw_set_alpha(_mm_a);
 		
@@ -220,7 +226,7 @@ if(!state_event && !state_results){
 			draw_set_color(c_white);
 			
 			if(instance_exists(_o) && sprite_exists(_o.src[? CHAR_VAR_SPR_BATTLEPORT])){
-				draw_sprite_ext(_o.src[? CHAR_VAR_SPR_BATTLEPORT],0,_x + (sin(_o.direction) * _o.hurtShake * 20),_y + ((1 + -_o.image_alpha) * -150) + (cos(_o.direction) * _o.hurtShake * 20),1,1,0,make_color_rgb(255,255 * (1 + -_o.hurtShake),255 * (1 + -_o.hurtShake)),_o.image_alpha);
+				draw_sprite_ext(_o.src[? CHAR_VAR_SPR_BATTLEPORT],0,_x + (sin(_o.direction) * _o.hurtShake * 20),_y + ((1 + -_o.image_alpha) * -150) + (cos(_o.direction) * _o.hurtShake * 20) + ((_o.image_yscale + -1) * sprite_get_height(_o.src[? CHAR_VAR_SPR_BATTLEPORT]) * .5),_o.image_xscale,_o.image_yscale,0,make_color_rgb(255,255 * (1 + -_o.hurtShake),255 * (1 + -_o.hurtShake)),_o.image_alpha);
 				scr_cEvent(_o,EVENT_BATTLM_ICONDRAW);
 				
 				_o.image_alpha = ktk_scr_tween(_o.image_alpha,1,5,.2);

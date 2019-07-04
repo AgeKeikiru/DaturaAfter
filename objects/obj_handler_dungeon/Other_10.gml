@@ -2,42 +2,50 @@
 // You can write your code in this editor
 
 switch(cEvent){
-	case EVENT_DND_ENCOUNTER:
-	case EVENT_DND_ENCOUNTER_FIXED:
-		battleChance = -.4;
-		state_battle = true;
-	
-		var
-		_i = cEvent == EVENT_DND_ENCOUNTER ? irandom_range(1,ds_grid_width(grd_mobPool) + -1) : 0,
-		_gap = 380,
-		_x = 640 + -_gap,
-		_y = 380;
+	#region //dnd_encounter
+		case EVENT_DND_ENCOUNTER_FIXED:
+		case EVENT_DND_ENCOUNTER:
+			if(cEvent == EVENT_DND_ENCOUNTER_FIXED){
+				state_fixedBattle = true;
+			}
 		
-		for(var _i2 = 0;_i2 < 3;_i2++){
-			if(grd_mobPool[# _i,_i2] != noone){
-				var _o = instance_create_depth(_x,_y,0,obj_dungeon_battleMember);
-				_o.image_alpha = -abs(ceil((_i2 + -1) * 1.5)) * 1;
-				_o.src = scr_data_getMap(global.grd_chars,grd_mobPool[# _i,_i2]);
-				_o.allyParty = global.grd_party_enemy;
-				_o.enemyParty = global.grd_party_player;
-				scr_cEvent(_o,EVENT_BATTLM_INIT);
-				_o.enemyWait = UNIVERSAL_COOLDOWN + abs(ceil((_i2 + -1) * 1.5)) * 3000;
-				_o.enemyWaitMax = _o.enemyWait;
-				
-				global.grd_party_enemy[# _i2,0] = _o;
+			scr_runTimeline(tl_dungeon_startBattle);
+		
+			break;
+	#endregion
+	
+	#region //dnd_battleWin
+		case EVENT_DND_BATTLEWIN:
+			state_battle = false;
+			tgtSlot = -1;
+			
+			audio_sound_gain(global.bgmTrack[1],0,2000);
+			audio_sound_gain(global.bgmTrack[2],0,2000);
+			
+			global.bgmTrack_curr = 0;
+			
+			audio_sound_gain(global.bgmTrack[global.bgmTrack_curr],global.set_volBgm / 100,2000);
+			
+			with obj_dungeon_battleMember{
+				actUsing = noone;
+				tgtSlot = -1;
 			}
 			
-			_x += _gap;
-		}
+			break;
+	#endregion
 	
-		break;
-	case EVENT_DND_BATTLEWIN:
-		state_battle = false;
-		tgtSlot = -1;
-		
-		with obj_dungeon_battleMember{
-			actUsing = noone;
-		}
-		
-		break;
+	#region //dnd_battleLose
+		case EVENT_DND_BATTLELOSE:
+			state_battle = false;
+			missionComplete = false;
+			missionFailed = true;
+			
+			with obj_dungeon_battleMember{
+				if(allyParty == global.grd_party_enemy){
+					instance_destroy();
+				}
+			}
+			
+			break;
+	#endregion
 }

@@ -36,8 +36,10 @@ switch cEvent{
     
         with obj_handler_dungeon{
             grd_mobPool[# 0,0] = CHAR_SLIME;
-            grd_mobPool[# 0,1] = CHAR_SLIME;
-            grd_mobPool[# 0,2] = noone;
+            grd_mobPool[# 0,1] = CHAR_PARASLIME;
+            grd_mobPool[# 0,2] = CHAR_SLIME;
+            grd_mobPool[# 0,3] = 0;
+            grd_mobPool[# 0,4] = 0;
             
             scr_cEvent(id,EVENT_DND_ENCOUNTER_FIXED);
         }
@@ -83,7 +85,14 @@ switch cEvent{
         ds_grid_set_region(grd_events,20,MHE_VAR_X,23,MHE_VAR_X,-1);
             
         with obj_handler_dungeon{
+            grd_mobPool[# 0,0] = CHAR_PARASLIME;
+            grd_mobPool[# 0,1] = CHAR_PARASLIME;
+            grd_mobPool[# 0,2] = CHAR_PARASLIME;
+            grd_mobPool[# 0,3] = 0;
+            grd_mobPool[# 0,4] = 0;
+            
             state_event = true;
+            state_boss = true;
             missionComplete = true;
             endDia_battle = true;
         }

@@ -1,9 +1,17 @@
 /// @description Insert description here
-// You can write your code in this editor
-if(true){ //check if outside of pause menus/events
+var
+_ui = instance_find(obj_handler_menuUI,0),
+_dh = instance_find(obj_handler_dungeon,0);
+
+if( //check if outside of pause menus/events
+	scr_exists(_dh,asset_object)
+	&& !_dh.state_event
+	&& !_dh.state_results
+	&& (!scr_exists(_ui,asset_object) || _ui.grd_ps_xDraw[# 0,0] == 1)
+){
 	for(var _i = 0;_i < 6;_i++){
 		if(ailment[_i] > 0){
-			ailment[_i] += -1;
+			ailment[_i] += -scr_timeMod(1);
 			
 			if(ailment[_i] <= 0){
 				ailment[_i] = 0;
@@ -12,7 +20,7 @@ if(true){ //check if outside of pause menus/events
 		}
 	}
 	
-	iFrames--;
+	iFrames += -scr_timeMod(1);
 }
 
 if(ailment[CHAR_SA_PAR] > 0){
@@ -41,7 +49,7 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 		G_tmp = tgtSlot;
 	}
 	
-	tgtIndex = G_tmp;
+	//tgtIndex = G_tmp;
 	
 	scr_cEvent(actUsing,EVENT_ACT_USE);
 	
@@ -61,27 +69,29 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 }
 
 if(hpCurr > 0){
-	var _rec = .1;
+	var _rec = .2;
 	
-	global.tempFloat = 0;
-	scr_cEvent(obj_handler_actEffect,EVENT_EFFECT_ENRECMOD,id);
-	_rec *= 1 + max(global.tempFloat,-1);
-	
-	if(scr_exists(stance,asset_object) && stance.object_index == obj_handler_actEffect_shd){
-		enCurr += -(enMax * .02) / room_speed;
+	if(!scr_exists(_ui,asset_object) || _ui.grd_ps_xDraw[# 0,0] == 1){
+		global.tempFloat = 0;
+		scr_cEvent(obj_handler_actEffect,EVENT_EFFECT_ENRECMOD,id);
+		_rec *= 1 + max(global.tempFloat,-1);
 		
-		if(enCurr <= 0){
-			instance_destroy(stance);
+		if(scr_exists(stance,asset_object) && stance.object_index == obj_handler_actEffect_shd){
+			enCurr += -scr_timeMod((enMax * .02) / room_speed);
+			
+			if(enCurr <= 0){
+				instance_destroy(stance);
+			}
+		}else{
+			enCurr += scr_timeMod(_rec / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3)));
 		}
-	}else{
-		enCurr += _rec / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3));
-	}
-	
-	enCurr = clamp(enCurr,0,enMax);
-	
-	if(ailment[CHAR_SA_PSN] > 0 && hpCurr > 1){
-		hpCurr += -hpMax * .0005;
-		hpCurr = max(hpCurr,1);
+		
+		enCurr = clamp(enCurr,0,enMax);
+		
+		if(ailment[CHAR_SA_PSN] > 0 && hpCurr > 1){
+			hpCurr += -scr_timeMod(hpMax * .0005);
+			hpCurr = max(hpCurr,1);
+		}
 	}
 	
 	if(enemyWait > 0){
@@ -93,7 +103,7 @@ if(hpCurr > 0){
 		
 		_spd = max(_spd,-99);
 		
-		enemyWait += -(100 + _spd) / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3));
+		enemyWait += -scr_timeMod((100 + _spd) / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3)));
 	
 		if(enemyWait <= 0){
 			var
@@ -101,6 +111,26 @@ if(hpCurr > 0){
 			_aggroHi = -99,
 			_aggroIndex = -1,
 			_tgts = ds_list_create();
+			
+			//determine act to use
+			switch src[? CHAR_VAR_ID]{
+				default:
+					var lst_acts = ds_list_create();
+					
+					for(var _i = 0;_i < 8;_i++){
+						if(scr_exists(act[_i],asset_object)){
+							ds_list_add(lst_acts,act[_i]);
+						}
+					}
+					
+					ds_list_shuffle(lst_acts);
+					
+					if(ds_list_size(lst_acts) > 0){
+						_act = lst_acts[| 0];
+					}
+					
+					break;
+			}
 			
 			ds_list_add(_tgts,
 				0,
@@ -169,7 +199,10 @@ if(hpCurr > 0){
 		}
 	}
 	
-	if(G_tmp){
+	image_xscale = ktk_scr_tween(image_xscale,0,2,-1);
+	image_yscale = ktk_scr_tween(image_yscale,2,2,-1);
+	
+	if(G_tmp && image_xscale == 0){
 		instance_destroy();
 	}
 }

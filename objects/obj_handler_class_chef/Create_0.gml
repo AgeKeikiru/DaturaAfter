@@ -15,13 +15,12 @@ cName = "CHEF_" + string(global.cid++);
 
 ms_name = "Ele-Res Mastery";
 ms_desc = "Increase all Elemental Resistances by Lv*0.5%.";
-//ms_icon
+ms_icon = spr_icon_eleRes;
 
 ss_name = "M-DEF+ (s)";
 ss_desc = "Slightly increase base Melee Defense.";
-//ss_icon
+ss_icon = spr_icon_mDefUp;
 ss_toolTip = "M-DEF: +!";
-//ss_rate = .5;
 
 stat_specialCd_base = 3000;
 stat_specialCd_rate = stat_specialCd_base * -.1;
@@ -39,6 +38,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "Increase base HP.";
 	grd_skillTooltip[# _ix,_iy] = "HP: +!";
 	grd_skillRate[# _ix,_iy] = 200;
+	grd_skillIcon[# _ix,_iy] = spr_icon_hpUp;
 	
 	_iy++;
 	
@@ -47,6 +47,7 @@ stat_tt_rate = .05;
 	grd_skillTooltip[# _ix,_iy] = "Max ingredients: !";
 	grd_skillRate[# _ix,_iy] = 1;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_messKit);
+	grd_skillIcon[# _ix,_iy] = spr_icon_stance;
 	
 	_iy++;
 	
@@ -55,6 +56,7 @@ stat_tt_rate = .05;
 	grd_skillTooltip[# _ix,_iy] = "Effect: !";
 	grd_skillRate[# _ix,_iy] = 10;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillIcon[# _ix,_iy] = spr_icon_foodRice;
 
 #endregion
 
@@ -68,6 +70,7 @@ stat_tt_rate = .05;
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillIcon[# _ix,_iy] = spr_icon_foodFir;
     
     _iy++;
     
@@ -75,6 +78,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "[Pan/Sling] Add Wide-Range effect.";
 	grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillIcon[# _ix,_iy] = spr_icon_foodFlour;
     
     _iy++;
     
@@ -83,6 +87,7 @@ stat_tt_rate = .05;
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillIcon[# _ix,_iy] = spr_icon_foodIce;
 
 #endregion
 
@@ -96,6 +101,7 @@ stat_tt_rate = .05;
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillIcon[# _ix,_iy] = spr_icon_foodNat;
     
     _iy++;
     
@@ -103,6 +109,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "[Pan/Sling] Increase hit count of food attacks.";
 	grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillIcon[# _ix,_iy] = spr_icon_foodGum;
     
     _iy++;
     
@@ -111,6 +118,7 @@ stat_tt_rate = .05;
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillIcon[# _ix,_iy] = spr_icon_foodElc;
 
 #endregion
 
@@ -124,6 +132,7 @@ stat_tt_rate = .05;
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillIcon[# _ix,_iy] = spr_icon_foodLgt;
     
     _iy++;
     
@@ -131,6 +140,7 @@ stat_tt_rate = .05;
     grd_skillDesc[# _ix,_iy] = "Allows the user to gain a weakened effect of their food without consuming it.";
     grd_skillTooltip[# _ix,_iy] = "Effect: !%";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_tasteTest);
+    grd_skillIcon[# _ix,_iy] = spr_icon_tasteTest;
     
     _iy++;
     
@@ -139,5 +149,6 @@ stat_tt_rate = .05;
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillIcon[# _ix,_iy] = spr_icon_foodDrk;
 
 #endregion

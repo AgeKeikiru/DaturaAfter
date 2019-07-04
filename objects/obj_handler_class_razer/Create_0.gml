@@ -9,11 +9,11 @@ cName = "RAZE_" + string(global.cid++);
 
 ms_name = "Vengeance";
 ms_desc = "Increase damage dealt when HP is below (30 + Lv*0.5)%.";
-//ms_icon
+ms_icon = spr_icon_lowHpAtk;
 
 ss_name = "HP+ (s)";
 ss_desc = "Slightly increase base HP.";
-//ss_icon
+ss_icon = spr_icon_hpUp;
 ss_toolTip = "HP: +!";
 ss_rate = 10;
 
@@ -41,12 +41,14 @@ stat_bl_rate = 5;
     grd_skillName[# _ix,_iy] = "SPD+";
     grd_skillDesc[# _ix,_iy] = "Increase base Speed.";
     grd_skillTooltip[# _ix,_iy] = "SPD: +!";
+    grd_skillIcon[# _ix,_iy] = spr_icon_spdUp;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "TRI-ATK+";
     grd_skillDesc[# _ix,_iy] = "Increase base Melee/Firearm/Spell Attack.";
     grd_skillTooltip[# _ix,_iy] = "M/F/S-ATK: +!";
+    grd_skillIcon[# _ix,_iy] = spr_icon_triAtkUp;
     
     _iy++;
     
@@ -54,6 +56,7 @@ stat_bl_rate = 5;
     grd_skillDesc[# _ix,_iy] = "Increase damage dealt with all Elements.";
     grd_skillTooltip[# _ix,_iy] = "ELE Damage: +!%";
     grd_skillRate[# _ix,_iy] = .04;
+    grd_skillIcon[# _ix,_iy] = spr_icon_eleUp;
 
 #endregion
 
@@ -66,12 +69,14 @@ stat_bl_rate = 5;
     grd_skillDesc[# _ix,_iy] = "Melee attack that aims for the target's legs, high chance of decreasing target SPD on hit.";
     grd_skillTooltip[# _ix,_iy] = "Effect Chance: !%";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_kneecap);
+    grd_skillIcon[# _ix,_iy] = spr_icon_kneecap;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "M-ATK+";
     grd_skillDesc[# _ix,_iy] = "Increase base Melee Attack.";
     grd_skillTooltip[# _ix,_iy] = "M-ATK: +!";
+    grd_skillIcon[# _ix,_iy] = spr_icon_mAtkUp;
     
     _iy++;
     
@@ -79,6 +84,7 @@ stat_bl_rate = 5;
     grd_skillDesc[# _ix,_iy] = "A high power Melee attack that also damages the user slightly.";
     grd_skillTooltip[# _ix,_iy] = "Power: !";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_sBlow);
+    grd_skillIcon[# _ix,_iy] = spr_icon_sBlow;
 
 #endregion
 
@@ -92,6 +98,7 @@ stat_bl_rate = 5;
     grd_skillTooltip[# _ix,_iy] = "Dmg Bonus: !%";
     grd_skillRate[# _ix,_iy] = .2;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_rEdge);
+    grd_skillIcon[# _ix,_iy] = spr_icon_debuffSlash;
     
     _iy++;
     
@@ -100,6 +107,7 @@ stat_bl_rate = 5;
     grd_skillTooltip[# _ix,_iy] = "Max Boost: +!%";
     grd_skillRate[# _ix,_iy] = .4;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_aDodge);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
     
     _iy++;
     
@@ -107,6 +115,7 @@ stat_bl_rate = 5;
     grd_skillDesc[# _ix,_iy] = "A Melee desperation move that drains half the user's remaining hp and deals damage based on how much HP is drained.";
     grd_skillTooltip[# _ix,_iy] = "Conversion Rate: !%";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_dBlow);
+    grd_skillIcon[# _ix,_iy] = spr_icon_dBlow;
 
 #endregion
 
@@ -119,6 +128,7 @@ stat_bl_rate = 5;
     grd_skillDesc[# _ix,_iy] = "A Melee secret technique that, while difficult to land, uses momentum to greatly increase SPD for a brief time. Slight recoil.";
     grd_skillTooltip[# _ix,_iy] = "Recoil: !";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_aEdge);
+    grd_skillIcon[# _ix,_iy] = spr_icon_accelEdge;
     
     _iy++;
     
@@ -127,6 +137,7 @@ stat_bl_rate = 5;
     grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec\nMax Boost: +@%";
     grd_skillRate[# _ix,_iy] = .2;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_bLust);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
     
     _iy++;
     
@@ -135,5 +146,6 @@ stat_bl_rate = 5;
     grd_skillTooltip[# _ix,_iy] = "IK Chance: !%";
     grd_skillRate[# _ix,_iy] = .02;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_rCross);
+    grd_skillIcon[# _ix,_iy] = spr_icon_rCross;
 
 #endregion
