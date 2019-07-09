@@ -11,7 +11,8 @@
         "aebffb84-780e-4dd3-bb3f-504f1eb5845d",
         "b23952f8-d83b-4766-a4ea-47a4bdae9edd",
         "e9b72f05-bb26-4bc8-b635-aa269783d578",
-        "aecb7758-78bf-4000-9a07-7ad8c0e6dbdd"
+        "aecb7758-78bf-4000-9a07-7ad8c0e6dbdd",
+        "60a2c7bf-d7d6-48b0-a2ca-2f68b482d458"
     ],
     "filterType": "GMIncludedFile",
     "folderName": "datafiles",

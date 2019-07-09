@@ -13,3 +13,7 @@ x += -100;
 
 image_xscale = 300;
 image_yscale = 25;
+
+if(instance_number(object_index) == 1){
+    scr_playSfx(sfx_loot);
+}

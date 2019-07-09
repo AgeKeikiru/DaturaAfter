@@ -7,6 +7,7 @@ if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUACCEPT)){
 			talkbox.txt[0] = txt_tgt;
 		}else{
 			scr_cEvent(id,EVENT_DIA_NEXTLINE);
+			scr_playSfx(SFX_SCROLLTICK);
 		}
 	}
 }

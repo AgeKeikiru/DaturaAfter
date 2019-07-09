@@ -73,7 +73,13 @@ if(hpCurr > 0){
 	
 	if(!scr_exists(_ui,asset_object) || _ui.grd_ps_xDraw[# 0,0] == 1){
 		global.tempFloat = 0;
+		
 		scr_cEvent(obj_handler_actEffect,EVENT_EFFECT_ENRECMOD,id);
+		
+		with obj_handler_dungeon{
+			global.tempFloat += !state_battle;
+		}
+		
 		_rec *= 1 + max(global.tempFloat,-1);
 		
 		if(scr_exists(stance,asset_object) && stance.object_index == obj_handler_actEffect_shd){
@@ -199,12 +205,20 @@ if(hpCurr > 0){
 		}
 	}
 	
-	image_xscale = ktk_scr_tween(image_xscale,0,2,-1);
-	image_yscale = ktk_scr_tween(image_yscale,2,2,-1);
+	if(image_xscale == 1){
+		scr_playSfx(sfx_killed);
+		image_alpha += -.1;
+	}
 	
 	if(G_tmp && image_xscale == 0){
 		instance_destroy();
 	}
+}
+
+if(image_alpha < 1 && hpCurr <= 0){
+	image_xscale = ktk_scr_tween(image_xscale,0,2,-1);
+	image_yscale = ktk_scr_tween(image_yscale,2,2,-1);
+	image_alpha = ktk_scr_tween(image_alpha,0,2,-1);
 }
 
 if(hurtShake > 0){

@@ -15,6 +15,7 @@ if(map_results[? MCS_DISP_SPD] < map_results[? MCS_TGT_SPD]){
     map_results[? MCS_DISP_SPD] += map_results[? MCS_TGT_SPD] / 40;
     
     timeline_position += -1;
+    scr_playSfx(sfx_tick2);
 }else{
     map_results[? MCS_DISP_SPD] = map_results[? MCS_TGT_SPD];
     map_results[? MCS_ICON_SPD] = instance_create_depth(MCS_ALIGNX + 420,MCS_STARTY,0,obj_fpo_parent);
@@ -53,6 +54,8 @@ if(map_results[? MCS_DISP_SPD] < map_results[? MCS_TGT_SPD]){
         tweenSpd = 1;
         tweenMax = .3;
         tgtAlpha = 1;
+        
+        alarm[2] = room_speed * .15;
     }
     
     map_results[? MCS_TGT_BONUS] += map_results[? MCS_TGT_GOLD] * SV_bonus;

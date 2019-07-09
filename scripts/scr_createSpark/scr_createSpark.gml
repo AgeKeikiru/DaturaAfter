@@ -12,17 +12,35 @@ SV_r = noone,
 SV_c = c_white;
 
 switch(SV_ele){
-    case CHAR_VAR_ELE_FIR: SV_c = CC_FIRRED;
+    case CHAR_VAR_ELE_FIR:
+    	SV_c = CC_FIRRED;
+        scr_playSfx(sfx_fir);
+        
         break;
-    case CHAR_VAR_ELE_ICE: SV_c = CC_ICEBLUE;
+    case CHAR_VAR_ELE_ICE:
+    	SV_c = CC_ICEBLUE;
+    	scr_playSfx(sfx_ice);
+    	
         break;
-    case CHAR_VAR_ELE_ELC: SV_c = CC_ELCYELLOW;
+    case CHAR_VAR_ELE_ELC:
+    	SV_c = CC_ELCYELLOW;
+    	scr_playSfx(sfx_elc);
+    	
         break;
-    case CHAR_VAR_ELE_NAT: SV_c = CC_NATGREEN;
+    case CHAR_VAR_ELE_NAT:
+    	SV_c = CC_NATGREEN;
+    	scr_playSfx(sfx_nat);
+    	
         break;
-    case CHAR_VAR_ELE_LGT: SV_c = CC_LGTBEIGE;
+    case CHAR_VAR_ELE_LGT:
+    	SV_c = CC_LGTBEIGE;
+    	scr_playSfx(sfx_lgt);
+    	
         break;
-    case CHAR_VAR_ELE_DRK: SV_c = CC_DRKVIOLET;
+    case CHAR_VAR_ELE_DRK:
+    	SV_c = CC_DRKVIOLET;
+    	scr_playSfx(sfx_drk);
+    	
         break;
 }
 
@@ -47,6 +65,8 @@ if(scr_exists(SV_spr,asset_sprite)){
 				SV_p.alarm[1] = sprite_get_number(SV_p.sprite_index) + random_range(5,30);
 				SV_p.alarm[0] = SV_p.alarm[1] + 10;
 			}
+			
+			scr_playSfx(sfx_buff);
 	        
 	        break;
 	    
@@ -64,6 +84,13 @@ if(scr_exists(SV_spr,asset_sprite)){
 				SV_p.alarm[0] = SV_p.alarm[1] + 10;
 				
 				_a += random_range(60,120);
+			}
+			
+			switch SV_spr{
+				case spr_spark_bash: scr_playSfx(sfx_melee); break;
+				case spr_spark_slash: scr_playSfx(sfx_slash); break;
+				case spr_spark_pierce: scr_playSfx(sfx_pierce); break;
+				case spr_spark_shoot: scr_playSfx(sfx_gun); break;
 			}
 			
 			break;

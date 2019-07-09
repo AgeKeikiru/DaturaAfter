@@ -1,0 +1,1 @@
+scr_getLoot(choose(LOOT_G,LOOT_G,LOOT_G,LOOT_WPN,LOOT_WPN,LOOT_ARM));

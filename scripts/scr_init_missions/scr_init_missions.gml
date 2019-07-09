@@ -30,16 +30,18 @@ var SV_map;
 	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_nLoewi_01_brief;
 	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
 	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
+	SV_map[? MSN_VAR_BGM] = "forest";
 	
-	SV_map[? MSN_VAR_PAR_TIME_S] = ((2 * 60) + 40) * room_speed;
-	SV_map[? MSN_VAR_PAR_TIME_C] = ((5 * 60) + 0) * room_speed;
-	SV_map[? MSN_VAR_PAR_DMG_S] = 20000;
-	SV_map[? MSN_VAR_PAR_DMG_C] = 5000;
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((4 * 60) + 30) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((6 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_DMG_S] = 40000;
+	SV_map[? MSN_VAR_PAR_DMG_C] = 20000;
 	
 	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;
 	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 20;
 	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
 	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
+	SV_map[? MSN_VAR_STATUS] = 1;
 	/*
 	Alright you lot, proceed to Northern Loewi's railway hub. A foreign breed of Slime has been reported in the area, likely smuggled in from a neighboring region.
 	With mutations to counter any possible natural predators, these augmented Slimes will destroy the ecosystem in a matter of days if left undealt with.
@@ -56,13 +58,29 @@ var SV_map;
 	SV_map[? MSN_VAR_NAME] = "Railway Spy Hunt";
 	SV_map[? MSN_VAR_CLIENT] = "AG Loewi";
 	SV_map[? MSN_VAR_REWARD] = 2700;
+	SV_map[? MSN_VAR_OPNAME] = "Rat Race";
+	SV_map[? MSN_VAR_OPFOR] = "Saboteurs";
+	SV_map[? MSN_VAR_ESR] = "74%";
 	SV_map[? MSN_VAR_DESC_LOC] = "North Loewi";
-	SV_map[? MSN_VAR_DESC_TGT] = "Spy (x8)";
+	SV_map[? MSN_VAR_DESC_TGT] = "Spy (x6)";
 	SV_map[? MSN_VAR_DESC_OBJ] = "Eliminate all targets within the time limit";
-	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_nLoewi_01_cut01;
-	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_nLoewi_01_brief;
-	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
-	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
+	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_nLoewi_02_intro;
+	SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_nLoewi_02_outro;
+	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_nLoewi_02_brief;
+	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_02;
+	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_02;
+	SV_map[? MSN_VAR_BGM] = "subway";
+	
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((4 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((5 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_DMG_S] = 42000;
+	SV_map[? MSN_VAR_PAR_DMG_C] = 25000;
+	
+	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;
+	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 20;
+	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
+	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
+	SV_map[? MSN_VAR_STATUS] = 1;
 	/*
 	Congratulations, Loewi's guild hall was impressed by your performance, and is asking for your help again.
 	A small company of spies are reported to be on the next train out of North Loewi, and our client is requesting that you dispose of them.
@@ -80,15 +98,35 @@ var SV_map;
 	SV_map[? MSN_VAR_NAME] = "Defend the Town Center";
 	SV_map[? MSN_VAR_CLIENT] = "AG Venus";
 	SV_map[? MSN_VAR_REWARD] = 1800;
+	SV_map[? MSN_VAR_OPNAME] = "Full House";
+	SV_map[? MSN_VAR_OPFOR] = "Wildlife";
+	SV_map[? MSN_VAR_ESR] = "75%";
 	SV_map[? MSN_VAR_DESC_LOC] = "Venus Woods";
 	SV_map[? MSN_VAR_DESC_TGT] = "Bleeding Bullet (x8)";
 	SV_map[? MSN_VAR_DESC_OBJ] = "Eliminate all targets within the time limit";
-	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_nLoewi_01_cut01;
-	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_nLoewi_01_brief;
-	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
-	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
+	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_vWoods_01_cut01;
+	SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_vWoods_01_cut03;
+	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_vWoods_01_brief;
+	SV_map[? MSN_VAR_MAP_SPR] = spr_map_vWoods_01;
+	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_vWoods_01;
+	SV_map[? MSN_VAR_BGM] = "forest";
+	
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((6 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((10 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_DMG_S] = 45000;
+	SV_map[? MSN_VAR_PAR_DMG_C] = 20000;
+	
+	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;
+	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 20;
+	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
+	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
+	SV_map[? MSN_VAR_STATUS] = 1;
 	/*
-	defend the tree its culture important
+	A village near the outskirts of Venus City have issued a distress signal.
+	Reports claim mysterious flowers have begun to bloom around their mature Awrig tree near the center of their village and any botanists sent to investigate fail to return.
+	That Awrig is one of the last of its kind, and an integral cultural touchstone for Venus City - saving it will be sure to endow you lot in the Venus Guild Hall's good graces.
+	That said, there's no time to waste, no one knows what effects those plants will have on the village, or how long until the situation takes a turn for the worst.
+	Proceed immediately to the distress signal's location and guard the Awrig tree. Good luck.
 	
 	--1 event tile on the path to the clearing (triggers battle with 2 bleedingBullet)
 	--an event tile on the left and right side of the clearing (each triggers battle with 2 bleedingBullet)

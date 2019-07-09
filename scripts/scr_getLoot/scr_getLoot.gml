@@ -61,7 +61,7 @@ repeat(SV_qty){
             		}
             	}
             	
-            	if(SV_multi){
+            	if(SV_multi || SV_max <= 0){
             	    SV_ele = "";
             	}
         	}
@@ -99,6 +99,46 @@ repeat(SV_qty){
         	var SV_o = scr_data_act_new(SV_tag,SV_ele,SV_rank,SV_plus);
         	
         	ds_list_add(global.lst_inv_acts,SV_o);
+        	ds_list_add(global.lst_missionLoot_queue,SV_o.name);
+            
+            break;
+            
+        case LOOT_ARM: //armor drop
+            var SV_lst = ds_list_create();
+            
+            ds_list_add(SV_lst,
+                CHAR_VAR_HP,
+                CHAR_VAR_EN,
+                CHAR_VAR_MATK,
+                CHAR_VAR_MDEF,
+                CHAR_VAR_FATK,
+                CHAR_VAR_FDEF,
+                CHAR_VAR_SATK,
+                CHAR_VAR_SDEF,
+                CHAR_VAR_ACC,
+                CHAR_VAR_EVA,
+                CHAR_VAR_SPD,
+                CHAR_VAR_MISC
+            );
+        	
+        	ds_list_shuffle(SV_lst);
+        	
+        	var
+        	SV_rank = SV_map[? MSN_VAR_LOOT_RANKMIN],
+        	SV_plus = 0,
+        	SV_tag = SV_lst[| 0];
+        	
+        	while(SV_rank < SV_map[? MSN_VAR_LOOT_RANKMAX] && random(1) < .2){
+        		SV_rank++;
+        	}
+        	
+        	while(SV_plus < 10 && random(1) < .1){
+        		SV_plus++;
+        	}
+        	
+        	var SV_o = scr_data_armor_new(SV_tag,SV_rank,SV_plus);
+        	
+        	ds_list_add(global.lst_inv_arms,SV_o);
         	ds_list_add(global.lst_missionLoot_queue,SV_o.name);
             
             break;

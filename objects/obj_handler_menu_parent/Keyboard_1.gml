@@ -2,9 +2,15 @@
 // You can write your code in this editor
 
 if(ds_stack_top(global.stk_menu) == id && visible){
+	var _sfx = noone;
+	
 	if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_UP)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP)){
 			io_clear();
+		}
+		
+		if(ds_grid_height(grd_txt) > 1){
+			_sfx = SFX_SCROLLTICK;
 		}
 	
 		menu_y--;
@@ -12,11 +18,19 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_DOWN)){
 			io_clear();
 		}
+		
+		if(ds_grid_height(grd_txt) > 1){
+			_sfx = SFX_SCROLLTICK;
+		}
 	
 		menu_y++;
 	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_LEFT)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_LEFT)){
 			io_clear();
+		}
+		
+		if(ds_grid_width(grd_txt) > 1){
+			_sfx = SFX_SCROLLTICK;
 		}
 	
 		if(
@@ -26,12 +40,17 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 			&& grd_toggle[# menu_x,menu_y]
 		){
 			script_execute(grd_scr[# menu_x,menu_y],false);
+			_sfx = SFX_SCROLLTICK;
 		}else{
 			menu_x--;
 		}
 	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_RIGHT)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_RIGHT)){
 			io_clear();
+		}
+		
+		if(ds_grid_width(grd_txt) > 1){
+			_sfx = SFX_SCROLLTICK;
 		}
 	
 		if(
@@ -41,11 +60,16 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 			&& grd_toggle[# menu_x,menu_y]
 		){
 			script_execute(grd_scr[# menu_x,menu_y],true);
+			_sfx = SFX_SCROLLTICK;
 		}else{
 			menu_x++;
 		}
 	}else if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUACCEPT)){
 		io_clear();
+		
+		if(!script_exists(grd_scr[# menu_x,menu_y])){
+			_sfx = sfx_deny;
+		}
 	
 		if(
 			script_exists(grd_scr[# menu_x,menu_y])
@@ -56,6 +80,7 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 			)
 		){
 			script_execute(grd_scr[# menu_x,menu_y]);
+			_sfx = SFX_ACCEPTTICK;
 		}
 	}else if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUBACK)){
 		io_clear();
@@ -64,6 +89,8 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 			script_execute(back_function);
 		}
 	}
+	
+	scr_playSfx(_sfx);
 
 	menu_x = (menu_x + ds_grid_width(grd_txt)) mod ds_grid_width(grd_txt);
 	menu_y = (menu_y + ds_grid_height(grd_txt)) mod ds_grid_height(grd_txt);

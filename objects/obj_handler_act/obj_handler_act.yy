@@ -777,6 +777,48 @@
             "varType": 3
         },
         {
+            "id": "30268d11-9ff0-45b0-b943-d998719f1c0c",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "se_start",
+            "varType": 4
+        },
+        {
+            "id": "fa55db65-7c09-4f9e-9664-5a16f6d3581f",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "se_hit",
+            "varType": 4
+        },
+        {
+            "id": "10020e6e-04be-416d-8547-2e7a910087e1",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "se_end",
+            "varType": 4
+        },
+        {
             "id": "151d527f-02cf-4eea-be94-2d26d0ac272d",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -803,6 +845,20 @@
             "value": "ds_list_create()",
             "varName": "cArgs",
             "varType": 4
+        },
+        {
+            "id": "fc5948ed-fb5c-4a65-aee8-95476ba2c3b4",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "abort",
+            "varType": 3
         }
     ],
     "solid": false,

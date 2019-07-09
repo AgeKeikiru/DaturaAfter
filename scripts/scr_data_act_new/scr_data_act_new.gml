@@ -18,7 +18,7 @@ SV_r.rare = SV_rare;
 SV_r.plus = SV_plus;
 SV_r.type = SV_type;
 SV_r.tgtType = ACT_TGT_SINGLE;
-SV_r.enCost = 100;
+SV_r.enCost = 50;
 SV_r.cdAdd = 5000;
 SV_r.pwr = 100;
 SV_r.acc = 100;
@@ -68,6 +68,7 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_MATK;
 			SV_r.defScale = CHAR_VAR_MDEF;
 			SV_r.spark_hit = spr_spark_slash;
+			SV_r.se_hit = sfx_melee;
 			
 			break;
 			
@@ -103,6 +104,7 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_MATK;
 			SV_r.defScale = CHAR_VAR_MDEF;
 			SV_r.spark_hit = spr_spark_slash;
+			SV_r.se_hit = sfx_pierce;
 			
 			break;
 			
@@ -264,6 +266,7 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_FATK;
 			SV_r.defScale = CHAR_VAR_FDEF;
 			SV_r.spark_hit = spr_spark_pierce;
+			SV_r.se_hit = sfx_gun;
 			
 			break;
 			
@@ -301,6 +304,7 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_pierce;
+			SV_r.se_hit = sfx_spell;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -322,6 +326,7 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_bash;
+			SV_r.se_hit = sfx_spell;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -344,6 +349,7 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_slash;
+			SV_r.se_hit = sfx_spell;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -365,6 +371,7 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_bash;
+			SV_r.se_hit = sfx_spell;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -386,6 +393,7 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_pierce;
+			SV_r.se_hit = sfx_spell;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -440,6 +448,7 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_dot;
+			SV_r.se_hit = sfx_item;
 			
 			break;
 			
@@ -461,6 +470,7 @@ switch(SV_type){
 			SV_r.spark_start = spr_spark_dot;
 			SV_r.effect_start = obj_handler_actEffect_cure;
 			SV_r.nonAttack = true;
+			SV_r.se_start = sfx_item;
 			
 			break;
 			
@@ -481,6 +491,7 @@ switch(SV_type){
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_dot;
 			SV_r.revive = true;
+			SV_r.se_hit = sfx_item;
 			
 			break;
 			
@@ -562,53 +573,97 @@ switch(SV_type){
 	
 	#region //enemy act
 	
-		case EACT_TACKLE:
-			SV_r.name = "Tackle";
-			SV_r.desc = "Brute force attack. Not particularly reliable in any way.";
-			SV_r.enCost *= 0;
-			SV_r.cdAdd *= 1;
-			SV_r.pwr *= .8;
-			SV_r.acc *= .75;
-			SV_r.hitCount = 1;
-			SV_r.hitGap *= 1;
-			SV_r.atkScale = CHAR_VAR_MATK;
-			SV_r.defScale = CHAR_VAR_MDEF;
-			SV_r.spark_hit = spr_spark_bash;
+		#region //tackle
+			case EACT_TACKLE:
+				SV_r.name = "Tackle";
+				SV_r.desc = "Brute force attack. Not particularly reliable in any way.";
+				SV_r.enCost *= 0;
+				SV_r.cdAdd *= 1;
+				SV_r.pwr *= .8;
+				SV_r.acc *= .75;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_bash;
+				
+				break;
+		#endregion
 			
-			break;
+		#region //paratackle
+			case EACT_PARATACKLE:
+				SV_r.name = "Shock Tackle";
+				SV_r.desc = "Brute force attack. Unreliable, but has a moderate chance to paralyze.";
+				SV_r.enCost *= 0;
+				SV_r.cdAdd *= 2;
+				SV_r.pwr *= .8;
+				SV_r.acc *= .75;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_bash;
+				SV_r.ele = CHAR_VAR_ELE_ELC;
+				SV_r.sa_inflict[| CHAR_SA_PAR] = 10;
+				SV_r.sa_chance[| CHAR_SA_PAR] = .4;
+				
+				break;
+		#endregion
 			
-		case EACT_PARATACKLE:
-			SV_r.name = "Shock Tackle";
-			SV_r.desc = "Brute force attack. Unreliable, but has a moderate chance to paralyze.";
-			SV_r.enCost *= 0;
-			SV_r.cdAdd *= 2;
-			SV_r.pwr *= .8;
-			SV_r.acc *= .75;
-			SV_r.hitCount = 1;
-			SV_r.hitGap *= 1;
-			SV_r.atkScale = CHAR_VAR_MATK;
-			SV_r.defScale = CHAR_VAR_MDEF;
-			SV_r.spark_hit = spr_spark_bash;
-			SV_r.ele = CHAR_VAR_ELE_ELC;
-			SV_r.sa_inflict[| CHAR_SA_PAR] = 10;
-			SV_r.sa_chance[| CHAR_SA_PAR] = .4;
-			
-			break;
-			
-		case EACT_BITE:
-			SV_r.name = "Bite";
-			SV_r.desc = "Nimble piercing attack. Weak, but hits twice.";
-			SV_r.enCost *= 0;
-			SV_r.cdAdd *= 1;
-			SV_r.pwr *= .5;
-			SV_r.acc *= .8;
-			SV_r.hitCount = 2;
-			SV_r.hitGap *= 1.4;
-			SV_r.atkScale = CHAR_VAR_MATK;
-			SV_r.defScale = CHAR_VAR_MDEF;
-			SV_r.spark_hit = spr_spark_pierce;
-			
-			break;
+		#region //bite
+			case EACT_BITE:
+				SV_r.name = "Bite";
+				SV_r.desc = "Nimble piercing attack. Weak, but hits twice.";
+				SV_r.enCost *= 0;
+				SV_r.cdAdd *= 1;
+				SV_r.pwr *= .5;
+				SV_r.acc *= .8;
+				SV_r.hitCount = 2;
+				SV_r.hitGap *= 1.4;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_pierce;
+				
+				break;
+		#endregion
+		
+		#region //petal snipe
+			case EACT_PETALSNIPE:
+				SV_r.name = "Petal Snipe";
+				SV_r.desc = "Launches razor sharp leaves with pinpoint accuracy.";
+				SV_r.enCost *= 0;
+				SV_r.cdAdd *= 1;
+				SV_r.pwr *= .3;
+				SV_r.acc *= .9;
+				SV_r.hitCount = 3;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_FATK;
+				SV_r.defScale = CHAR_VAR_FDEF;
+				SV_r.spark_hit = spr_spark_shoot;
+				SV_r.ele = CHAR_VAR_ELE_NAT;
+				
+				break;
+		#endregion
+		
+		#region //toxic petal
+			case EACT_TOXICPETAL:
+				SV_r.name = "Toxic Petal";
+				SV_r.desc = "Launches a caustic leaf, has a low chance of inflicting poison.";
+				SV_r.enCost *= 0;
+				SV_r.cdAdd *= 2.5;
+				SV_r.pwr *= .5;
+				SV_r.acc *= .6;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_FATK;
+				SV_r.defScale = CHAR_VAR_FDEF;
+				SV_r.spark_hit = spr_spark_shoot;
+				SV_r.ele = CHAR_VAR_ELE_DRK;
+				SV_r.sa_inflict[| CHAR_SA_PSN] = 4;
+				SV_r.sa_chance[| CHAR_SA_PAR] = .3;
+				
+				break;
+		#endregion
 			
 	#endregion
 	

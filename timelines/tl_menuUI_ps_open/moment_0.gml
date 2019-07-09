@@ -5,6 +5,8 @@ grd_ps_xDraw[# 0,1] = 0;
 transTgt = -.5;
 transCurr = transTgt;
 
+//scr_playSfx(sfx_tick4);
+
 with obj_handler_menu_parent{
     depthMem = depth;
     layer = global.ly_obj[2];

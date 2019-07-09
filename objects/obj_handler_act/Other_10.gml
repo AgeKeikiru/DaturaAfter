@@ -185,6 +185,16 @@ switch(cEvent){
 					_dmgBonus = 0,
 					_aimBonus = 0;
 					
+					if(tgtEnemy){
+						_dmgBonus += (src.level + -dc_tgt[| _i].level) * .05;
+						scr_trace("dmg level bonus: " + string((src.level + -dc_tgt[| _i].level) * 5) + "%");
+						
+						if(ele != ""){
+							_dmgBonus += -dc_tgt[| _i].src[? ele] / 100;
+							scr_trace("ele -resist: " + string(dc_tgt[| _i].src[? ele]) + "%");
+						}
+					}
+					
 					switch(atkScale){
 						case CHAR_VAR_MATK:
 							_dmgBonus += src.mAtk / 100;

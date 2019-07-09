@@ -6,7 +6,7 @@ layer = global.ly_obj[3];
 
 btn_draw = false;
 ds_stack_push(global.stk_menu,id);
-alarm[0] = 25;
+alarm[0] = 10;
 
 global.temp = id;
 

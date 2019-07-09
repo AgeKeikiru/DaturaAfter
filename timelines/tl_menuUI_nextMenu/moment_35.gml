@@ -35,7 +35,7 @@ txt_descLabel = "";
 
 switch(menuNext){
 	case 0: //request misison
-		layer_background_sprite(global.ly_bg[0],bg_forest);
+		layer_background_sprite(global.ly_bg[0],bg_mission);
 		global.bgmTrack_curr = 1;
 		break;
 	case 2: //market

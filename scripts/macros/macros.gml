@@ -4,6 +4,10 @@
 	#macro UNIVERSAL_COOLDOWN 60 * 100 * 5
 	#macro DEFAULT_PANEL_BEZEL 8
 	#macro CANARY true
+	#macro DEBUG false
+	
+	#macro SFX_SCROLLTICK sfx_tick1
+	#macro SFX_ACCEPTTICK sfx_tick3
 	
 #endregion
 
@@ -81,6 +85,8 @@
 		#macro CHAR_SHELLVENDOR "char_shellVendor"
 		#macro CHAR_SNACKVENDOR "char_snackVendor"
 		#macro CHAR_TIMBERCAT "char_timberCat"
+		#macro CHAR_NPC_AGENT "char_npc_agent"
+		#macro CHAR_NPC_EVOKER "char_npc_evoker"
 		
 	#endregion
 	
@@ -259,6 +265,8 @@
 		#macro EACT_TACKLE "eact_tackle"
 		#macro EACT_BITE "eact_bite"
 		#macro EACT_PARATACKLE "eact_paratackle"
+		#macro EACT_PETALSNIPE "eact_petalSnipe"
+		#macro EACT_TOXICPETAL "eact_toxicPetal"
 	
 	#endregion
 	
@@ -366,6 +374,8 @@
 		
 		#macro MSN_VAR_MAP_SPR "msn_var_map_spr"
 		
+		#macro MSN_VAR_BGM "msn_var_bgm"
+		
 		#macro MSN_VAR_INTRO_DIA "msn_var_intro_dia"
 		#macro MSN_VAR_OUTRO_DIA "msn_var_outro_dia"
 		#macro MSN_VAR_HANDLER "msn_var_handler"
@@ -386,9 +396,10 @@
 		
 	#endregion
 	
-	#region //handler event vars
+	#region //mission handler event vars
 	
 		#macro MHE_ETILE "mhe_eTile" //use in conjunction with a number to trigger a mission handler event
+		#macro MHE_INIT "mhe_init"
 	
 		#macro MHE_VAR_X 0
 		#macro MHE_VAR_Y 1
@@ -453,6 +464,7 @@
 	#macro EVENT_DND_BATTLELOSE "event_dnd_battleLose"
 	
 	#macro EVENT_ACT_USE "event_act_use"
+	#macro EVENT_ACT_ABORT "event_act_abort"
 	
 	#macro EVENT_MENU_RESIZEPANEL "event_menu_resizePanel"
 	#macro EVENT_MENU_REFRESHMENUUI "event_menu_refreshMenuUI"
@@ -513,6 +525,7 @@
 	#macro LOOT_ELE 1
 	#macro LOOT_WPN 2
 	#macro LOOT_G 3
+	#macro LOOT_ARM 4
 
 #endregion
 
@@ -549,5 +562,7 @@
 
 	#macro CS_SRCSTANCEIS scr_exists(src,asset_object) && scr_exists(src.stance,asset_object) && src.stance.object_index ==
 	#macro CS_SRCMAINIS scr_exists(src,asset_object) && scr_exists(src.src[? CHAR_VAR_CLS0],asset_object) && src.src[? CHAR_VAR_CLS0].object_index ==
+	#macro CS_SWITCHDIAFOCUS global.grd_dia[# DIA_FOCUS_L,SV_i] = !global.grd_dia[# DIA_FOCUS_L,SV_i] \
+	global.grd_dia[# DIA_FOCUS_R,SV_i] = !global.grd_dia[# DIA_FOCUS_R,SV_i]
 
 #endregion

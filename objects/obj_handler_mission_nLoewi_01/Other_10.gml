@@ -1,6 +1,55 @@
 /// @description Custom events
 
 switch cEvent{
+    case MHE_INIT:
+        layer_background_sprite(global.ly_bg[0],bg_forest);
+        
+        with obj_handler_dungeon{
+            var _i = 1;
+            
+            ds_grid_resize(grd_mobPool,4,ds_grid_height(grd_mobPool));
+			ds_grid_set_region(grd_mobPool,0,3,ds_grid_width(grd_mobPool) + -1,3,0); //min popcorn
+			ds_grid_set_region(grd_mobPool,0,4,ds_grid_width(grd_mobPool) + -1,4,2); //max popcorn
+			ds_grid_set_region(grd_mobPool,0,5,ds_grid_width(grd_mobPool) + -1,7,0); //enemy level
+			
+			grd_mobPool[# _i,0] = noone;
+			grd_mobPool[# _i,1] = CHAR_SLIME;
+			grd_mobPool[# _i,2] = noone;
+			
+			_i++;
+			
+			grd_mobPool[# _i,0] = CHAR_SLIME;
+			grd_mobPool[# _i,1] = CHAR_SLIME;
+			grd_mobPool[# _i,2] = noone;
+			
+			_i++;
+			
+			grd_mobPool[# _i,0] = noone;
+			grd_mobPool[# _i,1] = CHAR_SLIME;
+			grd_mobPool[# _i,2] = CHAR_SLIME;
+			
+			repeat(2){
+				ds_list_add(global.lst_missionLoot_table,
+					WTAG_TYPE_DGR,
+					WTAG_TYPE_HGN
+				);
+			}
+			
+			repeat(1){
+				ds_list_add(global.lst_missionLoot_table,
+					WTAG_TYPE_PAN,
+					WTAG_TYPE_SLG
+				);
+			}
+			
+			ds_list_add(lst_popcornPool,CHAR_CANDYWING);
+			
+			global.grd_dMap_terrain[# 1,6] = DMAP_TER_LOOT;
+			global.grd_dMap_terrain[# 45,36] = DMAP_TER_LOOT;
+        }
+    
+        break;
+    
     case MHE_ETILE + "0":
     case MHE_ETILE + "1":
     case MHE_ETILE + "2":
@@ -38,8 +87,13 @@ switch cEvent{
             grd_mobPool[# 0,0] = CHAR_SLIME;
             grd_mobPool[# 0,1] = CHAR_PARASLIME;
             grd_mobPool[# 0,2] = CHAR_SLIME;
+            
             grd_mobPool[# 0,3] = 0;
             grd_mobPool[# 0,4] = 0;
+            
+            grd_mobPool[# 0,5] = 0;
+            grd_mobPool[# 0,6] = 0;
+            grd_mobPool[# 0,7] = 0;
             
             scr_cEvent(id,EVENT_DND_ENCOUNTER_FIXED);
         }
@@ -88,8 +142,13 @@ switch cEvent{
             grd_mobPool[# 0,0] = CHAR_PARASLIME;
             grd_mobPool[# 0,1] = CHAR_PARASLIME;
             grd_mobPool[# 0,2] = CHAR_PARASLIME;
+            
             grd_mobPool[# 0,3] = 0;
             grd_mobPool[# 0,4] = 0;
+            
+            grd_mobPool[# 0,5] = 0;
+            grd_mobPool[# 0,6] = 8;
+            grd_mobPool[# 0,7] = 0;
             
             state_event = true;
             state_boss = true;

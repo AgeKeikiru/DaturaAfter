@@ -22,3 +22,5 @@ txt_ft[0] = ft_menuTitle;
 txt_halign[0] = fa_center;
 txt_valign[0] = fa_middle;
 txt_y[0] = 10;
+
+scr_playSfx(sfx_alert1);

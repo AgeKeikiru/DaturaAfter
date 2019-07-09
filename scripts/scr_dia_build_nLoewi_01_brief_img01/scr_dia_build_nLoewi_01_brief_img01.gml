@@ -6,3 +6,5 @@ SV_p = scr_createImgPanel(SV_x,SV_y,spr_brief_nLoewi_01_1,1,12);
 SV_p.txt[0] = "M:/brief/assets/img/area_map";
 
 ds_list_add(lst_panels,SV_p);
+
+scr_playSfx(sfx_brief);

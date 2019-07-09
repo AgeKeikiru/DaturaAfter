@@ -1,5 +1,7 @@
+var SV_map = scr_data_getMap(global.grd_missions,global.missionCurr);
+
 //load music
-ds_list_add(global.lst_bgmStream,audio_create_stream("bgm_forest.ogg"));
+ds_list_add(global.lst_bgmStream,audio_create_stream("bgm_" + SV_map[? MSN_VAR_BGM] + ".ogg"));
 ds_list_add(global.lst_bgmStream,audio_create_stream("bgm_battle.ogg"));
 ds_list_add(global.lst_bgmStream,audio_create_stream("bgm_eventBattle.ogg"));
 ds_list_add(global.lst_bgmStream,audio_create_stream("bgm_boss.ogg"));

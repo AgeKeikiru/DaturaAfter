@@ -19,6 +19,10 @@ if(allyParty == global.grd_party_enemy){
 			scr_getLoot(LOOT_WPN);
 		}
 		
+		if(random(1) < .2){
+			scr_getLoot(LOOT_ARM);
+		}
+		
 		if(random(1) < .5){
 			scr_getLoot(LOOT_G);
 		}

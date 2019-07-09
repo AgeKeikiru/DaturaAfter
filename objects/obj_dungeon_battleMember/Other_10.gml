@@ -6,7 +6,6 @@ switch(cEvent){
 		case EVENT_BATTLM_INIT:
 			if(src != noone){
 				name = src[? CHAR_VAR_NAMEDISP];
-				level = src[? CHAR_VAR_LEVEL];
 				
 				hpMax = src[? CHAR_VAR_HP];
 				enMax = src[? CHAR_VAR_EN];
@@ -33,6 +32,36 @@ switch(cEvent){
 				//load acts
 				if(allyParty == global.grd_party_enemy){
 					switch(src[? CHAR_VAR_ID]){
+						case CHAR_NPC_AGENT:
+							act[0] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
+							act[0].src = id;
+							
+							act[1] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
+							act[1].src = id;
+							
+							act[2] = scr_data_act_new(WTAG_TYPE_SHG,"",0,0);
+							act[2].src = id;
+							
+							break;
+							
+						case CHAR_NPC_EVOKER:
+							act[0] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_DRK,0,0);
+							act[0].src = id;
+							
+							act[1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_DRK,0,0);
+							act[1].src = id;
+							
+							act[2] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_LGT,0,0);
+							act[2].src = id;
+							
+							act[3] = scr_data_act_new(WTAG_TYPE_SSC_HEAL,"",0,0);
+							act[3].src = id;
+							
+							act[4] = scr_data_act_new(WTAG_TYPE_CSC,CHAR_VAR_ELE_DRK,0,0);
+							act[4].src = id;
+							
+							break;
+						
 						case CHAR_PARASLIME:
 							act[0] = scr_data_act_new(EACT_TACKLE);
 							act[0].src = id;
@@ -40,11 +69,26 @@ switch(cEvent){
 							act[1] = scr_data_act_new(EACT_TACKLE);
 							act[1].src = id;
 							
-							act[2] = scr_data_act_new(EACT_TACKLE);
+							act[2] = scr_data_act_new(EACT_PARATACKLE);
 							act[2].src = id;
 							
-							act[3] = scr_data_act_new(EACT_PARATACKLE);
-							act[3].src = id;
+							break;
+							
+						case CHAR_BLEEDINGBULLET:
+							act[0] = scr_data_act_new(EACT_PETALSNIPE);
+							act[0].src = id;
+							
+							break;
+							
+						case CHAR_DARTLILY:
+							act[0] = scr_data_act_new(EACT_PETALSNIPE);
+							act[0].src = id;
+							
+							act[1] = scr_data_act_new(EACT_PETALSNIPE);
+							act[1].src = id;
+							
+							act[2] = scr_data_act_new(EACT_TOXICPETAL);
+							act[2].src = id;
 							
 							break;
 							
@@ -60,6 +104,12 @@ switch(cEvent){
 							
 							break;
 					}
+					
+					for(var _i = 0;_i < 8;_i++){
+						if(act[_i] != noone){
+							act[_i].enCost = 0;
+						}
+					}
 				}else{
 					var _key = "char_var_hb";
 					
@@ -72,6 +122,7 @@ switch(cEvent){
 						
 						if(scr_exists(act[_i],asset_object)){
 							act[_i].src = id;
+							act[_i].abort = false;
 						}
 					}
 				}
@@ -159,7 +210,7 @@ switch(cEvent){
 				
 				class[_i] = src[? CHAR_VAR_UCLASS];
 				
-				if(class[_i] != undefined && instance_exists(class[_i])){
+				if(scr_exists(class[_i],asset_object)){
 					class[_i].src = id;
 					scr_cEvent(class[_i],EVENT_CLASS_BASESTATADD);
 					level += ds_grid_get_sum(class[_i].grd_skills,0,0,ds_grid_width(class[_i].grd_skills) + -1,ds_grid_height(class[_i].grd_skills) + -1);

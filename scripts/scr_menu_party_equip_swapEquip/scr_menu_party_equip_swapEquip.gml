@@ -38,7 +38,7 @@ if(object_index == obj_handler_menu_parent){
             break;
     }
 
-    scr_menu_back();
+    scr_menu_back(true,false);
     
     var
     SV_menu = ds_stack_top(global.stk_menu),
@@ -125,6 +125,12 @@ if(object_index == obj_handler_menu_parent){
     	    SV_menu.grd_desc[# SV_menu.menu_x,SV_menu.menu_y] = "Nothing equipped.";
     	}
     }
+    
+    scr_playSfx(sfx_equip);
+    repeat(10){
+        scr_playSfx(sfx_cutin);
+    }
+    scr_playSfx(sfx_spell);
     
     scr_cEvent(SV_mem,EVENT_BATTLM_INIT);
 }

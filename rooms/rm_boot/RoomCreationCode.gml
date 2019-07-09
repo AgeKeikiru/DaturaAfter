@@ -82,6 +82,7 @@ room_speed = 60;
 	global.bgmTrack_curr = 0;
 	global.lst_bgmFadeOut = ds_list_create();
 	global.lst_bgmStream = ds_list_create();
+	global.lst_sfx = ds_list_create();
 	
 	audio_stop_all();
 	
@@ -121,8 +122,8 @@ room_speed = 60;
 #region //settings
 	
 	global.set_txtSpeed = 6;
-	global.set_volBgm = 100;
-	global.set_volSfx = 80;
+	global.set_volBgm = 50;
+	global.set_volSfx = 50;
 	global.set_atbSpeed = 100;
 	global.set_atbMod = 40;
 	
@@ -179,9 +180,9 @@ room_speed = 60;
 	global.grd_party_player[# 0,0] = _temp;
 	
 	with _temp.src[? CHAR_VAR_CLS0]{
-		ds_grid_set_region(grd_skills,0,0,3,2,5);
+		//ds_grid_set_region(grd_skills,0,0,3,2,2);
 		
-		//grd_skills[# 0,1] = 1;
+		grd_skills[# 0,0] = 3;
 		//grd_skills[# 2,1] = 5;
 		
 		scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);
@@ -211,9 +212,9 @@ room_speed = 60;
 		global.grd_party_player[# 1,0] = _temp;
 		
 		with _temp.src[? CHAR_VAR_CLS0]{
-			ds_grid_set_region(grd_skills,0,0,3,2,5);
+			//ds_grid_set_region(grd_skills,0,0,3,2,2);
 			
-			//grd_skills[# 0,1] = 5;
+			grd_skills[# 0,0] = 3;
 			
 			scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);
 		}
@@ -243,9 +244,9 @@ room_speed = 60;
 		global.grd_party_player[# 2,0] = _temp;
 		
 		with _temp.src[? CHAR_VAR_CLS0]{
-			ds_grid_set_region(grd_skills,0,0,3,2,5);
+			//ds_grid_set_region(grd_skills,0,0,3,2,2);
 			
-			//grd_skills[# 0,1] = 5;
+			grd_skills[# 0,0] = 3;
 			
 			scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);
 		}
@@ -291,18 +292,17 @@ if(true){
 	//global.grd_party_player[# 1,0].ailment[CHAR_SA_SLC] = 9999;
 	//global.grd_party_player[# 1,0].ailment[CHAR_SA_BRN] = 9999;
 	//global.grd_party_player[# 1,0].ailment[CHAR_SA_BLD] = 9999;
-	global.grd_party_player[# 1,0].ailment[CHAR_SA_PSN] = 9999;
+	//global.grd_party_player[# 1,0].ailment[CHAR_SA_PSN] = 9999;
 	//global.grd_party_player[# 1,0].ailment[CHAR_SA_PAR] = 9999;
 	
-	scr_cEvent(global.grd_party_player[# 0,0],EVENT_BATTLM_ICONREFRESH);
-	scr_cEvent(global.grd_party_player[# 1,0],EVENT_BATTLM_ICONREFRESH);
+	scr_cEvent(obj_dungeon_battleMember,EVENT_BATTLM_ICONREFRESH);
 	
 	with obj_handler_dungeon{
 		grd_mobPool[# 0,0] = noone;
 		grd_mobPool[# 0,2] = noone;
 		
-	    //grd_mobPool[# 0,0] = CHAR_SLIME;
-	    grd_mobPool[# 0,1] = CHAR_SLIME;
+	    grd_mobPool[# 0,0] = CHAR_NPC_EVOKER;
+	    grd_mobPool[# 0,1] = CHAR_NPC_AGENT;
 	    //grd_mobPool[# 0,2] = CHAR_SLIME;
 	}
 	

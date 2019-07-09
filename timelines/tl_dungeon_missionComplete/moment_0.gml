@@ -31,6 +31,8 @@ for(var _ix = 0;_ix < ds_grid_width(global.grd_dMap_terrain);_ix++){
 map_results[? MCS_TGT_EXP] = (_expRevealed / _expTotal) * 100;
 map_results[? MCS_DISP_EXP] = 0;
 
+scr_playBgm(sfx_clear,global.bgmTrack_curr);
+
 //banner
 map_results[? MCS_BG] = instance_create_depth(0,room_height / 2,0,obj_fpo_panel);
 with map_results[? MCS_BG]{

@@ -73,6 +73,34 @@
             "value": "\"\"",
             "varName": "cEvent",
             "varType": 2
+        },
+        {
+            "id": "f1be83e2-b879-4a51-a013-52f78f64ad26",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "specCurr",
+            "varType": 0
+        },
+        {
+            "id": "e75b6a13-c55f-4a1a-bc4c-6caad142161f",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "specMax",
+            "varType": 0
         }
     ],
     "solid": false,

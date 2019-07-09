@@ -16,7 +16,7 @@ with SV_m{
 	for(var SV_i2 = 0;SV_i2 < ds_grid_height(global.grd_missions);SV_i2++){
 		var SV_mission = global.grd_missions[# 1,SV_i2];
 		
-		if(SV_mission[? MSN_VAR_STATUS] == 0){ //todo: change to 1
+		if(SV_mission[? MSN_VAR_STATUS] == 1){ //todo: change to 1
 			ds_list_add(global.lst_missionIndex,SV_mission[? MSN_VAR_ID]);
 		
 			grd_txt[# 0,SV_i] = SV_mission[? MSN_VAR_NAME];

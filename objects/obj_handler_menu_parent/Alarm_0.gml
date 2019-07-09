@@ -4,6 +4,7 @@ io_clear();
 global.playerControl = true;
 
 btn_draw = true;
+image_alpha = 0;
 
 if(!submenu){
 	scr_cEvent(id,EVENT_MENU_REFRESHMENUUI);

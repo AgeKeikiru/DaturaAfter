@@ -1,7 +1,4 @@
-//set background and delete menus
-layer_background_sprite(global.ly_bg[0],bg_forest);
-scr_bgManip_reset();
-
+//set delete menus
 ds_stack_clear(global.stk_menu);
 
 instance_destroy(obj_handler_menu_parent);

@@ -47,4 +47,6 @@ if(sprite_exists(SV_img)){
     SV_r.link_img = SV_r2;
 }
 
+scr_playSfx(sfx_menuOpen);
+
 return SV_r;

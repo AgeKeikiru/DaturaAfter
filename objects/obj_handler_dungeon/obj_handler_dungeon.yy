@@ -266,7 +266,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "ds_grid_create(2,5)",
+            "value": "ds_grid_create(2,8)",
             "varName": "grd_mobPool",
             "varType": 4
         },

@@ -49,16 +49,16 @@ for(var _i = 0;_i < 4;_i++){
 
 repeat(4){
     //20: final encounter dialogue
-    grd_events[# _e,MHE_VAR_X] = 26;
-    grd_events[# _e,MHE_VAR_Y] = 26;
-    grd_events[# _e,MHE_VAR_VIS] = true;
+    grd_events[# _e,MHE_VAR_X] = DEBUG ? 26 : -1;
+    grd_events[# _e,MHE_VAR_Y] = DEBUG ? 26 : -1;
+    grd_events[# _e,MHE_VAR_VIS] = DEBUG;
     
     _e++;
 }
 
 //debug
-grd_events[# 24,MHE_VAR_X] = false ? 25 : -1;
-grd_events[# 24,MHE_VAR_Y] = false ? 24 : -1;
-grd_events[# 24,MHE_VAR_VIS] = CANARY;
+grd_events[# 24,MHE_VAR_X] = DEBUG ? 25 : -1;
+grd_events[# 24,MHE_VAR_Y] = DEBUG ? 24 : -1;
+grd_events[# 24,MHE_VAR_VIS] = DEBUG;
 
 map_flags[? 0] = 0; //mission progress

@@ -1,5 +1,7 @@
 /// @description Insert description here
 
+draw_set_alpha(image_alpha);
+
 if(scr_exists(link_panel,asset_object)){
 	with link_panel{
 		event_perform(ev_draw,0);
@@ -40,12 +42,12 @@ if(btn_draw){
 			_highlight = _ix == menu_x && _iy == menu_y;
 			
 			draw_set_color(c_white);
-			draw_set_alpha(!_highlight ? .1 : .8);
+			draw_set_alpha((!_highlight ? .1 : .8) * image_alpha);
 			
 			draw_rectangle(_drawX,_drawY,_drawX + btn_w,_drawY + btn_h,false);
 			
 			draw_set_color(_highlight ? c_dkgray : c_white);
-			draw_set_alpha(grd_scr[# _ix,_iy] != noone ? 1 : .5);
+			draw_set_alpha((grd_scr[# _ix,_iy] != noone ? 1 : .5) * image_alpha);
 			
 			draw_text(_drawX + (btn_w / 2),_drawY,grd_txt[# _ix,_iy]);
 			
@@ -57,3 +59,8 @@ if(btn_draw){
 		_drawX += btn_w + btn_gapX;
 	}
 }
+
+image_alpha = ktk_scr_tween(image_alpha,1,3,-1);
+
+draw_set_alpha(1);
+draw_set_color(c_white);

@@ -1,10 +1,16 @@
 
+if(abort){
+	abort = false;
+	exit;
+}
+
 if(hitLoopRemaining == hitCount){
 	for(var _i = 0;_i < ds_list_size(dc_tgt);_i++){
 		var _tgt = eSelf_start ? src : dc_tgt[| _i];
 		
 		scr_act_createEffect(effect_start,eChance_start,_tgt,rare,stanceAct,special);
 		scr_createSpark(_tgt.x,_tgt.y + -70,spark_start,ele);
+		scr_playSfx(se_start);
 	}
 }
 
@@ -126,6 +132,7 @@ if(!nonAttack){
 				var _tgt = eSelf_hit ? src : dc_tgt[| _i];
 				
 				scr_act_createEffect(effect_hit,eChance_hit,_tgt,rare,stanceAct,special);
+				scr_playSfx(se_hit);
 				
 				if(scr_createSpark(_pX,_pY,spark_hit,ele) != noone && tgtEnemy){
 					dc_tgt[| _i].hurtShake = 1;
@@ -146,12 +153,13 @@ if(!nonAttack){
 				scr_cEvent(all,EVENT_BATTLE_MISS,src,dc_tgt[| _i],id);
 			}
 			
-			if(recoil > 0){
-				src.hpCurr += -recoil;
+			var _recoil = recoil + ceil((src.ailment[CHAR_SA_BRN] > 0) * _dmg * .5);
+			
+			if(_recoil > 0){
+				src.hpCurr += -_recoil;
 				src.hpCurr = max(src.hpCurr,1);
 				
-				_p = scr_createEffectTxt(src,"");
-				_p.txt[0] = string(recoil);
+				_p = scr_createEffectTxt(src,string(_recoil));
 			}
 		}
 	}
@@ -169,6 +177,7 @@ if(hitLoopRemaining > 0){
 		
 		scr_act_createEffect(effect_end,eChance_end,_tgt,rare,stanceAct,special);
 		scr_createSpark(_tgt.x,_tgt.y + -70,spark_end,ele);
+		scr_playSfx(se_end);
 	}
 	
 	if(object_index == obj_handler_act_raze_dBlow){

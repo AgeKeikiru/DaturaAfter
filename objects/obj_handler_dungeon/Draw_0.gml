@@ -190,8 +190,8 @@ if(!state_event && !state_results){
 	    _timeT = missionTime / room_speed,
 	    _timeM = string_format(floor(_timeT / 60),2,0),
 	    _timeS = string_format(_timeT mod 60,2,2),
-	    _timeDebug = CANARY ? string(missionDmg) : "",
-	    _icDebug = CANARY ? ("ic:" + string(instance_count)) : "";
+	    _timeDebug = DEBUG ? string(missionDmg) : "",
+	    _icDebug = DEBUG ? ("ic:" + string(instance_count)) : "";
 	    
 	    draw_set_font(ft_dungeonBold);
 	    draw_set_halign(fa_left);
@@ -363,7 +363,50 @@ if(!state_event && !state_results){
 	
 	#endregion
 	
-	#region//draw party
+	#region //objective meter
+	
+		var _h = instance_find(obj_handler_mission_parent,0);
+		
+		if(scr_exists(_h,asset_object) && _h.specMax > 0){
+			draw_set_font(ft_dungeonBold);
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_top);
+			
+			var
+			_om_str = "OBJECTIVE",
+			_om_w = 500,
+			_om_w2 = _om_w * (_h.specCurr / _h.specMax),
+			_om_h = 15,
+			_om_b = 2,
+			_om_x = (room_width + -_om_w) / 2,
+			_om_y = 20,
+			_om_tw = string_width(_om_str),
+			_om_th = string_height(_om_str),
+			_om_tx1 = (room_width + -_om_tw) / 2,
+			_om_tx2 = (room_width + _om_tw) / 2,
+			_om_ty1 = _om_y + _om_h + _om_b,
+			_om_ty2 = _om_y + _om_h + _om_b + _om_th;
+			
+			draw_set_color(c_white);
+			
+			draw_rectangle(_om_x + -_om_b,_om_y + -_om_b,_om_x + _om_w + _om_b,_om_y + _om_h + _om_b,false);
+			draw_rectangle(_om_tx1,_om_ty1,_om_tx2,_om_ty2,false);
+			draw_triangle(_om_tx1,_om_ty1,_om_tx1,_om_ty2,_om_tx1 + -25,_om_ty1,false);
+			draw_triangle(_om_tx2,_om_ty1,_om_tx2,_om_ty2,_om_tx2 + 25,_om_ty1,false);
+			
+			draw_set_color(c_dkgray);
+			
+			draw_rectangle(_om_x,_om_y,_om_x + _om_w,_om_y + _om_h,false);
+			draw_text(room_width / 2,_om_y + _om_h + _om_b + 5,_om_str);
+			
+			draw_set_color(c_orange);
+			
+			draw_rectangle(_om_x,_om_y,_om_x + _om_w2,_om_y + _om_h,false);
+		}
+	
+	#endregion
+	
+	#region //draw party
 	
 		var
 		_uiDrawX = 200,
@@ -767,7 +810,7 @@ if(!state_event && !state_results){
 }
 
 //testing
-if(CANARY){
+if(DEBUG){
 	for(var _i = 0;_i < 3;_i++){
 		var _o = global.grd_party_enemy[# _i,0];
 		
@@ -776,7 +819,7 @@ if(CANARY){
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_top);
 			
-			ktk_scr_draw_text_shadow(_o.x,_o.y,string(_o.hpCurr) + "/" + string(_o.hpMax),c_white,c_dkgray,2);
+			ktk_scr_draw_text_shadow(_o.x,_o.y,"Lv." + string(_o.level) + "\n" + string(_o.hpCurr) + "/" + string(_o.hpMax),c_white,c_dkgray,2);
 		}
 	}
 }

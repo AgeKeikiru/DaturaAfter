@@ -16,6 +16,7 @@ with obj_handler_dungeon{
     		_o.image_alpha = -abs(ceil((_i2 + -1) * 1.5)) * 1;
     		_o.enemyWait = UNIVERSAL_COOLDOWN + abs(ceil((_i2 + -1) * 1.5)) * 3000;
     		_o.enemyWaitMax = _o.enemyWait;
+    		_o.level = grd_mobPool[# _i,_i2 + 5];
     	}
     }
     

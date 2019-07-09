@@ -42,7 +42,7 @@ switch load_step{
 		with SV_o{
 			layer = global.ly_obj[5];
 			
-			txt[0] = "-Operation-";
+			txt[0] = "-Operation Name-";
 			txt[1] = SV_map[? MSN_VAR_OPNAME];
 			
 			txt_halign[0] = fa_right;
@@ -187,6 +187,6 @@ switch load_step{
 		break;
 }
 
-if(load_step < 10){ //change to 4
+if(load_step < 8){
 	timeline_position += -30;
 }

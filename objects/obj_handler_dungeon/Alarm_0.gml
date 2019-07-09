@@ -10,3 +10,5 @@ if(script_exists(_map[? MSN_VAR_INTRO_DIA])){
 	global.playerControl = true;
 	state_event = false;
 }
+
+missionTime = 0;

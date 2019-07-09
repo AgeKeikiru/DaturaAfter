@@ -20,6 +20,8 @@ SV_r[? MSN_VAR_DESC_SCR] = scr_dia_build_nLoewi_01_brief;
 
 SV_r[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
 
+SV_r[? MSN_VAR_BGM] = "forest";
+
 SV_r[? MSN_VAR_INTRO_DIA] = noone;
 SV_r[? MSN_VAR_OUTRO_DIA] = noone;
 SV_r[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;

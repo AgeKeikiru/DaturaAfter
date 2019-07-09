@@ -52,7 +52,7 @@ if(
 	&& !state_event
 	&& (!scr_exists(_ui,asset_object) || _ui.grd_ps_xDraw[# 0,0] == 1)
 ){
-	missionTime += scr_timeMod(1);
+	missionTime++;
 }
 
 if(!state_event && !state_battle && !state_results && (missionComplete || missionFailed) && instance_number(obj_fpo_parent) == 0){
@@ -111,8 +111,10 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 					global.grd_dMap_terrain[# global.dMap_xPos,global.dMap_yPos] = DMAP_TER_FLOOR;
 					
 					repeat(irandom_range(1,3)){
-						scr_getLoot(choose(LOOT_G,LOOT_G,LOOT_G,LOOT_WPN,LOOT_WPN,LOOT_ELE));
+						scr_getLoot(choose(LOOT_G,LOOT_G,LOOT_G,LOOT_WPN,LOOT_WPN,LOOT_ARM));
 					}
+					
+					scr_playSfx(sfx_loot);
 				}else if(random(1) < battleChance){
 					scr_cEvent(id,EVENT_DND_ENCOUNTER);
 				}else{
@@ -137,7 +139,7 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 			G_tmp = false;
 		}
 		
-		if(G_tmp){
+		if(G_tmp && global.playerControl){
 			scr_cEvent(id,EVENT_DND_BATTLEWIN);
 		}else{
 			popcornTimer += -scr_timeMod(1);

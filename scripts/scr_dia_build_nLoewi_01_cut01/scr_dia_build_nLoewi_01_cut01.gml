@@ -30,17 +30,13 @@ global.grd_dia[# DIA_REFR_R,SV_i] = true;
 SV_i = scr_dia_newStep();
 global.grd_dia[# DIA_NAME,SV_i] = "Paprika";
 global.grd_dia[# DIA_TXT,SV_i] = "Aww yeah! We'll get this done lickity-split with your fancy scanners Aile!";
-global.grd_dia[# DIA_SPR_R,SV_i] = spr_paprika_neutral; //TODO
+global.grd_dia[# DIA_SPR_R,SV_i] = spr_paprika_neutral;
 global.grd_dia[# DIA_REFR_R,SV_i] = true;
 
 SV_i = scr_dia_newStep();
 global.grd_dia[# DIA_NAME,SV_i] = "Imo'lei";
 global.grd_dia[# DIA_TXT,SV_i] = "Right, let's get this over with. I gotta hurry up and get some levels before the tournament...";
-global.grd_dia[# DIA_FOCUS_L,SV_i] = true;
+CS_SWITCHDIAFOCUS;
 
 SV_i = scr_dia_newStep();
 global.grd_dia[# DIA_SCR,SV_i] = scr_dungeon_endDia;
-
-with obj_handler_dungeon{
-    missionTime = 0;
-}

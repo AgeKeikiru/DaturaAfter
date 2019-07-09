@@ -5,6 +5,7 @@ if(map_results[? MCS_DISP_GOLD] < map_results[? MCS_TGT_GOLD]){
     map_results[? MCS_DISP_GOLD] += map_results[? MCS_TGT_GOLD] / 40;
     
     timeline_position += -1;
+    scr_playSfx(sfx_tick2);
 }else{
     map_results[? MCS_DISP_GOLD] = map_results[? MCS_TGT_GOLD];
 }

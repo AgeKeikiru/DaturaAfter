@@ -8,3 +8,5 @@ alarm[11] = 60;
 hspeed = 40;
 
 tgt_yScale = bSize;
+
+scr_playSfx(sfx_cutin);
