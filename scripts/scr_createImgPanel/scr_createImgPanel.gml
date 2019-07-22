@@ -10,6 +10,7 @@ SV_img = argument2,
 SV_scale = argument3,
 SV_b = argument4;
 
+SV_r.layer = global.ly_obj[4];
 SV_r.image_xscale = 0;
 SV_r.image_yscale = 0;
 

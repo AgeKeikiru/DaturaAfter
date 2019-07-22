@@ -1,0 +1,1 @@
+scr_menu_confirmWindow("message/confirm/..","Skip dialogue?",scr_dia_skipConfirm_yes,scr_dia_skipConfirm_no);

@@ -24,6 +24,7 @@ SV_r[? MSN_VAR_BGM] = "forest";
 
 SV_r[? MSN_VAR_INTRO_DIA] = noone;
 SV_r[? MSN_VAR_OUTRO_DIA] = noone;
+SV_r[? MSN_VAR_FAIL_DIA] = scr_dia_build_missionFailed;
 SV_r[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
 SV_r[? MSN_VAR_TIMER] = -1;
 SV_r[? MSN_VAR_STATUS] = 0;

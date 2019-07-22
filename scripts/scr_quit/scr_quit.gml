@@ -1,0 +1,1 @@
+scr_menu_confirmWindow("message/confirm/..","Quit game?",scr_quit_confirm,scr_menu_backNoRefresh);

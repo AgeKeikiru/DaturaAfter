@@ -57,7 +57,8 @@ if(!nonAttack){
 				}
 			}
 			
-			_dmg = round(_dmg * global.tempFloat);
+			_dmg = max(round(_dmg * global.tempFloat),0);
+			var _chip = ((_dmg / dc_tgt[| _i].hpMax) < .01) && tgtEnemy;
 			
 			scr_trace("\naimCheck " + string(_aimCheck) + " > " + string(100 + -acc));
 			
@@ -135,9 +136,9 @@ if(!nonAttack){
 				scr_playSfx(se_hit);
 				
 				if(scr_createSpark(_pX,_pY,spark_hit,ele) != noone && tgtEnemy){
-					dc_tgt[| _i].hurtShake = 1;
+					dc_tgt[| _i].hurtShake = !_chip;
 					
-					if(dc_tgt[| _i].allyParty == global.grd_party_player){
+					if(dc_tgt[| _i].allyParty == global.grd_party_player && !_chip){
 						with obj_handler_dungeon{
 							ve_col = ve_tgtCol == c_black ? c_red : c_white;
 						}

@@ -3,7 +3,7 @@ global.grd_missions = ds_grid_create(2,1);
 
 var SV_map;
 
-#region
+#region //debug
 
 	SV_map = scr_data_mission_new(MSN_DEBUG);
 	SV_map[? MSN_VAR_INTRO_DIA] = noone;
@@ -14,6 +14,34 @@ var SV_map;
 	/*
 	debug mission for battle testing
 	*/
+	
+#endregion
+
+#region //msn0
+	
+	SV_map = scr_data_mission_new(MSN_0);
+	SV_map[? MSN_VAR_NAME] = "Fated Encounter";
+	SV_map[? MSN_VAR_CLIENT] = "???";
+	SV_map[? MSN_VAR_REWARD] = 0;
+	SV_map[? MSN_VAR_OPNAME] = "Warm Welcome";
+	SV_map[? MSN_VAR_OPFOR] = "???";
+	SV_map[? MSN_VAR_ESR] = "0%";
+	SV_map[? MSN_VAR_DESC_LOC] = "PI Space";
+	SV_map[? MSN_VAR_DESC_TGT] = "???";
+	SV_map[? MSN_VAR_DESC_OBJ] = "Eliminate all targets";
+	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_msn0_intro;
+	SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_msn0_outro;
+	//SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_nLoewi_01_brief;
+	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
+	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_msn0;
+	SV_map[? MSN_VAR_BGM] = "rival";
+	/*
+	prologue
+	*/
+	
+#endregion
+
+#region //nLoewi_01
 	
 	SV_map = scr_data_mission_new(MSN_NLOEWI_01);
 	SV_map[? MSN_VAR_NAME] = "Eliminate Invasive Pest";
@@ -52,7 +80,10 @@ var SV_map;
 	--1 event tile in each corner area of map (triggers battle with 1 paraslime)
 	--after the last tile is cleared, the party is ambushed (triggers battle with 3 paraslime)
 	*/
+
+#endregion
 	
+#region //nLoewi_02
 	
 	SV_map = scr_data_mission_new(MSN_NLOEWI_02);
 	SV_map[? MSN_VAR_NAME] = "Railway Spy Hunt";
@@ -71,8 +102,8 @@ var SV_map;
 	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_02;
 	SV_map[? MSN_VAR_BGM] = "subway";
 	
-	SV_map[? MSN_VAR_PAR_TIME_S] = ((4 * 60) + 0) * room_speed;
-	SV_map[? MSN_VAR_PAR_TIME_C] = ((5 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((3 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((4 * 60) + 0) * room_speed;
 	SV_map[? MSN_VAR_PAR_DMG_S] = 42000;
 	SV_map[? MSN_VAR_PAR_DMG_C] = 25000;
 	
@@ -80,7 +111,6 @@ var SV_map;
 	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 20;
 	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
 	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
-	SV_map[? MSN_VAR_STATUS] = 1;
 	/*
 	Congratulations, Loewi's guild hall was impressed by your performance, and is asking for your help again.
 	A small company of spies are reported to be on the next train out of North Loewi, and our client is requesting that you dispose of them.
@@ -92,7 +122,10 @@ var SV_map;
 	--4 train cars, each containing several event tiles, but only one in each car is the target (triggers battle with 2 genericNPC)
 	--once the car's target is defeated, the entrence tile to the next car will spawn
 	*/
-	
+
+#endregion
+
+#region //vWoods_01
 	
 	SV_map = scr_data_mission_new(MSN_VWOODS_01);
 	SV_map[? MSN_VAR_NAME] = "Defend the Town Center";
@@ -120,7 +153,6 @@ var SV_map;
 	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 20;
 	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
 	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
-	SV_map[? MSN_VAR_STATUS] = 1;
 	/*
 	A village near the outskirts of Venus City have issued a distress signal.
 	Reports claim mysterious flowers have begun to bloom around their mature Awrig tree near the center of their village and any botanists sent to investigate fail to return.
@@ -132,9 +164,12 @@ var SV_map;
 	--an event tile on the left and right side of the clearing (each triggers battle with 2 bleedingBullet)
 	--1 event tile directly in front of the tree (triggers battle with 3 candywing, 2 bleedingBullet)
 	*/
+
+#endregion
+
+#region //vCanal_01
 	
-	
-	SV_map = scr_data_mission_new(MSN_VCANAL_01);
+	/*SV_map = scr_data_mission_new(MSN_VCANAL_01);
 	SV_map[? MSN_VAR_NAME] = "Defend the Control Center";
 	SV_map[? MSN_VAR_CLIENT] = "AG Venus";
 	SV_map[? MSN_VAR_REWARD] = 3200;
@@ -151,9 +186,12 @@ var SV_map;
 	--after interacting with the event tile, the enemy force appears (triggers battle with 6 candywing, 3 slime, 3 paraslime)
 	--low visibility affects map tile reveal radius and accuracy in battle
 	*/
+
+#endregion
+
+#region //nabTundra_01
 	
-	
-	SV_map = scr_data_mission_new(MSN_NABTUNDRA_01);
+	/*SV_map = scr_data_mission_new(MSN_NABTUNDRA_01);
 	SV_map[? MSN_VAR_NAME] = "Landbaron Griefing";
 	SV_map[? MSN_VAR_CLIENT] = "Anonymous";
 	SV_map[? MSN_VAR_REWARD] = 3800;
@@ -171,6 +209,40 @@ var SV_map;
 	--9 event tiles spread over the top area, interact to destroy and loot
 	--1 event tile at the end of the top area (triggers battle with target)
 	*/
+
+#endregion
+
+#region //demoBoss
+	
+	SV_map = scr_data_mission_new(MSN_DEMOBOSS);
+	SV_map[? MSN_VAR_NAME] = "Special Arena Appearance";
+	SV_map[? MSN_VAR_CLIENT] = "AG International";
+	SV_map[? MSN_VAR_REWARD] = 999999;
+	SV_map[? MSN_VAR_OPNAME] = "Old Avalon";
+	SV_map[? MSN_VAR_OPFOR] = "PvP";
+	SV_map[? MSN_VAR_ESR] = "74%";
+	SV_map[? MSN_VAR_DESC_LOC] = "AG-I Arena";
+	SV_map[? MSN_VAR_DESC_TGT] = "PvP";
+	SV_map[? MSN_VAR_DESC_OBJ] = "Eliminate all targets";
+	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_demoBoss_intro;
+	SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_demoBoss_outro;
+	SV_map[? MSN_VAR_FAIL_DIA] = scr_dia_build_demoBoss_failed;
+	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_demoBoss_brief;
+	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
+	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_demoBoss;
+	SV_map[? MSN_VAR_BGM] = "rival";
+	
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((4 * 60) + 30) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((6 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_DMG_S] = 40000;
+	SV_map[? MSN_VAR_PAR_DMG_C] = 20000;
+	SV_map[? MSN_VAR_PAR_EXPL_S] = 1;
+	SV_map[? MSN_VAR_PAR_EXPL_C] = 1;
+	
+	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;
+	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 20;
+	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
+	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
 
 #endregion
 

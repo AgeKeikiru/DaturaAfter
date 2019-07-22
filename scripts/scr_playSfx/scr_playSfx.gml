@@ -34,6 +34,7 @@ if(SV_si != noone){
         case sfx_alert2:
         case sfx_alert3:
         case sfx_brief:
+        case sfx_deny:
             break;
         default:
             audio_sound_pitch(SV_r,random_range(.95,1.05));

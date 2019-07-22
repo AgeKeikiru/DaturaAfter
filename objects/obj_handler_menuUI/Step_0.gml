@@ -1,4 +1,21 @@
 /// @description Insert description here
+if(
+	!title
+	&& instance_number(obj_handler_dungeon) == 0
+	&& !scr_exists(link_load,asset_object)
+	&& ds_stack_size(global.stk_menuDia) > 0
+	&& instance_number(obj_handler_dialogue) == 0)
+{
+	global.playerControl = false;
+	
+	with obj_handler_menu_parent{
+		visible = false;
+	}
+	
+	script_execute(ds_stack_pop(global.stk_menuDia));
+	instance_create_depth(0,0,0,obj_handler_dialogue);
+}
+
 transCurr = ktk_scr_tween(transCurr,transTgt,4,.15);
 
 for(var _i = 0;_i < 4;_i++){

@@ -59,7 +59,7 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 	if(missionFailed){
 		state_results = true;
 		
-		scr_dia_build_missionFailed();
+		script_execute(_map[? MSN_VAR_FAIL_DIA]);
 		
 		instance_create_depth(0,0,0,obj_handler_dialogue);
 	}else if(missionComplete){
@@ -149,7 +149,7 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 				
 				for(var _i = 0;_i < 3;_i++){
 					if(!scr_exists(global.grd_party_enemy[# _i,0],asset_object)){
-						scr_spawnEnemy(lst_popcorn[| 0],_i);
+						scr_spawnEnemy(lst_popcorn[| 0],_i,grd_mobPool[# 0,DH_MOB_PLV]);
 						ds_list_delete(lst_popcorn,0);
 						
 						break;

@@ -23,7 +23,7 @@ with SV_m{
     //link_panel.fill_alpha = 0;
     //link_panel.crosshair_alpha = 0;
     
-	ds_grid_resize(grd_txt,1,5);
+	ds_grid_resize(grd_txt,1,6);
 	scr_menu_matchGrids(id,true);
 	
 	var SV_i = 0;
@@ -61,6 +61,13 @@ with SV_m{
 	grd_desc[# 0,SV_i] = "Adjust game settings.";
 	grd_descLabel[# 0,SV_i] = "Setting";
 	grd_scr[# 0,SV_i] = scr_menu_party_options;
+	
+	SV_i++;
+	
+	grd_txt[# 0,SV_i] = "Title";
+	grd_desc[# 0,SV_i] = "Return to title screen.";
+	grd_descLabel[# 0,SV_i] = "Title";
+	grd_scr[# 0,SV_i] = instance_exists(obj_handler_dungeon) ? noone : scr_menu_party_title;
 	
 	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
 }

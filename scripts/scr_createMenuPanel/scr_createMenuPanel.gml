@@ -19,6 +19,7 @@ SV_menu.link_panel = SV_panel;
 
 SV_menu.btn_w = SV_w;
 
+SV_panel.fixedAlpha = false;
 SV_panel.tgt_xScale = SV_w + (SV_bezel * 2);
 SV_panel.tgt_yScale = SV_h;
 SV_panel.txt[0] = argument4;

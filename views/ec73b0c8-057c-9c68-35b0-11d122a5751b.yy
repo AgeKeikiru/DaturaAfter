@@ -15,11 +15,13 @@
         "d04e4146-6412-f867-f1d1-328f16bb5a57",
         "b1b7b6c6-9f40-37b1-0bba-c54248b4b4d4",
         "163ac47e-0d6f-8fab-180d-ab6604940914",
+        "4cdfad8f-666b-91cc-3747-82642b89bd69",
         "09ea3295-1b55-89c9-2458-fc33a5ad8728",
         "b20cd4bb-a3fd-4e25-b85a-15bc8460154d",
         "88422065-5bfc-4650-a397-7a4653f9bfa3",
         "b55ae9f7-3aad-4501-ac42-34cf35f05ee2",
-        "7f93600e-84bf-eea7-c577-3a304a365a08"
+        "c5353bc9-509e-a794-3412-33c2588ade0b",
+        "cbd3d4e2-dace-b93e-3f6f-e270b0b30206"
     ],
     "filterType": "GMScript",
     "folderName": "party",

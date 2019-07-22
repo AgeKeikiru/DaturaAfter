@@ -14,6 +14,11 @@ while(ds_list_size(global.lst_shop_arms) > 0){
     ds_list_delete(global.lst_shop_arms,0);
 }
 
+while(ds_list_size(global.lst_shop_classes) > 0){
+    instance_destroy(global.lst_shop_classes[| 0]);
+    ds_list_delete(global.lst_shop_classes,0);
+}
+
 ds_list_clear(global.lst_shop_items);
 
 #region //acts
@@ -400,4 +405,18 @@ SV_chSize = 6;
     //sort
     ds_list_sort(global.lst_shop_items,true);
     
+#endregion
+
+#region //classes
+
+	ds_list_add(global.lst_shop_classes,
+		instance_create_depth(0,0,0,obj_handler_class_evoker),
+		instance_create_depth(0,0,0,obj_handler_class_angel),
+		instance_create_depth(0,0,0,obj_handler_class_chef),
+		instance_create_depth(0,0,0,obj_handler_class_razer),
+		instance_create_depth(0,0,0,obj_handler_class_idol)
+	);
+	
+	global.cid += -ds_list_size(global.lst_shop_classes);
+
 #endregion

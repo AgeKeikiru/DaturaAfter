@@ -3,6 +3,8 @@
 ///@arg *qty
 ///@arg *src
 
+if(global.map_flags[? FG_PROLOGUE]) return;
+
 var
 SV_map = scr_data_getMap(global.grd_missions,global.missionCurr),
 SV_type = argument[0],

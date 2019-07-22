@@ -2,7 +2,7 @@
 
 draw_set_alpha(image_alpha);
 
-if(scr_exists(link_panel,asset_object)){
+if(scr_exists(link_panel,asset_object) && visible){
 	with link_panel{
 		event_perform(ev_draw,0);
 	}

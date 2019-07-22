@@ -361,12 +361,13 @@ switch(SV_type){
 			SV_r.name = "BURST";
 			SV_r.desc = "A reckless scroll that fires off energy at random. Becomes more consistent at higher ranks.";
 			SV_r.icon = spr_icon_brt;
+			SV_r.tgtType = ACT_TGT_RANDOM;
 			SV_r.price *= 1.8;
 			SV_r.enCost *= 1.5;
 			SV_r.cdAdd *= 1.5;
-			SV_r.pwr *= 3.5;
+			SV_r.pwr *= 2;
 			SV_r.acc *= .8;
-			SV_r.hitCount = 1;
+			SV_r.hitCount = 4;
 			SV_r.hitGap *= 1;
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;

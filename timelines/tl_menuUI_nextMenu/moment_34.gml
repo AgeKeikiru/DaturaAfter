@@ -1,4 +1,4 @@
-if(instance_exists(obj_handler_dungeon)){
+if(instance_exists(obj_handler_dungeon) || title || toTitle){
 	if(load_step = 0){
 		var SV_o = instance_create_depth(100,600,0,obj_fpo_loadBanner);
 		

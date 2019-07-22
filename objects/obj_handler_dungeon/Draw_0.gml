@@ -226,6 +226,18 @@ if(!state_event && !state_results){
 			draw_set_color(c_white);
 			
 			if(instance_exists(_o) && sprite_exists(_o.src[? CHAR_VAR_SPR_BATTLEPORT])){
+				var
+				_sh_rx = sprite_get_width(_o.src[? CHAR_VAR_SPR_BATTLEPORT]) * .45,
+				_sh_ry = 15;
+				
+				draw_set_alpha(_o.image_alpha * .8);
+				draw_set_color(c_black);
+				
+				draw_ellipse(_o.x + -_sh_rx,_o.y + -_sh_ry,_o.x + _sh_rx,_o.y + _sh_ry,false);
+				
+				draw_set_alpha(1);
+				draw_set_color(c_white);
+				
 				draw_sprite_ext(_o.src[? CHAR_VAR_SPR_BATTLEPORT],0,_x + (sin(_o.direction) * _o.hurtShake * 20),_y + ((1 + -_o.image_alpha) * -150) + (cos(_o.direction) * _o.hurtShake * 20) + ((_o.image_yscale + -1) * sprite_get_height(_o.src[? CHAR_VAR_SPR_BATTLEPORT]) * .5),_o.image_xscale,_o.image_yscale,0,make_color_rgb(255,255 * (1 + -_o.hurtShake),255 * (1 + -_o.hurtShake)),_o.image_alpha);
 				scr_cEvent(_o,EVENT_BATTLM_ICONDRAW);
 				
@@ -805,6 +817,43 @@ if(!state_event && !state_results){
 			_portX += 380;
 			_partyI++;
 		}
+		
+		#region //tutorial info
+		
+			if(state_battle && global.map_flags[? FG_PROLOGUE]){
+				draw_set_font(ft_menuSub);
+				draw_set_halign(fa_right);
+				draw_set_valign(fa_bottom);
+				
+				var
+				_str =
+				"Select Party Member 1/2/3:" +
+				"\nHold [Z]/[X]/[C]" +
+				
+				"\n\nSelect Act:" +
+				"\n(with party member selected) [U/D/L/R Arrow Keys]" +
+				
+				"\n\nManual Target:" +
+				"\n(without party member selected) [U/L/R Arrow Keys]" +
+				
+				"\n\nAuto Target:" +
+				"\n(without party member selected) [D Arrow Key]",
+				
+				_w = room_width + -string_width(_str) + -10,
+				_h = room_height + -string_height(_str) + -20,
+				_colA = make_color_hsv(0,0,255 * .8);
+				
+				gpu_set_blendmode(bm_subtract);
+				
+				draw_rectangle_color(room_width,room_height,_w,_h,_colA,_colA,_colA,_colA,false);
+				draw_rectangle_color(_w + 1,_h + 1,_w + -100,room_height,c_black,_colA,_colA,c_black,false);
+				
+				gpu_set_blendmode(bm_normal);
+				
+				ktk_scr_draw_text_shadow(room_width + -10,room_height + -10,_str,c_white,c_dkgray,2);
+			}
+		
+		#endregion
 
 	#endregion
 }

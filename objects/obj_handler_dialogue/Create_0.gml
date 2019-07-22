@@ -1,14 +1,24 @@
 /// @description Insert description here
 
-layer = global.ly_obj[5];
+layer = global.ly_obj[3];
 
 global.playerControl = false;
+
+with obj_handler_menuUI{
+	transTgt = 0;
+}
+
+with obj_handler_menu_parent{
+	visible = false;
+}
 
 alarm[0] = 30;
 
 talkbox = instance_create_layer((room_width / 2) + -(tb_width / 2),room_height + -tb_height + -20,global.ly_obj[1],obj_fpo_panel);
 ds_list_add(lst_panels,talkbox);
 talkbox.layer = global.ly_obj[5];
+talkbox.visible = false;
+talkbox.fixedAlpha = false;
 
 talkbox.tween_xScale = true;
 talkbox.tween_yScale = true;
@@ -30,6 +40,7 @@ tb_obj_r.tween_xPos = true;
 tb_obj_r.tween_yPos = false;
 tb_obj_r.tween_alpha = true;
 tb_obj_r.persistent = true;
+tb_obj_r.visible = false;
 
 tb_obj_l = instance_create_layer(0,720,global.ly_obj[2],obj_fpo_parent);
 tb_obj_l.tween_xPos = true;
@@ -37,3 +48,4 @@ tb_obj_l.tween_yPos = false;
 tb_obj_l.tween_alpha = true;
 tb_obj_l.persistent = true;
 tb_obj_l.image_xscale = -1;
+tb_obj_l.visible = false;

@@ -55,7 +55,7 @@ if(ds_stack_size(global.stk_menu) > 1 || (instance_exists(SV_ui) && SV_ui.ps_bas
 			}
 		}
 	}
-}else if(room = rm_home){
+}else if(room == rm_home){
 	with SV_ui{
 		if(txt_title != "HOME"){
 			if(argument_count <= 1 || argument[1]){

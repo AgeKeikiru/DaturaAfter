@@ -11,16 +11,15 @@ with obj_handler_dungeon{
     state_fixedBattle = false;
     
     for(var _i2 = 0;_i2 < 3;_i2++){
-    	if(grd_mobPool[# _i,_i2] != noone){
-    		var _o = scr_spawnEnemy(grd_mobPool[# _i,_i2],_i2);
+    	if(grd_mobPool[# _i,DH_MOB_ID1 + _i2] != noone){
+    		var _o = scr_spawnEnemy(grd_mobPool[# _i,DH_MOB_ID1 + _i2],_i2,grd_mobPool[# _i,DH_MOB_LV1 + _i2]);
     		_o.image_alpha = -abs(ceil((_i2 + -1) * 1.5)) * 1;
     		_o.enemyWait = UNIVERSAL_COOLDOWN + abs(ceil((_i2 + -1) * 1.5)) * 3000;
     		_o.enemyWaitMax = _o.enemyWait;
-    		_o.level = grd_mobPool[# _i,_i2 + 5];
     	}
     }
     
-    repeat(irandom_range(grd_mobPool[# _i,3],grd_mobPool[# _i,4])){
+    repeat(irandom_range(grd_mobPool[# _i,DH_MOB_PMIN],grd_mobPool[# _i,DH_MOB_PMAX])){
     	ds_list_shuffle(lst_popcornPool);
     	ds_list_add(lst_popcorn,lst_popcornPool[| 0]);
     }

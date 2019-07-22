@@ -42,7 +42,7 @@ with link_load{
 
 load_step = 0;
 
-if(instance_exists(obj_handler_dungeon)){
+if(instance_exists(obj_handler_dungeon) || toTitle){
 	for(var SV_i = 0;SV_i < 3;SV_i++){
 		if(audio_exists(global.bgmTrack[SV_i])){
 			audio_sound_gain(global.bgmTrack[SV_i],0,500);

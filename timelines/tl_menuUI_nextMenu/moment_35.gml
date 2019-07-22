@@ -1,4 +1,6 @@
-if(instance_exists(obj_handler_dungeon)){
+if(instance_exists(obj_handler_dungeon) || title){
+	title = false;
+	
 	instance_destroy(obj_handler_dungeon);
 	instance_destroy(obj_handler_mission_parent);
 	
@@ -10,8 +12,8 @@ if(instance_exists(obj_handler_dungeon)){
 		ds_list_delete(global.lst_bgmStream,0);
 	}
 	
-	ds_list_add(global.lst_bgmStream,audio_create_stream("bgm_home.ogg"));
-	ds_list_add(global.lst_bgmStream,audio_create_stream("bgm_mission.ogg"));
+	ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_home.ogg"));
+	ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_mission.ogg"));
 	
 	scr_playBgm(global.lst_bgmStream[| 0],0);
 	scr_playBgm(global.lst_bgmStream[| 1],1);
@@ -23,6 +25,12 @@ if(instance_exists(obj_handler_dungeon)){
 }
 
 visible = true;
+
+if(toTitle){
+	toTitle = false;
+	title = true;
+	instance_destroy(obj_handler_menu_parent);
+}
 
 if(txt_title == "MISSION"){
 	global.bgmTrack_curr = 0;
@@ -49,7 +57,9 @@ switch(menuNext){
 		break;
 }
 
-audio_sound_gain(global.bgmTrack[global.bgmTrack_curr],global.set_volBgm / 100,500);
+if(!title){
+	audio_sound_gain(global.bgmTrack[global.bgmTrack_curr],global.set_volBgm / 100,500);
+}
 
 scr_bgManip_reset();
 

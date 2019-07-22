@@ -8,13 +8,14 @@ switch cEvent{
             var _i = 1;
             
             ds_grid_resize(grd_mobPool,2,ds_grid_height(grd_mobPool));
-			ds_grid_set_region(grd_mobPool,0,3,ds_grid_width(grd_mobPool) + -1,3,0); //min popcorn
-			ds_grid_set_region(grd_mobPool,0,4,ds_grid_width(grd_mobPool) + -1,4,4); //max popcorn
-			ds_grid_set_region(grd_mobPool,0,5,ds_grid_width(grd_mobPool) + -1,7,0); //enemy level
+			ds_grid_set_region(grd_mobPool,0,DH_MOB_PMIN,ds_grid_width(grd_mobPool) + -1,DH_MOB_PMIN,0);
+			ds_grid_set_region(grd_mobPool,0,DH_MOB_PMAX,ds_grid_width(grd_mobPool) + -1,DH_MOB_PMAX,4);
+			ds_grid_set_region(grd_mobPool,0,DH_MOB_PLV,ds_grid_width(grd_mobPool) + -1,DH_MOB_PLV,0);
+			ds_grid_set_region(grd_mobPool,0,DH_MOB_LV1,ds_grid_width(grd_mobPool) + -1,DH_MOB_LV3,0);
 			
-			grd_mobPool[# _i,0] = noone;
-			grd_mobPool[# _i,1] = CHAR_CANDYWING;
-			grd_mobPool[# _i,2] = noone;
+			grd_mobPool[# _i,DH_MOB_ID1] = noone;
+			grd_mobPool[# _i,DH_MOB_ID2] = CHAR_CANDYWING;
+			grd_mobPool[# _i,DH_MOB_ID3] = noone;
 			
 			repeat(3){
 				ds_list_add(global.lst_missionLoot_table,
@@ -54,16 +55,16 @@ switch cEvent{
         }
     
         with obj_handler_dungeon{
-            grd_mobPool[# 0,0] = _e == 30 ? CHAR_NPC_EVOKER : noone;
-            grd_mobPool[# 0,1] = (_e == 5 || _e == 16 || _e == 30) ? CHAR_NPC_AGENT : CHAR_NPC_EVOKER;
-            grd_mobPool[# 0,2] = noone;
+            grd_mobPool[# 0,DH_MOB_ID1] = _e == 30 ? CHAR_NPC_EVOKER : noone;
+            grd_mobPool[# 0,DH_MOB_ID2] = (_e == 5 || _e == 16 || _e == 30) ? CHAR_NPC_AGENT : CHAR_NPC_EVOKER;
+            grd_mobPool[# 0,DH_MOB_ID3] = noone;
             
-            grd_mobPool[# 0,3] = 0;
-            grd_mobPool[# 0,4] = 0;
+            grd_mobPool[# 0,DH_MOB_PMIN] = 0;
+            grd_mobPool[# 0,DH_MOB_PMAX] = 0;
             
-            grd_mobPool[# 0,5] = 0;
-            grd_mobPool[# 0,6] = 0;
-            grd_mobPool[# 0,7] = 0;
+            grd_mobPool[# 0,DH_MOB_LV1] = 0;
+            grd_mobPool[# 0,DH_MOB_LV2] = 0;
+            grd_mobPool[# 0,DH_MOB_LV3] = 0;
         }
         
         if(map_flags[? 0] == 1){
@@ -120,16 +121,16 @@ switch cEvent{
                 instance_create_depth(0,0,0,obj_handler_dialogue);
             }else if(choose(1,0)){
                 with obj_handler_dungeon{
-                    grd_mobPool[# 0,0] = CHAR_SLIME;
-                    grd_mobPool[# 0,1] = CHAR_SLIME;
-                    grd_mobPool[# 0,2] = CHAR_SLIME;
+                    grd_mobPool[# 0,DH_MOB_ID1] = CHAR_SLIME;
+                    grd_mobPool[# 0,DH_MOB_ID2] = CHAR_SLIME;
+                    grd_mobPool[# 0,DH_MOB_ID3] = CHAR_SLIME;
                     
-                    grd_mobPool[# 0,3] = 0;
-                    grd_mobPool[# 0,4] = 0;
+                    grd_mobPool[# 0,DH_MOB_PMIN] = 0;
+                    grd_mobPool[# 0,DH_MOB_PMAX] = 0;
                     
-                    grd_mobPool[# 0,5] = 3;
-                    grd_mobPool[# 0,6] = 3;
-                    grd_mobPool[# 0,7] = 3;
+                    grd_mobPool[# 0,DH_MOB_LV1] = 3;
+                    grd_mobPool[# 0,DH_MOB_LV2] = 3;
+                    grd_mobPool[# 0,DH_MOB_LV3] = 3;
                     
                     scr_cEvent(id,EVENT_DND_ENCOUNTER_FIXED);
                 }

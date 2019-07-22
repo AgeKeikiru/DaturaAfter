@@ -8,25 +8,26 @@ switch cEvent{
             var _i = 1;
             
             ds_grid_resize(grd_mobPool,4,ds_grid_height(grd_mobPool));
-			ds_grid_set_region(grd_mobPool,0,3,ds_grid_width(grd_mobPool) + -1,3,0); //min popcorn
-			ds_grid_set_region(grd_mobPool,0,4,ds_grid_width(grd_mobPool) + -1,4,3); //max popcorn
-			ds_grid_set_region(grd_mobPool,0,5,ds_grid_width(grd_mobPool) + -1,7,2); //enemy level
+			ds_grid_set_region(grd_mobPool,0,DH_MOB_PMIN,ds_grid_width(grd_mobPool) + -1,DH_MOB_PMIN,0);
+			ds_grid_set_region(grd_mobPool,0,DH_MOB_PMAX,ds_grid_width(grd_mobPool) + -1,DH_MOB_PMAX,3);
+			ds_grid_set_region(grd_mobPool,0,DH_MOB_PLV,ds_grid_width(grd_mobPool) + -1,DH_MOB_PLV,0);
+			ds_grid_set_region(grd_mobPool,0,DH_MOB_LV1,ds_grid_width(grd_mobPool) + -1,DH_MOB_LV3,2); //enemy level
 			
-			grd_mobPool[# _i,0] = noone;
-			grd_mobPool[# _i,1] = CHAR_SLIME;
-			grd_mobPool[# _i,2] = noone;
-			
-			_i++;
-			
-			grd_mobPool[# _i,0] = CHAR_SLIME;
-			grd_mobPool[# _i,1] = CHAR_SLIME;
-			grd_mobPool[# _i,2] = noone;
+			grd_mobPool[# _i,DH_MOB_ID1] = noone;
+			grd_mobPool[# _i,DH_MOB_ID2] = CHAR_SLIME;
+			grd_mobPool[# _i,DH_MOB_ID3] = noone;
 			
 			_i++;
 			
-			grd_mobPool[# _i,0] = noone;
-			grd_mobPool[# _i,1] = CHAR_SLIME;
-			grd_mobPool[# _i,2] = CHAR_SLIME;
+			grd_mobPool[# _i,DH_MOB_ID1] = CHAR_SLIME;
+			grd_mobPool[# _i,DH_MOB_ID2] = CHAR_SLIME;
+			grd_mobPool[# _i,DH_MOB_ID3] = noone;
+			
+			_i++;
+			
+			grd_mobPool[# _i,DH_MOB_ID1] = noone;
+			grd_mobPool[# _i,DH_MOB_ID2] = CHAR_SLIME;
+			grd_mobPool[# _i,DH_MOB_ID3] = CHAR_SLIME;
 			
 			repeat(3){
 				ds_list_add(global.lst_missionLoot_table,
@@ -71,30 +72,30 @@ switch cEvent{
                 case 0:
                 case 1:
                 case 2:
-                    grd_mobPool[# 0,0] = CHAR_BLEEDINGBULLET;
-                    grd_mobPool[# 0,1] = CHAR_BLEEDINGBULLET;
-                    grd_mobPool[# 0,2] = noone;
+                    grd_mobPool[# 0,DH_MOB_ID1] = CHAR_BLEEDINGBULLET;
+                    grd_mobPool[# 0,DH_MOB_ID2] = CHAR_BLEEDINGBULLET;
+                    grd_mobPool[# 0,DH_MOB_ID3] = noone;
                     
-                    grd_mobPool[# 0,3] = 0;
-                    grd_mobPool[# 0,4] = 0;
+                    grd_mobPool[# 0,DH_MOB_PMIN] = 0;
+                    grd_mobPool[# 0,DH_MOB_PMAX] = 0;
                     
-                    grd_mobPool[# 0,5] = 2;
-                    grd_mobPool[# 0,6] = 2;
-                    grd_mobPool[# 0,7] = 2;
+                    grd_mobPool[# 0,DH_MOB_LV1] = 2;
+                    grd_mobPool[# 0,DH_MOB_LV2] = 2;
+                    grd_mobPool[# 0,DH_MOB_LV3] = 2;
                 
                     break;
                     
                 case 3:
-                    grd_mobPool[# 0,0] = noone;
-                    grd_mobPool[# 0,1] = CHAR_BLEEDINGBULLET;
-                    grd_mobPool[# 0,2] = CHAR_BLEEDINGBULLET;
+                    grd_mobPool[# 0,DH_MOB_ID1] = noone;
+                    grd_mobPool[# 0,DH_MOB_ID2] = CHAR_BLEEDINGBULLET;
+                    grd_mobPool[# 0,DH_MOB_ID3] = CHAR_BLEEDINGBULLET;
                     
-                    grd_mobPool[# 0,3] = 3;
-                    grd_mobPool[# 0,4] = 3;
+                    grd_mobPool[# 0,DH_MOB_PMIN] = 3;
+                    grd_mobPool[# 0,DH_MOB_PMAX] = 3;
                     
-                    grd_mobPool[# 0,5] = 2;
-                    grd_mobPool[# 0,6] = 6;
-                    grd_mobPool[# 0,7] = 6;
+                    grd_mobPool[# 0,DH_MOB_LV1] = 2;
+                    grd_mobPool[# 0,DH_MOB_LV2] = 6;
+                    grd_mobPool[# 0,DH_MOB_LV3] = 6;
                 
                     break;
             }

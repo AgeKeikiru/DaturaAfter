@@ -29,3 +29,11 @@ if(drawSelf){
 	draw_set_color(c_white);
 	draw_set_alpha(1);
 }
+
+if(scr_exists(link_img,asset_object)){
+	link_img.visible = false;
+	
+	with link_img{
+		event_perform(ev_draw,0);
+	}
+}

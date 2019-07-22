@@ -2,6 +2,7 @@
 // You can write your code in this editor
 persistent = true;
 alarm[0] = 1;
+visible = false;
 
 map_statMod[? CHAR_VAR_MATK] = 0;
 map_statMod[? CHAR_VAR_MDEF] = 0;

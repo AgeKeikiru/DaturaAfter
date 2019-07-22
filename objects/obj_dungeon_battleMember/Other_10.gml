@@ -7,6 +7,10 @@ switch(cEvent){
 			if(src != noone){
 				name = src[? CHAR_VAR_NAMEDISP];
 				
+				if(allyParty == global.grd_party_player){
+					level = 0;
+				}
+				
 				hpMax = src[? CHAR_VAR_HP];
 				enMax = src[? CHAR_VAR_EN];
 				
@@ -32,71 +36,136 @@ switch(cEvent){
 				//load acts
 				if(allyParty == global.grd_party_enemy){
 					switch(src[? CHAR_VAR_ID]){
-						case CHAR_NPC_AGENT:
-							act[0] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
-							act[0].src = id;
-							
-							act[1] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
-							act[1].src = id;
-							
-							act[2] = scr_data_act_new(WTAG_TYPE_SHG,"",0,0);
-							act[2].src = id;
-							
-							break;
-							
-						case CHAR_NPC_EVOKER:
-							act[0] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_DRK,0,0);
-							act[0].src = id;
-							
-							act[1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_DRK,0,0);
-							act[1].src = id;
-							
-							act[2] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_LGT,0,0);
-							act[2].src = id;
-							
-							act[3] = scr_data_act_new(WTAG_TYPE_SSC_HEAL,"",0,0);
-							act[3].src = id;
-							
-							act[4] = scr_data_act_new(WTAG_TYPE_CSC,CHAR_VAR_ELE_DRK,0,0);
-							act[4].src = id;
-							
-							break;
+						#region //pvp_blaze
+							case CHAR_PVP_BLAZE:
+								act[0] = scr_data_act_new(WTAG_TYPE_HGN,CHAR_VAR_ELE_ICE,0,10);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(WTAG_TYPE_HGN,CHAR_VAR_ELE_ICE,0,10);
+								act[1].src = id;
+								
+								act[2] = scr_data_act_new(WTAG_TYPE_HGN,CHAR_VAR_ELE_ICE,0,10);
+								act[2].src = id;
+								
+								act[3] = scr_data_act_new(WTAG_TYPE_CSC,CHAR_VAR_ELE_ICE,0,10);
+								act[3].src = id;
+								
+								act[4] = scr_data_act_new(WTAG_TYPE_ASC_RAY,CHAR_VAR_ELE_DRK,0,10);
+								act[4].src = id;
+								
+								act[5] = scr_data_act_new(WTAG_TYPE_SHG,"",0,10);
+								act[5].src = id;
+								
+								break;
+						#endregion
 						
-						case CHAR_PARASLIME:
-							act[0] = scr_data_act_new(EACT_TACKLE);
-							act[0].src = id;
+						#region //pvp_imo
+							case CHAR_PVP_IMO:
+								act[0] = scr_data_act_new(WTAG_TYPE_DGR,"",0,0);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_ICE,0,0);
+								act[1].src = id;
+								
+								break;
+						#endregion
+						
+						#region //pvp_aile
+							case CHAR_PVP_AILE:
+								act[0] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(WTAG_TYPE_SSC_HEAL,"",0,0);
+								act[1].src = id;
+								
+								break;
+						#endregion
+						
+						#region //pvp_paprika
+							case CHAR_PVP_PAPRIKA:
+								act[0] = scr_data_act_new(WTAG_TYPE_PAN,"",0,0);
+								act[0].src = id;
+								
+								break;
+						#endregion
+						
+						#region //npc_agent
+							case CHAR_NPC_AGENT:
+								act[0] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
+								act[1].src = id;
+								
+								act[2] = scr_data_act_new(WTAG_TYPE_SHG,"",0,0);
+								act[2].src = id;
+								
+								break;
+						#endregion
 							
-							act[1] = scr_data_act_new(EACT_TACKLE);
-							act[1].src = id;
+						#region //npc_evoker
+							case CHAR_NPC_EVOKER:
+								act[0] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_DRK,0,0);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_DRK,0,0);
+								act[1].src = id;
+								
+								act[2] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_LGT,0,0);
+								act[2].src = id;
+								
+								act[3] = scr_data_act_new(WTAG_TYPE_SSC_HEAL,"",0,0);
+								act[3].src = id;
+								
+								act[4] = scr_data_act_new(WTAG_TYPE_CSC,CHAR_VAR_ELE_DRK,0,0);
+								act[4].src = id;
+								
+								break;
+						#endregion
+						
+						#region //paraslime
+							case CHAR_PARASLIME:
+								act[0] = scr_data_act_new(EACT_TACKLE);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(EACT_TACKLE);
+								act[1].src = id;
+								
+								act[2] = scr_data_act_new(EACT_PARATACKLE);
+								act[2].src = id;
+								
+								break;
+						#endregion
 							
-							act[2] = scr_data_act_new(EACT_PARATACKLE);
-							act[2].src = id;
+						#region //bleeding bullet
+							case CHAR_BLEEDINGBULLET:
+								act[0] = scr_data_act_new(EACT_PETALSNIPE);
+								act[0].src = id;
+								
+								break;
+						#endregion
 							
-							break;
+						#region //dart lily
+							case CHAR_DARTLILY:
+								act[0] = scr_data_act_new(EACT_PETALSNIPE);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(EACT_PETALSNIPE);
+								act[1].src = id;
+								
+								act[2] = scr_data_act_new(EACT_TOXICPETAL);
+								act[2].src = id;
+								
+								break;
+						#endregion
 							
-						case CHAR_BLEEDINGBULLET:
-							act[0] = scr_data_act_new(EACT_PETALSNIPE);
-							act[0].src = id;
-							
-							break;
-							
-						case CHAR_DARTLILY:
-							act[0] = scr_data_act_new(EACT_PETALSNIPE);
-							act[0].src = id;
-							
-							act[1] = scr_data_act_new(EACT_PETALSNIPE);
-							act[1].src = id;
-							
-							act[2] = scr_data_act_new(EACT_TOXICPETAL);
-							act[2].src = id;
-							
-							break;
-							
-						case CHAR_CANDYWING:
-							act[0] = scr_data_act_new(EACT_BITE);
-							act[0].src = id;
-							
-							break;
+						#region //candywing
+							case CHAR_CANDYWING:
+								act[0] = scr_data_act_new(EACT_BITE);
+								act[0].src = id;
+								
+								break;
+						#endregion
 						
 						default:
 							act[0] = scr_data_act_new(EACT_TACKLE);

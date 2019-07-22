@@ -1,6 +1,16 @@
 /// @description Insert description here
 
-if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUEXTRA) && grd_ps_xDraw[# 0,1] = 1 && !instance_exists(obj_handler_dialogue)){
+if(DEBUG){
+	if(keyboard_check_pressed(vk_home)){
+		game_restart();
+	}else if(keyboard_check_pressed(vk_insert)){
+		global.missionCurr = MSN_NLOEWI_01;
+		
+		scr_menu_briefConfirm_yes();
+	}
+}
+
+if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUEXTRA) && grd_ps_xDraw[# 0,1] = 1 && !instance_exists(obj_handler_dialogue) && !title){
 	var
 	_ok = true,
 	_dh = instance_find(obj_handler_dungeon,0);

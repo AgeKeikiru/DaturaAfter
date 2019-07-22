@@ -38,6 +38,15 @@ var SV_map;
     SV_map[? CHAR_VAR_PSDO_CLS_X] = -30;
     SV_map[? CHAR_VAR_PSDO_CLS_Y] = 70;
     SV_map[? CHAR_VAR_UCLASS] = instance_create_depth(0,0,0,obj_handler_class_uImolei);
+    
+    var SV_map2 = scr_data_char_new(CHAR_PVP_IMO);
+    ds_map_copy(SV_map2,SV_map);
+    SV_map2[? CHAR_VAR_ID] = CHAR_PVP_IMO;
+    SV_map2[? CHAR_VAR_UCLASS] = noone;
+    SV_map2[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_imo;
+    SV_map2[? CHAR_VAR_SPR_NEUTRAL] = spr_enemy_imo;
+    SV_map2[? CHAR_VAR_ABDO_X] = 0;
+    SV_map2[? CHAR_VAR_ABDO_Y] = 90;
 #endregion
 
 #region //blaze
@@ -64,8 +73,25 @@ var SV_map;
     SV_map[? CHAR_VAR_ELE_ELC] = 0;
     SV_map[? CHAR_VAR_ELE_DRK] = 0;
     SV_map[? CHAR_VAR_ELE_LGT] = 0;
-    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_imo_battlePort;
-    SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_imo_neutral;
+    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_blaze_battlePort;
+    SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_blaze_neutral;
+    SV_map[? CHAR_VAR_ABDO_X] = -300;
+    SV_map[? CHAR_VAR_ABDO_Y] = 130;
+    SV_map[? CHAR_VAR_PSDO_ACT_X] = 120;
+    SV_map[? CHAR_VAR_PSDO_ACT_Y] = 80;
+    SV_map[? CHAR_VAR_PSDO_ARM_X] = 50;
+    SV_map[? CHAR_VAR_PSDO_ARM_Y] = -190;
+    SV_map[? CHAR_VAR_PSDO_CLS_X] = -150;
+    SV_map[? CHAR_VAR_PSDO_CLS_Y] = 70;
+    
+    var SV_map2 = scr_data_char_new(CHAR_PVP_BLAZE);
+    ds_map_copy(SV_map2,SV_map);
+    SV_map2[? CHAR_VAR_ID] = CHAR_PVP_BLAZE;
+    SV_map2[? CHAR_VAR_UCLASS] = noone;
+    SV_map2[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_blaze;
+    SV_map2[? CHAR_VAR_SPR_NEUTRAL] = spr_enemy_blaze;
+    SV_map2[? CHAR_VAR_ABDO_X] = 0;
+    SV_map2[? CHAR_VAR_ABDO_Y] = 90;
 #endregion
 
 #region //aile
@@ -103,6 +129,15 @@ var SV_map;
     SV_map[? CHAR_VAR_PSDO_CLS_X] = 1;
     SV_map[? CHAR_VAR_PSDO_CLS_Y] = -60;
     SV_map[? CHAR_VAR_UCLASS] = instance_create_depth(0,0,0,obj_handler_class_uAile);
+    
+    var SV_map2 = scr_data_char_new(CHAR_PVP_AILE);
+    ds_map_copy(SV_map2,SV_map);
+    SV_map2[? CHAR_VAR_ID] = CHAR_PVP_AILE;
+    SV_map2[? CHAR_VAR_UCLASS] = noone;
+    SV_map2[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_aile;
+    SV_map2[? CHAR_VAR_SPR_NEUTRAL] = spr_enemy_aile;
+    SV_map2[? CHAR_VAR_ABDO_X] = 0;
+    SV_map2[? CHAR_VAR_ABDO_Y] = 50;
 #endregion
 
 #region //paprika
@@ -140,6 +175,15 @@ var SV_map;
     SV_map[? CHAR_VAR_PSDO_CLS_X] = 20;
     SV_map[? CHAR_VAR_PSDO_CLS_Y] = -90;
     SV_map[? CHAR_VAR_UCLASS] = instance_create_depth(0,0,0,obj_handler_class_uPaprika);
+    
+    var SV_map2 = scr_data_char_new(CHAR_PVP_PAPRIKA);
+    ds_map_copy(SV_map2,SV_map);
+    SV_map2[? CHAR_VAR_ID] = CHAR_PVP_PAPRIKA;
+    SV_map2[? CHAR_VAR_UCLASS] = noone;
+    SV_map2[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_paprika;
+    SV_map2[? CHAR_VAR_SPR_NEUTRAL] = spr_enemy_paprika;
+    SV_map2[? CHAR_VAR_ABDO_X] = 0;
+    SV_map2[? CHAR_VAR_ABDO_Y] = 90;
 #endregion
 
 #region //slime
@@ -295,11 +339,11 @@ var SV_map;
     SV_map[? CHAR_VAR_RACE] = RACE_BESTIA;
     SV_map[? CHAR_VAR_HP] = 1000;
     SV_map[? CHAR_VAR_MATK] = -10;
-    SV_map[? CHAR_VAR_MDEF] = -10;
+    SV_map[? CHAR_VAR_MDEF] = 0;
     SV_map[? CHAR_VAR_FATK] = -10;
-    SV_map[? CHAR_VAR_FDEF] = -10;
+    SV_map[? CHAR_VAR_FDEF] = 0;
     SV_map[? CHAR_VAR_SATK] = -10;
-    SV_map[? CHAR_VAR_SDEF] = 10;
+    SV_map[? CHAR_VAR_SDEF] = 30;
     SV_map[? CHAR_VAR_ACC] = 10;
     SV_map[? CHAR_VAR_EVA] = 10;
     SV_map[? CHAR_VAR_SPD] = 5;
@@ -324,11 +368,11 @@ var SV_map;
     SV_map[? CHAR_VAR_RACE] = RACE_HUMAN;
     SV_map[? CHAR_VAR_HP] = 1500;
     SV_map[? CHAR_VAR_MATK] = -10;
-    SV_map[? CHAR_VAR_MDEF] = 0;
+    SV_map[? CHAR_VAR_MDEF] = 10;
     SV_map[? CHAR_VAR_FATK] = -10;
-    SV_map[? CHAR_VAR_FDEF] = 5;
+    SV_map[? CHAR_VAR_FDEF] = 15;
     SV_map[? CHAR_VAR_SATK] = -10;
-    SV_map[? CHAR_VAR_SDEF] = 0;
+    SV_map[? CHAR_VAR_SDEF] = 10;
     SV_map[? CHAR_VAR_ACC] = 10;
     SV_map[? CHAR_VAR_EVA] = 8;
     SV_map[? CHAR_VAR_SPD] = 3;

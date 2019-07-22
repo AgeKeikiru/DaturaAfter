@@ -1,10 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(CANARY && global.missionCurr == MSN_DEBUG){
-	if(keyboard_check_pressed(vk_home)){
-		game_restart();
-	}
-	
+if(DEBUG){
 	if(keyboard_check_pressed(vk_pageup)){
 		with(obj_handler_actEffect_ange_angelite){
 			charge = 5;

@@ -1,5 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
+if(!scr_exists(src,asset_object)){
+	exit;
+}
 
 switch(cEvent){
 	#region //act_use

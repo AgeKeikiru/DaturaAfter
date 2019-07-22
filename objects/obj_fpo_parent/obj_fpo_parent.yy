@@ -39,9 +39,9 @@
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
-            "eventtype": 2,
-            "enumb": 2,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 2,
+            "eventtype": 2,
             "m_owner": "a24beabc-d941-4237-b382-6e0fddfe70a5"
         },
         {
@@ -619,6 +619,20 @@
             "value": "\"\"",
             "varName": "cEvent",
             "varType": 2
+        },
+        {
+            "id": "184beed5-be44-494f-a3ef-43580eaa3cd6",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "True",
+            "varName": "fixedAlpha",
+            "varType": 3
         }
     ],
     "solid": false,

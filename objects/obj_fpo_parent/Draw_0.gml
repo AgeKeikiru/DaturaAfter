@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-draw_set_alpha(fill_alpha * image_alpha);
+draw_set_alpha(fill_alpha * image_alpha * (fixedAlpha ? 1 : (global.set_winTrans / 100)));
 draw_set_color(fill_col);
 
 draw_rectangle(x,y,x + image_xscale,y + image_yscale,false);

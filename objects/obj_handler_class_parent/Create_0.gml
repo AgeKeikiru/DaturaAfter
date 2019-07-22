@@ -2,6 +2,9 @@
 // You can write your code in this editor
 
 persistent = true;
+visible = false;
+
+scr_trace(object_get_name(object_index) + " " + cName + " created");
 
 stat_basicStatRate = 5;
 stat_fineStatRate = 2;

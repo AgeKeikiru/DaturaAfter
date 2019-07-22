@@ -1,0 +1,1 @@
+scr_menu_confirmWindow("message/confirm/..","Return to title? Unsaved progress will be lost.",scr_menu_party_title_confirm,scr_menu_backNoRefresh);

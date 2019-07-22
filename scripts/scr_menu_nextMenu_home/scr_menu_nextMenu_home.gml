@@ -5,9 +5,7 @@ var SV_m = scr_createMenuPanel(80,160,360,400,"menu/..");
 
 with SV_m{
 	ds_grid_resize(grd_txt,1,5);
-	ds_grid_resize(grd_scr,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
-	ds_grid_resize(grd_desc,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
-	ds_grid_resize(grd_descLabel,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
+	scr_menu_matchGrids(id,true);
 	
 	var SV_i = 0;
 	

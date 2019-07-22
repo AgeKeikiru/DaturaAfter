@@ -15,6 +15,7 @@ SV_x = (room_width / 2) + -(SV_w / 2),
 SV_y = (room_height / 2) + -(SV_h / 2),
 SV_m = scr_createMenuPanel(SV_x,SV_y,SV_w,SV_h,argument0);
 
+SV_m.layer = global.ly_obj[4];
 SV_m.submenu = true;
 SV_m.y += SV_h + -(SV_buttonH / 2) + -(SV_b * 3);
 SV_m.btn_w = 90;

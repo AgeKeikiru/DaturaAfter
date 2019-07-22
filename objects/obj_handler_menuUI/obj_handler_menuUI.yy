@@ -469,6 +469,34 @@
             "value": "ds_list_create()",
             "varName": "lst_link_loadExtra",
             "varType": 4
+        },
+        {
+            "id": "54f484b3-e1da-4f61-a024-88aed9414ea2",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "True",
+            "varName": "title",
+            "varType": 3
+        },
+        {
+            "id": "50dece19-f196-461e-957b-0274f7bf9355",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "toTitle",
+            "varType": 3
         }
     ],
     "solid": false,

@@ -17,7 +17,7 @@ with SV_m{
 	var
 	SV_i = 0;
 	
-	ds_grid_resize(grd_txt,1,6);
+	ds_grid_resize(grd_txt,1,7);
 	scr_menu_matchGrids(id,true);
 	
 	grd_txt[# 0,SV_i] = scr_stringGapFormat("BGM Volume:","<- " + string(global.set_volBgm) + "% ->",25);
@@ -56,6 +56,14 @@ with SV_m{
 	grd_desc[# 0,SV_i] = "Adjust the rate at which text crawls during dialogue.";
 	grd_descLabel[# 0,SV_i] = "Game Settings";
 	grd_scr[# 0,SV_i] = scr_menu_party_options_tog_txtSpeed;
+	grd_toggle[# 0,SV_i] = true;
+	
+	SV_i++;
+	
+	grd_txt[# 0,SV_i] = scr_stringGapFormat("Window Opac.:","<- " + string(global.set_winTrans) + "% ->",25);
+	grd_desc[# 0,SV_i] = "Adjust the transparency of menu panels and dialogue boxes.";
+	grd_descLabel[# 0,SV_i] = "Game Settings";
+	grd_scr[# 0,SV_i] = scr_menu_party_options_tog_winTrans;
 	grd_toggle[# 0,SV_i] = true;
 	
 	SV_i++;

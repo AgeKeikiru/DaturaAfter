@@ -1,7 +1,7 @@
 #region //general
 	
 	#macro GAMEVER "v0.0.1"
-	#macro UNIVERSAL_COOLDOWN 60 * 100 * 5
+	#macro UNIVERSAL_COOLDOWN room_speed * 100 * 5
 	#macro DEFAULT_PANEL_BEZEL 8
 	#macro CANARY true
 	#macro DEBUG false
@@ -9,6 +9,50 @@
 	#macro SFX_SCROLLTICK sfx_tick1
 	#macro SFX_ACCEPTTICK sfx_tick3
 	
+#endregion
+
+#region //data handling
+
+	#macro DATA_FNAME working_directory + "SAVg1\\"
+	
+	#macro DATA_ITEMSET "data_itemSet"
+	#macro DATA_ITEMHELD "data_itemHeld"
+	
+	#macro DATA_MATHELD "data_matHeld"
+	
+	#macro DATA_MSNID "data_msnID"
+	#macro DATA_MSNSTATUS "data_msnStatus"
+	
+	#macro DATA_PARTY "data_party"
+	
+	#macro DATA_CID "data_cid"
+	
+	#macro DATA_ACTTAG "data_actTag"
+	#macro DATA_ACTRARE "data_actRare"
+	#macro DATA_ACTPLUS "data_actPlus"
+	#macro DATA_ACTELE "data_actEle"
+	
+	#macro DATA_ARMTAG "data_armTag"
+	#macro DATA_ARMRARE "data_armRare"
+	#macro DATA_ARMPLUS "data_armPlus"
+	#macro DATA_ARMELE "data_armEle"
+	
+	#macro DATA_CLSID "data_clsID"
+	#macro DATA_CLSLVS "data_clsLvs"
+	#macro DATA_CLSNAME "data_clsName"
+	
+	#macro DATA_GOLD "data_gold"
+	#macro DATA_KEYBIND "data_keybind"
+	
+	#macro DATA_TXTSPD "data_txtSpd"
+	#macro DATA_WINTRANS "data_winTrans"
+	#macro DATA_VOLBGM "data_volBgm"
+	#macro DATA_VOLSFX "data_volSfx"
+	#macro DATA_ATBSPD "data_atbSpd"
+	#macro DATA_ATBMOD "data_atbMod"
+	
+	#macro DATA_FLAGS "data_flags"
+
 #endregion
 
 #region //custom colors
@@ -87,6 +131,10 @@
 		#macro CHAR_TIMBERCAT "char_timberCat"
 		#macro CHAR_NPC_AGENT "char_npc_agent"
 		#macro CHAR_NPC_EVOKER "char_npc_evoker"
+		#macro CHAR_PVP_IMO "char_pvp_imo"
+		#macro CHAR_PVP_AILE "char_pvp_aile"
+		#macro CHAR_PVP_PAPRIKA "char_pvp_paprika"
+		#macro CHAR_PVP_BLAZE "char_pvp_blaze"
 		
 	#endregion
 	
@@ -140,7 +188,7 @@
 		#macro CHAR_VAR_CLS0 "char_var_cls0"
 		#macro CHAR_VAR_CLS1 "char_var_cls1"
 		#macro CHAR_VAR_CLS2 "char_var_cls2"
-		#macro CHAR_VAR_UCLASS "char_var_uclass" //unique class
+		#macro CHAR_VAR_UCLASS "char_var_cls3" //unique class
 		
 		//sprites
 		#macro CHAR_VAR_SPR_BATTLEPORT "char_var_spr_battlePort"
@@ -335,12 +383,32 @@
 
 #endregion
 
+#region //dungeon handler
+
+	#macro DH_MOB_ID1 0
+	#macro DH_MOB_ID2 1
+	#macro DH_MOB_ID3 2
+	
+	#macro DH_MOB_LV1 3
+	#macro DH_MOB_LV2 4
+	#macro DH_MOB_LV3 5
+	
+	#macro DH_MOB_PMIN 6
+	#macro DH_MOB_PMAX 7
+	#macro DH_MOB_PLV 8
+
+#endregion
+
 #region //mission data
 
 	#region //mission list
 	
 		//debug room
 		#macro MSN_DEBUG "msn_debug"
+		
+		//special
+		#macro MSN_0 "msn_0"
+		#macro MSN_DEMOBOSS "msn_demoBoss"
 	
 		//north loewi
 		#macro MSN_NLOEWI_01 "msn_nLoewi_01"
@@ -378,6 +446,7 @@
 		
 		#macro MSN_VAR_INTRO_DIA "msn_var_intro_dia"
 		#macro MSN_VAR_OUTRO_DIA "msn_var_outro_dia"
+		#macro MSN_VAR_FAIL_DIA "msn_var_fail_dia"
 		#macro MSN_VAR_HANDLER "msn_var_handler"
 		#macro MSN_VAR_TIMER "msn_var_timer" //time limit
 		#macro MSN_VAR_STATUS "msn_var_status" //0: not yet available, 1: available, 2: completed, 3: incomplete/failed - no longer available
@@ -555,6 +624,9 @@
 #region //flags
 
 	#macro FG_SHOPPROGRESS "fg_shopProgress"
+	#macro FG_PROLOGUE "fg_prologue"
+	#macro FG_MSNCLEARS "fg_msnClears"
+	#macro FG_FREEPLAY "fg_freePlay"
 
 #endregion
 
