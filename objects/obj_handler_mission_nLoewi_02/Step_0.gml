@@ -7,7 +7,7 @@ with obj_handler_dungeon{
 }
 
 with obj_handler_menuUI{
-    if(grd_ps_xDraw[# 0,0] == 0){
+    if(CS_UI_PSOPEN){
         global.tempBool = false;
     }
 }

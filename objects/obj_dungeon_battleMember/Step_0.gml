@@ -62,7 +62,7 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 		}
 	}
 	
-	actUsing.cdCurr += actUsing.cdAdd;
+	actUsing.cdCurr += actUsing.cdAdd * 100;
 	actUsing.cdMax = actUsing.cdCurr;
 	
 	actUsing = noone;
@@ -164,7 +164,7 @@ if(hpCurr > 0){
 			}
 			
 			if(_aggroIndex != -1){
-				repeat(2){
+				repeat(1){
 					ds_list_add(_tgts,_aggroIndex);
 				}
 			}
@@ -187,7 +187,7 @@ if(hpCurr > 0){
 			enemyWait = UNIVERSAL_COOLDOWN;
 		
 			if(instance_exists(_act)){
-				enemyWait += _act.cdAdd;
+				enemyWait += _act.cdAdd * 100;
 			
 				scr_cEvent(_act,EVENT_ACT_USE);
 			}

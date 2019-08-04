@@ -1,12 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(!scr_exists(src,asset_object)){
-	exit;
-}
 
 switch(cEvent){
 	#region //act_use
 		case EVENT_ACT_USE:
+			if(!scr_exists(src,asset_object)){
+				exit;
+			}
+		
 			#region //special act effects
 				if(type == WTAG_TYPE_PAN || type == WTAG_TYPE_SLG){
 					pwr = 50;
@@ -270,6 +271,48 @@ switch(cEvent){
 				
 				alarm[0] = 30;
 				using = true;
+			}
+			
+			break;
+	#endregion
+	
+	#region //act_refreshInfo
+		case EVENT_ACT_REFRESHINFO:
+			name = baseName;
+			cdAdd = round(cdBase * (1 + (cdRate * rare)));
+			enCost = round(enBase * (1 + (enRate * rare)));
+			pwr = round(basePwr * (1 + (.05 * plus)));
+			price = round(basePrice * (1 + (.1 * plus) + (.5 * rare)));
+			
+			switch(ele){
+				case CHAR_VAR_ELE_FIR:
+					name = "Flar " + name;
+					
+					break;
+				case CHAR_VAR_ELE_ICE:
+					name = "Fros " + name;
+					
+					break;
+				case CHAR_VAR_ELE_LGT:
+					name = "Weiz " + name;
+					
+					break;
+				case CHAR_VAR_ELE_DRK:
+					name = "Warz " + name;
+					
+					break;
+				case CHAR_VAR_ELE_ELC:
+					name = "Tesl " + name;
+					
+					break;
+				case CHAR_VAR_ELE_NAT:
+					name = "Terr " + name;
+					
+					break;
+			}
+			
+			if(plus > 0){
+				name += " +" + string(plus);
 			}
 			
 			break;

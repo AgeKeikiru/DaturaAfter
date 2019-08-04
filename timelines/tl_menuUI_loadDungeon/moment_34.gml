@@ -188,5 +188,5 @@ switch load_step{
 }
 
 if(load_step < 8){
-	timeline_position += -30;
+	timeline_position += -20;
 }

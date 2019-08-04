@@ -5,6 +5,16 @@
     "name": "obj_handler_act_ange_aDash",
     "eventList": [
         {
+            "id": "ab5e8e81-33bc-d8a4-60e4-830aa29e5fad",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "9827e67d-bc81-41a3-9dea-ff4c41caf2a3"
+        },
+        {
             "id": "ac747228-6f53-435f-8048-70bbfbb25220",
             "modelName": "GMEvent",
             "mvc": "1.0",

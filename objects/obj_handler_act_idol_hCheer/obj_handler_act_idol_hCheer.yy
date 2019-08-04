@@ -5,6 +5,16 @@
     "name": "obj_handler_act_idol_hCheer",
     "eventList": [
         {
+            "id": "29dcb954-8819-3970-bdb7-fac4161a1223",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "59d98ce2-8175-4962-ae69-8244f3cd7ca3"
+        },
+        {
             "id": "594e868d-3033-4adb-b5ff-a34eae7f03a9",
             "modelName": "GMEvent",
             "mvc": "1.0",

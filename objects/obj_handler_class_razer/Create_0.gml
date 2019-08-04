@@ -14,7 +14,7 @@ ms_icon = spr_icon_lowHpAtk;
 ss_name = "HP+ (s)";
 ss_desc = "Slightly increase base HP.";
 ss_icon = spr_icon_hpUp;
-ss_toolTip = "HP: +!";
+ss_toolTip = "HP: !";
 ss_rate = 10;
 
 stat_kc_base = .45;
@@ -40,21 +40,21 @@ stat_bl_rate = 5;
 
     grd_skillName[# _ix,_iy] = "SPD+";
     grd_skillDesc[# _ix,_iy] = "Increase base Speed.";
-    grd_skillTooltip[# _ix,_iy] = "SPD: +!";
+    grd_skillTooltip[# _ix,_iy] = "SPD: !";
     grd_skillIcon[# _ix,_iy] = spr_icon_spdUp;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "TRI-ATK+";
     grd_skillDesc[# _ix,_iy] = "Increase base Melee/Firearm/Spell Attack.";
-    grd_skillTooltip[# _ix,_iy] = "M/F/S-ATK: +!";
+    grd_skillTooltip[# _ix,_iy] = "M/F/S-ATK: !";
     grd_skillIcon[# _ix,_iy] = spr_icon_triAtkUp;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Ele Love";
     grd_skillDesc[# _ix,_iy] = "Increase damage dealt with all Elements.";
-    grd_skillTooltip[# _ix,_iy] = "ELE Damage: +!%";
+    grd_skillTooltip[# _ix,_iy] = "ELE Damage: !%";
     grd_skillRate[# _ix,_iy] = .04;
     grd_skillIcon[# _ix,_iy] = spr_icon_eleUp;
 
@@ -75,7 +75,7 @@ stat_bl_rate = 5;
     
     grd_skillName[# _ix,_iy] = "M-ATK+";
     grd_skillDesc[# _ix,_iy] = "Increase base Melee Attack.";
-    grd_skillTooltip[# _ix,_iy] = "M-ATK: +!";
+    grd_skillTooltip[# _ix,_iy] = "M-ATK: !";
     grd_skillIcon[# _ix,_iy] = spr_icon_mAtkUp;
     
     _iy++;
@@ -104,7 +104,7 @@ stat_bl_rate = 5;
     
     grd_skillName[# _ix,_iy] = "Adapt Dodge";
     grd_skillDesc[# _ix,_iy] = "[Stance Act] Increase Evasion gradually over time, resets on dodge.";
-    grd_skillTooltip[# _ix,_iy] = "Max Boost: +!%";
+    grd_skillTooltip[# _ix,_iy] = "Max Boost: !%";
     grd_skillRate[# _ix,_iy] = .4;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_aDodge);
     grd_skillIcon[# _ix,_iy] = spr_icon_stance;
@@ -134,7 +134,7 @@ stat_bl_rate = 5;
     
     grd_skillName[# _ix,_iy] = "Bloodlust";
     grd_skillDesc[# _ix,_iy] = "[Stance Act] Slowly drain the user's HP to gain a damage buff that increases as damage is dealt. Effect ends at 20% HP.";
-    grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec\nMax Boost: +@%";
+    grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec\n Max Boost: @%";
     grd_skillRate[# _ix,_iy] = .2;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_bLust);
     grd_skillIcon[# _ix,_iy] = spr_icon_stance;

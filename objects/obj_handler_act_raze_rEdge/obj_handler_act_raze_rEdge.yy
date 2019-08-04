@@ -5,6 +5,16 @@
     "name": "obj_handler_act_raze_rEdge",
     "eventList": [
         {
+            "id": "b9ab0827-9e6e-d17e-7087-de516a990bbb",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "3625f45b-4eb1-4d76-baba-7f35177b331e"
+        },
+        {
             "id": "9d5d0fa4-25d8-5c51-b295-0d3a3fa5cb6c",
             "modelName": "GMEvent",
             "mvc": "1.0",

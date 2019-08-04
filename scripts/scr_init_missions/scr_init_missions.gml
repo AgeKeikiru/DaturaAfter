@@ -89,7 +89,7 @@ var SV_map;
 	SV_map[? MSN_VAR_NAME] = "Railway Spy Hunt";
 	SV_map[? MSN_VAR_CLIENT] = "AG Loewi";
 	SV_map[? MSN_VAR_REWARD] = 2700;
-	SV_map[? MSN_VAR_OPNAME] = "Rat Race";
+	SV_map[? MSN_VAR_OPNAME] = "Wild Weasel";
 	SV_map[? MSN_VAR_OPFOR] = "Saboteurs";
 	SV_map[? MSN_VAR_ESR] = "74%";
 	SV_map[? MSN_VAR_DESC_LOC] = "North Loewi";
@@ -103,7 +103,7 @@ var SV_map;
 	SV_map[? MSN_VAR_BGM] = "subway";
 	
 	SV_map[? MSN_VAR_PAR_TIME_S] = ((3 * 60) + 0) * room_speed;
-	SV_map[? MSN_VAR_PAR_TIME_C] = ((4 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((4 * 60) + 30) * room_speed;
 	SV_map[? MSN_VAR_PAR_DMG_S] = 42000;
 	SV_map[? MSN_VAR_PAR_DMG_C] = 25000;
 	

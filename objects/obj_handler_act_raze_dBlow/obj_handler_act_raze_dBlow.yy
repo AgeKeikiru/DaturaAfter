@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_handler_act_raze_dBlow",
     "eventList": [
-        
+        {
+            "id": "43e84f9a-47b7-3f6c-71a4-538d32bc1af4",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "cf73b69b-8ddb-41e8-bd49-23d8fbd3427e"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [

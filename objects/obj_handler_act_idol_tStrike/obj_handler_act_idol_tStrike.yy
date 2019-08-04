@@ -5,6 +5,16 @@
     "name": "obj_handler_act_idol_tStrike",
     "eventList": [
         {
+            "id": "16043ff3-850b-752d-6683-327b737f9c15",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "96a865a4-36ab-48a9-9952-b457b8c97dfb"
+        },
+        {
             "id": "a96dbdcc-f833-9f01-f19a-2df3eeb9baaa",
             "modelName": "GMEvent",
             "mvc": "1.0",

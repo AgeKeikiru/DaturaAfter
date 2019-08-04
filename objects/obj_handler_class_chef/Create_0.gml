@@ -20,9 +20,9 @@ ms_icon = spr_icon_eleRes;
 ss_name = "M-DEF+ (s)";
 ss_desc = "Slightly increase base Melee Defense.";
 ss_icon = spr_icon_mDefUp;
-ss_toolTip = "M-DEF: +!";
+ss_toolTip = "M-DEF: !";
 
-stat_specialCd_base = 3000;
+stat_specialCd_base = 30;
 stat_specialCd_rate = stat_specialCd_base * -.1;
 
 stat_tt_base = .25;
@@ -36,7 +36,7 @@ stat_tt_rate = .05;
 	
 	grd_skillName[# _ix,_iy] = "HP+";
 	grd_skillDesc[# _ix,_iy] = "Increase base HP.";
-	grd_skillTooltip[# _ix,_iy] = "HP: +!";
+	grd_skillTooltip[# _ix,_iy] = "HP: !";
 	grd_skillRate[# _ix,_iy] = 200;
 	grd_skillIcon[# _ix,_iy] = spr_icon_hpUp;
 	
@@ -54,7 +54,7 @@ stat_tt_rate = .05;
 	grd_skillName[# _ix,_iy] = "Firm Rice";
 	grd_skillDesc[# _ix,_iy] = "[Pan] Add healing effect.\n[Sling] Add damage effect.";
 	grd_skillTooltip[# _ix,_iy] = "Effect: !";
-	grd_skillRate[# _ix,_iy] = 10;
+	grd_skillRate[# _ix,_iy] = 100;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodRice;
 
@@ -76,7 +76,7 @@ stat_tt_rate = .05;
     
     grd_skillName[# _ix,_iy] = "Super Flour";
 	grd_skillDesc[# _ix,_iy] = "[Pan/Sling] Add Wide-Range effect.";
-	grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
+	grd_skillTooltip[# _ix,_iy] = "";
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodFlour;
     
@@ -107,7 +107,7 @@ stat_tt_rate = .05;
     
     grd_skillName[# _ix,_iy] = "Double Gum";
 	grd_skillDesc[# _ix,_iy] = "[Pan/Sling] Increase hit count of food attacks.";
-	grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
+	grd_skillTooltip[# _ix,_iy] = "";
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodGum;
     

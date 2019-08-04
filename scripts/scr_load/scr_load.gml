@@ -1,3 +1,5 @@
+scr_writeLog();
+
 var
 SV_path = DATA_FNAME + "SYS",
 SV_f = file_text_open_read(SV_path),
@@ -152,12 +154,20 @@ file_text_close(SV_f);
 		ds_grid_read(SV_o.grd_skills,SV_map[? SV_key]);
 		scr_trace("loaded lst_inv_classes[" + string(SV_i) + "] skills");
 		
+		SV_key = DATA_CLSSUB + string(SV_i);
+		if(ds_map_exists(SV_map,SV_key)){
+			SV_o.ss_level = SV_map[? SV_key];
+			scr_trace("loaded lst_inv_classes[" + string(SV_i) + "] sublevel");
+		}
+		
 		SV_key = DATA_CLSNAME + string(SV_i);
 		SV_o.cName = SV_map[? SV_key];
 		scr_trace("loaded lst_inv_classes[" + string(SV_i) + "] cName: " + SV_map[? SV_key]);
 		
 		ds_list_add(global.lst_inv_classes,SV_o);
 		scr_trace("added " + SV_o.name);
+		
+		scr_cEvent(SV_o,EVENT_CLASS_SKILLREFRESH);
 		
 		SV_key = DATA_CLSID + string(++SV_i);
 	}
@@ -311,4 +321,7 @@ file_text_close(SV_f);
 
 #endregion
 
+scr_menuUI_clearPsElements();
 scr_menu_nextMenu();
+
+scr_writeLog();

@@ -5,6 +5,16 @@
     "name": "obj_handler_act_ange_aStep",
     "eventList": [
         {
+            "id": "4263e68a-f7e9-4f7f-cefc-bd3024a4201c",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "7326332d-a3ba-4cd1-8cf4-5215a4c12d47"
+        },
+        {
             "id": "ddb74dfc-29cc-b6ef-3b61-a21a67aa5c72",
             "modelName": "GMEvent",
             "mvc": "1.0",

@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_handler_act_idol_defame",
     "eventList": [
-        
+        {
+            "id": "403bd949-b1ed-ba0f-ed8b-9e3a93073b06",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "e5edbf09-386e-4400-8295-00d4aabda37d"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [

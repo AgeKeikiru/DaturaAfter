@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_handler_act_raze_aDodge",
     "eventList": [
-        
+        {
+            "id": "0f946ab1-714d-8e17-53f9-a307c3a3d423",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "137ea837-a510-43ed-8173-4075458a61e4"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [

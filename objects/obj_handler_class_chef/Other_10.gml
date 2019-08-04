@@ -23,7 +23,7 @@ switch(cEvent){
 			break;
 	#endregion
 		
-	#region
+	#region //class_skillRefresh
 		case EVENT_CLASS_SKILLREFRESH:
 			event_inherited();
 			
@@ -58,6 +58,9 @@ switch(cEvent){
 			ds_list_clear(grd_skillAct[# _ix,_iy].special);
 			ds_list_add(grd_skillAct[# _ix,_iy].special,FOOD_WIDE);
 			ds_list_add(grd_skillAct[# _ix,_iy].special,stat_specialCd_base + (grd_skills[# _ix,_iy] * stat_specialCd_rate));
+			grd_skillAct[# _ix,_iy].cdBase = stat_specialCd_base;
+			grd_skillAct[# _ix,_iy].cdRate = -.1;
+			scr_cEvent(grd_skillAct[# _ix,_iy],EVENT_ACT_REFRESHINFO);
 			
 			//winter green
 			_ix = 1;
@@ -82,6 +85,9 @@ switch(cEvent){
 			ds_list_clear(grd_skillAct[# _ix,_iy].special);
 			ds_list_add(grd_skillAct[# _ix,_iy].special,FOOD_MULTI);
 			ds_list_add(grd_skillAct[# _ix,_iy].special,stat_specialCd_base + (grd_skills[# _ix,_iy] * stat_specialCd_rate));
+			grd_skillAct[# _ix,_iy].cdBase = stat_specialCd_base;
+			grd_skillAct[# _ix,_iy].cdRate = -.1;
+			scr_cEvent(grd_skillAct[# _ix,_iy],EVENT_ACT_REFRESHINFO);
 			
 			//citruswift
 			_ix = 2;
@@ -113,6 +119,38 @@ switch(cEvent){
 			ds_list_add(grd_skillAct[# _ix,_iy].special,FOOD_EN);
 			ds_list_add(grd_skillAct[# _ix,_iy].special,grd_skills[# _ix,_iy] * grd_skillRate[# _ix,_iy]);
 			
+			break;
+	#endregion
+	
+	#region //class_fetchToolTip
+		case EVENT_CLASS_FETCHTOOLTIP:
+			var
+			_x = cArgs[| 0],
+			_y = cArgs[| 1],
+			_str = "",
+			_act = noone,
+			_substr = "",
+			_num = [0,0];
+			
+			if(_x >= 0){
+				_str = grd_skillName[# _x,_y] + " Lv." + string(grd_skills[# _x,_y] + 1) + "\n\n" + grd_skillTooltip[# _x,_y];
+				_act = grd_skillAct[# _x,_y];
+				
+				#region //tasteTest
+					//"Effect: !%"
+					if(_x == 3 && _y == 1){
+						global.tempStr = _str;
+						
+						_num[0] = stat_tt_base + (grd_skills[# _x,_y] * stat_tt_rate);
+						_num[1] = stat_tt_base + ((grd_skills[# _x,_y] + 1) * stat_tt_rate);
+						_substr = scr_class_generateSkillTTStat(_num[0],_num[1],true,!grd_skills[# _x,_y]);
+						global.tempStr = string_replace_all(global.tempStr,"!",_substr);
+					}
+				#endregion
+			}
+			
+			event_inherited();
+		
 			break;
 	#endregion
 		

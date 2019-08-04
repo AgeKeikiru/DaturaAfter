@@ -9,7 +9,7 @@ draw_set_font(ft_menuButton);
 var
 SV_buttonH = 50,
 SV_b = 20,
-SV_w = clamp(string_width(argument1),250,500) + (SV_b * 2),
+SV_w = clamp(string_width(argument1),250,1000) + (SV_b * 2),
 SV_h = max(string_height_ext(argument1,-1,SV_w),20) + (SV_b * 4) + SV_buttonH,
 SV_x = (room_width / 2) + -(SV_w / 2),
 SV_y = (room_height / 2) + -(SV_h / 2),

@@ -1,8 +1,29 @@
 add [Debuff Love] effect to debuffs
-make sure all debuffs have debuff = true
-make sure all cEvent switches include a default
-implement sub skills
-add hard cap to damage (1)
+add dialogue backlog to C key
+add option to switch down arrow to middle-target
+add stat comparison to equip menu
+nerf imo base f-atk
+add bestiary
+default to load game when available
+add stat preview in shop
+buff demoBoss
+disable party screen in market/chip lab
+en cost/cd balance
+make idol/angel/chef stances main skills that auto-cast when no stance is active
+scale heals off s-def
+add item selling
+set ingredient skill cd to 0
+add held key autoscroll delay
+add agile property to acts: not affected by universal cd
+change descriptions to automate act tags like [stance], [agile], etc
+
+investigate crash after idling on mission clear screen (noticed on tree mission)
+
+fixed(?) bugs:
+	fix newgame-market crash
+	fix class acts being replaced with ??? on load
+	investigate crash after post mission save (noticed in demoBoss)
+		apparently always crashes after clearing demoBoss a 2nd time, suspected to be tied to heldGold overflow
 
 class idea:
 	Ace

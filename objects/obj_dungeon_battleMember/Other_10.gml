@@ -270,8 +270,9 @@ switch(cEvent){
 					
 					if(class[_i] != undefined && instance_exists(class[_i])){
 						class[_i].src = id;
+						scr_cEvent(class[_i],EVENT_CLASS_SKILLREFRESH);
 						scr_cEvent(class[_i],EVENT_CLASS_BASESTATADD);
-						level += ds_grid_get_sum(class[_i].grd_skills,0,0,ds_grid_width(class[_i].grd_skills) + -1,ds_grid_height(class[_i].grd_skills) + -1);
+						level += class[_i].level;
 					}
 					
 					_i++;
@@ -282,7 +283,7 @@ switch(cEvent){
 				if(scr_exists(class[_i],asset_object)){
 					class[_i].src = id;
 					scr_cEvent(class[_i],EVENT_CLASS_BASESTATADD);
-					level += ds_grid_get_sum(class[_i].grd_skills,0,0,ds_grid_width(class[_i].grd_skills) + -1,ds_grid_height(class[_i].grd_skills) + -1);
+					level += class[_i].level;
 				}
 				
 				hpMax += round(src[? CHAR_VAR_HP] * .05 * level);
@@ -294,7 +295,21 @@ switch(cEvent){
 				if(instance_number(obj_handler_dungeon) < 1 || allyParty == global.grd_party_enemy){
 					hpCurr = hpMax;
 					enCurr = enMax;
+					
+					if(scr_exists(stance,asset_object)){
+						instance_destroy(stance);
+						stance = noone;
+					}
+					
+					for(var _i = 0;_i < array_length_1d(ailment);_i++){
+						ailment[_i] = 0;
+					}
+					
+					hpBarOver = 1;
+					hpBarUnder = 1;
 				}
+				
+				scr_cEvent(id,EVENT_BATTLM_ICONREFRESH);
 			}
 			
 			break;

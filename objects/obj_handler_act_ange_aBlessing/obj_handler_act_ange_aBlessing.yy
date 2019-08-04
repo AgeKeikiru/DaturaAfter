@@ -5,6 +5,16 @@
     "name": "obj_handler_act_ange_aBlessing",
     "eventList": [
         {
+            "id": "4b9cc25f-3eb1-ef51-3786-af6de395fdf9",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "8b359896-5b36-444f-8563-dbca767fc323"
+        },
+        {
             "id": "8db6acb4-9216-4d90-9aba-5727a4ebe9c2",
             "modelName": "GMEvent",
             "mvc": "1.0",

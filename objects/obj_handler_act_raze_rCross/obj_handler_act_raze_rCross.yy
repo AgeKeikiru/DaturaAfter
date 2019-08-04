@@ -5,6 +5,16 @@
     "name": "obj_handler_act_raze_rCross",
     "eventList": [
         {
+            "id": "5870ae5c-1a59-24a4-d49e-e1570b3fe266",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "f5a866de-8602-488d-ae6f-12453f7d9863"
+        },
+        {
             "id": "468a4a20-c1b5-e94e-a11a-4d0f82d13436",
             "modelName": "GMEvent",
             "mvc": "1.0",

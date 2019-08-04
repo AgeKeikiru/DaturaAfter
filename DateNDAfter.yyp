@@ -1223,6 +1223,14 @@
             }
         },
         {
+            "Key": "4db25d64-d4e5-b24f-47e4-6ae1abfe0c86",
+            "Value": {
+                "id": "a53765d8-e1d2-ad4c-021b-cc8ceeb6e878",
+                "resourcePath": "scripts\\scr_writeLog\\scr_writeLog.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4deb40a9-8f58-438e-8245-1b19614bb526",
             "Value": {
                 "id": "3919d261-2995-4b2f-bfbb-ccdf9e1e30c2",
@@ -1628,6 +1636,14 @@
                 "id": "77ffadf0-e8a9-b2d4-fd51-f487687675bd",
                 "resourcePath": "scripts\\scr_menu_backNoRefresh\\scr_menu_backNoRefresh.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "65e8460a-1865-4013-80fb-a396f61b0c42",
+            "Value": {
+                "id": "c9ba80f0-985c-4209-921a-d2cbaeda8125",
+                "resourcePath": "datafiles_yy\\readme.txt.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -2295,6 +2311,14 @@
             }
         },
         {
+            "Key": "924d704c-c69e-34b7-5040-6c5116791f77",
+            "Value": {
+                "id": "b484e1ca-a251-b0e4-b452-fddbbd7f44fb",
+                "resourcePath": "scripts\\scr_class_generateSkillTTStat\\scr_class_generateSkillTTStat.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "925814df-bdc5-4995-9d39-f57885363771",
             "Value": {
                 "id": "837ef246-d68b-489f-a622-977c04dbbc28",
@@ -2356,14 +2380,6 @@
                 "id": "da120009-12c5-471e-b24f-169f85efc8e8",
                 "resourcePath": "views\\94d0a37d-c089-4a9f-9018-77665e1af9e0.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "95404621-b47a-463f-a46b-a1daecc502e7",
-            "Value": {
-                "id": "0f2a706d-39e4-4b32-956a-9dd86ef4f14f",
-                "resourcePath": "datafiles_yy\\readme.txt.yy",
-                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -3043,6 +3059,14 @@
             "Value": {
                 "id": "1028cb08-64e2-1c96-08ca-7d8222130edc",
                 "resourcePath": "scripts\\scr_getItemMenuInfo\\scr_getItemMenuInfo.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "be0e841c-b04a-eb11-f3c0-7fa509b6ed53",
+            "Value": {
+                "id": "7b052de9-6c2c-5888-4773-35aa159228a2",
+                "resourcePath": "scripts\\scr_menuUI_clearPsElements\\scr_menuUI_clearPsElements.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -4217,7 +4241,10 @@
         "36fc4e39-4c24-0645-8f5e-54f770a04247",
         "b4c5b51b-cf8a-e386-5fe3-235653334ebf",
         "b8cc668a-e3d0-ecae-ffd1-3663bcb46c9a",
-        "10875e54-21b9-b58a-bcaa-20268d4360fa"
+        "10875e54-21b9-b58a-bcaa-20268d4360fa",
+        "be0e841c-b04a-eb11-f3c0-7fa509b6ed53",
+        "924d704c-c69e-34b7-5040-6c5116791f77",
+        "4db25d64-d4e5-b24f-47e4-6ae1abfe0c86"
     ],
     "tutorial": ""
 }

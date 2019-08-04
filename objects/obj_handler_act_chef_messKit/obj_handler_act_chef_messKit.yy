@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_handler_act_chef_messKit",
     "eventList": [
-        
+        {
+            "id": "1673a320-e2fe-f283-2233-d2af3139d02b",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "78b936fc-a0e9-40a4-8f6d-3f458cb954de"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [

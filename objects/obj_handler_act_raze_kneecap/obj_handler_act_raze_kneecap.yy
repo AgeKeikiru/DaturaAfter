@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_handler_act_raze_kneecap",
     "eventList": [
-        
+        {
+            "id": "ea5c7bc1-1c00-c879-2cf6-3a0adea473c5",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "f1652e1b-ddb5-4a0e-b8ce-7c61de622277"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [

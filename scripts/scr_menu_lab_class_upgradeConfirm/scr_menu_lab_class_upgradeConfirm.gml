@@ -15,5 +15,5 @@ if(global.labObj.level >= 30){
     
     global.tempStr += "\n\n\nUpgrade skill for " + string(scr_calcLevelupCost(global.labObj)) + "g?";
     
-    scr_menu_confirmWindow("menu/lab/class1/upgrade/confirm/..",global.tempStr,scr_menu_lab_class_upgradeConfirm_yes,scr_menu_backNoRefresh);
+    var SV_m = scr_menu_confirmWindow("menu/lab/class1/upgrade/confirm/..",global.tempStr,scr_menu_lab_class_upgradeConfirm_yes,scr_menu_backNoRefresh);
 }

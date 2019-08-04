@@ -1,5 +1,8 @@
 /// @description Insert description here
-// You can write your code in this editor
+event_inherited();
+
+enBase *= 0;
+cdBase *= 30;
 
 event_inherited();
 

@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_handler_act_idol_hype",
     "eventList": [
-        
+        {
+            "id": "55f9132c-9cea-d93e-261f-4c494b1cf8a2",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "06d8644d-b21a-487b-b87a-1ed0a78d76b8"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [

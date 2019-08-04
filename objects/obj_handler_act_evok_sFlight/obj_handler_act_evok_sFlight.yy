@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_handler_act_evok_sFlight",
     "eventList": [
-        
+        {
+            "id": "04356c78-bbf2-f217-6ca6-aaf5de11cbcf",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "402a47e8-06cb-431a-91a3-9f419ceb9fef"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [

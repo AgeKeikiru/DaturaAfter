@@ -5,6 +5,16 @@
     "name": "obj_handler_act_raze_bLust",
     "eventList": [
         {
+            "id": "231d5888-6a9d-1d79-decc-38d7a8e11c63",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "dba10f01-2956-487b-a07f-cf1ee5551774"
+        },
+        {
             "id": "6bd8cb76-5cd8-51a9-0daf-40ee775d8b53",
             "modelName": "GMEvent",
             "mvc": "1.0",

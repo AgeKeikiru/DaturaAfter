@@ -1,3 +1,5 @@
+scr_writeLog();
+
 var
 SV_map = ds_map_create(),
 SV_key = "";
@@ -141,6 +143,10 @@ SV_key = "";
 		SV_map[? SV_key] = ds_grid_write(SV_o.grd_skills);
 		scr_trace("saved lst_inv_classes[" + string(SV_i) + "] skills");
 		
+		SV_key = DATA_CLSSUB + string(SV_i);
+		SV_map[? SV_key] = SV_o.ss_level;
+		scr_trace("saved lst_inv_classes[" + string(SV_i) + "] sublevel");
+		
 		SV_key = DATA_CLSNAME + string(SV_i);
 		SV_map[? SV_key] = SV_o.cName;
 		scr_trace("saved lst_inv_classes[" + string(SV_i) + "] cName: " + SV_map[? SV_key]);
@@ -262,3 +268,5 @@ SV_b.txt_ft[0] = ft_dungeonBold;
 SV_b.txt_valign[0] = fa_bottom;
 SV_b.txt_x[0] = 10;
 SV_b.txt_y[0] = 5;
+
+scr_writeLog();

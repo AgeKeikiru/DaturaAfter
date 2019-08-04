@@ -832,6 +832,7 @@ if(!state_event && !state_results){
 				
 				"\n\nSelect Act:" +
 				"\n(with party member selected) [U/D/L/R Arrow Keys]" +
+				"\n*Hold [Shift] to access Acts 5-8" +
 				
 				"\n\nManual Target:" +
 				"\n(without party member selected) [U/L/R Arrow Keys]" +

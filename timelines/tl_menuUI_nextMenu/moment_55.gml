@@ -1,3 +1,4 @@
+instance_destroy(obj_handler_menu_parent);
 ds_stack_clear(global.stk_menu);
 
 if(!title){

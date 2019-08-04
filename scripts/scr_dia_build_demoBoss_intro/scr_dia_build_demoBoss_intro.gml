@@ -40,7 +40,7 @@ with obj_handler_dungeon{
     grd_mobPool[# 0,DH_MOB_PMIN] = 0;
     
     grd_mobPool[# 0,DH_MOB_LV1] = 0;
-    grd_mobPool[# 0,DH_MOB_LV2] = 50;
+    grd_mobPool[# 0,DH_MOB_LV2] = DEBUG ? 0 : 50;
     grd_mobPool[# 0,DH_MOB_LV3] = 0;
     
     state_battle = true;

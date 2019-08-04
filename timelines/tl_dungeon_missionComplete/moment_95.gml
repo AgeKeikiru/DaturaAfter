@@ -2,7 +2,7 @@
 map_results[? MCS_TGT_BONUS] = round(map_results[? MCS_TGT_BONUS]);
 map_results[? MCS_TGT_GOLD] += map_results[? MCS_TGT_BONUS];
 
-global.heldGold += map_results[? MCS_TGT_GOLD];
+global.heldGold = min(global.heldGold + map_results[? MCS_TGT_GOLD],GCAP);
 
 map_results[? MCS_BONUS] = instance_create_depth(MCS_ALIGNX,MCS_STARTY + (MCS_GAPY * 3),0,obj_fpo_panel);
 with map_results[? MCS_BONUS]{

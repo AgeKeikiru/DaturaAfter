@@ -172,7 +172,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "1100",
+            "value": "1150",
             "varName": "tb_width",
             "varType": 0
         },

@@ -5,6 +5,16 @@
     "name": "obj_handler_act_ange_aSmite",
     "eventList": [
         {
+            "id": "aa511f73-4261-7354-1ba1-9a3c6a8412a4",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "ef28883a-4217-4b8d-9f17-0c3f48da7bbf"
+        },
+        {
             "id": "bacaf765-3aed-4da4-9cf6-3f2b9bb58888",
             "modelName": "GMEvent",
             "mvc": "1.0",

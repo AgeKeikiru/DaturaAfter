@@ -5,6 +5,16 @@
     "name": "obj_handler_act_ange_desynch",
     "eventList": [
         {
+            "id": "2e7d7dce-906f-40e3-0579-0be099b84723",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "93a641b6-5e7f-48b0-b251-b040d74bb190"
+        },
+        {
             "id": "886a1581-3430-49fa-ad39-b1d17398c312",
             "modelName": "GMEvent",
             "mvc": "1.0",

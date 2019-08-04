@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_handler_act_ange_angelite",
     "eventList": [
-        
+        {
+            "id": "8e091148-bb55-d223-496e-da8a14a32886",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "08cb5506-0652-48e6-80ea-fe5c2daab2de"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [

@@ -7,6 +7,10 @@ if(DEBUG){
 		global.missionCurr = MSN_NLOEWI_01;
 		
 		scr_menu_briefConfirm_yes();
+	}else if(keyboard_check_pressed(vk_end)){
+		with obj_handler_dungeon{
+			missionComplete = true;
+		}
 	}
 }
 

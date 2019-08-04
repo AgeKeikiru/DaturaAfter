@@ -5,6 +5,16 @@
     "name": "obj_handler_act_idol_hOne",
     "eventList": [
         {
+            "id": "806f96cf-50cc-5ee3-407c-37356436020a",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "82b6c8d4-e0f7-4315-9b73-d6640f2a1a92"
+        },
+        {
             "id": "99cdb52d-e199-4a86-acd9-f33fc8969fd4",
             "modelName": "GMEvent",
             "mvc": "1.0",

@@ -4,6 +4,7 @@ ds_grid_set_region(grd_ps_xDraw,0,0,3,1,1);
 grd_ps_xDraw[# 0,1] = 0;
 transTgt = -.5;
 transCurr = transTgt;
+visible = true;
 
 //scr_playSfx(sfx_tick4);
 

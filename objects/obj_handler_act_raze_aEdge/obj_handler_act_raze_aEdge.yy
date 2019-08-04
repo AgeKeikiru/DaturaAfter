@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_handler_act_raze_aEdge",
     "eventList": [
-        
+        {
+            "id": "44e93d6c-cfe0-4a6c-f724-c7a32ea1eefa",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "84a8bfb5-3948-4ae0-b984-13303512ec04"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [

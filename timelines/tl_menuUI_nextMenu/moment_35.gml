@@ -1,5 +1,8 @@
 if(instance_exists(obj_handler_dungeon) || title){
+	scr_refreshShopList();
+	
 	title = false;
+	ds_grid_set_region(grd_ps_xDraw,0,0,3,1,1);
 	
 	instance_destroy(obj_handler_dungeon);
 	instance_destroy(obj_handler_mission_parent);

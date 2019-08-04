@@ -5,6 +5,16 @@
     "name": "obj_handler_act_idol_finale",
     "eventList": [
         {
+            "id": "645dcde5-33fa-b6c8-b89c-b950e1e5b2ef",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "3294c0a7-055f-4e1a-929a-eb1625fcba96"
+        },
+        {
             "id": "5ac43d3a-032b-4fec-a0d1-7f8d910cd4da",
             "modelName": "GMEvent",
             "mvc": "1.0",

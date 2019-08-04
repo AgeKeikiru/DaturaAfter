@@ -5,6 +5,16 @@
     "name": "obj_handler_act_chef_food",
     "eventList": [
         {
+            "id": "28a56d8c-bab4-3d9e-4f57-bf78bcf42bbd",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "6c33e387-f405-4f64-ad33-6cfb709b75e0"
+        },
+        {
             "id": "77e82bd2-d14d-f15c-9392-4480dc05121d",
             "modelName": "GMEvent",
             "mvc": "1.0",

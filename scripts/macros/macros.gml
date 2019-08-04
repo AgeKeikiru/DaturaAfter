@@ -1,10 +1,11 @@
 #region //general
 	
-	#macro GAMEVER "v0.0.1"
+	#macro GAMEVER "v0.0.2"
 	#macro UNIVERSAL_COOLDOWN room_speed * 100 * 5
 	#macro DEFAULT_PANEL_BEZEL 8
-	#macro CANARY true
+	#macro CANARY false
 	#macro DEBUG false
+	#macro GCAP 999999
 	
 	#macro SFX_SCROLLTICK sfx_tick1
 	#macro SFX_ACCEPTTICK sfx_tick3
@@ -14,6 +15,7 @@
 #region //data handling
 
 	#macro DATA_FNAME working_directory + "SAVg1\\"
+	#macro DATA_LOG working_directory + "log.txt"
 	
 	#macro DATA_ITEMSET "data_itemSet"
 	#macro DATA_ITEMHELD "data_itemHeld"
@@ -39,6 +41,7 @@
 	
 	#macro DATA_CLSID "data_clsID"
 	#macro DATA_CLSLVS "data_clsLvs"
+	#macro DATA_CLSSUB "data_classSub"
 	#macro DATA_CLSNAME "data_clsName"
 	
 	#macro DATA_GOLD "data_gold"
@@ -534,6 +537,7 @@
 	
 	#macro EVENT_ACT_USE "event_act_use"
 	#macro EVENT_ACT_ABORT "event_act_abort"
+	#macro EVENT_ACT_REFRESHINFO "event_act_refreshInfo"
 	
 	#macro EVENT_MENU_RESIZEPANEL "event_menu_resizePanel"
 	#macro EVENT_MENU_REFRESHMENUUI "event_menu_refreshMenuUI"
@@ -634,7 +638,10 @@
 
 	#macro CS_SRCSTANCEIS scr_exists(src,asset_object) && scr_exists(src.stance,asset_object) && src.stance.object_index ==
 	#macro CS_SRCMAINIS scr_exists(src,asset_object) && scr_exists(src.src[? CHAR_VAR_CLS0],asset_object) && src.src[? CHAR_VAR_CLS0].object_index ==
+	#macro CS_UI_PSOPEN grd_ps_xDraw[# 0,0] == 0
+	
 	#macro CS_SWITCHDIAFOCUS global.grd_dia[# DIA_FOCUS_L,SV_i] = !global.grd_dia[# DIA_FOCUS_L,SV_i] \
 	global.grd_dia[# DIA_FOCUS_R,SV_i] = !global.grd_dia[# DIA_FOCUS_R,SV_i]
+	
 
 #endregion

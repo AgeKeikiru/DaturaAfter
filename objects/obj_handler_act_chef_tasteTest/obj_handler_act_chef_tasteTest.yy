@@ -5,6 +5,16 @@
     "name": "obj_handler_act_chef_tasteTest",
     "eventList": [
         {
+            "id": "cf5d501d-2c15-c0e4-93ac-17eaabdbf434",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "282e44df-697a-4d70-b644-44bf4a715e0a"
+        },
+        {
             "id": "348d62fe-e085-4201-a30f-4e8a5abbe6fc",
             "modelName": "GMEvent",
             "mvc": "1.0",

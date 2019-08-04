@@ -3,6 +3,14 @@
 persistent = true;
 visible = false;
 
+scr_trace(object_get_name(object_index) + " " + " created");
+
+cdBase = cdAdd;
+enBase = enCost;
+basePwr = pwr;
+baseName = name;
+basePrice = price;
+
 if(xAct){
 	cdCurr = cdMax;
 }

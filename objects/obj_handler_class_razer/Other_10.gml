@@ -18,7 +18,7 @@ switch(cEvent){
 			break;
 	#endregion
 	
-	#region //
+	#region //battle_atkMod
 		case EVENT_BATTLE_ATKMOD:
 			var
 			_src = cArgs[| 0],
@@ -49,7 +49,7 @@ switch(cEvent){
 			break;
 	#endregion
 	
-	#region
+	#region //class_skillRefresh
 		case EVENT_CLASS_SKILLREFRESH:
 			event_inherited();
 			
@@ -108,6 +108,91 @@ switch(cEvent){
 			ds_list_clear(grd_skillAct[# _ix,_iy].special);
 			ds_list_add(grd_skillAct[# _ix,_iy].special,grd_skills[# _ix,_iy] * grd_skillRate[# _ix,_iy]);
 			
+			break;
+	#endregion
+	
+	#region //class_fetchToolTip
+		case EVENT_CLASS_FETCHTOOLTIP:
+			var
+			_x = cArgs[| 0],
+			_y = cArgs[| 1],
+			_str = "",
+			_act = noone,
+			_substr = "",
+			_num = [0,0];
+			
+			if(_x >= 0){
+				_str = grd_skillName[# _x,_y] + " Lv." + string(grd_skills[# _x,_y] + 1) + "\n\n" + grd_skillTooltip[# _x,_y];
+				_act = grd_skillAct[# _x,_y];
+				
+				#region //kneecap
+					//"Effect Chance: !%"
+					if(_x == 1 && _y == 0){
+						global.tempStr = _str;
+						
+						_num[0] = stat_kc_base + (grd_skills[# _x,_y] * stat_kc_rate);
+						_num[1] = stat_kc_base + ((grd_skills[# _x,_y] + 1) * stat_kc_rate);
+						_substr = scr_class_generateSkillTTStat(_num[0],_num[1],true,!grd_skills[# _x,_y]);
+						global.tempStr = string_replace_all(global.tempStr,"!",_substr);
+					}
+				#endregion
+				
+				#region //sBlow
+					//"Power: !"
+					if(_x == 1 && _y == 2){
+						global.tempStr = _str;
+						
+						_num[0] = stat_sb_base + (grd_skills[# _x,_y] * stat_sb_rate);
+						_num[1] = stat_sb_base + ((grd_skills[# _x,_y] + 1) * stat_sb_rate);
+						_substr = scr_class_generateSkillTTStat(_num[0],_num[1],false,!grd_skills[# _x,_y]);
+						global.tempStr = string_replace_all(global.tempStr,"!",_substr);
+					}
+				#endregion
+				
+				#region //dBlow
+					//"Conversion Rate: !%"
+					if(_x == 2 && _y == 2){
+						global.tempStr = _str;
+						
+						_num[0] = stat_db_base + (grd_skills[# _x,_y] * stat_db_rate);
+						_num[1] = stat_db_base + ((grd_skills[# _x,_y] + 1) * stat_db_rate);
+						_substr = scr_class_generateSkillTTStat(_num[0],_num[1],true,!grd_skills[# _x,_y]);
+						global.tempStr = string_replace_all(global.tempStr,"!",_substr);
+					}
+				#endregion
+				
+				#region //aEdge
+					//"Recoil: !"
+					if(_x == 3 && _y == 0){
+						global.tempStr = _str;
+						
+						_num[0] = stat_ae_base + (grd_skills[# _x,_y] * stat_ae_rate);
+						_num[1] = stat_ae_base + ((grd_skills[# _x,_y] + 1) * stat_ae_rate);
+						_substr = scr_class_generateSkillTTStat(_num[0],_num[1],false,!grd_skills[# _x,_y]);
+						global.tempStr = string_replace_all(global.tempStr,"!",_substr);
+					}
+				#endregion
+				
+				#region //bLust
+					//"Drain Rate: !/sec\nMax Boost: @%"
+					if(_x == 3 && _y == 1){
+						global.tempStr = _str;
+						
+						_num[0] = stat_bl_base + (grd_skills[# _x,_y] * stat_bl_rate);
+						_num[1] = stat_bl_base + ((grd_skills[# _x,_y] + 1) * stat_bl_rate);
+						_substr = scr_class_generateSkillTTStat(_num[0],_num[1],false,!grd_skills[# _x,_y],10,"/sec");
+						global.tempStr = string_replace_all(global.tempStr,"!",_substr);
+						
+						_num[0] = grd_skills[# _x,_y] * grd_skillRate[# _x,_y];
+						_num[1] = (grd_skills[# _x,_y] + 1) * grd_skillRate[# _x,_y];
+						_substr = scr_class_generateSkillTTStat(_num[0],_num[1],true,!grd_skills[# _x,_y],12);
+						global.tempStr = string_replace_all(global.tempStr,"@",_substr);
+					}
+				#endregion
+			}
+			
+			event_inherited();
+		
 			break;
 	#endregion
 		

@@ -1,6 +1,8 @@
 global.playerControl = false;
 global.map_flags[? FG_MSNCLEARS] += 1;
 
+scr_updateMsnList();
+
 var _map = scr_data_getMap(global.grd_missions,global.missionCurr);
 _map[? MSN_VAR_STATUS] = 2;
 

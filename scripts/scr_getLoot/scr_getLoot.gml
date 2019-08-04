@@ -148,7 +148,7 @@ repeat(SV_qty){
         case LOOT_G: //gold drop
         	var SV_g = irandom_range(SV_map[? MSN_VAR_LOOT_GOLDMIN],SV_map[? MSN_VAR_LOOT_GOLDMAX]) * 10;
         	
-        	global.heldGold += SV_g;
+        	global.heldGold = min(global.heldGold + SV_g,GCAP);
         	ds_list_add(global.lst_missionLoot_queue,"$" + string(SV_g));
             
             break;

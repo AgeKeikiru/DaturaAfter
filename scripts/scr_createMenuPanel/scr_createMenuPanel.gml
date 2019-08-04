@@ -16,8 +16,8 @@ SV_menu = instance_create_depth(SV_x,SV_y,0,obj_handler_menu_parent);
 SV_panel.visible = false;
 
 SV_menu.link_panel = SV_panel;
-
 SV_menu.btn_w = SV_w;
+SV_menu.layer = global.ly_obj[4];
 
 SV_panel.fixedAlpha = false;
 SV_panel.tgt_xScale = SV_w + (SV_bezel * 2);

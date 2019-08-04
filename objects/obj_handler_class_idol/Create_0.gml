@@ -14,7 +14,7 @@ ms_icon = spr_icon_stanceUp;
 ss_name = "ACC+ (s)";
 ss_desc = "Slightly increase base Accuracy.";
 ss_icon = spr_icon_accUp;
-ss_toolTip = "ACC: +!";
+ss_toolTip = "ACC: !";
 ss_rate = .5;
 
 stat_pup_base = 5;
@@ -37,7 +37,7 @@ stat_gf_rate = -.1;
 
     grd_skillName[# _ix,_iy] = "EVA+";
     grd_skillDesc[# _ix,_iy] = "Increase base Evasion.";
-    grd_skillTooltip[# _ix,_iy] = "EVA: +!";
+    grd_skillTooltip[# _ix,_iy] = "EVA: !";
     grd_skillRate[# _ix,_iy] = stat_fineStatRate;
     grd_skillIcon[# _ix,_iy] = spr_icon_evaUp;
     
@@ -54,7 +54,7 @@ stat_gf_rate = -.1;
     
     grd_skillName[# _ix,_iy] = "MISC+";
     grd_skillDesc[# _ix,_iy] = "Increase base Misc.";
-    grd_skillTooltip[# _ix,_iy] = "MISC: +!";
+    grd_skillTooltip[# _ix,_iy] = "MISC: !";
     grd_skillRate[# _ix,_iy] = stat_fineStatRate;
     grd_skillIcon[# _ix,_iy] = spr_icon_miscUp;
 
@@ -75,7 +75,7 @@ stat_gf_rate = -.1;
     
     grd_skillName[# _ix,_iy] = "Hype-Boost Teamwork";
     grd_skillDesc[# _ix,_iy] = "Increase Hype gain when attacking alongside an ally.";
-    grd_skillTooltip[# _ix,_iy] = "Gain: +!%";
+    grd_skillTooltip[# _ix,_iy] = "Gain: !%";
     grd_skillRate[# _ix,_iy] = .2;
     grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
     
@@ -83,7 +83,7 @@ stat_gf_rate = -.1;
     
     grd_skillName[# _ix,_iy] = "Hyper Pep-Talk";
     grd_skillDesc[# _ix,_iy] = "[1+ Hype] Heal an ally based on hype used. Brief Aggro transfer.";
-    grd_skillTooltip[# _ix,_iy] = "Conversion Rate: x!";
+    grd_skillTooltip[# _ix,_iy] = "Conversion Rate: !%";
     grd_skillRate[# _ix,_iy] = 100;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hPep);
     grd_skillIcon[# _ix,_iy] = spr_icon_stanceHeal;
@@ -114,7 +114,7 @@ stat_gf_rate = -.1;
     grd_skillName[# _ix,_iy] = "Hyper One-More";
     grd_skillDesc[# _ix,_iy] = "[4 Hype] Revive an ally. Brief inverse Aggro transfer.";
     grd_skillTooltip[# _ix,_iy] = "Power: !";
-    grd_skillRate[# _ix,_iy] = 50;
+    grd_skillRate[# _ix,_iy] = 200;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hOne);
     grd_skillIcon[# _ix,_iy] = spr_icon_stanceRaise;
 
@@ -127,7 +127,7 @@ stat_gf_rate = -.1;
 
     grd_skillName[# _ix,_iy] = "Live Defamation";
     grd_skillDesc[# _ix,_iy] = "Greatly increases Aggro and Hype.";
-    grd_skillTooltip[# _ix,_iy] = "Aggro: +!";
+    grd_skillTooltip[# _ix,_iy] = "Aggro: !";
     grd_skillRate[# _ix,_iy] = 1;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_defame);
     grd_skillIcon[# _ix,_iy] = spr_icon_stanceUpAlly;

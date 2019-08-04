@@ -40,17 +40,19 @@ if(ds_stack_size(global.stk_menu) > 1 || (instance_exists(SV_ui) && SV_ui.ps_bas
 			}
 		}
 		
-		with ds_stack_top(global.stk_menu){
-			alarm[0] = 1;
-			
-			if(argument_count == 0 || argument[0]){
-				alarm[0] = 10;
-				btn_draw = false;
-				visible = true;
+		if(ds_stack_size(global.stk_menu) > 0){
+			with ds_stack_top(global.stk_menu){
+				alarm[0] = 1;
 				
-				with link_panel{
-					image_xscale = 0;
-					image_yscale = 0;
+				if(argument_count == 0 || argument[0]){
+					alarm[0] = 10;
+					btn_draw = false;
+					visible = true;
+					
+					with link_panel{
+						image_xscale = 0;
+						image_yscale = 0;
+					}
 				}
 			}
 		}

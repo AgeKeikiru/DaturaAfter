@@ -30,7 +30,7 @@ talkbox.tgt_yScale = tb_height;
 talkbox.txt_ft[0] = ft_menuButton;
 talkbox.txt_x[0] = 25;
 talkbox.txt_y[0] = 25;
-talkbox.txt_w[0] = tb_width + -(talkbox.txt_x[0] * 2);
+talkbox.txt_w[0] = tb_width + -(talkbox.txt_x[0] * 2) + -60;
 talkbox.txt_xScale[0] = 1;
 talkbox.txt_yScale[0] = talkbox.txt_xScale[0];
 

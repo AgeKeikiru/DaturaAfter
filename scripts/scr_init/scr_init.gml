@@ -122,7 +122,7 @@ scr_trace("scr_init called");
 	global.lst_inv_arms = ds_list_create();
 	global.lst_inv_classes = ds_list_create();
 	
-	global.heldGold = 0;
+	global.heldGold = 1000;
 	
 	//shop inventory
 	global.lst_shop_acts = ds_list_create();
@@ -175,10 +175,10 @@ scr_trace("scr_init called");
 #region //settings
 	
 	global.set_txtSpeed = 6;
-	global.set_winTrans = 90;
+	global.set_winTrans = 98;
 	global.set_volBgm = 50;
 	global.set_volSfx = 50;
-	global.set_atbSpeed = 100;
+	global.set_atbSpeed = 80;
 	global.set_atbMod = 40;
 	
 #endregion
@@ -203,10 +203,14 @@ ds_list_add(global.lst_inv_classes,
 
 with _temp{
     src = scr_data_getMap(global.grd_chars,CHAR_BLAZE);
-    src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_SHG,"",0,10);
-	src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_ASC_RAY,CHAR_VAR_ELE_DRK,0,10);
-	src[? CHAR_VAR_HB2] = scr_data_act_new(WTAG_TYPE_CSC,CHAR_VAR_ELE_ICE,0,10);
-	src[? CHAR_VAR_HB3] = scr_data_act_new(WTAG_TYPE_HGN,CHAR_VAR_ELE_ICE,0,10);
+    src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_CSC,CHAR_VAR_ELE_ICE,0,10);
+    src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_SHD_BRN,"");
+    src[? CHAR_VAR_HB2] = scr_data_act_new(WTAG_TYPE_CSC,CHAR_VAR_ELE_DRK,0,10);
+    src[? CHAR_VAR_HB3] = scr_data_act_new(WTAG_TYPE_SSC_HEAL,"",0,10);
+	src[? CHAR_VAR_HB4] = scr_data_act_new(WTAG_TYPE_ASC_RAY,CHAR_VAR_ELE_DRK,0,10);
+	src[? CHAR_VAR_HB5] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_ICE,0,10);
+	src[? CHAR_VAR_HB6] = scr_data_act_new(WTAG_TYPE_HGN,CHAR_VAR_ELE_ICE,0,10);
+	src[? CHAR_VAR_HB7] = scr_data_act_new(WTAG_TYPE_SHG,"",0,10);
 	src[? CHAR_VAR_CLS0] = global.lst_inv_classes[| 0];
 	
 	with src[? CHAR_VAR_CLS0]{
@@ -221,13 +225,21 @@ with _temp{
 		src[? CHAR_VAR_HB0],
 		src[? CHAR_VAR_HB1],
 		src[? CHAR_VAR_HB2],
-		src[? CHAR_VAR_HB3]
+		src[? CHAR_VAR_HB3],
+		src[? CHAR_VAR_HB4],
+		src[? CHAR_VAR_HB5],
+		src[? CHAR_VAR_HB6],
+		src[? CHAR_VAR_HB7]
 	);
 }
 
 global.grd_party_player[# 0,0] = _temp;
 
+scr_menuUI_clearPsElements();
+
 //testing
 if(DEBUG){
 	global.set_volBgm = 0;
+	global.heldGold = GCAP;
+	global.map_flags[? FG_FREEPLAY] = true;
 }

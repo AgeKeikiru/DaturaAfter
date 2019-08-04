@@ -5,6 +5,16 @@
     "name": "obj_handler_act_idol_hPickup",
     "eventList": [
         {
+            "id": "aafbd757-bccb-1d2e-da0c-78797b0c7405",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "9999d4b7-ae6e-468f-9479-a31a2690a6f7"
+        },
+        {
             "id": "26fdf08e-eba0-f4c0-8fa1-7eaab2199c3f",
             "modelName": "GMEvent",
             "mvc": "1.0",
