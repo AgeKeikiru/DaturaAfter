@@ -122,6 +122,8 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 					battleChance = min(battleChance,.6);
 				}
 			}
+			
+			scr_dungeon_refreshMap();
 		}
 	}
 	

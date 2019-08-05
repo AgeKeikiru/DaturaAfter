@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "033f89a2-12e6-4b47-8415-4e1880ed1ebc",
+            "Value": {
+                "id": "92d199da-f42a-4526-b290-9940f5a30137",
+                "resourcePath": "objects\\obj_handler_act_chef_food_drk\\obj_handler_act_chef_food_drk.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "03d72462-09dc-ab6a-5043-92aecd2cfe52",
             "Value": {
                 "id": "ad4e2ed4-4e73-1ba6-40b7-217fa28e8f23",
@@ -167,6 +175,14 @@
             }
         },
         {
+            "Key": "0b13c8d3-6053-36bb-206f-9605d8c53ee1",
+            "Value": {
+                "id": "b97f17d2-4ab1-1cb2-dc5b-f8e52477204c",
+                "resourcePath": "scripts\\scr_dungeon_refreshMap\\scr_dungeon_refreshMap.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "0ba89cc8-14c9-4074-b25f-8275c2dfa8e4",
             "Value": {
                 "id": "2416edd4-b3f5-4e1e-b8da-129ed52a555a",
@@ -260,6 +276,22 @@
                 "id": "bec99b45-cfc2-02a7-2343-7248c3192b47",
                 "resourcePath": "scripts\\scr_updateMsnList\\scr_updateMsnList.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "10dc7a98-f6c5-4a05-b0a2-55394dcd8559",
+            "Value": {
+                "id": "943cb288-76dd-4d3a-8ec4-7b7f9e17df34",
+                "resourcePath": "objects\\obj_handler_act_chef_food_hp\\obj_handler_act_chef_food_hp.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "11422055-ea3a-483d-b9fc-b1b8385b7207",
+            "Value": {
+                "id": "f69fad07-2b66-4ecb-8eb7-99b82fe4ec82",
+                "resourcePath": "objects\\obj_handler_act_chef_food_lgt\\obj_handler_act_chef_food_lgt.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -836,6 +868,14 @@
                 "id": "343854aa-c5a9-f22c-310d-bd1a57796e22",
                 "resourcePath": "scripts\\scr_load\\scr_load.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "3727a80e-7300-4c9e-a285-a9e4ee29781a",
+            "Value": {
+                "id": "d2a3ff83-db80-46da-8e37-da0aeb0c9505",
+                "resourcePath": "objects\\obj_handler_act_chef_food_elc\\obj_handler_act_chef_food_elc.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1596,6 +1636,14 @@
                 "id": "0a688d8e-cbee-4900-8329-5e962f7743d6",
                 "resourcePath": "sounds\\sfx_loot\\sfx_loot.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "6383eecf-a7fa-4d15-8555-9290249fc7fa",
+            "Value": {
+                "id": "52016616-5ef6-448b-b129-87d00d4d4a66",
+                "resourcePath": "objects\\obj_handler_act_chef_food_multi\\obj_handler_act_chef_food_multi.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2399,6 +2447,14 @@
             }
         },
         {
+            "Key": "9610e17d-8235-8f17-7b4a-c36e4f344dc1",
+            "Value": {
+                "id": "ab84eab1-c156-38fc-5511-1a40bdd02df8",
+                "resourcePath": "objects\\obj_handler_act_chef_food_fir\\obj_handler_act_chef_food_fir.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "96a865a4-36ab-48a9-9952-b457b8c97dfb",
             "Value": {
                 "id": "de4cd24c-49d5-4d1f-a9c1-cea632c4dbaf",
@@ -2468,6 +2524,14 @@
                 "id": "c449e1b0-3176-40ef-bb6a-5bd8b4519ec8",
                 "resourcePath": "sprites\\spr_icon_swd\\spr_icon_swd.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9b6f8b33-7159-4759-b3ca-43e7fa853405",
+            "Value": {
+                "id": "ace2f4a5-2106-47b3-9432-d4a852d32a06",
+                "resourcePath": "objects\\obj_handler_act_chef_food_wide\\obj_handler_act_chef_food_wide.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2908,6 +2972,14 @@
                 "id": "0deb556b-96aa-4807-a3da-ac7518a9a6a5",
                 "resourcePath": "scripts\\scr_init_missions\\scr_init_missions.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "b6b57907-1772-48af-a487-f291138fe05c",
+            "Value": {
+                "id": "fe91e0fe-524e-4ddb-b109-07c5cb96f386",
+                "resourcePath": "objects\\obj_handler_act_chef_food_ice\\obj_handler_act_chef_food_ice.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3687,6 +3759,14 @@
             }
         },
         {
+            "Key": "e5d4edf6-551d-4b34-88ad-800497752e30",
+            "Value": {
+                "id": "9f369279-a311-4248-837a-b43db9706ecb",
+                "resourcePath": "objects\\obj_handler_act_chef_food_nat\\obj_handler_act_chef_food_nat.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e5edbf09-386e-4400-8295-00d4aabda37d",
             "Value": {
                 "id": "53be5176-c584-4134-accf-cb947a934db4",
@@ -4244,7 +4324,8 @@
         "10875e54-21b9-b58a-bcaa-20268d4360fa",
         "be0e841c-b04a-eb11-f3c0-7fa509b6ed53",
         "924d704c-c69e-34b7-5040-6c5116791f77",
-        "4db25d64-d4e5-b24f-47e4-6ae1abfe0c86"
+        "4db25d64-d4e5-b24f-47e4-6ae1abfe0c86",
+        "0b13c8d3-6053-36bb-206f-9605d8c53ee1"
     ],
     "tutorial": ""
 }

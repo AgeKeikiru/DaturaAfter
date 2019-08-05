@@ -4,7 +4,7 @@
 	#macro UNIVERSAL_COOLDOWN room_speed * 100 * 5
 	#macro DEFAULT_PANEL_BEZEL 8
 	#macro CANARY false
-	#macro DEBUG false
+	#macro DEBUG (false || debug_mode)
 	#macro GCAP 999999
 	
 	#macro SFX_SCROLLTICK sfx_tick1

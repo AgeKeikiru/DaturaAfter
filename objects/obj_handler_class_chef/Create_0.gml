@@ -55,7 +55,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "[Pan] Add healing effect.\n[Sling] Add damage effect.";
 	grd_skillTooltip[# _ix,_iy] = "Effect: !";
 	grd_skillRate[# _ix,_iy] = 100;
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food_hp);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodRice;
 
 #endregion
@@ -69,7 +69,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "[Pan] Add ATK+ effect.\n[Sling] Add Burn chance.";
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food_fir);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodFir;
     
     _iy++;
@@ -77,7 +77,7 @@ stat_tt_rate = .05;
     grd_skillName[# _ix,_iy] = "Super Flour";
 	grd_skillDesc[# _ix,_iy] = "[Pan/Sling] Add Wide-Range effect.";
 	grd_skillTooltip[# _ix,_iy] = "";
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food_wide);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodFlour;
     
     _iy++;
@@ -86,7 +86,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "[Pan] Add DEF+ effect.\n[Sling] Add Slow chance.";
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food_ice);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodIce;
 
 #endregion
@@ -100,7 +100,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "[Pan] Add ACC+ effect.\n[Sling] Add Silence chance.";
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food_nat);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodNat;
     
     _iy++;
@@ -108,7 +108,7 @@ stat_tt_rate = .05;
     grd_skillName[# _ix,_iy] = "Double Gum";
 	grd_skillDesc[# _ix,_iy] = "[Pan/Sling] Increase hit count of food attacks.";
 	grd_skillTooltip[# _ix,_iy] = "";
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food_multi);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodGum;
     
     _iy++;
@@ -117,7 +117,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "[Pan] Add EVA+ effect.\n[Sling] Add Paralyze chance.";
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food_elc);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodElc;
 
 #endregion
@@ -131,7 +131,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "[Pan] Add SPD+ effect.\n[Sling] Add Blind chance.";
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food_lgt);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodLgt;
     
     _iy++;
@@ -148,7 +148,7 @@ stat_tt_rate = .05;
 	grd_skillDesc[# _ix,_iy] = "[Pan] Add EN Recover+ effect.\n[Sling] Add Poison chance.";
 	grd_skillTooltip[# _ix,_iy] = "Effect: !%";
 	grd_skillRate[# _ix,_iy] = .06;
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food);
+	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_food_drk);
 	grd_skillIcon[# _ix,_iy] = spr_icon_foodDrk;
 
 #endregion

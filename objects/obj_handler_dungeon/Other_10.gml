@@ -16,6 +16,8 @@ switch(cEvent){
 	
 	#region //dnd_battleWin
 		case EVENT_DND_BATTLEWIN:
+			scr_writeLog();
+			
 			state_battle = false;
 			tgtSlot = -1;
 			
@@ -40,6 +42,8 @@ switch(cEvent){
 	
 	#region //dnd_battleLose
 		case EVENT_DND_BATTLELOSE:
+			scr_writeLog();
+		
 			state_battle = false;
 			missionComplete = false;
 			missionFailed = true;

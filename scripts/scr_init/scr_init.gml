@@ -165,6 +165,8 @@ scr_trace("scr_init called");
 	global.grd_controls[# IC_KEY_PAUSE,0] = vk_backspace;
 	
 	global.sfc_temp = surface_create(1,1);
+	global.sfc_map = noone;
+	global.sfc_minimap = noone;
 	global.buff_temp = buffer_create(1,buffer_fixed,1);
 	
 	global.stk_menu = ds_stack_create();

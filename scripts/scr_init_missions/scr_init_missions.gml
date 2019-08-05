@@ -103,9 +103,14 @@ var SV_map;
 	SV_map[? MSN_VAR_BGM] = "subway";
 	
 	SV_map[? MSN_VAR_PAR_TIME_S] = ((3 * 60) + 0) * room_speed;
-	SV_map[? MSN_VAR_PAR_TIME_C] = ((4 * 60) + 30) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((5 * 60) + 0) * room_speed;
 	SV_map[? MSN_VAR_PAR_DMG_S] = 42000;
 	SV_map[? MSN_VAR_PAR_DMG_C] = 25000;
+	
+	if(DEBUG){
+		SV_map[? MSN_VAR_PAR_TIME_S] = room_speed * 10;
+		SV_map[? MSN_VAR_PAR_TIME_C] = SV_map[? MSN_VAR_PAR_TIME_S];
+	}
 	
 	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;
 	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 20;

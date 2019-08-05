@@ -8,118 +8,17 @@ _gridH = 70, //how large to draw map grid squares
 _gridW = 140,
 _gridGap = 20; //how much space is between map grid squares
 
-#region //calculate offset for drawing map to keep player icon centered
+#region //draw map grid
 
 	var
-	_gridOffX = _pDraw_x + -(global.dMap_xPos * (_gridW + _gridGap)),
-	_gridOffY = _pDraw_y + -(global.dMap_yPos * (_gridH + _gridGap));
+	_deltaX = global.dMap_xPos + -global.dMap_xPosTgt,
+	_deltaY = global.dMap_yPos + -global.dMap_yPosTgt,
+	_gridOffX = -250 + -((_deltaX + -sign(_deltaX)) * (_gridW + _gridGap)),
+	_gridOffY = -250 + -((_deltaY + -sign(_deltaY)) * (_gridH + _gridGap));
 
-#endregion
-
-#region//draw map grid
-
-	var
-	_gridStartX = _gridOffX;
-
-	for(var _iy = 0;_iy < ds_grid_height(global.grd_dMap_terrain);_iy++){
+	draw_set_alpha(1);
 	
-		_gridOffX = _gridStartX;
-	
-		for(var _ix = 0;_ix < ds_grid_width(global.grd_dMap_terrain);_ix++){
-			//only draw if the tile is on screen
-			if(
-				_gridOffX <= 1280 + _gridW
-				&& 0 + -_gridW <= _gridOffX
-				&& _gridOffY <= 720 + _gridH
-				&& 0 + -_gridH <= _gridOffY
-				&& clamp(_ix,0,ds_grid_width(global.grd_dMap_terrain)) == _ix
-				&& clamp(_iy,0,ds_grid_height(global.grd_dMap_terrain)) == _iy
-			){
-				draw_set_alpha(1);
-			
-				var
-				_x1 = _gridOffX + -(_gridW / 2),
-				_x2 = _gridOffX + (_gridW / 2),
-				_y1 = _gridOffY + -(_gridH / 2),
-				_y2 = _gridOffY + (_gridH / 2);
-				
-				if(global.grd_dMap_visible[# _ix,_iy]){
-					if(global.grd_dMap_terrain[# _ix,_iy] != noone){
-						//arrows
-						draw_set_color(c_gray);
-						
-						//left
-						if(_ix > 0 && global.grd_dMap_terrain[# _ix + -1,_iy] != noone){
-							draw_line_width(_gridOffX,_gridOffY,_gridOffX + -(_gridW + _gridGap) / 2,_gridOffY,5);
-							
-							draw_triangle(_x1 + -(_gridGap * .4),_gridOffY,_gridOffX + -(_gridW * .35),_y1 + (_gridH * .25),_gridOffX + -(_gridW * .35),_y2 + -(_gridH * .25),false);
-						}
-						
-						//right
-						if(_ix < ds_grid_width(global.grd_dMap_terrain) + -1 && global.grd_dMap_terrain[# _ix + 1,_iy] != noone){
-							draw_line_width(_gridOffX,_gridOffY,_gridOffX + (_gridW + _gridGap) / 2,_gridOffY,5);
-							
-							draw_triangle(_x2 + (_gridGap * .4),_gridOffY,_gridOffX + (_gridW * .35),_y1 + (_gridH * .25),_gridOffX + (_gridW * .35),_y2 + -(_gridH * .25),false);
-						}
-						
-						//top
-						if(_iy > 0 && global.grd_dMap_terrain[# _ix,_iy + -1] != noone){
-							draw_line_width(_gridOffX,_gridOffY,_gridOffX,_gridOffY + -(_gridH + _gridGap) / 2,5);
-							
-							draw_triangle(_gridOffX,_y1 + -(_gridGap * .2),_gridOffX + -(_gridW * .25),_y1 + (_gridH * .15),_gridOffX + (_gridW * .25),_y1 + (_gridH * .15),false);
-						}
-						
-						//bottom
-						if(_iy < ds_grid_height(global.grd_dMap_terrain) + -1 && global.grd_dMap_terrain[# _ix,_iy + 1] != noone){
-							draw_line_width(_gridOffX,_gridOffY,_gridOffX,_gridOffY + (_gridH + _gridGap) / 2,5);
-							
-							draw_triangle(_gridOffX,_y2 + (_gridGap * .2),_gridOffX + -(_gridW * .25),_y2 + -(_gridH * .15),_gridOffX + (_gridW * .25),_y2 + -(_gridH * .15),false);
-						}
-						
-						//border
-						draw_set_color(c_dkgray);
-						
-						draw_triangle(_x1,_gridOffY,_gridOffX,_y1,_gridOffX,_y2,false);
-						draw_triangle(_x2,_gridOffY,_gridOffX,_y1,_gridOffX,_y2,false);
-						
-						//fill
-						draw_set_color(c_white);
-						
-						if(instance_exists(obj_handler_mission_parent)){
-							var _mh = instance_find(obj_handler_mission_parent,0);
-							
-							for(var _i = 0;_i < ds_grid_width(_mh.grd_events);_i++){
-								if(_mh.grd_events[# _i,MHE_VAR_X] == _ix && _mh.grd_events[# _i,MHE_VAR_Y] == _iy && _mh.grd_events[# _i,MHE_VAR_VIS]){
-									draw_set_color(c_green);
-								}
-							}
-						}
-						
-						if(global.grd_dMap_terrain[# _ix,_iy] == DMAP_TER_LOOT){
-							draw_set_color(c_yellow);
-						}
-						
-						_x1 = _gridOffX + -(_gridW / 2.5);
-						_x2 = _gridOffX + (_gridW / 2.5);
-						_y1 = _gridOffY + -(_gridH / 2.5);
-						_y2 = _gridOffY + (_gridH / 2.5);
-						
-						draw_triangle(_x1,_gridOffY,_gridOffX,_y1,_gridOffX,_y2,false);
-						draw_triangle(_x2,_gridOffY,_gridOffX,_y1,_gridOffX,_y2,false);
-					}else{
-						draw_set_color(c_black);
-						draw_set_alpha(.7);
-						
-						//draw_rectangle(_x1,_y1,_x2,_y2,false);
-					}
-				}
-			}
-		
-			_gridOffX += _gridW + _gridGap;
-		}
-	
-		_gridOffY += _gridH + _gridGap;
-	}
+	draw_surface(global.sfc_map,_gridOffX,_gridOffY);
 
 #endregion
 
@@ -138,49 +37,14 @@ _gridGap = 20; //how much space is between map grid squares
 #endregion
 
 if(!state_event && !state_results){
+	
 	#region //draw minimap
 	
-		var
-		_mm_size = 4,
-		_mm_x = 5,
-		_mm_y = 5,
-		_mm_xStart = _mm_x,
-		_mm_yStart = _mm_y,
-		_mm_a = .8,
-		_mm_ix = clamp(round(global.dMap_xPos) + -15,0,max(ds_grid_width(global.grd_dMap_terrain) + -30,0)),
-		_mm_iy = clamp(round(global.dMap_yPos) + -15,0,max(ds_grid_height(global.grd_dMap_terrain) + -30,0));
-		
-		draw_set_alpha(_mm_a);
-		
-		for(var _ix = _mm_ix;_ix < _mm_ix + 30;_ix++){
-			for(var _iy = _mm_iy;_iy < _mm_iy + 30;_iy++){
-				if(_ix < ds_grid_width(global.grd_dMap_terrain) && _iy < ds_grid_height(global.grd_dMap_terrain)){
-					draw_set_color(global.grd_dMap_terrain[# _ix,_iy] == DMAP_TER_FLOOR ? c_white : c_black);
-					
-					if(!global.grd_dMap_visible[# _ix,_iy]){
-						draw_set_color(c_gray);
-					}
-					
-					if(instance_exists(obj_handler_mission_parent)){
-						var _mh = instance_find(obj_handler_mission_parent,0);
-					
-						for(var _i = 0;_i < ds_grid_width(_mh.grd_events);_i++){
-							if(_mh.grd_events[# _i,MHE_VAR_X] == _ix && _mh.grd_events[# _i,MHE_VAR_Y] == _iy && _mh.grd_events[# _i,MHE_VAR_VIS]){
-								draw_set_color(c_lime);
-							}
-						}
-					}
-					
-					if(_ix == round(global.dMap_xPos) && _iy == round(global.dMap_yPos)){
-						draw_set_color(c_red);
-					}
-					
-					draw_rectangle(_mm_x + ((_ix + -_mm_ix) * _mm_size),_mm_y + ((_iy + -_mm_iy) * _mm_size),_mm_x + ((_ix + -_mm_ix + 1) * _mm_size),_mm_y + ((_iy + -_mm_iy + 1) * _mm_size),false);
-				}
-			}
-		}
-		
 		draw_set_alpha(1);
+		
+		if(surface_exists(global.sfc_minimap)){
+			draw_surface(global.sfc_minimap,5,5);
+		}
 	
 	#endregion
 	
@@ -857,6 +721,7 @@ if(!state_event && !state_results){
 		#endregion
 
 	#endregion
+	
 }
 
 //testing

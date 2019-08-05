@@ -1,6 +1,10 @@
 /// @description Insert description here
 layer = global.ly_obj[1];
 
+with obj_handler_act{
+	using = false;
+}
+
 for(var _i = 0;_i < 3;_i++){
 	var
 	_o = global.grd_party_player[# _i,0],

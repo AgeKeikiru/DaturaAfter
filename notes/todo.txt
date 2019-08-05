@@ -4,18 +4,21 @@ add option to switch down arrow to middle-target
 add stat comparison to equip menu
 nerf imo base f-atk
 add bestiary
-default to load game when available
 add stat preview in shop
 buff demoBoss
-disable party screen in market/chip lab
 en cost/cd balance
+
+default to load game when available
+disable party screen in market/chip lab
 make idol/angel/chef stances main skills that auto-cast when no stance is active
 scale heals off s-def
 add item selling
-set ingredient skill cd to 0
 add held key autoscroll delay
 add agile property to acts: not affected by universal cd
 change descriptions to automate act tags like [stance], [agile], etc
+2 new missions
+add agent
+add sanctum
 
 investigate crash after idling on mission clear screen (noticed on tree mission)
 
