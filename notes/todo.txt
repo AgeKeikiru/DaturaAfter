@@ -8,7 +8,6 @@ add stat preview in shop
 buff demoBoss
 en cost/cd balance
 
-default to load game when available
 disable party screen in market/chip lab
 make idol/angel/chef stances main skills that auto-cast when no stance is active
 scale heals off s-def

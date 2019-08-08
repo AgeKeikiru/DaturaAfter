@@ -1,10 +1,10 @@
 #region //general
 	
-	#macro GAMEVER "v0.0.2"
+	#macro GAMEVER "v0.1.1"
 	#macro UNIVERSAL_COOLDOWN room_speed * 100 * 5
 	#macro DEFAULT_PANEL_BEZEL 8
-	#macro CANARY false
-	#macro DEBUG (false || debug_mode)
+	#macro CANARY true
+	#macro DEBUG (true || debug_mode)
 	#macro GCAP 999999
 	
 	#macro SFX_SCROLLTICK sfx_tick1
@@ -47,12 +47,14 @@
 	#macro DATA_GOLD "data_gold"
 	#macro DATA_KEYBIND "data_keybind"
 	
-	#macro DATA_TXTSPD "data_txtSpd"
-	#macro DATA_WINTRANS "data_winTrans"
-	#macro DATA_VOLBGM "data_volBgm"
-	#macro DATA_VOLSFX "data_volSfx"
-	#macro DATA_ATBSPD "data_atbSpd"
-	#macro DATA_ATBMOD "data_atbMod"
+	#macro DATA_SETTINGS ["set_txtSpeed", \
+	"set_winTrans", \
+	"set_volBgm", \
+	"set_volSfx", \
+	"set_atbSpeed", \
+	"set_atbMod", \
+	"set_mmSize", \
+	"set_mapZoom"]
 	
 	#macro DATA_FLAGS "data_flags"
 
@@ -399,6 +401,9 @@
 	#macro DH_MOB_PMIN 6
 	#macro DH_MOB_PMAX 7
 	#macro DH_MOB_PLV 8
+	
+	#macro DH_MGRID_H !global.set_mapZoom ? 70 : 100
+	#macro DH_MGRID_GAP !global.set_mapZoom ? 20 : 30
 
 #endregion
 

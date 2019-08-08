@@ -172,29 +172,13 @@ SV_key = "";
 
 #region //settings
 
-	SV_key = DATA_TXTSPD;
-	SV_map[? SV_key] = global.set_txtSpeed;
-	scr_trace("saved set_txtSpeed: " + string(SV_map[? SV_key]));
+	var SV_arr = DATA_SETTINGS;
 	
-	SV_key = DATA_WINTRANS;
-	SV_map[? SV_key] = global.set_winTrans;
-	scr_trace("saved set_winTrans: " + string(SV_map[? SV_key]));
-	
-	SV_key = DATA_VOLBGM;
-	SV_map[? SV_key] = global.set_volBgm;
-	scr_trace("saved set_volBgm: " + string(SV_map[? SV_key]));
-	
-	SV_key = DATA_VOLSFX;
-	SV_map[? SV_key] = global.set_volSfx;
-	scr_trace("saved set_volSfx: " + string(SV_map[? SV_key]));
-	
-	SV_key = DATA_ATBSPD;
-	SV_map[? SV_key] = global.set_atbSpeed;
-	scr_trace("saved set_atbSpeed: " + string(SV_map[? SV_key]));
-	
-	SV_key = DATA_ATBMOD;
-	SV_map[? SV_key] = global.set_atbMod;
-	scr_trace("saved set_atbMod: " + string(SV_map[? SV_key]));
+	for(var SV_i = 0;SV_i < array_length_1d(SV_arr);SV_i++){
+		SV_key = SV_arr[SV_i];
+		SV_map[? SV_key] = variable_global_get(SV_key);
+		scr_trace("saved " + SV_key + ": " + string(SV_map[? SV_key]));
+	}
 
 #endregion
 
@@ -209,7 +193,7 @@ SV_key = "";
 #region //chars
 
     var
-    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE];
+    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE,CHAR_ARI];
     
     scr_trace("");
     

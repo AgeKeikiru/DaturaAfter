@@ -1,4 +1,4 @@
-==DateND After v0.0.2==
+==DateND After v0.1.1==
 
 By A.Kei.KI, in GameMaker Studio 2
 
@@ -18,23 +18,10 @@ LeftShift - Shift Menu
 
 ==Patch Notes==
 
-=v0.0.2=
-- Implemented initial fix for Newgame-Market crash, "???" class acts, and secret mission crash
-- Stances and status effects no longer persist between missions
-- Increased dialogue box prettiness
-- Buffed [Firm Rice] PWR to 100/lv
-- Class Skill infoboxes actually work now
-- Shortened pre-mission load screen
-- Decreased enemy bias to target left-most party member
-- Added a debug log, viewable in C:\Users\[username]\AppData\Local\DateNDAfter
-- Adjusted the tutorial fight to help let players explore the mechanics better
-
-=v0.0.1=
-- Initial release
-- 3 available characters
-- 4 available missions
-- 5 available classes
-- Max class level 30
+=v0.1.1=
+- Added [Minimap Size] and [Camera Distance] options to further improve performance during missions for lower end machines
+- New character: Ari
+- Title screen now defaults to load game when a save file is detected
 
 
 ==Known Bugs==

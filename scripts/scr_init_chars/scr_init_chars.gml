@@ -140,6 +140,42 @@ var SV_map;
     SV_map2[? CHAR_VAR_ABDO_Y] = 50;
 #endregion
 
+#region //ari
+    SV_map = scr_data_char_new(CHAR_ARI);
+    SV_map[? CHAR_VAR_NAMEFULL] = "Ari Ferrox";
+    SV_map[? CHAR_VAR_NAMEDISP] = "Ari";
+    SV_map[? CHAR_VAR_DESC] = "TBA";
+    SV_map[? CHAR_VAR_RACE] = RACE_HUMAN;
+    SV_map[? CHAR_VAR_HP] = 1100;
+    SV_map[? CHAR_VAR_EN] = 1000;
+    SV_map[? CHAR_VAR_MATK] = 15;
+    SV_map[? CHAR_VAR_MDEF] = -5;
+    SV_map[? CHAR_VAR_FATK] = 10;
+    SV_map[? CHAR_VAR_FDEF] = -5;
+    SV_map[? CHAR_VAR_SATK] = 10;
+    SV_map[? CHAR_VAR_SDEF] = 0;
+    SV_map[? CHAR_VAR_ACC] = 10;
+    SV_map[? CHAR_VAR_EVA] = 5;
+    SV_map[? CHAR_VAR_SPD] = 15;
+    SV_map[? CHAR_VAR_MISC] = 8;
+    SV_map[? CHAR_VAR_ELE_FIR] = 0;
+    SV_map[? CHAR_VAR_ELE_ICE] = 0;
+    SV_map[? CHAR_VAR_ELE_NAT] = 0;
+    SV_map[? CHAR_VAR_ELE_ELC] = 0;
+    SV_map[? CHAR_VAR_ELE_DRK] = 0;
+    SV_map[? CHAR_VAR_ELE_LGT] = 10;
+    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_ari_battlePort;
+    SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_ari_neutral;
+    SV_map[? CHAR_VAR_ABDO_X] = -300;
+    SV_map[? CHAR_VAR_ABDO_Y] = 130;
+    SV_map[? CHAR_VAR_PSDO_ACT_X] = -180;
+    SV_map[? CHAR_VAR_PSDO_ACT_Y] = -80;
+    SV_map[? CHAR_VAR_PSDO_ARM_X] = 100;
+    SV_map[? CHAR_VAR_PSDO_ARM_Y] = -20;
+    SV_map[? CHAR_VAR_PSDO_CLS_X] = 70;
+    SV_map[? CHAR_VAR_PSDO_CLS_Y] = 90;
+#endregion
+
 #region //paprika
     SV_map = scr_data_char_new(CHAR_PAPRIKA);
     SV_map[? CHAR_VAR_NAMEFULL] = "Paprika";

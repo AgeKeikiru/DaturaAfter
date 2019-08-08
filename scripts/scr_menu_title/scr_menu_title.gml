@@ -18,4 +18,6 @@ with _m{
 	
 	grd_txt[# 0,_i] = "Quit";
 	grd_scr[# 0,_i] = scr_quit;
+	
+	menu_y = file_exists(DATA_FNAME + "SYS");
 }

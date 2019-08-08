@@ -192,32 +192,17 @@ file_text_close(SV_f);
 
 #region //settings
 
-	SV_key = DATA_TXTSPD;
-	global.set_txtSpeed = SV_map[? SV_key];
-	scr_trace("loaded set_txtSpeed: " + string(SV_map[? SV_key]));
+	var SV_arr = DATA_SETTINGS;
 	
-	SV_key = DATA_WINTRANS;
-	if(ds_map_exists(SV_map,SV_key)){
-		global.set_winTrans = SV_map[? SV_key];
-		scr_trace("loaded set_winTrans: " + string(SV_map[? SV_key]));
+	for(var SV_i = 0;SV_i < array_length_1d(SV_arr);SV_i++){
+		SV_key = SV_arr[SV_i];
+		
+		if(ds_map_exists(SV_map,SV_key)){
+			variable_global_set(SV_key,SV_map[? SV_key]);
+			scr_trace("loaded " + SV_key + ": " + string(SV_map[? SV_key]));
+		}
 	}
 	
-	SV_key = DATA_VOLBGM;
-	global.set_volBgm = SV_map[? SV_key];
-	scr_trace("loaded set_volBgm: " + string(SV_map[? SV_key]));
-	
-	SV_key = DATA_VOLSFX;
-	global.set_volSfx = SV_map[? SV_key];
-	scr_trace("loaded set_volSfx: " + string(SV_map[? SV_key]));
-	
-	SV_key = DATA_ATBSPD;
-	global.set_atbSpeed = SV_map[? SV_key];
-	scr_trace("loaded set_atbSpeed: " + string(SV_map[? SV_key]));
-	
-	SV_key = DATA_ATBMOD;
-	global.set_atbMod = SV_map[? SV_key];
-	scr_trace("loaded set_atbMod: " + string(SV_map[? SV_key]));
-
 #endregion
 
 #region //flags
@@ -231,7 +216,7 @@ file_text_close(SV_f);
 #region //chars
 
     var
-    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE];
+    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE,CHAR_ARI];
     
     scr_trace("");
     scr_init_chars();

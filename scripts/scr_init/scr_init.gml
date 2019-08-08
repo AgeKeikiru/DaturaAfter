@@ -182,6 +182,8 @@ scr_trace("scr_init called");
 	global.set_volSfx = 50;
 	global.set_atbSpeed = 80;
 	global.set_atbMod = 40;
+	global.set_mmSize = 30;
+	global.set_mapZoom = false;
 	
 #endregion
 

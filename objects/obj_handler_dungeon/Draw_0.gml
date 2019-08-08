@@ -4,9 +4,9 @@
 var
 _pDraw_x = 1280 / 2, //where to draw the player icon on screen
 _pDraw_y = 300,
-_gridH = 70, //how large to draw map grid squares
-_gridW = 140,
-_gridGap = 20; //how much space is between map grid squares
+_gridH = DH_MGRID_H, //how large to draw map grid squares
+_gridW = _gridH * 2,
+_gridGap = DH_MGRID_GAP; //how much space is between map grid squares
 
 #region //draw map grid
 
@@ -42,7 +42,7 @@ if(!state_event && !state_results){
 	
 		draw_set_alpha(1);
 		
-		if(surface_exists(global.sfc_minimap)){
+		if(global.set_mmSize && surface_exists(global.sfc_minimap)){
 			draw_surface(global.sfc_minimap,5,5);
 		}
 	
