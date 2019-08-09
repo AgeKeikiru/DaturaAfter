@@ -1,4 +1,8 @@
 /// @description Insert description here
+if(global.autoScrollDelay > 0){
+	global.autoScrollDelay--;
+}
+
 if(
 	!title
 	&& instance_number(obj_handler_dungeon) == 0

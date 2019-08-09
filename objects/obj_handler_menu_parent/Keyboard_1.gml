@@ -7,62 +7,90 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 	if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_UP)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP)){
 			io_clear();
+			global.autoScrollDelay = AUTOSCROLLTHRESH;
 		}
 		
-		if(ds_grid_height(grd_txt) > 1){
-			_sfx = SFX_SCROLLTICK;
+		if(global.autoScrollDelay == 0){
+			global.autoScrollDelay = AUTOSCROLLTHRESH;
 		}
 	
-		menu_y--;
+		if(global.autoScrollDelay == AUTOSCROLLTHRESH){
+			if(ds_grid_height(grd_txt) > 1){
+				_sfx = SFX_SCROLLTICK;
+			}
+			
+			menu_y--;
+		}
 	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_DOWN)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_DOWN)){
 			io_clear();
+			global.autoScrollDelay = AUTOSCROLLTHRESH;
 		}
 		
-		if(ds_grid_height(grd_txt) > 1){
-			_sfx = SFX_SCROLLTICK;
+		if(global.autoScrollDelay == 0){
+			global.autoScrollDelay = AUTOSCROLLTHRESH;
 		}
-	
-		menu_y++;
+		
+		if(global.autoScrollDelay == AUTOSCROLLTHRESH){
+			if(ds_grid_height(grd_txt) > 1){
+				_sfx = SFX_SCROLLTICK;
+			}
+		
+			menu_y++;
+		}
 	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_LEFT)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_LEFT)){
 			io_clear();
+			global.autoScrollDelay = AUTOSCROLLTHRESH;
 		}
 		
-		if(ds_grid_width(grd_txt) > 1){
-			_sfx = SFX_SCROLLTICK;
+		if(global.autoScrollDelay == 0){
+			global.autoScrollDelay = AUTOSCROLLTHRESH;
 		}
-	
-		if(
-			script_exists(grd_scr[# menu_x,menu_y])
-			&& menu_x < ds_grid_width(grd_toggle)
-			&& menu_y < ds_grid_height(grd_toggle)
-			&& grd_toggle[# menu_x,menu_y]
-		){
-			script_execute(grd_scr[# menu_x,menu_y],false);
-			_sfx = SFX_SCROLLTICK;
-		}else{
-			menu_x--;
+		
+		if(global.autoScrollDelay == AUTOSCROLLTHRESH){
+			if(ds_grid_width(grd_txt) > 1){
+				_sfx = SFX_SCROLLTICK;
+			}
+		
+			if(
+				script_exists(grd_scr[# menu_x,menu_y])
+				&& menu_x < ds_grid_width(grd_toggle)
+				&& menu_y < ds_grid_height(grd_toggle)
+				&& grd_toggle[# menu_x,menu_y]
+			){
+				script_execute(grd_scr[# menu_x,menu_y],false);
+				_sfx = SFX_SCROLLTICK;
+			}else{
+				menu_x--;
+			}
 		}
 	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_RIGHT)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_RIGHT)){
 			io_clear();
+			global.autoScrollDelay = AUTOSCROLLTHRESH;
 		}
 		
-		if(ds_grid_width(grd_txt) > 1){
-			_sfx = SFX_SCROLLTICK;
+		if(global.autoScrollDelay == 0){
+			global.autoScrollDelay = AUTOSCROLLTHRESH;
 		}
-	
-		if(
-			script_exists(grd_scr[# menu_x,menu_y])
-			&& menu_x < ds_grid_width(grd_toggle)
-			&& menu_y < ds_grid_height(grd_toggle)
-			&& grd_toggle[# menu_x,menu_y]
-		){
-			script_execute(grd_scr[# menu_x,menu_y],true);
-			_sfx = SFX_SCROLLTICK;
-		}else{
-			menu_x++;
+		
+		if(global.autoScrollDelay == AUTOSCROLLTHRESH){
+			if(ds_grid_width(grd_txt) > 1){
+				_sfx = SFX_SCROLLTICK;
+			}
+		
+			if(
+				script_exists(grd_scr[# menu_x,menu_y])
+				&& menu_x < ds_grid_width(grd_toggle)
+				&& menu_y < ds_grid_height(grd_toggle)
+				&& grd_toggle[# menu_x,menu_y]
+			){
+				script_execute(grd_scr[# menu_x,menu_y],true);
+				_sfx = SFX_SCROLLTICK;
+			}else{
+				menu_x++;
+			}
 		}
 	}else if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUACCEPT)){
 		io_clear();

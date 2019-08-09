@@ -116,6 +116,7 @@ scr_trace("scr_init called");
 	
 	global.playerControl = true;
 	global.cid = 0; //class id, used for default custom class names
+	global.autoScrollDelay = 0;
 	
 	//inventory
 	global.lst_inv_acts = ds_list_create();

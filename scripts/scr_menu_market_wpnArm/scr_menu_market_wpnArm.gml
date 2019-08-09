@@ -29,6 +29,8 @@ SV_m = scr_createMenuPanel(20,105,520,-1,"menu/market/" + string_lower(global.bu
 SV_lst = global.buyLst;
 
 with SV_m{
+	extra_function = -1;
+	
 	ds_grid_resize(grd_txt,1,ds_list_size(SV_lst) + 1);
 	scr_menu_matchGrids(id,true);
 	

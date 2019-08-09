@@ -10,6 +10,7 @@ var SV_m = scr_createMenuPanel(20,105,500,-1,"menu/lab/class" + string(global.la
 
 with SV_m{
     page_h = 8;
+    extra_function = -1;
     
 	ds_grid_resize(grd_txt,1,ds_list_size(global.lst_inv_classes) + 1);
 	scr_menu_matchGrids(id,true);

@@ -1,11 +1,13 @@
 #region //general
 	
 	#macro GAMEVER "v0.1.1"
-	#macro UNIVERSAL_COOLDOWN room_speed * 100 * 5
+	#macro UNIVERSAL_COOLDOWN (room_speed * 100 * 5)
 	#macro DEFAULT_PANEL_BEZEL 8
 	#macro CANARY true
 	#macro DEBUG (true || debug_mode)
 	#macro GCAP 999999
+	#macro SELLPRICE .5
+	#macro AUTOSCROLLTHRESH (room_speed * .1)
 	
 	#macro SFX_SCROLLTICK sfx_tick1
 	#macro SFX_ACCEPTTICK sfx_tick3
@@ -176,6 +178,7 @@
 		#macro CHAR_VAR_ELE_LGT "char_var_ele_lgt"
 		
 		//hotbar
+		#macro CHAR_VAR_HB "char_var_hb"
 		#macro CHAR_VAR_HB0 "char_var_hb0"
 		#macro CHAR_VAR_HB1 "char_var_hb1"
 		#macro CHAR_VAR_HB2 "char_var_hb2"
@@ -186,10 +189,12 @@
 		#macro CHAR_VAR_HB7 "char_var_hb7"
 		
 		//armors
+		#macro CHAR_VAR_ARM "char_var_arm"
 		#macro CHAR_VAR_ARM0 "char_var_arm0"
 		#macro CHAR_VAR_ARM1 "char_var_arm1"
 		
 		//classes
+		#macro CHAR_VAR_CLS "char_var_cls"
 		#macro CHAR_VAR_CLS0 "char_var_cls0"
 		#macro CHAR_VAR_CLS1 "char_var_cls1"
 		#macro CHAR_VAR_CLS2 "char_var_cls2"

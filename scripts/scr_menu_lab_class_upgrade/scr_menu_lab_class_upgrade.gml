@@ -13,6 +13,8 @@ with obj_handler_menuUI{
 var SV_m = scr_createMenuPanel(-9999,-9999,-1,-1,"menu/lab/class1/upgrade/..");
 
 with SV_m{
+	extra_function = -1;
+	
 	ds_grid_resize(grd_txt,ds_grid_width(global.labObj.grd_skills) + 1,ds_grid_height(global.labObj.grd_skills));
 	scr_menu_matchGrids(id,true);
 	

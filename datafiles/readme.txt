@@ -22,6 +22,7 @@ LeftShift - Shift Menu
 - Added [Minimap Size] and [Camera Distance] options to further improve performance during missions for lower end machines
 - New character: Ari
 - Title screen now defaults to load game when a save file is detected
+- Added item selling in the change equipment menu
 
 
 ==Known Bugs==

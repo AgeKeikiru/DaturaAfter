@@ -14,19 +14,24 @@ if(DEBUG){
 	}
 }
 
-if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUEXTRA) && grd_ps_xDraw[# 0,1] = 1 && !instance_exists(obj_handler_dialogue) && !title){
+if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUEXTRA) && !instance_exists(obj_handler_dialogue) && !title){
 	var
 	_ok = true,
-	_dh = instance_find(obj_handler_dungeon,0);
+	_dh = instance_find(obj_handler_dungeon,0),
+	_m = ds_stack_top(global.stk_menu);
 	
 	if(scr_exists(_dh,asset_object) && (_dh.state_battle || _dh.state_results)){
 		_ok = false;
 	}
 	
 	if(_ok){
-	    timeline_index =  tl_menuUI_ps_open;
-	    timeline_position = 0;
-	    timeline_loop = false;
-	    timeline_running = true;
+		if(scr_exists(_m,asset_object) && script_exists(_m.extra_function)){
+			script_execute(_m.extra_function);
+		}else if(
+			(!scr_exists(_m,asset_object) || (_m.extra_function != -1 && !_m.submenu))
+			&& grd_ps_xDraw[# 0,1] = 1
+		){
+			scr_runTimeline(tl_menuUI_ps_open);
+		}
 	}
 }

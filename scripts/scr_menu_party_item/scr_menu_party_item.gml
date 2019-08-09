@@ -14,6 +14,8 @@ with(obj_handler_menuUI){
 var SV_m = scr_createMenuPanel(20,105,500,-1,"party/item/..");
 
 with SV_m{
+	extra_function = -1;
+	
 	var
 	SV_i = 0;
 	

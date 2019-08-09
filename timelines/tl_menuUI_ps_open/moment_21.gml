@@ -22,6 +22,7 @@ var SV_m = scr_createMenuPanel(80,250,540,500,"party/..");
 with SV_m{
     //link_panel.fill_alpha = 0;
     //link_panel.crosshair_alpha = 0;
+    extra_function = -1;
     
 	ds_grid_resize(grd_txt,1,6);
 	scr_menu_matchGrids(id,true);

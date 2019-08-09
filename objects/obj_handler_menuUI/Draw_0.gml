@@ -76,41 +76,6 @@ if(title){
 	
 	#endregion
 	
-	#region //shop screen
-	
-		if(txt_title == "MARKET" || txt_title == "CHIP LAB"){
-			var
-			_h_x = 250,
-			_h_y1 = 80,
-			_h_y2 = _h_y1 + 40,
-			_h_c = color_get_value(c_ltgray);
-			
-			gpu_set_blendmode(bm_subtract);
-			draw_set_color(make_color_hsv(0,0,_h_c * transCurr));
-			draw_set_alpha(transCurr);
-			
-			draw_rectangle(room_width,_h_y1,room_width + -_h_x,_h_y2,false);
-			draw_rectangle_color(room_width + -_h_x,_h_y1,room_width + -(_h_x * 1.5),_h_y2,c_black,draw_get_colour(),draw_get_colour(),c_black,false);
-			
-			gpu_set_blendmode(bm_add);
-			draw_set_color(make_color_hsv(0,0,255 * transCurr));
-			
-			draw_line_width(room_width,_h_y2,room_width + -_h_x,_h_y2,2);
-			draw_line_width_color(room_width + -_h_x,_h_y2,room_width + -(_h_x * 1.5),_h_y2,2,draw_get_colour(),c_black);
-			
-			gpu_set_blendmode(bm_normal);
-			draw_set_font(ft_dungeonBoldLarge);
-			draw_set_halign(fa_right);
-			draw_set_valign(fa_top);
-			
-			ktk_scr_draw_text_shadow(room_width + -40,_h_y1 + 8,string(global.heldGold) + "g",c_white,c_gray,2);
-		}
-		
-		draw_set_color(c_white);
-		draw_set_alpha(1);
-	
-	#endregion
-	
 	#region //class upgrade screen
 	
 		if(
@@ -1537,12 +1502,36 @@ if(title){
 		
 		draw_text(10,_titleY + 10,txt_title);
 		
+		//title shadow
+		draw_set_color(c_black);
+		gpu_set_blendmode(bm_subtract);
+		
+		draw_rectangle_color(0,_titleY + _titleH + _ctrlH,1280,_titleY + _titleH + _ctrlH + 6,c_white,c_white,c_black,c_black,false);
+		
+		gpu_set_blendmode(bm_normal);
+		
 		draw_set_color(c_white);
 		draw_set_font(ft_menuSub);
 		
 		var
 		_s = "",
 		_ctrlArr = ["[Z]","[X]","[C]","[BkSpc]"];
+		
+		if(scr_exists(_m,asset_object) && !_m.submenu){
+			switch _m.extra_function{
+				case noone:
+					txt_ctrl[2] = "Party";
+					break;
+					
+				case -1:
+					txt_ctrl[2] = "";
+					break;
+					
+				default:
+					txt_ctrl[2] = "Sub";
+					break;
+			}
+		}
 		
 		for(var _i = 0;_i < 4;_i++){
 			if(txt_ctrl[_i] != ""){
@@ -1552,18 +1541,29 @@ if(title){
 		
 		ktk_scr_draw_text_shadow(8,_titleY + _titleH + 2,_s,c_white,c_dkgray,2);
 		
-		draw_set_font(ft_menuButton);
 		draw_set_halign(fa_right);
+		draw_set_font(ft_menuButton);
+		draw_set_color(c_white);
+		
+		var
+		_x1 = 1130,
+		_y1 = _titleH,
+		_x2 = _x1,
+		_y2 = _y1 + string_height("SAMPLE"),
+		_x3 = _x1 + -20,
+		_y3 = _y1;
+	
+		draw_rectangle(1280,_titleY + _y1,_x1,_titleY + _y2,false);
+		draw_triangle(_x1,_titleY + _y1,_x2 + -1,_titleY + _y2,_x3,_titleY + _y3,false);
+		
+		draw_set_color(c_dkgray);
+		
+		ktk_scr_draw_text_shadow(room_width + -20,_titleY + _titleH + -1,string(global.heldGold) + "g",c_dkgray,c_ltgray,1);
+		
+		draw_set_font(ft_menuButton);
+		draw_set_color(c_white);
 		
 		ktk_scr_draw_text_shadow(1270,_titleY + 5,txt_titleDesc,c_white,c_gray,1);
-		
-		//title shadow
-		draw_set_color(c_black);
-		gpu_set_blendmode(bm_subtract);
-		
-		draw_rectangle_color(0,_titleY + _titleH + _ctrlH,1280,_titleY + _titleH + _ctrlH + 6,c_white,c_white,c_black,c_black,false);
-		
-		gpu_set_blendmode(bm_normal);
 	
 	#endregion
 	
