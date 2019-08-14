@@ -749,14 +749,17 @@ if(title){
 								
 								switch(_act.atkScale){
 									case CHAR_VAR_MATK:
+									case CHAR_VAR_MDEF:
 										_strArr[4] = "M"
 										
 										break;
 									case CHAR_VAR_FATK:
+									case CHAR_VAR_FDEF:
 										_strArr[4] = "F"
 										
 										break;
 									case CHAR_VAR_SATK:
+									case CHAR_VAR_SDEF:
 										_strArr[4] = "S"
 										
 										break;
@@ -1479,7 +1482,7 @@ if(title){
 		_titleW = string_width(txt_title) + 15,
 		_titleH = string_height(txt_title),
 		_ctrlH = 22,
-		_titleY = (_titleH + _ctrlH) * (transCurr + -1);
+		_titleY = (_titleH + _ctrlH + 20) * (transCurr + -1);
 		
 		draw_set_color(c_dkgray);
 		draw_set_alpha(.9);

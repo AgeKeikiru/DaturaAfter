@@ -1,5 +1,7 @@
 ==DateND After v0.1.1==
 
+[WARNING: NOT COMPATIBLE WITH PRE-v0.1.1 SAVES]
+
 By A.Kei.KI, in GameMaker Studio 2
 
 Thank you for playing! I hope you come back for the next release <3
@@ -22,7 +24,11 @@ LeftShift - Shift Menu
 - Added [Minimap Size] and [Camera Distance] options to further improve performance during missions for lower end machines
 - New character: Ari
 - Title screen now defaults to load game when a save file is detected
-- Added item selling in the change equipment menu
+- Added item selling in the Change Equipment menu
+- Added a new [Agile] property for Acts: Acts with this property are completely independant from global cooldowns
+- Healing Acts now scale off of S-DEF instead of S-ATK
+- 1 new mission
+- Added visual indication of when attacks are effective/ineffective
 
 
 ==Known Bugs==

@@ -43,7 +43,7 @@ stat_tt_rate = .05;
 	_iy++;
 	
 	grd_skillName[# _ix,_iy] = "Mess Kit";
-	grd_skillDesc[# _ix,_iy] = "[Stance Act] Store ingredients to be used alongside Pan/Sling weapons.";
+	grd_skillDesc[# _ix,_iy] = "Store ingredients to be used alongside Pan/Sling weapons.";
 	grd_skillTooltip[# _ix,_iy] = "Max ingredients: !";
 	grd_skillRate[# _ix,_iy] = 1;
 	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_messKit);

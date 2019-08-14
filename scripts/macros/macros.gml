@@ -4,7 +4,7 @@
 	#macro UNIVERSAL_COOLDOWN (room_speed * 100 * 5)
 	#macro DEFAULT_PANEL_BEZEL 8
 	#macro CANARY true
-	#macro DEBUG (true || debug_mode)
+	#macro DEBUG (false || debug_mode)
 	#macro GCAP 999999
 	#macro SELLPRICE .5
 	#macro AUTOSCROLLTHRESH (room_speed * .1)
@@ -125,7 +125,9 @@
 		#macro CHAR_SLIME "char_slime"
 		#macro CHAR_CANDYWING "char_candywing"
 		#macro CHAR_WOLFEANT "char_wolfeant"
+		#macro CHAR_WOLFIERCE "char_wolfierce"
 		#macro CHAR_WANDERER "char_wanderer"
+		#macro CHAR_TRAPPED "char_trapped"
 		#macro CHAR_BLEEDINGBULLET "char_bleedingBullet"
 		#macro CHAR_DARTLILY "char_dartLily"
 		#macro CHAR_PARASLIME "char_paraSlime"
@@ -136,6 +138,8 @@
 		#macro CHAR_SHELLVENDOR "char_shellVendor"
 		#macro CHAR_SNACKVENDOR "char_snackVendor"
 		#macro CHAR_TIMBERCAT "char_timberCat"
+		#macro CHAR_SKULLURKER "char_skullurker" //skeleton spider
+		#macro CHAR_GUNDROP "char_gundrop"
 		#macro CHAR_NPC_AGENT "char_npc_agent"
 		#macro CHAR_NPC_EVOKER "char_npc_evoker"
 		#macro CHAR_PVP_IMO "char_pvp_imo"
@@ -325,6 +329,7 @@
 		#macro EACT_PARATACKLE "eact_paratackle"
 		#macro EACT_PETALSNIPE "eact_petalSnipe"
 		#macro EACT_TOXICPETAL "eact_toxicPetal"
+		#macro EACT_WAVECANNON "eact_waveCannon"
 	
 	#endregion
 	

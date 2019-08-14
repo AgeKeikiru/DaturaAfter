@@ -437,6 +437,20 @@
             "varType": 0
         },
         {
+            "id": "0badd2ea-7e62-458f-94eb-86204334cdcf",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "agileAct",
+            "varType": 3
+        },
+        {
             "id": "10e8dd47-86a8-4b7c-8791-3e3d5586433d",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -658,6 +672,20 @@
             "resourceFilter": 1023,
             "value": "ds_list_create()",
             "varName": "dc_tgt",
+            "varType": 4
+        },
+        {
+            "id": "c18b0b4d-2e26-4fe1-9b26-a6121bf81f9d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "dc_weakres",
             "varType": 4
         },
         {

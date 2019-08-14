@@ -44,9 +44,9 @@ stat_gf_rate = -.1;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Hype Meter";
-    grd_skillDesc[# _ix,_iy] = "[Stance Act] Generate Hype and Aggro by attacking to use special actions. Lowers over time.";
+    grd_skillDesc[# _ix,_iy] = "Generate Hype and Aggro by attacking to use special actions. Lowers over time.";
     grd_skillTooltip[# _ix,_iy] = "Gain Rate: !%";
-    grd_skillRate[# _ix,_iy] = .0001 + (.000 * CANARY);
+    grd_skillRate[# _ix,_iy] = .0001 + (.000 * DEBUG);
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hype);
     grd_skillIcon[# _ix,_iy] = spr_icon_stance;
     

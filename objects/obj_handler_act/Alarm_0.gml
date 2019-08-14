@@ -1,6 +1,7 @@
 
 if(abort){
 	abort = false;
+	using = false;
 	exit;
 }
 
@@ -78,6 +79,9 @@ if(!nonAttack){
 				
 				_p.txt[0] = string(_dmg);
 				_p.txt_col[0] = tgtEnemy ? c_white : CC_HEALGREEN;
+				
+				_p.txt[1] = dc_weakres[| _i];
+				_p.txt_col[1] = (_p.txt[1] == "WEAK") ? c_yellow : c_ltgray;
 				
 				if(pwr > 0){
 					scr_cEvent(all,tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt[| _i],id,_dmg);

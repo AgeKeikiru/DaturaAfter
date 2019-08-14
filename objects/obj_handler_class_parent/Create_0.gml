@@ -17,3 +17,5 @@ ds_grid_set_region(grd_skillAct,0,0,3,2,noone);
 ds_grid_set_region(grd_skillCost,0,0,3,2,100);
 ds_grid_set_region(grd_skillCd,0,0,3,2,5000);
 ds_grid_set_region(grd_skillIcon,0,0,3,2,spr_icon_test);
+
+alarm[0] = 1;

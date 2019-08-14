@@ -56,7 +56,7 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 	for(var _i = 0;_i < 8;_i++){
 		var _act = act[_i];
 		
-		if(scr_exists(_act,asset_object) && !_act.xAct && _act.cdCurr < UNIVERSAL_COOLDOWN){
+		if(scr_exists(_act,asset_object) && !_act.xAct && _act.cdCurr < UNIVERSAL_COOLDOWN && !_act.agileAct){
 			_act.cdCurr += UNIVERSAL_COOLDOWN;
 			_act.cdMax = _act.cdCurr;
 		}

@@ -62,7 +62,7 @@ stat_desynch_rate = -.15;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Angelite";
-    grd_skillDesc[# _ix,_iy] = "[Stance Act] Collect holy energy during battle to use special skills.";
+    grd_skillDesc[# _ix,_iy] = "Collect holy energy during battle to use special skills.";
     grd_skillTooltip[# _ix,_iy] = "Max Angelite: !";
     grd_skillRate[# _ix,_iy] = 1;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_angelite);
@@ -115,7 +115,7 @@ stat_desynch_rate = -.15;
     _iy = 0;
 
     grd_skillName[# _ix,_iy] = "Desynch";
-    grd_skillDesc[# _ix,_iy] = "[X Act] Only usable when Angelite is full - Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
+    grd_skillDesc[# _ix,_iy] = "Only usable when Angelite is full - Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
     grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec";
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_desynch);
     grd_skillIcon[# _ix,_iy] = spr_icon_stanceFullShield;

@@ -18,7 +18,9 @@ global.grd_party_player[# 1,0] = instance_create_depth(0,0,0,obj_dungeon_battleM
 global.grd_party_player[# 2,0] = instance_create_depth(0,0,0,obj_dungeon_battleMember);
 
 with global.grd_party_player[# 0,0]{
-    src = scr_data_getMap(global.grd_chars,!DEBUG ? CHAR_IMOLEI : CHAR_ARI);
+    src = scr_data_getMap(global.grd_chars,CHAR_IMOLEI);
+    //if(DEBUG){ src = scr_data_getMap(global.grd_chars,CHAR_ARI); }
+    
     src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_DGR,"",0,0);
 	src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_ASC_ARW,CHAR_VAR_ELE_ICE,0,0);
 	src[? CHAR_VAR_CLS0] = instance_create_depth(0,0,0,obj_handler_class_evoker);

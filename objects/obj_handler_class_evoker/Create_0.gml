@@ -68,7 +68,7 @@ stat_dbrand_rate = 3;
     _iy = 0;
 
     grd_skillName[# _ix,_iy] = "Magical Redeemer";
-    grd_skillDesc[# _ix,_iy] = "[Stance Act] While active, killing an enemy has a chance of inflicting a random debuff to remaining enemies.";
+    grd_skillDesc[# _ix,_iy] = "While active, killing an enemy has a chance of inflicting a random debuff to remaining enemies.";
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
     grd_skillRate[# _ix,_iy] = .16;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_evok_mRdmr);
@@ -85,7 +85,7 @@ stat_dbrand_rate = 3;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Magical Destroyer";
-    grd_skillDesc[# _ix,_iy] = "[Stance Act] While active, killing an enemy has a chance of gaining a random buff (max stack 20). Buff fades when healed or when Stance is changed.";
+    grd_skillDesc[# _ix,_iy] = "While active, killing an enemy has a chance of gaining a random buff (max stack 20). Buff fades when healed or when Stance is changed.";
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
     grd_skillRate[# _ix,_iy] = .20;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_evok_mDstr);
@@ -143,7 +143,7 @@ stat_dbrand_rate = 3;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Destroyer's Brand";
-    grd_skillDesc[# _ix,_iy] = "[X Act] Charge via damage with <Magical Destroyer> active - Ignore enemy defenses for a short time.";
+    grd_skillDesc[# _ix,_iy] = "Charge via damage with <Magical Destroyer> active - Ignore enemy defenses for a short time.";
     grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
     grd_skillRate[# _ix,_iy] = 7;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_evok_dBrand);

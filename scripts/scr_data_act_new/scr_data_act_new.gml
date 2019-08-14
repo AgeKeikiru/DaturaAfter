@@ -444,7 +444,7 @@ switch(SV_type){
 			SV_r.acc = 999;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
-			SV_r.atkScale = CHAR_VAR_SATK;
+			SV_r.atkScale = CHAR_VAR_SDEF;
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_dot;
 			SV_r.se_hit = sfx_item;
@@ -486,7 +486,7 @@ switch(SV_type){
 			SV_r.acc = 999;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
-			SV_r.atkScale = CHAR_VAR_SATK;
+			SV_r.atkScale = CHAR_VAR_SDEF;
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_dot;
 			SV_r.revive = true;
@@ -660,6 +660,24 @@ switch(SV_type){
 				SV_r.ele = CHAR_VAR_ELE_DRK;
 				SV_r.sa_inflict[| CHAR_SA_PSN] = 4;
 				SV_r.sa_chance[| CHAR_SA_PAR] = .3;
+				
+				break;
+		#endregion
+		
+		#region //wave cannon
+			case EACT_WAVECANNON:
+				SV_r.baseName = "Wave Cannon";
+				SV_r.desc = "A powerful mystic surge of light that leaves the user vulnerable.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 2;
+				SV_r.basePwr *= 2;
+				SV_r.acc *= .8;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_SATK;
+				SV_r.defScale = CHAR_VAR_SDEF;
+				SV_r.spark_hit = spr_spark_bash;
+				SV_r.ele = CHAR_VAR_ELE_LGT;
 				
 				break;
 		#endregion

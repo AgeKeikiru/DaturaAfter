@@ -154,8 +154,10 @@ switch(cEvent){
 			//select target
 			var
 			_tgtParty = tgtEnemy ? src.enemyParty : src.allyParty,
-			_i = (src.tgtIndex == -1 || tgtType == ACT_TGT_RANDOM) ? irandom_range(0,2) : src.tgtIndex,
-			_valid = false;
+			_i = (src.tgtIndex == -1 || tgtType == ACT_TGT_RANDOM || src.ailment[CHAR_SA_BLD] > 0) ? irandom_range(0,2) : src.tgtIndex,
+			_valid = false,
+			_defDiff = 0, //base defense + ele res value, for checking effectiveness
+			_weakRes = ""; //"weak" or "res" display text
 			
 			repeat(tgtType == ACT_TGT_RANDOM ? hitCount : 1){
 				repeat(3){
@@ -195,6 +197,7 @@ switch(cEvent){
 						
 						if(ele != ""){
 							_dmgBonus += -dc_tgt[| _i].src[? ele] / 100;
+							_defDiff += dc_tgt[| _i].src[? ele];
 							scr_trace("ele -resist: " + string(dc_tgt[| _i].src[? ele]) + "%");
 						}
 					}
@@ -215,6 +218,11 @@ switch(cEvent){
 							scr_trace("dmg +sAtk: " + string(src.sAtk) + "%");
 							
 							break;
+						case CHAR_VAR_SDEF:
+							_dmgBonus += src.sDef / 100;
+							scr_trace("dmg +sDef: " + string(src.sDef) + "%");
+							
+							break;
 					}
 					
 					global.tempFloat = 0;
@@ -224,16 +232,19 @@ switch(cEvent){
 						switch(defScale){
 							case CHAR_VAR_MDEF:
 								_dmgBonus += -dc_tgt[| _i].mDef / 100;
+								_defDiff += dc_tgt[| _i].mDef;
 								scr_trace("dmg -mDef: " + string(dc_tgt[| _i].mDef) + "%");
 								
 								break;
 							case CHAR_VAR_FDEF:
 								_dmgBonus += -dc_tgt[| _i].fDef / 100;
+								_defDiff += dc_tgt[| _i].fDef;
 								scr_trace("dmg -fDef: " + string(dc_tgt[| _i].fDef) + "%");
 								
 								break;
 							case CHAR_VAR_SDEF:
 								_dmgBonus += -dc_tgt[| _i].sDef / 100;
+								_defDiff += dc_tgt[| _i].sDef;
 								scr_trace("dmg -sDef: " + string(dc_tgt[| _i].sDef) + "%");
 								
 								break;
@@ -252,8 +263,17 @@ switch(cEvent){
 						scr_cEvent(all,EVENT_BATTLE_ACCMOD,src,dc_tgt[| _i],id);
 						scr_cEvent(all,EVENT_BATTLE_EVAMOD,src,dc_tgt[| _i],id);
 						_aimBonus += global.tempFloat;
+						
+						if(_defDiff >= 30){
+							_weakRes = "RES";
+						}
+						
+						if(_defDiff <= -30){
+							_weakRes = "WEAK";
+						}
 					}
 					
+					ds_list_add(dc_weakres,_weakRes);
 					ds_list_add(dc_dmgMin,pwr * (1 + _dmgBonus));
 					ds_list_add(dc_dmgMax,dc_dmgMin[| _i] * 1.4);
 					ds_list_add(dc_aim,_aimBonus);

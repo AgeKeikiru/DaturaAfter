@@ -76,6 +76,7 @@ with ds_stack_top(global.stk_menu){
                 	grd_desc[# 0,SV_i] = SV_obj.desc;
                 	grd_descLabel[# 0,SV_i] = "Armor Chip";
                 	grd_scr[# 0,SV_i] = scr_menu_party_equip_swapEquip;
+                	grd_equipSrc[# 0,SV_i] = SV_obj;
                 	
                 	break;
                 	
@@ -84,6 +85,7 @@ with ds_stack_top(global.stk_menu){
                 	grd_desc[# 0,SV_i] = SV_obj.desc;
                 	grd_descLabel[# 0,SV_i] = "Class Chip";
                 	grd_scr[# 0,SV_i] = scr_menu_party_equip_swapEquip;
+                	grd_equipSrc[# 0,SV_i] = SV_obj;
                 	
                 	break;
             }

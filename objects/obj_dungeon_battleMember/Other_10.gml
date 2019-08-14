@@ -167,6 +167,14 @@ switch(cEvent){
 								break;
 						#endregion
 						
+						#region //wanderer
+							case CHAR_WANDERER:
+								act[0] = scr_data_act_new(EACT_WAVECANNON);
+								act[0].src = id;
+								
+								break;
+						#endregion
+						
 						default:
 							act[0] = scr_data_act_new(EACT_TACKLE);
 							act[0].src = id;

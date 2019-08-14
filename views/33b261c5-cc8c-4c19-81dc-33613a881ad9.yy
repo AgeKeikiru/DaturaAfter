@@ -6,7 +6,8 @@
     "children": [
         "f592bc06-5810-4353-8a5e-e5783604b684",
         "254677d6-7629-4c2c-a02d-8aed333986e6",
-        "501d7610-d2f4-4ea7-a708-bf318abe5b83"
+        "501d7610-d2f4-4ea7-a708-bf318abe5b83",
+        "b3121b57-0d18-4d4c-9409-78f002e02bb4"
     ],
     "filterType": "GMSprite",
     "folderName": "map",

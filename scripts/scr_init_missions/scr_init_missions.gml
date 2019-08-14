@@ -41,7 +41,7 @@ var SV_map;
 	
 #endregion
 
-#region //nLoewi_01
+#region //nLoewi_01 (neo isaac)
 	
 	SV_map = scr_data_mission_new(MSN_NLOEWI_01);
 	SV_map[? MSN_VAR_NAME] = "Eliminate Invasive Pest";
@@ -59,6 +59,8 @@ var SV_map;
 	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
 	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
 	SV_map[? MSN_VAR_BGM] = "forest";
+	
+	//if(DEBUG){ SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_vCanal_01_outro; }
 	
 	SV_map[? MSN_VAR_PAR_TIME_S] = ((4 * 60) + 30) * room_speed;
 	SV_map[? MSN_VAR_PAR_TIME_C] = ((6 * 60) + 0) * room_speed;
@@ -130,7 +132,7 @@ var SV_map;
 
 #endregion
 
-#region //vWoods_01
+#region //vWoods_01 (old zam)
 	
 	SV_map = scr_data_mission_new(MSN_VWOODS_01);
 	SV_map[? MSN_VAR_NAME] = "Defend the Town Center";
@@ -141,7 +143,7 @@ var SV_map;
 	SV_map[? MSN_VAR_ESR] = "75%";
 	SV_map[? MSN_VAR_DESC_LOC] = "Venus Woods";
 	SV_map[? MSN_VAR_DESC_TGT] = "Bleeding Bullet (x8)";
-	SV_map[? MSN_VAR_DESC_OBJ] = "Eliminate all targets within the time limit";
+	SV_map[? MSN_VAR_DESC_OBJ] = "Eliminate all targets";
 	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_vWoods_01_cut01;
 	SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_vWoods_01_cut03;
 	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_vWoods_01_brief;
@@ -172,19 +174,36 @@ var SV_map;
 
 #endregion
 
-#region //vCanal_01
+#region //vCanal_01 (old gal)
 	
-	/*SV_map = scr_data_mission_new(MSN_VCANAL_01);
+	SV_map = scr_data_mission_new(MSN_VCANAL_01);
 	SV_map[? MSN_VAR_NAME] = "Defend the Control Center";
-	SV_map[? MSN_VAR_CLIENT] = "AG Venus";
+	SV_map[? MSN_VAR_CLIENT] = "Layered";
 	SV_map[? MSN_VAR_REWARD] = 3200;
+	SV_map[? MSN_VAR_OPNAME] = "Flicker";
+	SV_map[? MSN_VAR_OPFOR] = "Unknown";
+	SV_map[? MSN_VAR_ESR] = "50%";
 	SV_map[? MSN_VAR_DESC_LOC] = "Venus Canal";
-	SV_map[? MSN_VAR_DESC_TGT] = "Unknown";
-	SV_map[? MSN_VAR_DESC_OBJ] = "Eliminate all targets";
-	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_nLoewi_01_cut01;
-	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_nLoewi_01_brief;
-	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
-	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
+	SV_map[? MSN_VAR_DESC_TGT] = "Layered Forces";
+	SV_map[? MSN_VAR_DESC_OBJ] = "Rendezvous with target";
+	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_vCanal_01_intro;
+	SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_vCanal_01_outro;
+	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_vCanal_01_brief;
+	SV_map[? MSN_VAR_MAP_SPR] = spr_map_vCanal_01;
+	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_vCanal_01;
+	SV_map[? MSN_VAR_BGM] = "subway";
+	
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((6 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((10 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_DMG_S] = 45000;
+	SV_map[? MSN_VAR_PAR_DMG_C] = 20000;
+	
+	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;
+	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 30;
+	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
+	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
+	
+	
 	/*
 	evil summoner wants to take over control room sending enemy force, be wary of the canal's poor visibility
 	
@@ -194,25 +213,37 @@ var SV_map;
 
 #endregion
 
-#region //nabTundra_01
+#region //nabTundra_01 (horwick)
 	
-	/*SV_map = scr_data_mission_new(MSN_NABTUNDRA_01);
-	SV_map[? MSN_VAR_NAME] = "Landbaron Griefing";
-	SV_map[? MSN_VAR_CLIENT] = "Anonymous";
-	SV_map[? MSN_VAR_REWARD] = 3800;
+	SV_map = scr_data_mission_new(MSN_NABTUNDRA_01);
+	SV_map[? MSN_VAR_NAME] = "Destroy Lost Cargo";
+	SV_map[? MSN_VAR_CLIENT] = "Leosocial";
+	SV_map[? MSN_VAR_REWARD] = 3900;
+	SV_map[? MSN_VAR_OPNAME] = "Meteorite";
+	SV_map[? MSN_VAR_OPFOR] = "Wildlife";
+	SV_map[? MSN_VAR_ESR] = "60%";
 	SV_map[? MSN_VAR_DESC_LOC] = "Naiboros Tundra";
-	SV_map[? MSN_VAR_DESC_TGT] = "User [Adelwing_X9]";
-	SV_map[? MSN_VAR_DESC_OBJ] = "Deal sufficient damage to target and property";
-	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_nLoewi_01_cut01;
-	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_nLoewi_01_brief;
-	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
-	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
-	/*
-	client complaining about landbaron, destroy their property and KO target
+	SV_map[? MSN_VAR_DESC_TGT] = "Cargo Crate (x5)";
+	SV_map[? MSN_VAR_DESC_OBJ] = "Destroy all targets";
+	//SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_nLoewi_01_cut01;
+	//SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_nLoewi_01_cut01;
+	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_nTundra_01_brief;
+	//SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
+	//SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
+	//SV_map[? MSN_VAR_BGM] = "subway";
 	
-	--starting area has 3 bridges leading to different areas, bottom 2 are dead ends with treasure
-	--9 event tiles spread over the top area, interact to destroy and loot
-	--1 event tile at the end of the top area (triggers battle with target)
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((6 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((10 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_DMG_S] = 45000;
+	SV_map[? MSN_VAR_PAR_DMG_C] = 20000;
+	
+	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;
+	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 30;
+	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
+	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
+	
+	/*
+	enemies: wolfeants, frostslimes, mines, cargo drops
 	*/
 
 #endregion

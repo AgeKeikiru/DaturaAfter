@@ -35,6 +35,10 @@ switch(cEvent){
 				tgtSlot = -1;
 			}
 			
+			with obj_handler_act{
+				using = false;
+			}
+			
 			state_boss = false;
 			
 			break;

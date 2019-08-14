@@ -20,7 +20,7 @@ with obj_fpo_actBanner{
 	global.tempBool = false;
 }
 
-if(global.tempBool){
+if(global.tempBool && !missionFailed){
 	scr_cEvent(id,EVENT_DND_BATTLELOSE);
 }
 
@@ -56,6 +56,8 @@ if(
 }
 
 if(!state_event && !state_battle && !state_results && (missionComplete || missionFailed) && instance_number(obj_fpo_parent) == 0){
+	scr_trace("TEST");
+	
 	if(missionFailed){
 		state_results = true;
 		
@@ -164,7 +166,7 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 		
 		var _lst = global.lst_missionLoot_queue;
 		
-		if(lootBannerDelay <= 1 && ds_list_size(_lst) > 0){
+		if(lootBannerDelay <= 1 && ds_list_size(_lst) > 0 && (!missionFailed || instance_exists(obj_handler_dialogue))){
 			lootBannerDelay = 20;
 			
 			var

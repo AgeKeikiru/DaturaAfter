@@ -103,7 +103,7 @@ stat_bl_rate = 5;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Adapt Dodge";
-    grd_skillDesc[# _ix,_iy] = "[Stance Act] Increase Evasion gradually over time, resets on dodge.";
+    grd_skillDesc[# _ix,_iy] = "Increase Evasion gradually over time, resets on dodge.";
     grd_skillTooltip[# _ix,_iy] = "Max Boost: !%";
     grd_skillRate[# _ix,_iy] = .4;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_aDodge);

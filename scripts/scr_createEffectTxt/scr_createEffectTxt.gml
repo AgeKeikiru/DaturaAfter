@@ -14,6 +14,18 @@ SV_r.txt_xScale[0] = 1.3;
 SV_r.txt_yScale[0] = SV_r.txt_xScale[0];
 SV_r.txt_weight[0] = 4;
 SV_r.txt_halign[0] = fa_center;
+SV_r.txt_valign[0] = fa_top;
+
+SV_r.txt_shadow[1] = true;
+SV_r.txt_ft[1] = ft_dungeonBold;
+SV_r.txt_col[1] = c_white;
+SV_r.txt_col2[1] = c_dkgray;
+SV_r.txt_xScale[1] = 1;
+SV_r.txt_yScale[1] = SV_r.txt_xScale[1];
+SV_r.txt_weight[1] = 2;
+SV_r.txt_halign[1] = fa_center;
+SV_r.txt_valign[1] = fa_bottom;
+
 SV_r.vspeed = -2;
 SV_r.alarm[0] = 70;
 SV_r.alarm[1] = 60;

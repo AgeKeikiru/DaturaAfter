@@ -3,8 +3,12 @@ var SV_mh = ds_stack_top(global.stk_menu);
 if(SV_mh.menu_y < ds_grid_height(SV_mh.grd_txt) + -2){
     global.playerControl = false;
     
-    global.itemBuy = global.buyLst[| SV_mh.menu_y];
-    global.tempInt = !scr_exists(global.itemBuy.src,asset_object);
+    global.itemBuy = SV_mh.grd_equipSrc[# SV_mh.menu_x,SV_mh.menu_y];
+    global.tempBool = (!scr_exists(global.itemBuy.src,asset_object));
+    
+    if(global.buyLst == global.lst_inv_acts && !global.itemBuy.object_index == obj_handler_act){
+        global.tempBool = false;
+    }
     
     with scr_createSubmenu(140){
     	var
@@ -14,7 +18,7 @@ if(SV_mh.menu_y < ds_grid_height(SV_mh.grd_txt) + -2){
     	scr_menu_matchGrids(id,true);
     	
     	grd_txt[# 0,SV_i] = "Sell";
-    	grd_scr[# 0,SV_i] = global.tempInt ? scr_menu_party_equip_sell : noone;
+    	grd_scr[# 0,SV_i] = global.tempBool ? scr_menu_party_equip_sell : noone;
     	
     	SV_i++;
     	
