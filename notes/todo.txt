@@ -8,12 +8,8 @@ add stat preview in shop
 buff demoBoss
 en cost/cd balance
 
-stop drawing cd/status icons for dead enemies
-add dark mission effect
-make agile acts not trigger global cooldown
-move cd circle up for enemies
+increase special food cooldown
 add burn secondary effect
-add loading screen tips
 make idol/angel/chef stances main skills that auto-cast when no stance is active
 2 new missions
 add agent
@@ -28,6 +24,13 @@ fixed(?) bugs:
 		apparently always crashes after clearing demoBoss a 2nd time, suspected to be tied to heldGold overflow
 
 class idea:
+	Editor
+		class focused around altering the properties of attacks
+		stance that changes to whatever element of attack was used last (does not change for neutral)
+			levelling up adds chance to inflict ailment with all attacks based on stance ele
+			act that deactivates stance for element burst
+		stances that make future attacks scale against a specific defense stat, or scale with the target's atk stat
+			levelling up increases how many attacks use this property before the stance deactivates
 	Ace
 		stance act that changes to whatever type attack was used last
 			boosts damage dealt and taken with current type

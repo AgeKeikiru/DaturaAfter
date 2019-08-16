@@ -40,6 +40,7 @@ scr_trace("scr_init called");
 	    "grd_dia",
 	    "grd_chars",
 	    "grd_missions",
+	    "grd_socials",
 	    "grd_party_player",
 	    "grd_party_enemy",
 	    "grd_dMap_terrain",
@@ -51,6 +52,8 @@ scr_trace("scr_init called");
 	    if(variable_global_exists(_arr[_i])){
 	        ds_grid_destroy(variable_global_get(_arr[_i]));
 	    }
+	    
+	    variable_global_set(_arr[_i],ds_grid_create(1,1));
 	}
 	
 	_arr = [
@@ -71,7 +74,16 @@ scr_trace("scr_init called");
 	    if(variable_global_exists(_arr[_i])){
 	        ds_list_destroy(variable_global_get(_arr[_i]));
 	    }
+	    
+	    variable_global_set(_arr[_i],ds_list_create());
 	}
+	
+	global.map_flags = ds_map_create();
+	global.map_flags[? FG_SHOPPROGRESS] = 0;
+	global.map_flags[? FG_PROLOGUE] = true;
+	global.map_flags[? FG_MSNCLEARS] = 0;
+	global.map_flags[? FG_MSNPHASE] = 0;
+	global.map_flags[? FG_FREEPLAY] = false;
 	
 	global.map_item_held = ds_map_create();
 	global.map_item_name = ds_map_create();
@@ -86,11 +98,11 @@ scr_trace("scr_init called");
 	
 	global.grd_dia = ds_grid_create(0,1);
 	
-	global.grd_chars = ds_grid_create(1,1);
 	scr_init_chars();
-	
-	global.grd_missions = ds_grid_create(1,1);
 	scr_init_missions();
+	scr_init_socials();
+	
+	global.currentSocial = noone;
 	
 	global.grd_party_player = ds_grid_create(3,2);
 	ds_grid_set_region(global.grd_party_player,0,0,2,1,noone);
@@ -186,16 +198,6 @@ scr_trace("scr_init called");
 	global.set_mmSize = 30;
 	global.set_mapZoom = false;
 	
-#endregion
-
-#region //flags
-
-	global.map_flags = ds_map_create();
-	global.map_flags[? FG_SHOPPROGRESS] = 0;
-	global.map_flags[? FG_PROLOGUE] = true;
-	global.map_flags[? FG_MSNCLEARS] = 0;
-	global.map_flags[? FG_FREEPLAY] = false;
-
 #endregion
 
 var _temp;

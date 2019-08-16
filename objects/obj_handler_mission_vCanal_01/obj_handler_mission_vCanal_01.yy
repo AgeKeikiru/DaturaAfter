@@ -26,7 +26,16 @@
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
-    "overriddenProperties": null,
+    "overriddenProperties": [
+        {
+            "id": "f9f20cf6-d72c-445f-ae87-b01b8df97d6f",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "4d4a8834-1b16-49af-abe2-2bd1609df03e",
+            "propertyId": "6d600d9e-a9ae-4caf-a782-275db7ff7b14",
+            "value": "True"
+        }
+    ],
     "parentObjectId": "4d4a8834-1b16-49af-abe2-2bd1609df03e",
     "persistent": false,
     "physicsAngularDamping": 0.1,

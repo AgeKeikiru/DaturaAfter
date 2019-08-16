@@ -20,11 +20,11 @@ skills
 [ACC+]
 [F-DEF+]
 
-[Pistol Whip] a unique firearm attack that deals damage vs target's M-DEF
+[Flash Grenade] weak wide range firearm attack, resets enemy cooldown and low chance to blind
 [Hide] stance act - reduce aggro, increase crit rate, effect ends when hit
 [Snare Trap] stance act - when attacked, trigger a trap that slows the attacker to a halt
 
-[Spellshot] a unique firearm attack that deals damage vs target's S-DEF
+[Gas Bomb] weak wide range firearm attack, reduces enemy atk and moderate chance to poison
 [Analyze] relay an enemy's information to the party, greatly reducing its EVA for a time
 [Blast Trap] stance act - when attacked, trigger a trap that deals fire damage to all enemies, has a moderate chance to Burn
 

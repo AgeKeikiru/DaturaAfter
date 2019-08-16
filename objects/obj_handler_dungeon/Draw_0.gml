@@ -103,95 +103,98 @@ if(!state_event && !state_results){
 				draw_set_color(c_white);
 				
 				draw_sprite_ext(_o.src[? CHAR_VAR_SPR_BATTLEPORT],0,_x + (sin(_o.direction) * _o.hurtShake * 20),_y + ((1 + -_o.image_alpha) * -150) + (cos(_o.direction) * _o.hurtShake * 20) + ((_o.image_yscale + -1) * sprite_get_height(_o.src[? CHAR_VAR_SPR_BATTLEPORT]) * .5),_o.image_xscale,_o.image_yscale,0,make_color_rgb(255,255 * (1 + -_o.hurtShake),255 * (1 + -_o.hurtShake)),_o.image_alpha);
-				scr_cEvent(_o,EVENT_BATTLM_ICONDRAW);
 				
 				_o.image_alpha = ktk_scr_tween(_o.image_alpha,1,5,.2);
 				
-				var
-				_fill = ceil(360 * (_o.enemyWait / _o.enemyWaitMax)),
-				_a = 0,
-				_r = 15,
-				_x2 = _x + -100,
-				_y2 = _y;
-				
-				repeat(360){
-					draw_set_color(_a < _fill ? c_dkgray : c_white);
+				if(_o.hpCurr > 0){
+					scr_cEvent(_o,EVENT_BATTLM_ICONDRAW);
 					
-					draw_line(_x2,_y2,_x2 + (cos(degtorad(_a + -90)) * _r),_y2 + (sin(degtorad(_a + -90)) * _r));
+					var
+					_fill = ceil(360 * (_o.enemyWait / _o.enemyWaitMax)),
+					_a = 0,
+					_r = 15,
+					_x2 = _x + -130,
+					_y2 = _y + -60;
 					
-					_a++;
-				}
-				
-				//draw crosshair if targetted by handler
-				if(tgtSlot == _i){
-					draw_set_color(c_white);
-					
-					var _off = 0;
-					
-					repeat(_ch_w1){
-						draw_circle(_x + _ch_offX,_y + _ch_offY,_ch_size + _off,true);
-						draw_circle(_x + _ch_offX,_y + _ch_offY,_ch_size + -_off,true);
+					repeat(360){
+						draw_set_color(_a < _fill ? c_dkgray : c_white);
 						
-						_off += .5;
+						draw_line(_x2,_y2,_x2 + (cos(degtorad(_a + -90)) * _r),_y2 + (sin(degtorad(_a + -90)) * _r));
+						
+						_a++;
 					}
 					
-					draw_set_color(c_yellow);
-					
-					repeat(_ch_w2){
-						draw_circle(_x + _ch_offX,_y + _ch_offY,_ch_size + _off,true);
-						draw_circle(_x + _ch_offX,_y + _ch_offY,_ch_size + -_off,true);
-						
-						_off += .5;
-					}
-					
-					var _ch_a = (current_time / 10) mod 360;
-					
-					repeat(3){
-						draw_set_color(c_yellow);
-						
-						draw_line_width(_x + _ch_offX + lengthdir_x(_ch_size * .5,_ch_a),_y + _ch_offY + lengthdir_y(_ch_size * .5,_ch_a),_x + _ch_offX + lengthdir_x(_ch_size * 1.25,_ch_a),_y + _ch_offY + lengthdir_y(_ch_size * 1.25,_ch_a),_ch_w1 + _ch_w2);
-						
+					//draw crosshair if targetted by handler
+					if(tgtSlot == _i){
 						draw_set_color(c_white);
 						
-						draw_line_width(_x + _ch_offX + lengthdir_x(_ch_size * .5,_ch_a),_y + _ch_offY + lengthdir_y(_ch_size * .5,_ch_a),_x + _ch_offX + lengthdir_x(_ch_size * 1.25,_ch_a),_y + _ch_offY + lengthdir_y(_ch_size * 1.25,_ch_a),_ch_w1);
+						var _off = 0;
 						
-						_ch_a += 120;
+						repeat(_ch_w1){
+							draw_circle(_x + _ch_offX,_y + _ch_offY,_ch_size + _off,true);
+							draw_circle(_x + _ch_offX,_y + _ch_offY,_ch_size + -_off,true);
+							
+							_off += .5;
+						}
+						
+						draw_set_color(c_yellow);
+						
+						repeat(_ch_w2){
+							draw_circle(_x + _ch_offX,_y + _ch_offY,_ch_size + _off,true);
+							draw_circle(_x + _ch_offX,_y + _ch_offY,_ch_size + -_off,true);
+							
+							_off += .5;
+						}
+						
+						var _ch_a = (current_time / 10) mod 360;
+						
+						repeat(3){
+							draw_set_color(c_yellow);
+							
+							draw_line_width(_x + _ch_offX + lengthdir_x(_ch_size * .5,_ch_a),_y + _ch_offY + lengthdir_y(_ch_size * .5,_ch_a),_x + _ch_offX + lengthdir_x(_ch_size * 1.25,_ch_a),_y + _ch_offY + lengthdir_y(_ch_size * 1.25,_ch_a),_ch_w1 + _ch_w2);
+							
+							draw_set_color(c_white);
+							
+							draw_line_width(_x + _ch_offX + lengthdir_x(_ch_size * .5,_ch_a),_y + _ch_offY + lengthdir_y(_ch_size * .5,_ch_a),_x + _ch_offX + lengthdir_x(_ch_size * 1.25,_ch_a),_y + _ch_offY + lengthdir_y(_ch_size * 1.25,_ch_a),_ch_w1);
+							
+							_ch_a += 120;
+						}
+						
+						draw_set_color(c_white);
+						draw_set_alpha(1);
 					}
 					
-					draw_set_color(c_white);
-					draw_set_alpha(1);
-				}
-				
-				//draw target grid if targetted by act
-				draw_set_alpha(0);
-				
-				repeat(2){
-					var _a = 180;
+					//draw target grid if targetted by act
+					draw_set_alpha(0);
 					
-					for(var _i2 = 0;_i2 < 3;_i2++){
-						draw_set_color(c_yellow);
-						_tg_size = 20;
+					repeat(2){
+						var _a = 180;
 						
-						var
-						_tg_offX = _x + lengthdir_x((_tg_size) + _tg_gap,_a),
-						_tg_offY = _y + _tg_y + lengthdir_y((_tg_size) + _tg_gap,_a);
-						
-						draw_triangle(_tg_offX + -_tg_size,_tg_offY,_tg_offX,_tg_offY + -_tg_size,_tg_offX,_tg_offY + _tg_size,false);
-						draw_triangle(_tg_offX + _tg_size,_tg_offY,_tg_offX,_tg_offY + -_tg_size,_tg_offX,_tg_offY + _tg_size,false);
-						
-						var _bm = global.grd_party_player[# _i2,0];
-						
-						if(instance_exists(_bm) && _bm.tgtIndex == _i && _bm.tgtEnemy){
-							draw_set_alpha(1);
-						}else{
-							draw_set_color(c_dkgray);
-							_tg_size += -2;
+						for(var _i2 = 0;_i2 < 3;_i2++){
+							draw_set_color(c_yellow);
+							_tg_size = 20;
+							
+							var
+							_tg_offX = _x + lengthdir_x((_tg_size) + _tg_gap,_a),
+							_tg_offY = _y + _tg_y + lengthdir_y((_tg_size) + _tg_gap,_a);
 							
 							draw_triangle(_tg_offX + -_tg_size,_tg_offY,_tg_offX,_tg_offY + -_tg_size,_tg_offX,_tg_offY + _tg_size,false);
 							draw_triangle(_tg_offX + _tg_size,_tg_offY,_tg_offX,_tg_offY + -_tg_size,_tg_offX,_tg_offY + _tg_size,false);
+							
+							var _bm = global.grd_party_player[# _i2,0];
+							
+							if(instance_exists(_bm) && _bm.tgtIndex == _i && _bm.tgtEnemy){
+								draw_set_alpha(1);
+							}else{
+								draw_set_color(c_dkgray);
+								_tg_size += -2;
+								
+								draw_triangle(_tg_offX + -_tg_size,_tg_offY,_tg_offX,_tg_offY + -_tg_size,_tg_offX,_tg_offY + _tg_size,false);
+								draw_triangle(_tg_offX + _tg_size,_tg_offY,_tg_offX,_tg_offY + -_tg_size,_tg_offX,_tg_offY + _tg_size,false);
+							}
+							
+							_a += -90;
 						}
-						
-						_a += -90;
 					}
 				}
 				

@@ -36,7 +36,5 @@ if(global.dMap_xPos < SV_w && global.dMap_yPos < SV_h){
 	global.dMap_xPosTgt = global.dMap_xPos;
 	global.dMap_yPosTgt = global.dMap_yPos;
 	
-	ds_grid_set_disk(global.grd_dMap_visible,global.dMap_xPos,global.dMap_yPos,3,true);
-	
 	buffer_delete(global.buff_temp);
 }

@@ -55,6 +55,9 @@ switch(menuNext){
 	case 3: //chip lab
 		layer_background_sprite(global.ly_bg[0],bg_lab);
 		break;
+	case 4: //social
+		layer_background_sprite(global.ly_bg[0],bg_social);
+		break;
 	default: //home
 		layer_background_sprite(global.ly_bg[0],bg_city);
 		break;

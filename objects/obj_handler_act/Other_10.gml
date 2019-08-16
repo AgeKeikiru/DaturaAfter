@@ -128,6 +128,7 @@ switch(cEvent){
 			ds_list_clear(dc_dmgMin);
 			ds_list_clear(dc_dmgMax);
 			ds_list_clear(dc_aim);
+			ds_list_clear(dc_weakres);
 		
 			//create banner
 			with obj_fpo_actBanner{
@@ -155,9 +156,7 @@ switch(cEvent){
 			var
 			_tgtParty = tgtEnemy ? src.enemyParty : src.allyParty,
 			_i = (src.tgtIndex == -1 || tgtType == ACT_TGT_RANDOM || src.ailment[CHAR_SA_BLD] > 0) ? irandom_range(0,2) : src.tgtIndex,
-			_valid = false,
-			_defDiff = 0, //base defense + ele res value, for checking effectiveness
-			_weakRes = ""; //"weak" or "res" display text
+			_valid = false;
 			
 			repeat(tgtType == ACT_TGT_RANDOM ? hitCount : 1){
 				repeat(3){
@@ -189,7 +188,9 @@ switch(cEvent){
 				for(var _i = 0;_i < ds_list_size(dc_tgt);_i++){
 					var
 					_dmgBonus = 0,
-					_aimBonus = 0;
+					_aimBonus = 0,
+					_defDiff = 0, //base defense + ele res value, for checking effectiveness
+					_weakRes = ""; //"weak" or "res" display text
 					
 					if(tgtEnemy){
 						_dmgBonus += (src.level + -dc_tgt[| _i].level) * .05;
@@ -263,6 +264,13 @@ switch(cEvent){
 						scr_cEvent(all,EVENT_BATTLE_ACCMOD,src,dc_tgt[| _i],id);
 						scr_cEvent(all,EVENT_BATTLE_EVAMOD,src,dc_tgt[| _i],id);
 						_aimBonus += global.tempFloat;
+						
+						var _msn = instance_find(obj_handler_mission_parent,0);
+						
+						if(scr_exists(_msn,asset_object) && _msn.con_dark){
+							_aimBonus += MSN_CEV_DARK;
+							scr_trace("con_dark: " + string(MSN_CEV_DARK * 100) + "%");
+						}
 						
 						if(_defDiff >= 30){
 							_weakRes = "RES";

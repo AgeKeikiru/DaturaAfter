@@ -17,14 +17,14 @@ with ps_bg{
 	sprite_index = layer_background_get_sprite(global.ly_bg[0]);
 }
 
-var SV_m = scr_createMenuPanel(80,250,540,500,"party/..");
+var SV_m = scr_createMenuPanel(80,200,540,500,"party/..");
 
 with SV_m{
     //link_panel.fill_alpha = 0;
     //link_panel.crosshair_alpha = 0;
     extra_function = -1;
     
-	ds_grid_resize(grd_txt,1,6);
+	ds_grid_resize(grd_txt,1,7);
 	scr_menu_matchGrids(id,true);
 	
 	var SV_i = 0;
@@ -54,7 +54,18 @@ with SV_m{
 	grd_txt[# 0,SV_i] = "Mission Info";
 	grd_desc[# 0,SV_i] = "Review mission info and conditions.";
 	grd_descLabel[# 0,SV_i] = "Mission";
+	grd_scr[# 0,SV_i] = instance_exists(obj_handler_dungeon) ? noone : noone;
+	
+	SV_i++;
+	
+	grd_txt[# 0,SV_i] = "Quests";
+	grd_desc[# 0,SV_i] = "View and turn in active quests.";
+	grd_descLabel[# 0,SV_i] = "Quest";
 	grd_scr[# 0,SV_i] = noone;
+	
+	if(false){ //check if there are active completed quests
+		grd_txt[# 0,SV_i] = "[!]" + grd_txt[# 0,SV_i];
+	}
 	
 	SV_i++;
 	

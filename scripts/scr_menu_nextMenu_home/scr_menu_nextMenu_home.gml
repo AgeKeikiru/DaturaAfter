@@ -40,7 +40,7 @@ with SV_m{
 	grd_txt[# 0,SV_i] = "Gathering Hub";
 	grd_desc[# 0,SV_i] = "Gather info and change formation.";
 	grd_descLabel[# 0,SV_i] = "Gathering Hub";
-	grd_scr[# 0,SV_i] = noone;
+	grd_scr[# 0,SV_i] = scr_menu_nextMenu;
 	
 	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
 }

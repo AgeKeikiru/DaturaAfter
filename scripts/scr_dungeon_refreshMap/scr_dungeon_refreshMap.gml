@@ -1,3 +1,7 @@
+with obj_handler_mission_parent{
+    ds_grid_set_disk(global.grd_dMap_visible,global.dMap_xPos,global.dMap_yPos,!con_dark ? 3 : 2,true);
+}
+
 with obj_handler_dungeon{
     if(!surface_exists(global.sfc_map)){
         global.sfc_map = surface_create(room_width + 500,room_height + 500);

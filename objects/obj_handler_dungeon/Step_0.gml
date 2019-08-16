@@ -1,7 +1,8 @@
 /// @description Insert description here
 var
 _ui = instance_find(obj_handler_menuUI,0),
-_map = scr_data_getMap(global.grd_missions,global.missionCurr);
+_map = scr_data_getMap(global.grd_missions,global.missionCurr),
+_mh = _map[? MSN_VAR_HANDLER];
 
 //fail state check
 global.tempBool = true;
@@ -88,8 +89,6 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 			global.playerControl = true;
 			global.dMap_xPos = round(global.dMap_xPos);
 			global.dMap_yPos = round(global.dMap_yPos);
-			
-			ds_grid_set_disk(global.grd_dMap_visible,global.dMap_xPos,global.dMap_yPos,3,true);
 			
 			state_moving = false;
 			

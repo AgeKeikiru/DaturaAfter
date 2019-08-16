@@ -419,6 +419,19 @@
 
 #region //mission data
 
+	#region //condition effect values
+	
+		//additive values
+		#macro MSN_CEV_DARK -.15
+		#macro MSN_CEV_DTERR -.2
+		#macro MSN_CEV_CHRG 1
+		
+		//multiply values
+		#macro MSN_CEV_EXH_ALLY 1.6
+		#macro MSN_CEV_EXH_ENEMY .7
+		
+	#endregion
+	
 	#region //mission list
 	
 		//debug room
@@ -607,6 +620,62 @@
 	
 #endregion
 
+#region //social data
+
+	#region //events
+	
+		#macro SOC_EEVOKER "soc_eEvoker"
+		#macro SOC_DCHEF "soc_dChef"
+		#macro SOC_SRAZER "soc_sRazer"
+		#macro SOC_MENTOR "soc_mentor"
+		#macro SOC_SKNIGHT "soc_sKnight"
+		
+		#macro SOC_WANDERERTIP "soc_wandererTip"
+		#macro SOC_BBULLETTIP "soc_bBulletTip"
+		#macro SOC_WOLFEANTTIP "soc_wolfeantTip"
+		
+		#macro SOC_ARI_JOIN1 "soc_ari_join1"
+		
+	#endregion
+	
+	#region //social vars
+	
+		#macro SOC_VAR_ID "soc_var_id"
+		#macro SOC_VAR_NAME "soc_var_name"
+		#macro SOC_VAR_DIA "soc_var_dia"
+	
+	#endregion
+	
+	#region //flag headers
+	
+		#macro SOC_FG_STATUS "soc_fg_status" //0: not available, 1: new, 2: read (rereadable), 3: read (unavailable)
+	
+	#endregion
+
+#endregion
+
+#region //quest data
+
+	#region //quests
+	
+		#macro Q_TEST "q_test"
+		#macro Q_TEST_P2 "q_test_p2"
+	
+	#endregion
+	
+	#region //quest vars
+	
+		#macro Q_VAR_NAME "q_var_name"
+		#macro Q_VAR_DESC "q_var_desc"
+		#macro Q_VAR_STATUS "q_var_status" //0: not yet available, 1: available, 2: completed, 3: incomplete/failed - no longer available
+		#macro Q_VAR_PROG_FLAGS "q_var_prog_flags" //list of relevant flags
+		#macro Q_VAR_PROG_GOALS "q_var_prog_goals"
+		#macro Q_VAR_REWARD "q_var_reward" //script
+	
+	#endregion
+
+#endregion
+
 #region //loot data
 
 	#macro LOOT_RACE 0
@@ -645,6 +714,7 @@
 	#macro FG_SHOPPROGRESS "fg_shopProgress"
 	#macro FG_PROLOGUE "fg_prologue"
 	#macro FG_MSNCLEARS "fg_msnClears"
+	#macro FG_MSNPHASE "fg_msnPhase"
 	#macro FG_FREEPLAY "fg_freePlay"
 
 #endregion

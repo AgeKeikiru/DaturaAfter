@@ -19,7 +19,10 @@ file_text_close(SV_f);
     }
     
     SV_key = DATA_ITEMHELD;
-    ds_map_read(global.map_item_held,SV_map[? SV_key]);
+    var SV_map2 = ds_map_create();
+	ds_map_read(SV_map2,SV_map[? SV_key]);
+	
+	global.map_item_held = scr_data_mergeMap(global.map_item_held,SV_map2);
     scr_trace("loaded " + SV_key);
 
 #endregion
@@ -27,7 +30,10 @@ file_text_close(SV_f);
 #region //mats
 
     SV_key = DATA_MATHELD;
-    ds_map_read(global.map_mat_held,SV_map[? SV_key]);
+    var SV_map2 = ds_map_create();
+	ds_map_read(SV_map2,SV_map[? SV_key]);
+	
+	global.map_mat_held = scr_data_mergeMap(global.map_mat_held,SV_map2);
     scr_trace("loaded " + SV_key);
 
 #endregion
@@ -208,7 +214,10 @@ file_text_close(SV_f);
 #region //flags
 
 	SV_key = DATA_FLAGS;
-	ds_map_read(global.map_flags,SV_map[? SV_key]);
+	var SV_map2 = ds_map_create();
+	ds_map_read(SV_map2,SV_map[? SV_key]);
+	
+	global.map_flags = scr_data_mergeMap(global.map_flags,SV_map2);
 	scr_trace("loaded flags");
 
 #endregion

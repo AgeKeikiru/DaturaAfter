@@ -15,6 +15,11 @@ if(!title){
 			scr_menu_nextMenu_lab();
 			
 			break;
+			
+		case 4: //social
+			scr_menu_nextMenu_social();
+			
+			break;
 		default:
 			scr_save();
 			scr_menu_nextMenu_home();
