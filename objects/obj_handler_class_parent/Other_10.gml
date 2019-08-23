@@ -16,6 +16,8 @@ switch(cEvent){
 	    		        _obj.icon = grd_skillIcon[# _ix,_iy];
 	    		        
 	    		        scr_cEvent(_obj,EVENT_ACT_REFRESHINFO);
+	    		        
+	    		        _obj.name = _obj.baseName;
 	    		    }
 	    		}
 			}

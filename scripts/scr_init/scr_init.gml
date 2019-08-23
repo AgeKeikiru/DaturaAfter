@@ -4,20 +4,26 @@ scr_trace("scr_init called");
 
 	randomize();
 	audio_stop_all();
-	instance_destroy(obj_handler_act);
-	instance_destroy(obj_handler_actEffect);
-	instance_destroy(obj_handler_class_parent);
-	instance_destroy(obj_handler_act);
-	instance_destroy(obj_handler_mission_parent);
-	instance_destroy(obj_handler_act);
-	instance_destroy(obj_handler_armor);
-	instance_destroy(obj_dungeon_battleMember);
+	
+	var _arr;
+	
+	_arr = [
+	    obj_handler_act,
+	    obj_handler_actEffect,
+	    obj_handler_class_parent,
+	    obj_handler_mission_parent,
+	    obj_handler_armor,
+	    obj_dungeon_battleMember,
+	    obj_handler_quest_parent
+	];
+	
+	for(var _i = 0;_i < array_length_1d(_arr);_i++){
+	    instance_destroy(_arr[_i]);
+	}
 	
 	for(var _i = 0;_i < 8;_i++){
 		global.arr_itemSet[_i] = "";
 	}
-	
-	var _arr;
 	
 	_arr = [
 	    "map_item_held",
@@ -27,13 +33,16 @@ scr_trace("scr_init called");
 	    "map_mat_held",
 	    "map_mat_name",
 	    "map_mat_desc",
-	    "map_flags"
+	    "map_flags",
+	    "map_chars"
 	];
 	
 	for(var _i = 0;_i < array_length_1d(_arr);_i++){
 	    if(variable_global_exists(_arr[_i])){
 	        ds_map_destroy(variable_global_get(_arr[_i]));
 	    }
+	    
+	    variable_global_set(_arr[_i],ds_map_create());
 	}
 	
 	_arr = [
@@ -41,6 +50,7 @@ scr_trace("scr_init called");
 	    "grd_chars",
 	    "grd_missions",
 	    "grd_socials",
+	    "grd_quests",
 	    "grd_party_player",
 	    "grd_party_enemy",
 	    "grd_dMap_terrain",
@@ -61,8 +71,12 @@ scr_trace("scr_init called");
 	    "lst_missionIndex",
 	    "lst_missionLoot_table",
 	    "lst_missionLoot_queue",
+	    "lst_newFormation",
 	    "lst_inv_acts",
 	    "lst_inv_arms",
+	    "lst_inv_classes",
+	    "lst_shop_acts",
+	    "lst_shop_arms",
 	    "lst_shop_items",
 	    "lst_shop_classes",
 	    "lst_bgmFadeOut",
@@ -78,29 +92,26 @@ scr_trace("scr_init called");
 	    variable_global_set(_arr[_i],ds_list_create());
 	}
 	
-	global.map_flags = ds_map_create();
 	global.map_flags[? FG_SHOPPROGRESS] = 0;
 	global.map_flags[? FG_PROLOGUE] = true;
 	global.map_flags[? FG_MSNCLEARS] = 0;
 	global.map_flags[? FG_MSNPHASE] = 0;
 	global.map_flags[? FG_FREEPLAY] = false;
+	global.map_flags[? FG_TUT_QUEST] = false;
 	
-	global.map_item_held = ds_map_create();
-	global.map_item_name = ds_map_create();
-	global.map_item_desc = ds_map_create();
-	global.map_item_price = ds_map_create();
+	//character unlock status
+	global.map_flags[? CHAR_IMOLEI] = true;
+	global.map_flags[? CHAR_AILE] = true;
+	global.map_flags[? CHAR_PAPRIKA] = true;
+	global.map_flags[? CHAR_BLAZE] = false;
+	global.map_flags[? CHAR_ARI] = false;
+	
 	scr_init_items();
-	
-	global.map_mat_held = ds_map_create();
-	global.map_mat_name = ds_map_create();
-	global.map_mat_desc = ds_map_create();
 	scr_init_mats();
-	
-	global.grd_dia = ds_grid_create(0,1);
-	
 	scr_init_chars();
 	scr_init_missions();
 	scr_init_socials();
+	scr_init_quests();
 	
 	global.currentSocial = noone;
 	
@@ -119,37 +130,21 @@ scr_trace("scr_init called");
 	global.dMap_xPosTgt = global.dMap_xPos;
 	global.dMap_yPosTgt = global.dMap_yPos;
 	
-	global.lst_activePartySlots = ds_list_create();
-	
-	global.lst_missionIndex = ds_list_create();
 	global.missionCurr = "";
-	global.lst_missionLoot_table = ds_list_create();
-	global.lst_missionLoot_queue = ds_list_create();
 	
 	global.playerControl = true;
 	global.cid = 0; //class id, used for default custom class names
 	global.autoScrollDelay = 0;
 	
 	//inventory
-	global.lst_inv_acts = ds_list_create();
-	global.lst_inv_arms = ds_list_create();
-	global.lst_inv_classes = ds_list_create();
-	
 	global.heldGold = 1000;
 	
 	//shop inventory
-	global.lst_shop_acts = ds_list_create();
-	global.lst_shop_arms = ds_list_create();
-	global.lst_shop_items = ds_list_create();
-	global.lst_shop_classes = ds_list_create();
 	scr_refreshShopList();
 	
 	//sound
 	global.bgmTrack = [noone,noone,noone];
 	global.bgmTrack_curr = 0;
-	global.lst_bgmFadeOut = ds_list_create();
-	global.lst_bgmStream = ds_list_create();
-	global.lst_sfx = ds_list_create();
 	
 	instance_destroy(obj_handler_audio);
 	instance_create_depth(0,0,0,obj_handler_audio);
@@ -184,6 +179,8 @@ scr_trace("scr_init called");
 	
 	global.stk_menu = ds_stack_create();
 	global.stk_menuDia = ds_stack_create();
+	global.stk_menuAlert = ds_stack_create();
+	global.stk_newQuests = ds_stack_create();
 
 #endregion
 
@@ -202,14 +199,13 @@ scr_trace("scr_init called");
 
 var _temp;
 
-_temp = instance_create_depth(0,0,0,obj_dungeon_battleMember);
+_temp = global.map_chars[? CHAR_BLAZE];
 
 ds_list_add(global.lst_inv_classes,
 	instance_create_depth(0,0,0,obj_handler_class_evoker)
 );
 
 with _temp{
-    src = scr_data_getMap(global.grd_chars,CHAR_BLAZE);
     src[? CHAR_VAR_HB0] = scr_data_act_new(WTAG_TYPE_CSC,CHAR_VAR_ELE_ICE,0,10);
     src[? CHAR_VAR_HB1] = scr_data_act_new(WTAG_TYPE_SHD_BRN,"");
     src[? CHAR_VAR_HB2] = scr_data_act_new(WTAG_TYPE_CSC,CHAR_VAR_ELE_DRK,0,10);

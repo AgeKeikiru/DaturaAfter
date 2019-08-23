@@ -27,14 +27,7 @@
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [
-        {
-            "id": "15d40e02-238c-4742-a95a-1e085e2ffc80",
-            "modelName": "GMOverriddenProperty",
-            "mvc": "1.0",
-            "objectId": "686631b6-c33d-4e12-8779-22070fc8ef61",
-            "propertyId": "8b513332-22ec-4de8-8fd3-c80069b83233",
-            "value": "\"Stance\""
-        }
+        
     ],
     "parentObjectId": "686631b6-c33d-4e12-8779-22070fc8ef61",
     "persistent": false,

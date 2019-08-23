@@ -6,18 +6,21 @@ switch(cEvent){
 		    event_inherited();
 		
 			if(scr_exists(src,asset_object)){
-			    src.hpCurr += grd_skills[# 0,0] * grd_skillRate[# 0,0];
+				src.mDef += ss_level * ss_rate;
+				
+			    src.hpMax += grd_skills[# 0,0] * grd_skillRate[# 0,0];
 			    
-			    if(src.src[? CHAR_VAR_CLS0] == id){
-			    	var _boost = .0025;
-			    	
-				    src.src[? CHAR_VAR_ELE_FIR] += src.level * _boost;
-				    src.src[? CHAR_VAR_ELE_ICE] += src.level * _boost;
-				    src.src[? CHAR_VAR_ELE_ELC] += src.level * _boost;
-				    src.src[? CHAR_VAR_ELE_NAT] += src.level * _boost;
-				    src.src[? CHAR_VAR_ELE_DRK] += src.level * _boost;
-				    src.src[? CHAR_VAR_ELE_LGT] += src.level * _boost;
-			    }
+			    var
+		    	_x = 0,
+		    	_y = 1,
+		    	_boost = grd_skills[# _x,_y] * grd_skillRate[# _x,_y];
+		    	
+			    src.ele_fir += _boost;
+			    src.ele_ice += _boost;
+			    src.ele_drk += _boost;
+			    src.ele_lgt += _boost;
+			    src.ele_nat += _boost;
+			    src.ele_elc += _boost;
 			}
 			
 			break;
@@ -27,16 +30,9 @@ switch(cEvent){
 		case EVENT_CLASS_SKILLREFRESH:
 			event_inherited();
 			
-			//mess kit
+			//firm rice
 			var
 			_ix = 0,
-			_iy = 1;
-			
-			ds_list_clear(grd_skillAct[# _ix,_iy].special);
-			ds_list_add(grd_skillAct[# _ix,_iy].special,grd_skills[# _ix,_iy] * grd_skillRate[# _ix,_iy]);
-			
-			//firm rice
-			_ix = 0;
 			_iy = 2;
 			
 			ds_list_clear(grd_skillAct[# _ix,_iy].special);

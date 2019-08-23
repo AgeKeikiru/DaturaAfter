@@ -6,6 +6,8 @@ switch(cEvent){
 		    event_inherited();
 		
 			if(src != undefined && instance_exists(src)){
+				src.hpMax += ss_level * ss_rate;
+				
 				src.spd += grd_skills[# 0,0] * grd_skillRate[# 0,0];
 				
 				src.mAtk += grd_skills[# 0,1] * grd_skillRate[# 0,1];

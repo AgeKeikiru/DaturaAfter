@@ -8,12 +8,12 @@ add stat preview in shop
 buff demoBoss
 en cost/cd balance
 
-increase special food cooldown
+fix special food cooldown
 add burn secondary effect
-make idol/angel/chef stances main skills that auto-cast when no stance is active
 2 new missions
 add agent
 add sanctum
+add tempAgile property
 
 investigate crash after idling on mission clear screen (noticed on tree mission)
 
@@ -45,6 +45,47 @@ class idea:
 			each proc restarts a timer on the stance, when the timer runs out the list of excluded acts is cleared
 		en+ skill
 		s-atk+ skill
+
+R6 Weapons:
+	AC2-MNLT
+		SWD
+		ELC/LGT
+		An experimental laser blade that fires off energy waves to add secondary Ranged LGT damage to its attacks.
+		
+	AC2-KRSW
+		RFL
+		ELC/LGT
+		An experimental laser rifle that deals secondary LGT damage and stuns targets on hit.
+		
+	Blood Drive
+		SCY
+		DRK
+		An unholy weapon that drains the lifeforce from its targets to nourish the wielder.
+		
+	Missile Rack
+		RPG
+		FIR
+		A scatter-missile launcher with smaller less accurate warheads, but higher overall damage potential.
+		
+	Synchroblade
+		DGR
+		DRK
+		A mystic ceremonial blade, transfers debuffs to target on hit.
+		
+	Device
+		ARW
+		LGT/DRK
+		Evoker signature weapon. Deals secondary DRK damage and boosts charge rate for Evoker X-Acts.
+		
+	LASER
+		RAY
+		any ele
+		A hyper-focused variant of the RAY scroll that hits multiple times and has a moderate chance of inflicting status ailments.
+		
+	SIPHON
+		VRT
+		any ele
+		A variant of the VORTEX scroll that trades reduced damage for excellent EN recovery.
 
 unlocking characters
 	Blaze/Witchy/Altai:

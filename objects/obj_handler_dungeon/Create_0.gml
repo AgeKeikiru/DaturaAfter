@@ -14,6 +14,8 @@ for(var _i = 0;_i < 3;_i++){
 	if(scr_exists(_o,asset_object)){
 		_o.x = _x;
 		_o.y = _y;
+		_o.allyParty = global.grd_party_player;
+		_o.enemyParty = global.grd_party_enemy;
 	}
 	
 	_o = global.grd_party_player[# _i,1];
@@ -21,6 +23,8 @@ for(var _i = 0;_i < 3;_i++){
 	if(scr_exists(_o,asset_object)){
 		_o.x = _x;
 		_o.y = _y;
+		_o.allyParty = global.grd_party_player;
+		_o.enemyParty = global.grd_party_enemy;
 	}
 }
 

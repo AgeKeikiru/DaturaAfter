@@ -19,7 +19,7 @@ with SV_m{
 	grd_txt[# 0,SV_i] = "Formation";
 	grd_desc[# 0,SV_i] = "Rearrange party members.";
 	grd_descLabel[# 0,SV_i] = "Team Room";
-	grd_scr[# 0,SV_i] = noone;
+	grd_scr[# 0,SV_i] = scr_menu_social_formation;
 	
 	SV_i++;
 	

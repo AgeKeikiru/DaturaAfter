@@ -6,6 +6,8 @@ switch(cEvent){
 		    event_inherited();
 		
 			if(scr_exists(src,asset_object)){
+				src.spd += ss_level * ss_rate;
+				
 			    src.ele_lgt += grd_skills[# 0,0] * grd_skillRate[# 0,0];
 			    src.mDef += grd_skills[# 0,1] * grd_skillRate[# 0,1];
 			    src.fDef += grd_skills[# 0,1] * grd_skillRate[# 0,1];
@@ -76,9 +78,13 @@ switch(cEvent){
 			_tgt = cArgs[| 1],
 			_act = cArgs[| 2];
 		
-			if(scr_exists(src,asset_object) && _src == src && _act.tgtEnemy && src.src[? CHAR_VAR_CLS0] == id){
+			if(scr_exists(src,asset_object) && _src == src && _act.tgtEnemy){
+				var
+				_x = 1,
+				_y = 1;
+				
 				global.tempLst[| CHAR_SA_BLD] = 3;
-				global.tempLst2[| CHAR_SA_BLD] = src.level * .005;
+				global.tempLst2[| CHAR_SA_BLD] = grd_skills[# _x,_y] * grd_skillRate[# _x,_y];
 				
 				scr_trace("[Blinding Light] blind chance: " + string(global.tempLst2[| CHAR_SA_BLD] * 100) + "%");
 			}
@@ -90,15 +96,9 @@ switch(cEvent){
 		case EVENT_CLASS_SKILLREFRESH:
 			event_inherited();
 			
-			//angelite
-			_ix = 1;
-			_iy = 1;
-			
-			ds_list_clear(grd_skillAct[# _ix,_iy].special);
-			ds_list_add(grd_skillAct[# _ix,_iy].special,grd_skills[# _ix,_iy] * grd_skillRate[# _ix,_iy]);
-			
 			//angelic blessing
-			_ix = 2;
+			var
+			_ix = 2,
 			_iy = 0;
 			
 			ds_list_clear(grd_skillAct[# _ix,_iy].special);

@@ -1,14 +1,14 @@
-/*
-arg0: char id
-*/
+///@arg charID
+///@arg partyMember
 
 var SV_r = ds_map_create();
 
 //general
-SV_r[? CHAR_VAR_ID] = argument0;
+SV_r[? CHAR_VAR_ID] = argument[0];
 SV_r[? CHAR_VAR_NAMEFULL] = "???";
 SV_r[? CHAR_VAR_NAMEDISP] = "???";
 SV_r[? CHAR_VAR_DESC] = "An unknown entity hailing from beyond the void.";
+SV_r[? CHAR_VAR_DESCFULL] = "An unknown entity hailing from beyond the void.";
 SV_r[? CHAR_VAR_RACE] = RACE_HUMAN;
 
 //stats
@@ -68,7 +68,13 @@ SV_r[? CHAR_VAR_PSDO_CLS_Y] = 0;
 
 var SV_h = ds_grid_height(global.grd_chars);
 ds_grid_resize(global.grd_chars,2,SV_h + 1);
-global.grd_chars[# 0,SV_h + -1] = argument0;
+global.grd_chars[# 0,SV_h + -1] = argument[0];
 global.grd_chars[# 1,SV_h + -1] = SV_r;
+
+if(argument_count > 1 && argument[1]){
+	var SV_o = instance_create_depth(0,0,0,obj_dungeon_battleMember);
+	SV_o.src = SV_r;
+	global.map_chars[? argument[0]] = SV_o;
+}
 
 return SV_r;

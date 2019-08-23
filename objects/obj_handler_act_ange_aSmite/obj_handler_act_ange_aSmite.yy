@@ -9,9 +9,9 @@
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
-            "eventtype": 0,
-            "enumb": 0,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
             "m_owner": "ef28883a-4217-4b8d-9f17-0c3f48da7bbf"
         },
         {
@@ -54,20 +54,20 @@
             "value": "obj_handler_actEffect_ange_aSmite"
         },
         {
-            "id": "3b94c2e3-9d9b-4fb8-afe8-2ae994faaae4",
-            "modelName": "GMOverriddenProperty",
-            "mvc": "1.0",
-            "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
-            "propertyId": "768de9e5-9004-4256-adeb-8afd2421b91d",
-            "value": "True"
-        },
-        {
             "id": "a4d46e02-2c6a-42dd-9880-cd812f53e637",
             "modelName": "GMOverriddenProperty",
             "mvc": "1.0",
             "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
             "propertyId": "ccfaef45-565c-4e6d-b8c1-a1e09e3eec90",
             "value": "ACT_TGT_WIDE"
+        },
+        {
+            "id": "45db5aeb-bf43-47f6-8fbc-d4a5e26b395d",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
+            "propertyId": "1d8187ef-2f69-40b8-a401-8f526ec8f276",
+            "value": "1"
         }
     ],
     "parentObjectId": "db25dc73-975c-455a-8673-2282d60439d6",

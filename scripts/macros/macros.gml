@@ -4,7 +4,7 @@
 	#macro UNIVERSAL_COOLDOWN (room_speed * 100 * 5)
 	#macro DEFAULT_PANEL_BEZEL 8
 	#macro CANARY true
-	#macro DEBUG (false || debug_mode)
+	#macro DEBUG (true || debug_mode)
 	#macro GCAP 999999
 	#macro SELLPRICE .5
 	#macro AUTOSCROLLTHRESH (room_speed * .1)
@@ -67,6 +67,7 @@
 	#macro CC_HPGREEN make_color_hsv(106,180,230)
 	#macro CC_HEALGREEN make_color_hsv(115,200,255)
 	#macro CC_ENBLUE make_color_hsv(136,180,230)
+	#macro CC_CRIT make_color_hsv(120,220,240)
 	
 	#macro CC_FIRRED make_color_hsv(5,180,220)
 	#macro CC_ICEBLUE make_color_hsv(120,140,255)
@@ -82,6 +83,7 @@
 	#macro CC_STANCE_ANGE make_color_hsv(80,180,230)
 	#macro CC_STANCE_RAZE make_color_hsv(0,255,200)
 	#macro CC_STANCE_IDOL make_color_hsv(240,150,255)
+	#macro CC_STANCE_AGNT make_color_hsv(80,120,140)
 
 #endregion
 
@@ -131,6 +133,7 @@
 		#macro CHAR_BLEEDINGBULLET "char_bleedingBullet"
 		#macro CHAR_DARTLILY "char_dartLily"
 		#macro CHAR_PARASLIME "char_paraSlime"
+		#macro CHAR_FROSLIME "char_froSlime"
 		#macro CHAR_BIGSLIME "char_bigSlime"
 		#macro CHAR_MINISLIME "char_miniSlime"
 		#macro CHAR_GREENDRAGON "char_greenDragon"
@@ -156,6 +159,7 @@
 		#macro CHAR_VAR_NAMEFULL "char_var_nameFull"
 		#macro CHAR_VAR_NAMEDISP "char_var_nameDisp"
 		#macro CHAR_VAR_DESC "char_var_desc"
+		#macro CHAR_VAR_DESCFULL "char_var_descFull"
 		#macro CHAR_VAR_RACE "char_var_race"
 		
 		//stats
@@ -327,6 +331,7 @@
 		#macro EACT_TACKLE "eact_tackle"
 		#macro EACT_BITE "eact_bite"
 		#macro EACT_PARATACKLE "eact_paratackle"
+		#macro EACT_FROSTACKLE "eact_frostackle"
 		#macro EACT_PETALSNIPE "eact_petalSnipe"
 		#macro EACT_TOXICPETAL "eact_toxicPetal"
 		#macro EACT_WAVECANNON "eact_waveCannon"
@@ -562,6 +567,7 @@
 	#macro EVENT_DND_ENCOUNTER_FIXED "event_dnd_encounter_fixed"
 	#macro EVENT_DND_BATTLEWIN "event_dnd_battleWin"
 	#macro EVENT_DND_BATTLELOSE "event_dnd_battleLose"
+	#macro EVENT_DND_CLEAR "event_dnd_clear"
 	
 	#macro EVENT_ACT_USE "event_act_use"
 	#macro EVENT_ACT_ABORT "event_act_abort"
@@ -598,6 +604,9 @@
 	#macro EVENT_BATTLE_EVAMOD "event_battle_evaMod"
 	#macro EVENT_BATTLE_SPDMOD "event_battle_spdMod"
 	#macro EVENT_BATTLE_HEALED "event_battle_healed"
+	#macro EVENT_BATTLE_CRITMOD "event_battle_critMod"
+	
+	#macro EVENT_QUEST_REWARD "event_quest_reward"
 
 #endregion
 
@@ -659,18 +668,22 @@
 	#region //quests
 	
 		#macro Q_TEST "q_test"
-		#macro Q_TEST_P2 "q_test_p2"
 	
 	#endregion
 	
 	#region //quest vars
 	
+		#macro Q_VAR_ID "q_var_id"
 		#macro Q_VAR_NAME "q_var_name"
 		#macro Q_VAR_DESC "q_var_desc"
-		#macro Q_VAR_STATUS "q_var_status" //0: not yet available, 1: available, 2: completed, 3: incomplete/failed - no longer available
-		#macro Q_VAR_PROG_FLAGS "q_var_prog_flags" //list of relevant flags
-		#macro Q_VAR_PROG_GOALS "q_var_prog_goals"
-		#macro Q_VAR_REWARD "q_var_reward" //script
+		#macro Q_VAR_HANDLER "q_var_handler"
+		#macro Q_VAR_GOALS "q_var_goals"
+	
+	#endregion
+	
+	#region //flag headers
+	
+		#macro Q_FG_STATUS "q_fg_status" //0: not yet available, 1: available, 2: completed, 3: incomplete/failed - no longer available
 	
 	#endregion
 
@@ -716,13 +729,17 @@
 	#macro FG_MSNCLEARS "fg_msnClears"
 	#macro FG_MSNPHASE "fg_msnPhase"
 	#macro FG_FREEPLAY "fg_freePlay"
+	
+	#macro FG_TUT_QUEST "fg_tut_quest"
+	#macro FG_TUT_FORMATION "fg_tut_formation"
 
 #endregion
 
 #region //code shortcuts
 
 	#macro CS_SRCSTANCEIS scr_exists(src,asset_object) && scr_exists(src.stance,asset_object) && src.stance.object_index ==
-	#macro CS_SRCMAINIS scr_exists(src,asset_object) && scr_exists(src.src[? CHAR_VAR_CLS0],asset_object) && src.src[? CHAR_VAR_CLS0].object_index ==
+	#macro CS_AUTOSTANCECHECK (scr_exists(src,asset_object) && !scr_exists(src.stance,asset_object) && src.src[? CHAR_VAR_CLS0] == id && instance_exists(obj_handler_dungeon) && src.ailment[CHAR_SA_PAR] <= 0)
+	#macro CS_SRCMAINCHECK (scr_exists(src,asset_object) && scr_exists(src.src[? CHAR_VAR_CLS0],asset_object) && src.src[? CHAR_VAR_CLS0] == id)
 	#macro CS_UI_PSOPEN grd_ps_xDraw[# 0,0] == 0
 	
 	#macro CS_SWITCHDIAFOCUS global.grd_dia[# DIA_FOCUS_L,SV_i] = !global.grd_dia[# DIA_FOCUS_L,SV_i] \

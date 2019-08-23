@@ -1,3 +1,6 @@
+scr_activateQuest(Q_TEST);
+global.map_flags[? SOC_FG_STATUS + SOC_ARI_JOIN1] = 3;
+
 ds_grid_destroy(global.grd_dia);
 global.grd_dia = ds_grid_create(8,0);
 

@@ -17,6 +17,8 @@ if(hitLoopRemaining == hitCount){
 
 if(!nonAttack){
 	for(var _i = 0;_i < (tgtType == ACT_TGT_RANDOM ? 1 : ds_list_size(dc_tgt));_i++){
+		var _hit = false;
+		
 		if(tgtType == ACT_TGT_RANDOM){
 			_i = hitLoopRemaining + -1;
 		}
@@ -74,14 +76,34 @@ if(!nonAttack){
 				&& !(tgtEnemy && dc_tgt[| _i].iFrames > 0)
 				&& ((revive ^^ dc_tgt[| _i].hpCurr > 0) || dc_tgt[| _i].allyParty == global.grd_party_enemy)
 			){
+				_hit = true;
+				
 				_p.visible = pwr > 0;
 				_p.y += -100;
+				
+				global.critChance = clamp(dc_aim[| _i],0.01,0.1);
+				//if(DEBUG){global.critChance = .5;}
+				global.critBonus = 1.2;
+				
+				scr_cEvent(all,EVENT_BATTLE_CRITMOD,src,dc_tgt[| _i],id);
+				
+				var _crit = random(1) < global.critChance;
 				
 				_p.txt[0] = string(_dmg);
 				_p.txt_col[0] = tgtEnemy ? c_white : CC_HEALGREEN;
 				
 				_p.txt[1] = dc_weakres[| _i];
 				_p.txt_col[1] = (_p.txt[1] == "WEAK") ? c_yellow : c_ltgray;
+				
+				if(_crit){
+					_p.txt_col[0] = CC_CRIT;
+					_p.txt_xScale[0] += .5;
+					_p.txt_yScale[0] = _p.txt_xScale[0];
+					
+					_dmg = ceil(dc_dmgMax[| _i] * global.critBonus);
+					
+					_p.txt[0] = string(_dmg);
+				}
 				
 				if(pwr > 0){
 					scr_cEvent(all,tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt[| _i],id,_dmg);
@@ -166,6 +188,10 @@ if(!nonAttack){
 				
 				_p = scr_createEffectTxt(src,string(_recoil));
 			}
+		}
+		
+		if(dc_tgt[| _i].allyParty == global.grd_party_enemy && random(1) < stun_chance && (_hit || !stun_onHit)){
+			dc_tgt[| _i].enemyWait = dc_tgt[| _i].enemyWaitMax;
 		}
 	}
 }

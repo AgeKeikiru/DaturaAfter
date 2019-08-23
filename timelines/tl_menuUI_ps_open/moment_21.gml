@@ -61,7 +61,7 @@ with SV_m{
 	grd_txt[# 0,SV_i] = "Quests";
 	grd_desc[# 0,SV_i] = "View and turn in active quests.";
 	grd_descLabel[# 0,SV_i] = "Quest";
-	grd_scr[# 0,SV_i] = noone;
+	grd_scr[# 0,SV_i] = scr_menu_party_quest;
 	
 	if(false){ //check if there are active completed quests
 		grd_txt[# 0,SV_i] = "[!]" + grd_txt[# 0,SV_i];

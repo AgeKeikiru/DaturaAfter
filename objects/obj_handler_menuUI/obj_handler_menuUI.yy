@@ -527,6 +527,34 @@
             "value": "0",
             "varName": "toTitle",
             "varType": 3
+        },
+        {
+            "id": "a9ba5470-3cf1-4ca5-8c70-ca6a9e8acef3",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "questDesc",
+            "varType": 2
+        },
+        {
+            "id": "6d327847-5f34-407d-94e3-ffede440db42",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "noone",
+            "varName": "soc_formation",
+            "varType": 4
         }
     ],
     "solid": false,

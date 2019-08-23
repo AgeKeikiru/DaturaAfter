@@ -57,8 +57,6 @@ if(
 }
 
 if(!state_event && !state_battle && !state_results && (missionComplete || missionFailed) && instance_number(obj_fpo_parent) == 0){
-	scr_trace("TEST");
-	
 	if(missionFailed){
 		state_results = true;
 		
@@ -67,6 +65,8 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 		instance_create_depth(0,0,0,obj_handler_dialogue);
 	}else if(missionComplete){
 		state_results = true;
+		
+		scr_cEvent(all,EVENT_DND_CLEAR);
 		
 		if(script_exists(_map[? MSN_VAR_OUTRO_DIA])){
 			script_execute(_map[? MSN_VAR_OUTRO_DIA]);

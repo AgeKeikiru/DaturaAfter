@@ -15,7 +15,7 @@ with scr_createSubmenu(500){
 	    
 	    if(global.map_flags[? SV_key] == 1){
 	        ds_list_insert(SV_lst,0,SV_map);
-	    }else if(global.map_flags[? SV_key] == 2){
+	    }else if(global.map_flags[? SV_key] == 2 || DEBUG){
 	        ds_list_add(SV_lst,SV_map);
 	    }
 	}

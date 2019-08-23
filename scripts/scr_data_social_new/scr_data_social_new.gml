@@ -1,6 +1,4 @@
-/*
-arg0: social id
-*/
+///@arg socialID
 
 var SV_r = ds_map_create();
 

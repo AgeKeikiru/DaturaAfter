@@ -68,3 +68,11 @@ if(ds_stack_size(global.stk_menu) > 1 || (instance_exists(SV_ui) && SV_ui.ps_bas
 		}
 	}
 }
+
+var SV_m = ds_stack_top(global.stk_menu);
+
+if(!SV_m.submenu){
+	with SV_ui{
+		instance_destroy(soc_formation);
+	}
+}

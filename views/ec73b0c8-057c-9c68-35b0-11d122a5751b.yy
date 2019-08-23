@@ -30,7 +30,9 @@
         "f07441d2-6c69-0ee3-487b-fe521a3a11a0",
         "063bc02e-7f16-4f88-a586-671f3b5bcddd",
         "c5353bc9-509e-a794-3412-33c2588ade0b",
-        "cbd3d4e2-dace-b93e-3f6f-e270b0b30206"
+        "cbd3d4e2-dace-b93e-3f6f-e270b0b30206",
+        "9ca6d98f-82bd-600d-9886-828f283523e6",
+        "c57b9e0a-4cf6-7dc3-afcd-8127bd18f555"
     ],
     "filterType": "GMScript",
     "folderName": "party",

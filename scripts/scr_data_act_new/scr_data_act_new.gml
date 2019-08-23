@@ -9,7 +9,8 @@ SV_type = argument[0],
 SV_ele = argument_count > 1 ? argument[1] : "",
 SV_rare = argument_count > 2 ? argument[2] : 0,
 SV_plus = argument_count > 3 ? argument[3] : 0,
-SV_r = instance_create_depth(0,0,0,obj_handler_act);
+SV_r = instance_create_depth(0,0,0,obj_handler_act),
+SV_names;
 
 SV_r.baseName = "???";
 SV_r.desc = "A strange object hailing from beyond the void.";
@@ -36,7 +37,19 @@ switch(SV_type){
 	#region //melee
 	
 		case WTAG_TYPE_SWD:
-			SV_r.baseName = "Sword";
+			SV_names = [
+				"Sword",
+				"Gisword",
+				"Saber",
+				"Gisaber",
+				"Claymore",
+				"Giclaymore"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Balanced, straightforward weapon. Solid choice for any melee class.";
 			SV_r.icon = spr_icon_swd;
 			SV_r.basePrice *= 1;
@@ -53,7 +66,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_AXE:
-			SV_r.baseName = "Axe";
+			SV_names = [
+				"Axe",
+				"Giraxe",
+				"Rounder",
+				"Girounder",
+				"Splitter",
+				"Gisplitter"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Violent weapon that relies on raw power. Cumbersome, but decimates when it hits.";
 			SV_r.icon = spr_icon_axe;
 			SV_r.basePrice *= 2;
@@ -71,7 +96,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_CSW:
-			SV_r.baseName = "Chainsaw";
+			SV_names = [
+				"Chainsaw",
+				"Gisaw",
+				"Chainblade",
+				"Giblade",
+				"Ripper",
+				"Giripper"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Reckless, difficult to use weapon that hits many times. Effective against unarmored enemies.";
 			SV_r.icon = spr_icon_csw;
 			SV_r.basePrice *= 2;
@@ -88,7 +125,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_SCY:
-			SV_r.baseName = "Scythe";
+			SV_names = [
+				"Scythe",
+				"Giscythe",
+				"Halberd",
+				"Gihalberd",
+				"Crescent",
+				"Giscent"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "A stylish weapon that trades power for wide range. Best used to get rid of adds.";
 			SV_r.icon = spr_icon_scy;
 			SV_r.tgtType = ACT_TGT_WIDE;
@@ -107,7 +156,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_DGR:
-			SV_r.baseName = "Dagger";
+			SV_names = [
+				"Dagger",
+				"Gidagger",
+				"Seax",
+				"Giseax",
+				"Baselard",
+				"Gilard"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Lightweight, easy to use melee weapon. Accurate and swift, at the cost of power.";
 			SV_r.icon = spr_icon_dgr;
 			SV_r.basePrice *= .5;
@@ -124,7 +185,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_GNT:
-			SV_r.baseName = "Gauntlet";
+			SV_names = [
+				"Gauntlet",
+				"Gigauntlet",
+				"Tonfa",
+				"Gitonfa",
+				"Duster",
+				"Giduster"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Provides accurate and powerful blows, but exhausts the wielder.";
 			SV_r.icon = spr_icon_gnt;
 			SV_r.basePrice *= 1.5;
@@ -141,7 +214,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_PAN:
-			SV_r.baseName = "Pan";
+			SV_names = [
+				"Pan",
+				"Gipan",
+				"Skillet",
+				"Giskillet",
+				"Wok",
+				"Giwok"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "An unorthodox weapon - weak, but feeds allies if used after preparing food.";
 			SV_r.icon = spr_icon_pan;
 			SV_r.basePrice *= .5;
@@ -162,7 +247,19 @@ switch(SV_type){
 	#region //firearm
 	
 		case WTAG_TYPE_HGN:
-			SV_r.baseName = "Pistol";
+			SV_names = [
+				"Handgun",
+				"Handgun M",
+				"Tiger",
+				"Tiger M",
+				"Tomcat",
+				"Tomcat X"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Lightweight, easy to use weapon. Good backup firearm for recovering EN.";
 			SV_r.icon = spr_icon_hgn;
 			SV_r.basePrice *= .5;
@@ -179,7 +276,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_SMG:
-			SV_r.baseName = "SMG";
+			SV_names = [
+				"SMG",
+				"SMG M",
+				"Eagle",
+				"Eagle M",
+				"Raptor",
+				"Raptor X"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Relatively accurate and easy to use weapon, essentially a scaled up pistol.";
 			SV_r.icon = spr_icon_smg;
 			SV_r.basePrice *= .8;
@@ -196,7 +305,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_SHG:
-			SV_r.baseName = "Shotgun";
+			SV_names = [
+				"Shotgun",
+				"Shotgun M",
+				"Flanker",
+				"Flanker M",
+				"Berkut",
+				"Berkut X"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Low accuracy balanced with a flurry of pellets makes this weapon inconsistent but capable of immense damage.";
 			SV_r.icon = spr_icon_shg;
 			SV_r.basePrice *= 1.5;
@@ -214,7 +335,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_LMG:
-			SV_r.baseName = "LMG";
+			SV_names = [
+				"LMG",
+				"LMG M",
+				"Flogger",
+				"Flogger M",
+				"Fullback",
+				"Fullback X"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Hails high power bullets to hit all enemies at random. Unwieldly, but devastating to an isolated target.";
 			SV_r.icon = spr_icon_lmg;
 			SV_r.tgtType = ACT_TGT_RANDOM;
@@ -232,7 +365,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_RPG:
-			SV_r.baseName = "Launcher";
+			SV_names = [
+				"RPG",
+				"RPG M",
+				"Corsair",
+				"Corsair M",
+				"Thunderbolt",
+				"Thunderbolt X"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Incredibly slow and exhausting to fire, but deals incredible damage to all enemies.";
 			SV_r.icon = spr_icon_rpg;
 			SV_r.tgtType = ACT_TGT_WIDE;
@@ -251,7 +396,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_RFL:
-			SV_r.baseName = "Rifle";
+			SV_names = [
+				"Rifle",
+				"Rifle M",
+				"Canberra",
+				"Canberra M",
+				"Blackbird",
+				"Blackbird X"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Cumbersome, but deals consistently high and accurate damage to single targets.";
 			SV_r.icon = spr_icon_rfl;
 			SV_r.basePrice *= 1.8;
@@ -269,7 +426,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_SLG:
-			SV_r.baseName = "Sling";
+			SV_names = [
+				"Sling",
+				"Sling M",
+				"Sentry",
+				"Sentry M",
+				"Expeditor",
+				"Expeditor X"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "An unorthodox weapon - weak, but inflicts strange effects on enemies if used after preparing food.";
 			SV_r.icon = spr_icon_slg;
 			SV_r.basePrice *= .5;
@@ -289,7 +458,19 @@ switch(SV_type){
 	#region //scroll
 	
 		case WTAG_TYPE_ASC_ARW:
-			SV_r.baseName = "ARROW";
+			SV_names = [
+				"",
+				"II",
+				"III",
+				"IV",
+				"V",
+				"VI"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "ARROW " + SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Simple, easy to use scroll. Best for exploiting elemental weaknesses.";
 			SV_r.icon = spr_icon_arw;
 			SV_r.basePrice *= .6;
@@ -311,7 +492,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_ASC_RAY:
-			SV_r.baseName = "RAY";
+			SV_names = [
+				"",
+				"II",
+				"III",
+				"IV",
+				"V",
+				"VI"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "RAY " + SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Scroll that casts a beam of energy as damaging as it is draining to use.";
 			SV_r.icon = spr_icon_ray;
 			SV_r.basePrice *= 1;
@@ -333,7 +526,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_ASC_VRT:
-			SV_r.baseName = "VORTEX";
+			SV_names = [
+				"",
+				"II",
+				"III",
+				"IV",
+				"V",
+				"VI"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "VORTEX " + SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Complex scroll that damages all enemies. Increases in power with rank, but difficult to use properly.";
 			SV_r.icon = spr_icon_vrt;
 			SV_r.tgtType = ACT_TGT_WIDE;
@@ -356,7 +561,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_ASC_BRS:
-			SV_r.baseName = "BURST";
+			SV_names = [
+				"",
+				"II",
+				"III",
+				"IV",
+				"V",
+				"VI"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "BURST " + SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "A reckless scroll that fires off energy at random. Becomes more consistent at higher ranks.";
 			SV_r.icon = spr_icon_brt;
 			SV_r.tgtType = ACT_TGT_RANDOM;
@@ -379,7 +596,19 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_CSC:
-			SV_r.baseName = "FLICT";
+			SV_names = [
+				"",
+				"II",
+				"III",
+				"IV",
+				"V",
+				"VI"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "FLICT " + SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Inflicts ailments on a target. Easier to use at higher ranks, but susceptible to elemental resistances.";
 			SV_r.icon = spr_icon_csc;
 			SV_r.basePrice *= 1;
@@ -433,7 +662,20 @@ switch(SV_type){
 			
 		case WTAG_TYPE_SSC_HEAL:
 			SV_r.tgtEnemy = false;
-			SV_r.baseName = "MEDA";
+			
+			SV_names = [
+				"",
+				"II",
+				"III",
+				"IV",
+				"V",
+				"VI"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "MEDA " + SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Restore an ally's HP. Heal rate scales with rank.";
 			SV_r.icon = spr_icon_heal;
 			SV_r.basePrice *= 1;
@@ -453,7 +695,20 @@ switch(SV_type){
 			
 		case WTAG_TYPE_SSC_CURE:
 			SV_r.tgtEnemy = false;
-			SV_r.baseName = "PURA";
+			
+			SV_names = [
+				"",
+				"II",
+				"III",
+				"IV",
+				"V",
+				"VI"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "PURA " + SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Cure an ally of ailments. Recovery time improves with rank.";
 			SV_r.icon = spr_icon_cure;
 			SV_r.basePrice *= 1.5;
@@ -475,7 +730,20 @@ switch(SV_type){
 			
 		case WTAG_TYPE_SSC_RAISE:
 			SV_r.tgtEnemy = false;
-			SV_r.baseName = "VYRA";
+			
+			SV_names = [
+				"",
+				"II",
+				"III",
+				"IV",
+				"V",
+				"VI"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "VYRA " + SV_names[SV_rare];
+			}
+			
 			SV_r.desc = "Revive a fallen ally. Recovery time improves with rank.";
 			SV_r.icon = spr_icon_raise;
 			SV_r.basePrice *= 5;
@@ -499,10 +767,22 @@ switch(SV_type){
 	#region //shield
 	
 		case WTAG_TYPE_SHD_FLS:
+			SV_names = [
+				"Shield",
+				"Shielder",
+				"Shieldest",
+				"Shield[cl-r]",
+				"Shield:CTB",
+				"Shield Xrd"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "Fl-" + SV_names[SV_rare];
+			}
+		
 			SV_r.tgtEnemy = false;
 			SV_r.tgtType = ACT_TGT_SELF;
 			SV_r.nonAttack = true;
-			SV_r.baseName = "Fl-Shield";
 			SV_r.desc = "Flash shield - with proper timing, moderately reduce incoming damage to allies.";
 			SV_r.icon = spr_icon_shd;
 			SV_r.basePrice *= 1.5;
@@ -522,10 +802,22 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_SHD_BRN:
+			SV_names = [
+				"Shield",
+				"Shielder",
+				"Shieldest",
+				"Shield[cl-r]",
+				"Shield:CTB",
+				"Shield Xrd"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "Br-" + SV_names[SV_rare];
+			}
+		
 			SV_r.tgtEnemy = false;
 			SV_r.tgtType = ACT_TGT_SELF;
 			SV_r.nonAttack = true;
-			SV_r.baseName = "Br-Shield";
 			SV_r.desc = "Burn Shield - slightly reduce incoming damage to allies for a long duration.";
 			SV_r.icon = spr_icon_shd;
 			SV_r.basePrice *= 1.5;
@@ -545,11 +837,23 @@ switch(SV_type){
 			break;
 			
 		case WTAG_TYPE_SHD_STC:
+			SV_names = [
+				"Shield",
+				"Shielder",
+				"Shieldest",
+				"Shield[cl-r]",
+				"Shield:CTB",
+				"Shield Xrd"
+			];
+			
+			if(SV_rare < array_length_1d(SV_names)){
+				SV_r.baseName = "St-" + SV_names[SV_rare];
+			}
+			
 			SV_r.tgtEnemy = false;
 			SV_r.tgtType = ACT_TGT_SELF;
 			SV_r.nonAttack = true;
 			SV_r.stanceAct = true;
-			SV_r.baseName = "St-Shield";
 			SV_r.desc = "[Stance Act] Stance Shield - while active, EN slowly drains but damage to allies is reduced moderately.";
 			SV_r.icon = spr_icon_shd;
 			SV_r.basePrice *= 2;

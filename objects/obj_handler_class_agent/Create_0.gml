@@ -6,32 +6,24 @@ event_inherited();
 /*
 main skill
 Marksman
-increase critical damage by Lv*1%
+increase critical damage by Lv*0.5%
 */
 
 name = "Agent";
 desc = "Specially trained gunslingers that come prepared to deal with any threat. Agents turn enemies into sitting ducks to line up the perfect kill shot.";
 cName = "AGNT_" + string(global.cid++);
 
-/*
-skills
+ms_name = "Marksman";
+ms_desc = "Critical hit damage +Lv*0.5%";
+ms_icon = spr_icon_critAtkUp;
 
-[F-ATK+]
-[ACC+]
-[F-DEF+]
+ss_name = "FIR Res+ (s)";
+ss_desc = "Slightly decrease damage from Fire element.";
+ss_icon = spr_icon_firRes;
+ss_toolTip = "FIR Res: !";
+ss_rate = .5;
 
-[Flash Grenade] weak wide range firearm attack, resets enemy cooldown and low chance to blind
-[Hide] stance act - reduce aggro, increase crit rate, effect ends when hit
-[Snare Trap] stance act - when attacked, trigger a trap that slows the attacker to a halt
-
-[Gas Bomb] weak wide range firearm attack, reduces enemy atk and moderate chance to poison
-[Analyze] relay an enemy's information to the party, greatly reducing its EVA for a time
-[Blast Trap] stance act - when attacked, trigger a trap that deals fire damage to all enemies, has a moderate chance to Burn
-
-[Fire Support] while Hide is active, allied attacks have a chance of instantly triggering a user's equipped firearm-type weapon
-[Weak Mark] quick firearm attack that reduces the target's defenses on hit, has a stronger effect on F-DEF
-[Capture] X act - charges when traps are activated. deal severe firearm damage to a target - if this attack kills, a large amount of loot is collected
-*/
+stat_bombPwr_rate = 10;
 
 #region //tier 1
 
@@ -39,21 +31,25 @@ skills
     _ix = 0,
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "LGT Res+";
-    //grd_skillDesc[# _ix,_iy] = "Decrease damage taken from Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Res: +!";
+    grd_skillName[# _ix,_iy] = "F-ATK+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Firearm Attack.";
+    grd_skillTooltip[# _ix,_iy] = "F-ATK: !";
+    grd_skillIcon[# _ix,_iy] = spr_icon_fAtkUp;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "TRI-DEF+";
-    //grd_skillDesc[# _ix,_iy] = "Increase Melee/Firearm/Spell Defense.";
-    //grd_skillTooltip[# _ix,_iy] = "M/F/S-Def: +!";
+    grd_skillName[# _ix,_iy] = "ACC+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Accuracy.";
+    grd_skillTooltip[# _ix,_iy] = "ACC: !";
+    grd_skillRate[# _ix,_iy] = stat_fineStatRate;
+    grd_skillIcon[# _ix,_iy] = spr_icon_accUp;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Light Love";
-    //grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Damage: +!";
+    grd_skillName[# _ix,_iy] = "F-DEF+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Firearm Defense.";
+    grd_skillTooltip[# _ix,_iy] = "F-DEF: !";
+    grd_skillIcon[# _ix,_iy] = spr_icon_fDefUp;
 
 #endregion
 
@@ -62,24 +58,30 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Step";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Negate 1 attack, briefly increase EVA after negation.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Flash Grenade";
+    grd_skillDesc[# _ix,_iy] = "A weak wide range Firearm attack that stuns and has a low chance to blind.";
+    grd_skillTooltip[# _ix,_iy] = "Power: !\nBlind Chance: @%";
+    grd_skillRate[# _ix,_iy] = .05;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_fGrenade);
+    grd_skillIcon[# _ix,_iy] = spr_icon_grenadeLgt;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite";
-    //grd_skillDesc[# _ix,_iy] = "Stance Act. Collect holy energy during battle to use special skills.";
-    //grd_skillTooltip[# _ix,_iy] = "Max Angelite: !";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Hide"; //stance
+    grd_skillDesc[# _ix,_iy] = "Reduce aggro and increase crit rate. Effect ends when hit.";
+    grd_skillTooltip[# _ix,_iy] = "Aggro: !";
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
+    grd_skillRate[# _ix,_iy] = -1;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_hide);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Dash";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Reset all active cooldowns.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Snare Trap"; //stance
+    grd_skillDesc[# _ix,_iy] = "When attacked, trigger a trap that slows the attacker to a halt.";
+    grd_skillTooltip[# _ix,_iy] = "Effect Duration: !sec";
+    grd_skillRate[# _ix,_iy] = 2;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_sTrap);
 
 #endregion
 
@@ -88,24 +90,29 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Blessing";
-    //grd_skillDesc[# _ix,_iy] = "Costs 150 Angelite. Fully restore ally allies' EN and briefly boost their stats.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Nova Bomb";
+    grd_skillDesc[# _ix,_iy] = "A weak wide range Firearm attack that reduces enemy ATK and has a moderate chance to poison.";
+    grd_skillTooltip[# _ix,_iy] = "Power: !\nPoison Chance: @%";
+    grd_skillRate[# _ix,_iy] = .1;
+    grd_skillIcon[# _ix,_iy] = spr_icon_grenadeDrk;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_nGrenade);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost TRI";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when alternating between Melee/Firearm/Spell attacks.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Analyze"; //agile
+    grd_skillDesc[# _ix,_iy] = "Relay an enemy's patterns to allies, reducing their EVA for a while.";
+    grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
+    grd_skillRate[# _ix,_iy] = 4;
+    grd_skillIcon[# _ix,_iy] = spr_icon_enemyEvaDn;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_analyze);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Smite";
-    //grd_skillDesc[# _ix,_iy] = "Costs 100 Angelite. Delay the act time of all enemies and briefly reduce their Speed.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Blast Trap"; //stance
+    grd_skillDesc[# _ix,_iy] = "When attacked, trigger a trap that deals Fire damage to all enemies, has a very high chance to burn.";
+    grd_skillTooltip[# _ix,_iy] = "Burn Chance: !%";
+    grd_skillRate[# _ix,_iy] = .2;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
 
 #endregion
 
@@ -114,23 +121,25 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Desynch";
-    //grd_skillDesc[# _ix,_iy] = "Only usable when Angelite is full. Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
-    //grd_skillTooltip[# _ix,_iy] = "Drain Rate: !";
-    //grd_skillRate[# _ix,_iy] = 1;
+    grd_skillName[# _ix,_iy] = "Fire Support";
+    grd_skillDesc[# _ix,_iy] = "While <Hide> is active, allied attacks have a chance of automatically triggering an equipped Firearm weapon chip.";
+    grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
+    grd_skillRate[# _ix,_iy] = .1;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceAim;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost LGT";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when dealing Light damage.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Weak Mark"; //agile
+    grd_skillDesc[# _ix,_iy] = "Weak Firearm attack that reduces defenses on hit. Has a stronger effect on F-DEF.";
+    grd_skillTooltip[# _ix,_iy] = "F-DEF: !%\nM/S-DEF: @%";
+    grd_skillRate[# _ix,_iy] = -.06;
+    grd_skillIcon[# _ix,_iy] = spr_icon_enemyDefDn;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Heaven's Rend";
-    //grd_skillDesc[# _ix,_iy] = "Costs 250 Angelite. Deal damage to each enemy equal to half their remaining HP (up to a maximum value) and inflict a long lasting Blind.";
-    //grd_skillTooltip[# _ix,_iy] = "Maximum Damage: !";
-    //grd_skillRate[# _ix,_iy] = 1000;
+    grd_skillName[# _ix,_iy] = "Capture"; //x act
+    grd_skillDesc[# _ix,_iy] = "Charge via activating traps - Deal severe Firearm damage to a target. If this attack kills, a large amount of loot is collected.";
+    grd_skillTooltip[# _ix,_iy] = "Accuracy: !"; //50-100
+    grd_skillIcon[# _ix,_iy] = spr_icon_trap;
 
 #endregion

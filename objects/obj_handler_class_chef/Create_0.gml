@@ -13,9 +13,9 @@ name = "Chef";
 desc = "Hearty adventurers that feed enemies and allies alike. An unorthodox support class, Chefs use the unique pan and sling weapons with ingredient skills for various effects.";
 cName = "CHEF_" + string(global.cid++);
 
-ms_name = "Ele-Res Mastery";
-ms_desc = "Increase all Elemental Resistances by Lv*0.5%.";
-ms_icon = spr_icon_eleRes;
+ms_name = "Mess Kit";
+ms_desc = "Store ingredients to be used alongside Pan/Sling weapons. Up to a max of Lv/6 rounded up, caps at 5.";
+ms_icon = spr_icon_stance;
 
 ss_name = "M-DEF+ (s)";
 ss_desc = "Slightly increase base Melee Defense.";
@@ -42,12 +42,11 @@ stat_tt_rate = .05;
 	
 	_iy++;
 	
-	grd_skillName[# _ix,_iy] = "Mess Kit";
-	grd_skillDesc[# _ix,_iy] = "Store ingredients to be used alongside Pan/Sling weapons.";
-	grd_skillTooltip[# _ix,_iy] = "Max ingredients: !";
-	grd_skillRate[# _ix,_iy] = 1;
-	grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_chef_messKit);
-	grd_skillIcon[# _ix,_iy] = spr_icon_stance;
+	grd_skillName[# _ix,_iy] = "Ele Res+";
+	grd_skillDesc[# _ix,_iy] = "Decrease damage taken from all elements.";
+	grd_skillTooltip[# _ix,_iy] = "Ele Res: !";
+	grd_skillRate[# _ix,_iy] = 2;
+	grd_skillIcon[# _ix,_iy] = spr_icon_eleRes;
 	
 	_iy++;
 	

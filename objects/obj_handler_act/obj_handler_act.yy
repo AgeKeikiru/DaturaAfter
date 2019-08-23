@@ -995,6 +995,34 @@
             "value": "0",
             "varName": "abort",
             "varType": 3
+        },
+        {
+            "id": "1d8187ef-2f69-40b8-a401-8f526ec8f276",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "stun_chance",
+            "varType": 0
+        },
+        {
+            "id": "12baadb6-1671-43ce-a4a2-06b2c6433e0e",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "stun_onHit",
+            "varType": 3
         }
     ],
     "solid": false,

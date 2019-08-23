@@ -1,0 +1,1 @@
+scr_menu_confirmWindow("message/confirm/..","Change party to this formation?",scr_menu_social_formation_confirm_yes,scr_menu_backNoRefresh);

@@ -7,9 +7,9 @@ name = "Idol";
 desc = "Charismatic performers that make a show out of every battle. Focused on support, Idols use flashy techniques and hype to boost the abilities of their allies.";
 cName = "IDOL_" + string(global.cid++);
 
-ms_name = "Stage Presence+";
-ms_desc = "Increase time before Hype begins to fall by Lv*0.02 seconds.";
-ms_icon = spr_icon_stanceUp;
+ms_name = "Hype Meter";
+ms_desc = "Generate Hype and Aggro based on Lv by attacking to use special actions. Lowers over time.";
+ms_icon = spr_icon_stance;
 
 ss_name = "ACC+ (s)";
 ss_desc = "Slightly increase base Accuracy.";
@@ -43,12 +43,11 @@ stat_gf_rate = -.1;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Hype Meter";
-    grd_skillDesc[# _ix,_iy] = "Generate Hype and Aggro by attacking to use special actions. Lowers over time.";
-    grd_skillTooltip[# _ix,_iy] = "Gain Rate: !%";
-    grd_skillRate[# _ix,_iy] = .0001 + (.000 * DEBUG);
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_idol_hype);
-    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
+    grd_skillName[# _ix,_iy] = "Stage Presence";
+    grd_skillDesc[# _ix,_iy] = "Increase time before hype begins to fall.";
+    grd_skillTooltip[# _ix,_iy] = "Delay: !";
+    grd_skillRate[# _ix,_iy] = .2;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
     
     _iy++;
     

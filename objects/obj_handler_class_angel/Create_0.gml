@@ -7,9 +7,9 @@ name = "Angel";
 desc = "Soldiers equipped with specialized armor originally built to combat an alien threat. A multirole class, Angels use the power of light to support allies as well as crush foes.";
 cName = "ANGE_" + string(global.cid++);
 
-ms_name = "Blinding Light";
-ms_desc = "All attacks have a Lv*0.5% chance to Blind.";
-ms_icon = spr_icon_lgtUp;
+ms_name = "Angelite";
+ms_desc = "Collect holy energy from attacks to use special skills. Up to a max of Lv/6 rounded up, caps at 5.";
+ms_icon = spr_icon_stance;
 
 ss_name = "SPD+ (s)";
 ss_desc = "Slightly increase base Speed.";
@@ -34,7 +34,7 @@ stat_desynch_rate = -.15;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "TRI-DEF+";
-    grd_skillDesc[# _ix,_iy] = "Increase base M/F/S-DEF.";
+    grd_skillDesc[# _ix,_iy] = "Increase base Melee/Firearm/Spell Defense.";
     grd_skillTooltip[# _ix,_iy] = "M/F/S-Def: !";
     grd_skillIcon[# _ix,_iy] = spr_icon_triDefUp;
     
@@ -61,12 +61,11 @@ stat_desynch_rate = -.15;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Angelite";
-    grd_skillDesc[# _ix,_iy] = "Collect holy energy during battle to use special skills.";
-    grd_skillTooltip[# _ix,_iy] = "Max Angelite: !";
-    grd_skillRate[# _ix,_iy] = 1;
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_ange_angelite);
-    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
+    grd_skillName[# _ix,_iy] = "Blinding Light";
+    grd_skillDesc[# _ix,_iy] = "Attacks have a chance of inflicting Blind.";
+    grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
+    grd_skillRate[# _ix,_iy] = .06;
+    grd_skillIcon[# _ix,_iy] = spr_icon_lgtUp;
     
     _iy++;
     

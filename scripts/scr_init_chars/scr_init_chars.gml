@@ -1,10 +1,12 @@
 ds_grid_destroy(global.grd_chars);
 global.grd_chars = ds_grid_create(2,1);
 
-var SV_map;
+var
+SV_map,
+SV_o;
 
 #region //imo
-    SV_map = scr_data_char_new(CHAR_IMOLEI);
+    SV_map = scr_data_char_new(CHAR_IMOLEI,true);
     SV_map[? CHAR_VAR_NAMEFULL] = "Imo'lei Nari";
     SV_map[? CHAR_VAR_NAMEDISP] = "Imo'lei";
     SV_map[? CHAR_VAR_DESC] = "TBA";
@@ -50,7 +52,7 @@ var SV_map;
 #endregion
 
 #region //blaze
-    SV_map = scr_data_char_new(CHAR_BLAZE);
+    SV_map = scr_data_char_new(CHAR_BLAZE,true);
     SV_map[? CHAR_VAR_NAMEFULL] = "Blaze Nari";
     SV_map[? CHAR_VAR_NAMEDISP] = "Blaze";
     SV_map[? CHAR_VAR_DESC] = "TBA";
@@ -95,7 +97,7 @@ var SV_map;
 #endregion
 
 #region //aile
-    SV_map = scr_data_char_new(CHAR_AILE);
+    SV_map = scr_data_char_new(CHAR_AILE,true);
     SV_map[? CHAR_VAR_NAMEFULL] = "Aile Ferrox";
     SV_map[? CHAR_VAR_NAMEDISP] = "Aile";
     SV_map[? CHAR_VAR_DESC] = "TBA";
@@ -141,10 +143,10 @@ var SV_map;
 #endregion
 
 #region //ari
-    SV_map = scr_data_char_new(CHAR_ARI);
+    SV_map = scr_data_char_new(CHAR_ARI,true);
     SV_map[? CHAR_VAR_NAMEFULL] = "Ari Ferrox";
     SV_map[? CHAR_VAR_NAMEDISP] = "Ari";
-    SV_map[? CHAR_VAR_DESC] = "TBA";
+    SV_map[? CHAR_VAR_DESC] = "An all-rounder, Ari is swift and slightly more suited to DPS with moderate bonuses to all ATK stats, but still bulky enough to easily retool into more defensive or support roles.";
     SV_map[? CHAR_VAR_RACE] = RACE_HUMAN;
     SV_map[? CHAR_VAR_HP] = 1100 + (-0 * DEBUG);
     SV_map[? CHAR_VAR_EN] = 1000;
@@ -166,7 +168,7 @@ var SV_map;
     SV_map[? CHAR_VAR_ELE_LGT] = 10;
     SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_ari_battlePort;
     SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_ari_neutral;
-    SV_map[? CHAR_VAR_ABDO_X] = -300;
+    SV_map[? CHAR_VAR_ABDO_X] = -100;
     SV_map[? CHAR_VAR_ABDO_Y] = 130;
     SV_map[? CHAR_VAR_PSDO_ACT_X] = -180;
     SV_map[? CHAR_VAR_PSDO_ACT_Y] = -80;
@@ -177,7 +179,7 @@ var SV_map;
 #endregion
 
 #region //paprika
-    SV_map = scr_data_char_new(CHAR_PAPRIKA);
+    SV_map = scr_data_char_new(CHAR_PAPRIKA,true);
     SV_map[? CHAR_VAR_NAMEFULL] = "Paprika";
     SV_map[? CHAR_VAR_NAMEDISP] = "Paprika";
     SV_map[? CHAR_VAR_DESC] = "TBA";
@@ -225,7 +227,7 @@ var SV_map;
 #region //slime
     SV_map = scr_data_char_new(CHAR_SLIME);
     SV_map[? CHAR_VAR_NAMEFULL] = "Slime";
-    SV_map[? CHAR_VAR_NAMEDISP] = "Slime";
+    SV_map[? CHAR_VAR_NAMEDISP] = SV_map[? CHAR_VAR_NAMEFULL];
     
     SV_map[? CHAR_VAR_DESC] =
     "By and large the most widespread species of monster around the world, slimes are formed typically as a byproduct of magical processes and applications." +
@@ -262,7 +264,7 @@ var SV_map;
 #region //paraslime
     SV_map = scr_data_char_new(CHAR_PARASLIME);
     SV_map[? CHAR_VAR_NAMEFULL] = "Paraslime";
-    SV_map[? CHAR_VAR_NAMEDISP] = "Paraslime";
+    SV_map[? CHAR_VAR_NAMEDISP] = SV_map[? CHAR_VAR_NAMEFULL];
     
     SV_map[? CHAR_VAR_DESC] =
     "A subspecies of slime whose bodies appear to be almost entirely comprised of a structure very similar to that of the electric organ found in electrogenic animals." +
@@ -294,6 +296,48 @@ var SV_map;
     SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_enemy_paraslime;
     SV_map[? CHAR_VAR_ABDO_X] = 0;
     SV_map[? CHAR_VAR_ABDO_Y] = 50;
+#endregion
+
+#region //froslime
+    SV_map = scr_data_char_new(CHAR_FROSLIME);
+    SV_map[? CHAR_VAR_NAMEFULL] = "Froslime";
+    SV_map[? CHAR_VAR_NAMEDISP] = SV_map[? CHAR_VAR_NAMEFULL];
+    
+    SV_map[? CHAR_VAR_DESC] =
+    "A subspecies of slime whose bodies fluctuate freely between a semi-liquid and crystalline state." +
+    "\n" +
+    "This frozen variant is noticeably more durable, and is dangerously cold to the touch - one of the few subspecies of slime that can pose an actual threat." +
+    "\n" +
+    "Has a basic melee attack, but due to its ultra low body temperature this can inflict Slow on contact." +
+    "Additionally, when sensing danger Froslimes will often attempt to shift into a completely solid state to defend itself.";
+    
+    SV_map[? CHAR_VAR_RACE] = RACE_OOZE;
+    SV_map[? CHAR_VAR_HP] = 1200;
+    SV_map[? CHAR_VAR_MATK] = 10;
+    SV_map[? CHAR_VAR_MDEF] = 20;
+    SV_map[? CHAR_VAR_FATK] = 0;
+    SV_map[? CHAR_VAR_FDEF] = 10;
+    SV_map[? CHAR_VAR_SATK] = 0;
+    SV_map[? CHAR_VAR_SDEF] = -15;
+    SV_map[? CHAR_VAR_ACC] = -5;
+    SV_map[? CHAR_VAR_EVA] = -15;
+    SV_map[? CHAR_VAR_SPD] = -8;
+    SV_map[? CHAR_VAR_MISC] = 0;
+    SV_map[? CHAR_VAR_ELE_FIR] = -60;
+    SV_map[? CHAR_VAR_ELE_ICE] = 90;
+    SV_map[? CHAR_VAR_ELE_NAT] = 0;
+    SV_map[? CHAR_VAR_ELE_ELC] = 0;
+    SV_map[? CHAR_VAR_ELE_DRK] = 0;
+    SV_map[? CHAR_VAR_ELE_LGT] = 0;
+    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_paraslime;
+    SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_enemy_paraslime;
+    SV_map[? CHAR_VAR_ABDO_X] = 0;
+    SV_map[? CHAR_VAR_ABDO_Y] = 50;
+    
+    /*
+    barrier: def+
+    frost
+    */
 #endregion
 
 #region //minislime
@@ -494,7 +538,7 @@ var SV_map;
     SV_map[? CHAR_VAR_ABDO_Y] = 50;
 
     /*
-    razor claw: 10% proc rate
+    razor claw: wide range, 10% proc rate
     also uses [tackle], [bite]
     */
 #endregion

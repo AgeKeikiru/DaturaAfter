@@ -1,3 +1,5 @@
+global.map_flags[? FG_PROLOGUE] = false;
+
 txt_title = "HOME";
 txt_titleDesc = "Select an area";
 

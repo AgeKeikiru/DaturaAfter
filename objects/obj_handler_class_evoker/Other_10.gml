@@ -58,6 +58,8 @@ switch(cEvent){
 		    event_inherited();
 		
 			if(scr_exists(src,asset_object)){
+				src.eva += ss_level * ss_rate;
+				
 			    src.sDef += grd_skills[# 0,0] * grd_skillRate[# 0,0];
 			    src.spd += grd_skills[# 0,1] * grd_skillRate[# 0,1];
 			    src.sAtk += grd_skills[# 0,2] * grd_skillRate[# 0,2];

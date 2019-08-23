@@ -67,6 +67,8 @@ if(title){
 			case "CHIP LAB":
 				_spr = spr_npc_tear;
 				break;
+			case "SOCIAL":
+				_spr = noone;
 		}
 		
 		if(scr_exists(_spr,asset_sprite)){
@@ -655,8 +657,10 @@ if(title){
 				
 				if(scr_exists(_menu,asset_object)){
 					var
-					_memX = global.lst_activePartySlots[| _menu.menu_x],
-					_mem = global.grd_party_player[# _memX,0],
+					_memI = global.lst_activePartySlots[| _menu.menu_x],
+					_memX = _memI % 3,
+					_memY = _memI > 2,
+					_mem = global.grd_party_player[# _memX,_memY],
 					_portCenterX = 950,
 					_portCenterY = 360;
 					
@@ -1163,7 +1167,7 @@ if(title){
 		
 		#region //status portrait
 		
-			if(scr_exists(ps_portStatus,asset_object)){
+			if(scr_exists(ps_portStatus,asset_object) && txt_title == "STATUS"){
 				var
 				_menu = ds_stack_top(global.stk_menu),
 				_memX = global.lst_activePartySlots[| _menu.menu_x],
@@ -1468,13 +1472,169 @@ if(title){
 	
 	#endregion
 	
+	#region //quest screen
+	
+		if(scr_exists(ps_portStatus,asset_object) && txt_title == "QUEST"){
+			var
+			_vx = room_width,
+			_vy = room_height,
+			_vw = 550,
+			_vh = 640,
+			_va = 5;
+		
+			draw_set_color(c_dkgray);
+			draw_set_alpha(.9 * ps_portStatus.image_alpha)
+			draw_primitive_begin(pr_trianglefan);
+			
+			draw_vertex(_vx,_vy);
+			
+			_vx += -_vw * ps_portStatus.image_alpha * 1.1;
+			
+			draw_vertex(_vx,_vy);
+			
+			_vx += lengthdir_x(_vh,90 + -_va);
+			_vy += lengthdir_y(_vh,90 + -_va);
+			
+			draw_vertex(_vx,_vy);
+			
+			_vx = room_width;
+			_vy = 65;
+			
+			draw_vertex(_vx,_vy);
+			draw_vertex(room_width,room_height);
+			
+			draw_primitive_end();
+			
+			draw_set_color(c_white);
+			draw_set_alpha(ps_portStatus.image_alpha);
+			draw_set_font(ft_menuButton);
+			draw_set_halign(fa_right);
+			draw_set_valign(fa_top);
+			
+			if(!_m.submenu && _m.menu_y < ds_grid_height(_m.grd_txt) + -1){
+				var _map = _m.grd_equipSrc[# _m.menu_x,_m.menu_y];
+				
+				questDesc = scr_quest_buildDesc(_map[? Q_VAR_ID]);
+			}
+			
+			draw_text_ext(1250,160,questDesc,-1,_vw + -20);
+		}
+		
+		draw_set_color(c_white);
+		draw_set_alpha(1);
+	
+	#endregion
+	
+	#region //formation screen
+	
+		if(scr_exists(soc_formation,asset_object)){
+			var
+			_y = 500,
+			_yGap = 50,
+			_h = 50 * soc_formation.image_alpha,
+			_xGap = 25,
+			_tw = _h * 1.5,
+			_x1 = (room_width / 2) + -_xGap,
+			_x2 = (room_width / 2) + _xGap,
+			_ph = _h * 1.2,
+			_pw = 180,
+			_px,
+			_py;
+		
+			draw_set_color(c_dkgray);
+			draw_set_alpha(.95 * soc_formation.image_alpha);
+			
+			draw_rectangle(0,_y + -_h,_x1,_y + _h,false);
+			draw_triangle(_x1,_y + -_h + -1,_x1 + _tw,_y + -_h + -1,_x1,_y + _h,false);
+			
+			_y += _yGap;
+			
+			draw_rectangle(room_width,_y + -_h,_x2,_y + _h,false);
+			draw_triangle(_x2 + -1,_y + _h,_x2 + -_tw + -1,_y + _h,_x2 + -1,_y + -_h,false);
+			
+			draw_set_color(c_white);
+			draw_set_alpha(.2 * soc_formation.image_alpha);
+			draw_set_halign(fa_right);
+			draw_set_valign(fa_top);
+			draw_set_font(ft_menuTitle);
+			
+			draw_text(_x1 + (_tw * .4),_y + -_yGap + -(_h * .85),"VANGUARD");
+			
+			draw_set_halign(fa_left);
+			
+			draw_text(_x2 + 5,_y + -(_h * .85),"RESERVE");
+			
+			_y += -_yGap;
+			
+			draw_set_alpha(soc_formation.image_alpha);
+			draw_set_halign(fa_right);
+			draw_set_valign(fa_bottom);
+			draw_set_font(ft_dungeonBold);
+			_px = _x1 + -_pw;
+			_py = _y + -(_ph * .3);
+			
+			for(var _i = 2;_i >= 0;_i--){
+				draw_set_color(c_gray);
+				
+				draw_rectangle(_px,_py,_px + _pw,_py + _ph,false);
+				
+				draw_set_color(c_white);
+				
+				if(_i < ds_list_size(global.lst_newFormation)){
+					var
+					_id = global.lst_newFormation[| _i],
+					_map = scr_data_getMap(global.grd_chars,_id);
+					
+					draw_sprite_part_ext(_map[? CHAR_VAR_SPR_NEUTRAL],0,-_map[? CHAR_VAR_ABDO_X],_map[? CHAR_VAR_ABDO_Y],_pw * 2,_ph * 2,_px,_py,0.5,0.5,c_white,draw_get_alpha());
+					ktk_scr_draw_text_stroke(_px + _pw + -3,_py + _ph + 5,_map[? CHAR_VAR_NAMEDISP],c_white,c_dkgray,1,10);
+					
+					draw_rectangle(_px,_py,_px + _pw,_py + _ph,true);
+				}
+				
+				_px += -_pw + -10;
+			}
+			
+			_y += _yGap;
+			
+			draw_set_halign(fa_right);
+			draw_set_valign(fa_bottom);
+			_px = _x2;
+			_py = _y + -(_ph * .3);
+			
+			for(var _i = 3;_i < 6;_i++){
+				draw_set_color(c_gray);
+				
+				draw_rectangle(_px,_py,_px + _pw,_py + _ph,false);
+				
+				draw_set_color(c_white);
+				
+				if(_i < ds_list_size(global.lst_newFormation)){
+					var
+					_id = global.lst_newFormation[| _i],
+					_map = scr_data_getMap(global.grd_chars,_id);
+					
+					draw_sprite_part_ext(_map[? CHAR_VAR_SPR_NEUTRAL],0,-_map[? CHAR_VAR_ABDO_X],_map[? CHAR_VAR_ABDO_Y],_pw * 2,_ph * 2,_px,_py,0.5,0.5,c_white,draw_get_alpha());
+					ktk_scr_draw_text_stroke(_px + _pw + -3,_py + _ph + 5,_map[? CHAR_VAR_NAMEDISP],c_white,c_dkgray,1,10);
+					
+					draw_rectangle(_px,_py,_px + _pw,_py + _ph,true);
+				}
+				
+				_px += _pw + 10;
+			}
+		}
+		
+		draw_set_color(c_white);
+		draw_set_alpha(1);
+	
+	#endregion
+	
 	#region //title bar
 	
 		draw_set_font(ft_menuTitle);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		
-		if(scr_exists(ps_portStatus,asset_object)){
+		if(scr_exists(ps_portStatus,asset_object) && txt_title == "STATUS"){
 			txt_titleDesc = _m.grd_txt[# _m.menu_x,0];
 		}
 		

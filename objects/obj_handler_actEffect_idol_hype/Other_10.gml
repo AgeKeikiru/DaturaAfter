@@ -64,7 +64,7 @@ switch(cEvent){
 			_act = cArgs[| 2],
 			_dmg = cArgs[| 3];
 			
-			if(scr_exists(src,asset_object) && _src == src && ds_list_size(special) > 1){
+			if(scr_exists(src,asset_object) && _src == src && ds_list_size(special) > 4){
 				var
 				_add = special[| 0] * _dmg,
 				_prev = floor(charge);
@@ -88,12 +88,10 @@ switch(cEvent){
 				
 				decayDelay = room_speed * 3;
 				
-				if(CS_SRCMAINIS obj_handler_class_idol){
-					var _boost = .02 * src.level;
-					
-					decayDelay += room_speed * _boost;
-					scr_trace("[Stage Presence+] decayDelay extend: +" + string(_boost) + "sec");
-				}
+				var _boost = special[| 4];
+				
+				decayDelay += room_speed * _boost;
+				scr_trace("[Stage Presence] decayDelay extend: +" + string(_boost) + "sec");
 				
 				if(floor(charge) != _prev){
 					aggro = floor(charge);

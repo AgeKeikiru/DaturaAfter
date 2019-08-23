@@ -29,6 +29,8 @@ LeftShift - Shift Menu
 - Healing Acts now scale off of S-DEF instead of S-ATK
 - 1 new mission
 - Added visual indication of when attacks are effective/ineffective
+- Added [Gathering Hub] area
+- Changed the following acts to auto stances: [Angelite], [Mess Kit], [Hype Meter]
 
 
 ==Known Bugs==

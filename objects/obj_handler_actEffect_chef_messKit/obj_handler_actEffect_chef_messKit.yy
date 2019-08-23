@@ -9,9 +9,9 @@
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
-            "eventtype": 1,
-            "enumb": 0,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 1,
             "m_owner": "dd17f859-c2a0-41ca-bbcb-ea87d194cb39"
         },
         {
@@ -27,14 +27,7 @@
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [
-        {
-            "id": "9cafd5c4-e4a0-4688-b4c2-25391fc1e3cb",
-            "modelName": "GMOverriddenProperty",
-            "mvc": "1.0",
-            "objectId": "686631b6-c33d-4e12-8779-22070fc8ef61",
-            "propertyId": "8b513332-22ec-4de8-8fd3-c80069b83233",
-            "value": "\"Stance\""
-        }
+        
     ],
     "parentObjectId": "686631b6-c33d-4e12-8779-22070fc8ef61",
     "persistent": false,

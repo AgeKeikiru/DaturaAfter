@@ -1,0 +1,1 @@
+scr_menu_confirmWindow("message/confirm/..","Cancel changes?",scr_menu_social_formation_cancel_yes,scr_menu_backNoRefresh);

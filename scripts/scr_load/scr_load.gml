@@ -219,6 +219,19 @@ file_text_close(SV_f);
 	
 	global.map_flags = scr_data_mergeMap(global.map_flags,SV_map2);
 	scr_trace("loaded flags");
+	
+	//create active quest handlers
+	instance_destroy(obj_handler_quest_parent);
+	
+	for(var SV_i = 0;SV_i < ds_grid_height(global.grd_quests);SV_i++){
+		var
+		SV_map2 = global.grd_quests[# 1,SV_i],
+		SV_id = global.grd_quests[# 0,SV_i];
+		
+		if(global.map_flags[? Q_FG_STATUS + SV_id] == 1){
+			instance_create_depth(0,0,0,SV_map2[? Q_VAR_HANDLER]);
+		}
+	}
 
 #endregion
 
@@ -289,8 +302,7 @@ file_text_close(SV_f);
 
 #region //party
 
-    instance_destroy(obj_dungeon_battleMember);
-    ds_grid_set_region(global.grd_party_player,0,0,2,1,noone);
+    ds_grid_clear(global.grd_party_player,noone);
     
     for(var SV_i = 0;SV_i < 6;SV_i++){
         var
@@ -302,11 +314,7 @@ file_text_close(SV_f);
         SV_val = SV_map[? SV_key];
         
         if(SV_val != ""){
-            var SV_c = instance_create_depth(640 + (380 * (SV_x + -1)),650,0,obj_dungeon_battleMember);
-            
-            SV_c.src = scr_data_getMap(global.grd_chars,SV_val);
-            
-            global.grd_party_player[# SV_x,SV_y] = SV_c;
+            global.grd_party_player[# SV_x,SV_y] = global.map_chars[? SV_val];
         }
         
         
