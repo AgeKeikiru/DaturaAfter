@@ -409,15 +409,16 @@ SV_chSize = 6;
 
 #region //classes
 
+	global.cid = ds_list_size(global.lst_inv_classes);
+
 	ds_list_add(global.lst_shop_classes,
 		instance_create_depth(0,0,0,obj_handler_class_evoker),
 		instance_create_depth(0,0,0,obj_handler_class_angel),
 		instance_create_depth(0,0,0,obj_handler_class_chef),
 		instance_create_depth(0,0,0,obj_handler_class_razer),
 		instance_create_depth(0,0,0,obj_handler_class_idol),
-		instance_create_depth(0,0,0,obj_handler_class_agent)
+		instance_create_depth(0,0,0,obj_handler_class_agent),
+		instance_create_depth(0,0,0,obj_handler_class_sanctum)
 	);
-	
-	global.cid += -ds_list_size(global.lst_shop_classes);
 
 #endregion

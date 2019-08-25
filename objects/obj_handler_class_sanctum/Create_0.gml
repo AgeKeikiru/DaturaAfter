@@ -3,35 +3,24 @@
 
 event_inherited();
 
-/*
-main skill
-Shield Mastery
-decrease EN cost of shields by Lv*0.5%
-*/
-
 name = "Sanctum";
 desc = "Guardians that are second to none in terms of protecting the party. Pure tanks, Sanctums defend not only from direct damage, but all manner of threatening effects.";
 cName = "SNCT_" + string(global.cid++);
 
-/*
-skills
+ms_name = "Shield Mastery";
+ms_desc = "Shield EN Cost -Lv*0.5%";
+ms_icon = spr_icon_shdUp;
 
-[M-DEF+]
-[TRI-DEF+]
-[ALL RES+]
+ss_name = "HP+ (s)";
+ss_desc = "Slightly increase base HP.";
+ss_icon = spr_icon_hpUp;
+ss_toolTip = "HP: !";
+ss_rate = 10;
 
-[Absorber] successfully shielded attacks reduce cooldown for all allies
-[Bulwark] stance act - brace against incoming damage, increasing aggro and defense at the cost of attack power
-[Ail Riposte] while Bulwark is active, greatly reduce vulnerability to status ailments
+stat_bwDef = .1;
 
-[Synchronize] draw debuffs and ailments from allies unto yourself
-[Savior] while Bulwark is active, add a chance to take a fatal blow for a party member
-[Veil Off] remove all effects from yourself, has a chance to stun enemies based on how many effects were removed
-
-[MEL-NGT] only usable while Bulwark is active. briefly negate all melee damage to the party
-[FRM-NGT] only usable while Bulwark is active. briefly negate all firearm damage to the party
-[SPL-NGT] only usable while Bulwark is active. briefly negate all spell damage to the party
-*/
+stat_bwAtk_rate = .05;
+stat_bwAtk_base = -.6 + -stat_bwAtk_rate;
 
 #region //tier 1
 
@@ -39,21 +28,25 @@ skills
     _ix = 0,
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "LGT Res+";
-    //grd_skillDesc[# _ix,_iy] = "Decrease damage taken from Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Res: +!";
+    grd_skillName[# _ix,_iy] = "M-DEF+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Melee Defense.";
+    grd_skillTooltip[# _ix,_iy] = "M-DEF: !";
+    grd_skillIcon[# _ix,_iy] = spr_icon_mDefUp;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "TRI-DEF+";
-    //grd_skillDesc[# _ix,_iy] = "Increase Melee/Firearm/Spell Defense.";
-    //grd_skillTooltip[# _ix,_iy] = "M/F/S-Def: +!";
+    grd_skillName[# _ix,_iy] = "TRI-DEF+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Melee/Firearm/Spell Defense.";
+    grd_skillTooltip[# _ix,_iy] = "M/F/S-Def: !";
+    grd_skillIcon[# _ix,_iy] = spr_icon_triDefUp;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Light Love";
-    //grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Damage: +!";
+    grd_skillName[# _ix,_iy] = "Ele Res+";
+	grd_skillDesc[# _ix,_iy] = "Decrease damage taken from all elements.";
+	grd_skillTooltip[# _ix,_iy] = "Ele Res: !";
+	grd_skillRate[# _ix,_iy] = 2;
+	grd_skillIcon[# _ix,_iy] = spr_icon_eleRes;
 
 #endregion
 
@@ -62,24 +55,28 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Step";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Negate 1 attack, briefly increase EVA after negation.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Absorber";
+    grd_skillDesc[# _ix,_iy] = "While <Bulwark> is active, taking damage reduces active cooldowns.";
+    grd_skillTooltip[# _ix,_iy] = "CD Reduction: !";
+    grd_skillRate[# _ix,_iy] = 100;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceTimerReduceGen;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite";
-    //grd_skillDesc[# _ix,_iy] = "Stance Act. Collect holy energy during battle to use special skills.";
-    //grd_skillTooltip[# _ix,_iy] = "Max Angelite: !";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Bulwark";
+    grd_skillDesc[# _ix,_iy] = "Brace against incoming damage, increasing aggro and defense at the cost of attack power.";
+    grd_skillTooltip[# _ix,_iy] = "Aggro: !\nM/F/S-DEF: @%\nM/F/S-ATK: #%";
+    grd_skillRate[# _ix,_iy] = 1;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_snct_bulwark);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Dash";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Reset all active cooldowns.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Ail Riposte";
+    grd_skillDesc[# _ix,_iy] = "While <Bulwark> is active, greatly reduce vulnerability to status ailments by a flat rate.";
+    grd_skillTooltip[# _ix,_iy] = "Ailment Chance: !%";
+    grd_skillRate[# _ix,_iy] = -.06;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceAilProtect;
 
 #endregion
 
@@ -88,24 +85,28 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Blessing";
-    //grd_skillDesc[# _ix,_iy] = "Costs 150 Angelite. Fully restore ally allies' EN and briefly boost their stats.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Synchronize";
+    grd_skillDesc[# _ix,_iy] = "Draw debuffs and ailments from allies unto yourself.";
+    grd_skillTooltip[# _ix,_iy] = "";
+    grd_skillIcon[# _ix,_iy] = spr_icon_cycle;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_snct_synch);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost TRI";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when alternating between Melee/Firearm/Spell attacks.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Savior";
+    grd_skillDesc[# _ix,_iy] = "While <Bulwark> is active, add a chance to take a fatal blow for a party member. (NOTE: Damage taken will not be adjusted according to user's stats)";
+    grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
+    grd_skillRate[# _ix,_iy] = .1;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceKillShield;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Smite";
-    //grd_skillDesc[# _ix,_iy] = "Costs 100 Angelite. Delay the act time of all enemies and briefly reduce their Speed.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Veil Off";
+    grd_skillDesc[# _ix,_iy] = "Remove all positive and negative effects from yourself, has a chance to stun enemies based on how many effects were removed.";
+    grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
+    grd_skillRate[# _ix,_iy] = .03;
+    grd_skillIcon[# _ix,_iy] = spr_icon_shdBash;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_snct_veilOff);
 
 #endregion
 
@@ -114,23 +115,29 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Desynch";
-    //grd_skillDesc[# _ix,_iy] = "Only usable when Angelite is full. Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
-    //grd_skillTooltip[# _ix,_iy] = "Drain Rate: !";
-    //grd_skillRate[# _ix,_iy] = 1;
+    grd_skillName[# _ix,_iy] = "MEL-NGT";
+    grd_skillDesc[# _ix,_iy] = "Only usable while <Bulwark> is active. Briefly negate all Melee damage to the party.";
+    grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
+    grd_skillRate[# _ix,_iy] = .5;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceMeleeProtect;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_snct_ngtM);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost LGT";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when dealing Light damage.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "FRM-NGT";
+    grd_skillDesc[# _ix,_iy] = "Only usable while <Bulwark> is active. Briefly negate all Firearm damage to the party.";
+    grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
+    grd_skillRate[# _ix,_iy] = .5;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceFirearmProtect;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_snct_ngtF);
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Heaven's Rend";
-    //grd_skillDesc[# _ix,_iy] = "Costs 250 Angelite. Deal damage to each enemy equal to half their remaining HP (up to a maximum value) and inflict a long lasting Blind.";
-    //grd_skillTooltip[# _ix,_iy] = "Maximum Damage: !";
-    //grd_skillRate[# _ix,_iy] = 1000;
+    grd_skillName[# _ix,_iy] = "SPL-NGT";
+    grd_skillDesc[# _ix,_iy] = "Only usable while <Bulwark> is active. Briefly negate all Spell damage to the party.";
+    grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
+    grd_skillRate[# _ix,_iy] = .5;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceSpellProtect;
+    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_snct_ngtS);
 
 #endregion

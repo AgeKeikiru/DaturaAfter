@@ -8,7 +8,8 @@ if(DEBUG){
 		"\nstate_battle: " + string(_dh.state_battle) +
 		"\nstate_results: " + string(_dh.state_results) +
 		"\nmissionComplete: " + string(_dh.missionComplete) +
-		"\nmissionFailed: " + string(_dh.missionFailed);
+		"\nmissionFailed: " + string(_dh.missionFailed) +
+		"\nlootQueue size: " + string(ds_list_size(global.lst_missionLoot_queue));
 	}
 	
 	draw_set_font(ft_menuSub);

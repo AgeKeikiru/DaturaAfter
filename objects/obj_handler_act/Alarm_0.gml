@@ -23,6 +23,11 @@ if(!nonAttack){
 			_i = hitLoopRemaining + -1;
 		}
 		
+		global.tempInt = dc_tgt[| _i];
+		scr_cEvent(all,EVENT_SNCT_SAVECHECK,dc_dmgMax[| _i],id);
+		
+		dc_tgt[| _i] = global.tempInt;
+		
 		repeat(hitSimul){
 			var
 			_aimCheck = (random(1) + dc_aim[| _i]) * 100,
@@ -153,7 +158,7 @@ if(!nonAttack){
 				dc_tgt[| _i].hpCurr = clamp(dc_tgt[| _i].hpCurr,0,dc_tgt[| _i].hpMax);
 				
 				if(!_overkill && dc_tgt[| _i].hpCurr <= 0){
-					scr_cEvent(all,EVENT_BATTLE_ENEMYKILLED,src,dc_tgt[| _i]);
+					scr_cEvent(all,EVENT_BATTLE_ENEMYKILLED,src,dc_tgt[| _i],id);
 				}
 				
 				var _tgt = eSelf_hit ? src : dc_tgt[| _i];
@@ -180,7 +185,7 @@ if(!nonAttack){
 				scr_cEvent(all,EVENT_BATTLE_MISS,src,dc_tgt[| _i],id);
 			}
 			
-			var _recoil = recoil + ceil((src.ailment[CHAR_SA_BRN] > 0) * _dmg * .5);
+			var _recoil = recoil + ceil((src.ailment[CHAR_SA_BRN] > 0) * _dmg * .5 * _hit);
 			
 			if(_recoil > 0){
 				src.hpCurr += -_recoil;

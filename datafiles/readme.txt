@@ -23,6 +23,7 @@ LeftShift - Shift Menu
 =v0.1.1=
 - Added [Minimap Size] and [Camera Distance] options to further improve performance during missions for lower end machines
 - New character: Ari
+- New class: Agent, Sanctum
 - Title screen now defaults to load game when a save file is detected
 - Added item selling in the Change Equipment menu
 - Added a new [Agile] property for Acts: Acts with this property are completely independant from global cooldowns

@@ -588,6 +588,10 @@
 	
 	#macro EVENT_ANGE_ANGELITEGAINMOD "event_ange_angeliteGainMod"
 	
+	#macro EVENT_AGNT_FSCHECK "event_agnt_fsCheck"
+	
+	#macro EVENT_SNCT_SAVECHECK "event_snct_saveCheck"
+	
 	#macro EVENT_CHEF_ADDFOOD "event_chef_addFood"
 	
 	#macro EVENT_EFFECT_STANCEDRAW "event_effect_stanceDraw"

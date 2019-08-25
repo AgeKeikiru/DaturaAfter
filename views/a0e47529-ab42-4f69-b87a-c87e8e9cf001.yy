@@ -18,7 +18,8 @@
         "4c9d8c61-d044-41fa-be3d-23c7fb0875f8",
         "a58e9682-6d41-480f-9c1c-a15324644400",
         "ff5d34bc-253e-471e-805a-0ef78efb0b38",
-        "73c51fda-5afc-4f84-a46a-9adee517f6ca"
+        "73c51fda-5afc-4f84-a46a-9adee517f6ca",
+        "7c113517-ffb3-492a-8cb9-6764bbbcff7d"
     ],
     "filterType": "GMSprite",
     "folderName": "enemySkill",

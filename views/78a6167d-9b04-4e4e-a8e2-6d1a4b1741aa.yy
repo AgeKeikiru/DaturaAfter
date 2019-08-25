@@ -25,7 +25,11 @@
         "395a39ee-cd80-4667-8c91-c1649e7ecb55",
         "c52c3166-f876-47ac-abff-1c129f588e52",
         "c4c9804b-1fda-496e-b061-a77e401af965",
-        "7a1e05d4-cb3d-47c6-bf5f-5377b0205231"
+        "7a1e05d4-cb3d-47c6-bf5f-5377b0205231",
+        "5c4a3a8c-3a76-4a87-a7d1-c4db1fd86ea1",
+        "d57fbae5-fa89-4fc3-9c60-1184569a69ce",
+        "8df45ba4-8b5a-47b7-9737-29f3dae2ddaf",
+        "30e80b41-d33b-49fd-a507-358caebd3af2"
     ],
     "filterType": "GMSprite",
     "folderName": "allySkill",

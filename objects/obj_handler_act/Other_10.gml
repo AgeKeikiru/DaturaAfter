@@ -7,6 +7,8 @@ switch(cEvent){
 			if(!scr_exists(src,asset_object)){
 				exit;
 			}
+			
+			scr_cEvent(all,EVENT_AGNT_FSCHECK,src,id);
 		
 			#region //special act effects
 				if(type == WTAG_TYPE_PAN || type == WTAG_TYPE_SLG){

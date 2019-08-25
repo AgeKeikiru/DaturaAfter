@@ -52,7 +52,18 @@ switch(cEvent){
 					scr_act_createEffect(obj_handler_actEffect_agnt_sTrap_counter,1,global.tempInt,0,false,special);
 				}
 				
+				_src.hurtShake = 1;
+				
 				scr_createSpark(_src.x,_src.y,spr_spark_bash,"");
+				
+				global.tempInt = src;
+				
+				with obj_handler_act_agnt_capture{
+					if(src == global.tempInt){
+						cdCurr--;
+						cdCurr = max(cdCurr,0);
+					}
+				}
 				
 				instance_destroy();
 			}

@@ -11,9 +11,8 @@ en cost/cd balance
 fix special food cooldown
 add burn secondary effect
 2 new missions
-add agent
-add sanctum
-add tempAgile property
+fix smoke spark
+add buff/debuff sparks
 
 investigate crash after idling on mission clear screen (noticed on tree mission)
 
