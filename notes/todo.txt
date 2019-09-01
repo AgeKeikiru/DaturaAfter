@@ -7,12 +7,13 @@ add bestiary
 add stat preview in shop
 buff demoBoss
 en cost/cd balance
+add item usage
 
-fix special food cooldown
 add burn secondary effect
-2 new missions
-fix smoke spark
-add buff/debuff sparks
+1 new mission
+add explore (change to simulator) functionality
+add difficultTerrain effect
+add silence effect
 
 investigate crash after idling on mission clear screen (noticed on tree mission)
 

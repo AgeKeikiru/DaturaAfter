@@ -1,7 +1,13 @@
 var
 SV_pool = ds_list_create(),
 SV_chunk = ds_list_create(),
-SV_chSize = 4;
+SV_chSize = 4,
+SV_rare = 0;
+
+//check progress flags to determine max weapon rank to sell
+if(DEBUG){
+	SV_rare = 5;
+}
 
 //clear previous shop inv
 while(ds_list_size(global.lst_shop_acts) > 0){
@@ -75,7 +81,6 @@ ds_list_clear(global.lst_shop_items);
         while(ds_list_size(SV_chunk) > 0){
             var
             SV_plus = 0,
-            SV_rare = 0,
             SV_ele = "";
             
             while(random(1) < .4 && SV_plus < 5){
@@ -86,7 +91,7 @@ ds_list_clear(global.lst_shop_items);
                 SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
             }
             
-            var SV_item = scr_data_act_new(SV_chunk[| 0],SV_ele,SV_rare,SV_plus);
+            var SV_item = scr_data_act_new(SV_chunk[| 0],SV_ele,irandom(SV_rare),SV_plus);
             
             ds_list_add(global.lst_shop_acts,SV_item);
             
@@ -150,7 +155,6 @@ ds_list_clear(global.lst_shop_items);
         while(ds_list_size(SV_chunk) > 0){
             var
             SV_plus = 0,
-            SV_rare = 0,
             SV_ele = "";
             
             while(random(1) < .4 && SV_plus < 5){
@@ -161,7 +165,7 @@ ds_list_clear(global.lst_shop_items);
                 SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
             }
             
-            var SV_item = scr_data_act_new(SV_chunk[| 0],SV_ele,SV_rare,SV_plus);
+            var SV_item = scr_data_act_new(SV_chunk[| 0],SV_ele,irandom(SV_rare),SV_plus);
             
             ds_list_add(global.lst_shop_acts,SV_item);
             
@@ -225,7 +229,6 @@ ds_list_clear(global.lst_shop_items);
         while(ds_list_size(SV_chunk) > 0){
             var
             SV_plus = 0,
-            SV_rare = 0,
             SV_ele = "";
             
             while(random(1) < .4 && SV_plus < 5){
@@ -236,7 +239,7 @@ ds_list_clear(global.lst_shop_items);
                 SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
             }
             
-            var SV_item = scr_data_act_new(SV_chunk[| 0],SV_ele,SV_rare,SV_plus);
+            var SV_item = scr_data_act_new(SV_chunk[| 0],SV_ele,irandom(SV_rare),SV_plus);
             
             ds_list_add(global.lst_shop_acts,SV_item);
             
@@ -284,14 +287,13 @@ ds_list_clear(global.lst_shop_items);
         while(ds_list_size(SV_chunk) > 0){
             var
             SV_plus = 0,
-            SV_rare = 0,
             SV_ele = "";
             
             while(random(1) < .4 && SV_plus < 5){
                 SV_plus++;
             }
             
-            var SV_item = scr_data_act_new(SV_chunk[| 0],SV_ele,SV_rare,SV_plus);
+            var SV_item = scr_data_act_new(SV_chunk[| 0],SV_ele,irandom(SV_rare),SV_plus);
             
             ds_list_add(global.lst_shop_acts,SV_item);
             
@@ -352,14 +354,13 @@ SV_chSize = 6;
     //add item chunk to shop inventory
     while(ds_list_size(SV_chunk) > 0){
         var
-        SV_plus = 0,
-        SV_rare = 0;
+        SV_plus = 0;
         
         while(random(1) < .4 && SV_plus < 5){
             SV_plus++;
         }
         
-        var SV_item = scr_data_armor_new(SV_chunk[| 0],SV_rare,SV_plus);
+        var SV_item = scr_data_armor_new(SV_chunk[| 0],irandom(SV_rare),SV_plus);
         
         ds_list_add(global.lst_shop_arms,SV_item);
         

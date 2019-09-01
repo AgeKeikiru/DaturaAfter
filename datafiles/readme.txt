@@ -28,7 +28,7 @@ LeftShift - Shift Menu
 - Added item selling in the Change Equipment menu
 - Added a new [Agile] property for Acts: Acts with this property are completely independant from global cooldowns
 - Healing Acts now scale off of S-DEF instead of S-ATK
-- 1 new mission
+- 3 new missions
 - Added visual indication of when attacks are effective/ineffective
 - Added [Gathering Hub] area
 - Changed the following acts to auto stances: [Angelite], [Mess Kit], [Hype Meter]
@@ -52,8 +52,5 @@ LeftShift - Shift Menu
 
 
 ==Plans for Next Update==
-- EN Cost/Cooldown balancing
 - Nerf Imo'lei base F-ATK
-- Changes to Idol/Angel/Chef stance skills
 - Add option to change "Battle:Untarget" key to mimic "Battle:MiddleTarget" key function
-- Add ability to sell equipment

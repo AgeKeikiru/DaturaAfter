@@ -80,6 +80,14 @@
             "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
             "propertyId": "f6bfe201-c1b7-4319-98fd-026927368817",
             "value": "CHAR_VAR_ELE_FIR"
+        },
+        {
+            "id": "c4d83213-fe3f-49b0-8c10-d583332c56f4",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
+            "propertyId": "9108255f-bcc6-443a-9277-96977cecaf31",
+            "value": "spr_spark_dot"
         }
     ],
     "parentObjectId": "db25dc73-975c-455a-8673-2282d60439d6",

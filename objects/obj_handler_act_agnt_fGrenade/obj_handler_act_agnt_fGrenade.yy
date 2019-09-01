@@ -66,14 +66,6 @@
             "value": "ACT_TGT_WIDE"
         },
         {
-            "id": "6aef9f2e-c3e1-4569-b24f-03a68717d00f",
-            "modelName": "GMOverriddenProperty",
-            "mvc": "1.0",
-            "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
-            "propertyId": "39ab41dd-2a7a-484b-b231-6b3ea03a0d22",
-            "value": "spr_spark_smoke"
-        },
-        {
             "id": "ee722664-44d4-4a40-95a2-09c0a418d9c6",
             "modelName": "GMOverriddenProperty",
             "mvc": "1.0",

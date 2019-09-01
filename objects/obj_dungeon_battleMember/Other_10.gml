@@ -136,6 +136,85 @@ switch(cEvent){
 								
 								break;
 						#endregion
+						
+						#region //froslime
+							case CHAR_FROSLIME:
+								act[0] = scr_data_act_new(EACT_TACKLE);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(EACT_TACKLE);
+								act[1].src = id;
+								
+								act[2] = scr_data_act_new(EACT_FROSTACKLE);
+								act[2].src = id;
+								
+								break;
+						#endregion
+						
+						#region //wolfeant
+							case CHAR_WOLFEANT:
+								act[0] = scr_data_act_new(EACT_TACKLE);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(EACT_BITE);
+								act[1].src = id;
+								
+								act[2] = scr_data_act_new(EACT_RAZORCLAW);
+								act[2].src = id;
+								
+								break;
+						#endregion
+						
+						#region //mine
+							case CHAR_ARCMINE:
+								act[0] = scr_data_act_new(EACT_DETONATE);
+								act[0].src = id;
+								
+								break;
+						#endregion
+						
+						#region //liConduit
+							case CHAR_LICONDUIT:
+								act[0] = scr_data_act_new(EACT_LIFESTIM);
+								act[0].src = id;
+								
+								break;
+						#endregion
+						
+						#region //atConduit
+							case CHAR_ATCONDUIT:
+								act[0] = scr_data_act_new(EACT_BLASTSTIM);
+								act[0].src = id;
+								
+								break;
+						#endregion
+						
+						#region //dfConduit
+							case CHAR_DFCONDUIT:
+								act[0] = scr_data_act_new(EACT_GUARDSTIM);
+								act[0].src = id;
+								
+								break;
+						#endregion
+						
+						#region //gunnerDrone
+							case CHAR_GUNNERDRONE:
+								act[0] = scr_data_act_new(EACT_SVULCAN);
+								act[0].src = id;
+								
+								break;
+						#endregion
+						
+						#region //flamerDrone
+							case CHAR_FLAMERDRONE:
+								act[0] = scr_data_act_new(EACT_FIREBALL);
+								act[0].src = id;
+								
+								act[1] = scr_data_act_new(EACT_FLAMESWEEP);
+								act[1].src = id;
+								
+								break;
+						#endregion
 							
 						#region //bleeding bullet
 							case CHAR_BLEEDINGBULLET:

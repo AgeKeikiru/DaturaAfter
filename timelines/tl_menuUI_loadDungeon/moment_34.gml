@@ -31,7 +31,7 @@ if(load_step = 0){
 load_step++;
 
 var
-SV_x = 1000,
+SV_x = 1100,
 SV_yStart = 95,
 SV_yGap = 95;
 

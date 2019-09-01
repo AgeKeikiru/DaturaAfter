@@ -171,6 +171,7 @@ switch(cEvent){
 			_act = cArgs[| 2];
 			
 			if(CS_SRCSTANCEIS obj_handler_actEffect_snct_bulwark && _tgt == src){
+				var _x = 1,_y = 2;
 				global.tempFloat += grd_skills[# _x,_y] * grd_skillRate[# _x,_y];
 			}
 			
@@ -188,7 +189,7 @@ switch(cEvent){
 			_y = 1,
 			_proc = !DEBUG ? (grd_skills[# _x,_y] * grd_skillRate[# _x,_y]) : 1;
 			
-			if(CS_SRCSTANCEIS obj_handler_actEffect_snct_bulwark && global.tempInt != src && _act.tgtEnemy && _dmg >= global.tempInt.hpCurr && random(1) < _proc){
+			if(CS_SRCSTANCEIS obj_handler_actEffect_snct_bulwark && global.tempInt != src && _act.tgtEnemy && _dmg >= global.tempInt.hpCurr && global.tempInt.allyParty == src.allyParty && random(1) < _proc){
 				scr_createEffectTxt(global.tempInt,"PROTECT");
 				
 				global.tempInt = src;

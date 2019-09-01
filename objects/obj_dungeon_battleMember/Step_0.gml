@@ -102,100 +102,113 @@ if(hpCurr > 0){
 	}
 	
 	if(enemyWait > 0){
-		var _spd = spd;
-		
-		global.tempFloat = 0;
-		scr_cEvent(all,EVENT_BATTLE_SPDMOD,id);
-		_spd += abs(spd) * global.tempFloat;
-		
-		_spd = max(_spd,-99);
-		
-		enemyWait += -scr_timeMod((100 + _spd) / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3)));
-	
-		if(enemyWait <= 0){
-			var
-			_act = act[0],
-			_aggroHi = -99,
-			_aggroIndex = -1,
-			_tgts = ds_list_create();
+		#region //enemy act
+			var _spd = spd;
 			
-			//determine act to use
-			switch src[? CHAR_VAR_ID]{
-				default:
-					var lst_acts = ds_list_create();
+			global.tempFloat = 0;
+			scr_cEvent(all,EVENT_BATTLE_SPDMOD,id);
+			_spd += abs(spd) * global.tempFloat;
+			
+			_spd = max(_spd,-99);
+			
+			enemyWait += -scr_timeMod((100 + _spd) / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3)));
+		
+			if(enemyWait <= 0){
+				var
+				_act = act[0],
+				_aggroHi = -99,
+				_aggroIndex = -1,
+				_tgts = ds_list_create();
+				
+				//determine act to use
+				switch src[? CHAR_VAR_ID]{
+					#region //wolfeant
+						case CHAR_WOLFEANT:
+							if(random(1) < .2){
+								_act = act[2];
+							}else{
+								_act = act[choose(0,1)];
+							}
+							
+							break;
+					#endregion
 					
-					for(var _i = 0;_i < 8;_i++){
-						if(scr_exists(act[_i],asset_object)){
-							ds_list_add(lst_acts,act[_i]);
+					default:
+						var lst_acts = ds_list_create();
+						
+						for(var _i = 0;_i < 8;_i++){
+							if(scr_exists(act[_i],asset_object)){
+								ds_list_add(lst_acts,act[_i]);
+							}
+						}
+						
+						ds_list_shuffle(lst_acts);
+						
+						if(ds_list_size(lst_acts) > 0){
+							_act = lst_acts[| 0];
+						}
+						
+						break;
+				}
+				
+				ds_list_add(_tgts,
+					0,
+					1,
+					2
+				);
+				
+				for(var _i = 0;_i < 3;_i++){
+					var _obj = global.grd_party_player[# _i,0];
+					
+					if(scr_exists(_obj,asset_object) && _obj.hpCurr > 0){
+						repeat(abs(_obj.aggro)){
+							if(_obj.aggro > 0){
+								ds_list_add(_tgts,_i);
+							}else{
+								ds_list_add(_tgts,(_i + 1) mod 3,(_i + 2) mod 3);
+							}
+						}
+						
+						if(_obj.aggro > _aggroHi){
+							_aggroHi = _obj.aggro;
+							_aggroIndex = _i;
 						}
 					}
-					
-					ds_list_shuffle(lst_acts);
-					
-					if(ds_list_size(lst_acts) > 0){
-						_act = lst_acts[| 0];
-					}
-					
-					break;
-			}
-			
-			ds_list_add(_tgts,
-				0,
-				1,
-				2
-			);
-			
-			for(var _i = 0;_i < 3;_i++){
-				var _obj = global.grd_party_player[# _i,0];
+				}
 				
-				if(scr_exists(_obj,asset_object) && _obj.hpCurr > 0){
-					repeat(abs(_obj.aggro)){
-						if(_obj.aggro > 0){
-							ds_list_add(_tgts,_i);
-						}else{
-							ds_list_add(_tgts,(_i + 1) mod 3,(_i + 2) mod 3);
-						}
-					}
-					
-					if(_obj.aggro > _aggroHi){
-						_aggroHi = _obj.aggro;
-						_aggroIndex = _i;
+				if(_aggroIndex != -1){
+					repeat(1){
+						ds_list_add(_tgts,_aggroIndex);
 					}
 				}
-			}
-			
-			if(_aggroIndex != -1){
-				repeat(1){
-					ds_list_add(_tgts,_aggroIndex);
-				}
-			}
-			
-			ds_list_shuffle(_tgts);
-			
-			var _obj;
-			
-			do{
-				scr_trace(scr_list_toString(_tgts));
 				
-				tgtIndex = _tgts[| 0];
-				ds_list_delete(_tgts,0);
-				_obj = global.grd_party_player[# tgtIndex,0];
-			}until(
-				(scr_exists(_obj,asset_object) && _obj.hpCurr > 0)
-				|| ds_list_size(_tgts) == 0
-			)
-		
-			enemyWait = UNIVERSAL_COOLDOWN;
-		
-			if(instance_exists(_act)){
-				enemyWait += _act.cdAdd * 100;
+				ds_list_shuffle(_tgts);
+				
+				var _obj;
+				
+				do{
+					scr_trace(scr_list_toString(_tgts));
+					
+					tgtIndex = _tgts[| 0];
+					ds_list_delete(_tgts,0);
+					_obj = global.grd_party_player[# tgtIndex,0];
+				}until(
+					(scr_exists(_obj,asset_object) && _obj.hpCurr > 0)
+					|| ds_list_size(_tgts) == 0
+				)
 			
-				scr_cEvent(_act,EVENT_ACT_USE);
+				enemyWait = UNIVERSAL_COOLDOWN;
+			
+				if(instance_exists(_act)){
+					enemyWait += _act.cdAdd * 100;
+				
+					scr_cEvent(_act,EVENT_ACT_USE);
+				}
+			
+				enemyWaitMax = enemyWait;
 			}
-		
-			enemyWaitMax = enemyWait;
 		}
-	}
+	#endregion
 }else if(allyParty == global.grd_party_enemy && instance_number(obj_fpo_actBanner) == 0){
 	globalvar G_tmp;
 	G_tmp = true;

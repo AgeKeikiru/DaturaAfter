@@ -114,10 +114,10 @@ var SV_map;
 		SV_map[? MSN_VAR_PAR_TIME_C] = SV_map[? MSN_VAR_PAR_TIME_S];
 	}
 	
-	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;
-	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 20;
+	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 20;
+	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 50;
 	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
-	SV_map[? MSN_VAR_LOOT_RANKMAX] = 0;
+	SV_map[? MSN_VAR_LOOT_RANKMAX] = 2;
 	/*
 	Congratulations, Loewi's guild hall was impressed by your performance, and is asking for your help again.
 	A small company of spies are reported to be on the next train out of North Loewi, and our client is requesting that you dispose of them.
@@ -213,6 +213,46 @@ var SV_map;
 
 #endregion
 
+#region //vCanal_02
+	
+	SV_map = scr_data_mission_new(MSN_VCANAL_02);
+	SV_map[? MSN_VAR_NAME] = "Control Center Test Exercise";
+	SV_map[? MSN_VAR_CLIENT] = "AG Venus";
+	SV_map[? MSN_VAR_REWARD] = 3200;
+	SV_map[? MSN_VAR_OPNAME] = "Pop Quiz";
+	SV_map[? MSN_VAR_OPFOR] = "Defense System";
+	SV_map[? MSN_VAR_ESR] = "60%";
+	SV_map[? MSN_VAR_DESC_LOC] = "Venus Canal";
+	SV_map[? MSN_VAR_DESC_TGT] = "N/A";
+	SV_map[? MSN_VAR_DESC_OBJ] = "Reach control center";
+	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_vCanal_02_intro;
+	SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_vCanal_02_outro;
+	SV_map[? MSN_VAR_FAIL_DIA] = scr_dia_build_vCanal_02_outro;
+	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_vCanal_02_brief;
+	SV_map[? MSN_VAR_MAP_SPR] = spr_map_vCanal_01;
+	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_vCanal_02;
+	SV_map[? MSN_VAR_BGM] = "subway";
+	
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((6 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((10 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_DMG_S] = 45000;
+	SV_map[? MSN_VAR_PAR_DMG_C] = 20000;
+	
+	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 20;
+	SV_map[? MSN_VAR_LOOT_GOLDMAX] = 50;
+	SV_map[? MSN_VAR_LOOT_RANKMIN] = 0;
+	SV_map[? MSN_VAR_LOOT_RANKMAX] = 3;
+	
+	
+	/*
+	evil summoner wants to take over control room sending enemy force, be wary of the canal's poor visibility
+	
+	--after interacting with the event tile, the enemy force appears (triggers battle with 6 candywing, 3 slime, 3 paraslime)
+	--low visibility affects map tile reveal radius and accuracy in battle
+	*/
+
+#endregion
+
 #region //nabTundra_01 (horwick)
 	
 	SV_map = scr_data_mission_new(MSN_NABTUNDRA_01);
@@ -225,16 +265,16 @@ var SV_map;
 	SV_map[? MSN_VAR_DESC_LOC] = "Naiboros Tundra";
 	SV_map[? MSN_VAR_DESC_TGT] = "Cargo Crate (x5)";
 	SV_map[? MSN_VAR_DESC_OBJ] = "Destroy all targets";
-	//SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_nLoewi_01_cut01;
-	//SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_nLoewi_01_cut01;
+	SV_map[? MSN_VAR_INTRO_DIA] = scr_dia_build_nTundra_01_intro;
+	SV_map[? MSN_VAR_OUTRO_DIA] = scr_dia_build_nTundra_01_outro;
 	SV_map[? MSN_VAR_DESC_SCR] = scr_dia_build_nTundra_01_brief;
-	//SV_map[? MSN_VAR_MAP_SPR] = spr_map_nLoewi_01;
-	//SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nLoewi_01;
-	//SV_map[? MSN_VAR_BGM] = "subway";
+	SV_map[? MSN_VAR_MAP_SPR] = spr_map_nTundra_01;
+	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_nTundra_01;
+	SV_map[? MSN_VAR_BGM] = "tundra";
 	
-	SV_map[? MSN_VAR_PAR_TIME_S] = ((6 * 60) + 0) * room_speed;
-	SV_map[? MSN_VAR_PAR_TIME_C] = ((10 * 60) + 0) * room_speed;
-	SV_map[? MSN_VAR_PAR_DMG_S] = 45000;
+	SV_map[? MSN_VAR_PAR_TIME_S] = ((5 * 60) + 20) * room_speed;
+	SV_map[? MSN_VAR_PAR_TIME_C] = ((7 * 60) + 0) * room_speed;
+	SV_map[? MSN_VAR_PAR_DMG_S] = 40000;
 	SV_map[? MSN_VAR_PAR_DMG_C] = 20000;
 	
 	SV_map[? MSN_VAR_LOOT_GOLDMIN] = 10;

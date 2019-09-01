@@ -352,12 +352,12 @@ switch(SV_type){
 			SV_r.icon = spr_icon_lmg;
 			SV_r.tgtType = ACT_TGT_RANDOM;
 			SV_r.basePrice *= 2;
-			SV_r.enBase *= 3;
-			SV_r.cdBase *= 10;
+			SV_r.enBase *= 5;
+			SV_r.cdBase *= 15;
 			SV_r.basePwr *= 1.2;
-			SV_r.acc *= .7;
-			SV_r.hitCount = 10;
-			SV_r.hitGap *= .2;
+			SV_r.acc *= .6;
+			SV_r.hitCount = 8;
+			SV_r.hitGap *= .4;
 			SV_r.atkScale = CHAR_VAR_FATK;
 			SV_r.defScale = CHAR_VAR_FDEF;
 			SV_r.spark_hit = spr_spark_shoot;
@@ -912,6 +912,26 @@ switch(SV_type){
 				
 				break;
 		#endregion
+		
+		#region //frostackle
+			case EACT_FROSTACKLE:
+				SV_r.baseName = "Freeze Tackle";
+				SV_r.desc = "Brute force attack. Unreliable, but has a moderate chance to slow.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 2;
+				SV_r.basePwr *= .8;
+				SV_r.acc *= .75;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_bash;
+				SV_r.ele = CHAR_VAR_ELE_ICE;
+				SV_r.sa_inflict[| CHAR_SA_SLW] = 5;
+				SV_r.sa_chance[| CHAR_SA_SLW] = .6;
+				
+				break;
+		#endregion
 			
 		#region //bite
 			case EACT_BITE:
@@ -926,6 +946,23 @@ switch(SV_type){
 				SV_r.atkScale = CHAR_VAR_MATK;
 				SV_r.defScale = CHAR_VAR_MDEF;
 				SV_r.spark_hit = spr_spark_pierce;
+				
+				break;
+		#endregion
+		
+		#region //razor claw
+			case EACT_RAZORCLAW:
+				SV_r.baseName = "Razor Claw";
+				SV_r.desc = "Swift Melee attack. Powerful, and has a wide range.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 2;
+				SV_r.basePwr *= 2;
+				SV_r.acc *= .85;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_slash;
 				
 				break;
 		#endregion
@@ -982,6 +1019,147 @@ switch(SV_type){
 				SV_r.defScale = CHAR_VAR_SDEF;
 				SV_r.spark_hit = spr_spark_bash;
 				SV_r.ele = CHAR_VAR_ELE_LGT;
+				
+				break;
+		#endregion
+		
+		#region //detonate
+			case EACT_DETONATE:
+				SV_r.baseName = "Detonate";
+				SV_r.desc = "A kamikaze attack that deals moderate Spell damage to all enemies.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 1;
+				SV_r.basePwr *= 3;
+				SV_r.acc *= 99;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_SATK;
+				SV_r.defScale = CHAR_VAR_SDEF;
+				SV_r.spark_hit = spr_spark_bash;
+				SV_r.spark_end = spr_spark_smoke;
+				SV_r.ele = CHAR_VAR_ELE_FIR;
+				SV_r.tgtType = ACT_TGT_WIDE;
+				
+				break;
+		#endregion
+		
+		#region //sVulcan
+			case EACT_SVULCAN:
+				SV_r.baseName = "S. Vulcan";
+				SV_r.desc = "A quick volley of weak but accurate bullets.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 1;
+				SV_r.basePwr *= .3;
+				SV_r.acc *= .7;
+				SV_r.hitCount = 4;
+				SV_r.hitGap *= .7;
+				SV_r.atkScale = CHAR_VAR_FATK;
+				SV_r.defScale = CHAR_VAR_FDEF;
+				SV_r.spark_hit = spr_spark_shoot;
+				
+				break;
+		#endregion
+		
+		#region //fireball
+			case EACT_FIREBALL:
+				SV_r.baseName = "Fireball";
+				SV_r.desc = "A powerful blast of fire, moderate chance to burn.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 1;
+				SV_r.basePwr *= 1.5;
+				SV_r.acc *= .8;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_SATK;
+				SV_r.defScale = CHAR_VAR_SDEF;
+				SV_r.spark_hit = spr_spark_bash;
+				SV_r.ele = CHAR_VAR_ELE_FIR;
+				SV_r.sa_inflict[| CHAR_SA_BRN] = 6;
+				SV_r.sa_chance[| CHAR_SA_BRN] = .5;
+				
+				break;
+		#endregion
+		
+		#region //flameSweep
+			case EACT_FLAMESWEEP:
+				SV_r.baseName = "Flame Sweep";
+				SV_r.desc = "A wide range stream of fire, low chance to burn.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 2;
+				SV_r.basePwr *= .3;
+				SV_r.acc *= .75;
+				SV_r.hitCount = 3;
+				SV_r.hitGap *= .8;
+				SV_r.atkScale = CHAR_VAR_SATK;
+				SV_r.defScale = CHAR_VAR_SDEF;
+				SV_r.spark_hit = spr_spark_bash;
+				SV_r.ele = CHAR_VAR_ELE_FIR;
+				SV_r.sa_inflict[| CHAR_SA_BRN] = 6;
+				SV_r.sa_chance[| CHAR_SA_BRN] = .1;
+				SV_r.tgtType = ACT_TGT_WIDE;
+				
+				break;
+		#endregion
+		
+		#region //lifeStim
+			case EACT_LIFESTIM:
+				SV_r.baseName = "Lifestim";
+				SV_r.desc = "Slightly restores the HP of all party members.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 3;
+				SV_r.basePwr *= 2;
+				SV_r.acc = 999;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_SATK;
+				SV_r.defScale = CHAR_VAR_SDEF;
+				SV_r.spark_hit = spr_spark_dot;
+				SV_r.tgtType = ACT_TGT_WIDE;
+				SV_r.tgtEnemy = false;
+				
+				break;
+		#endregion
+		
+		#region //atkStim
+			case EACT_BLASTSTIM:
+				SV_r.baseName = "Blaststim";
+				SV_r.desc = "Slightly increases the ATK of all party members.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 3;
+				SV_r.basePwr *= 0;
+				SV_r.acc = 999;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_dot;
+				SV_r.tgtType = ACT_TGT_WIDE;
+				SV_r.tgtEnemy = false;
+				SV_r.effect_start = obj_handler_actEffect_stim;
+				ds_list_clear(SV_r.special);
+				ds_list_add(SV_r.special,true);
+				
+				break;
+		#endregion
+		
+		#region //defStim
+			case EACT_GUARDSTIM:
+				SV_r.baseName = "Guardstim";
+				SV_r.desc = "Slightly increases the DEF of all party members.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 3;
+				SV_r.basePwr *= 0;
+				SV_r.acc = 999;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_dot;
+				SV_r.tgtType = ACT_TGT_WIDE;
+				SV_r.tgtEnemy = false;
+				SV_r.effect_start = obj_handler_actEffect_stim;
+				ds_list_clear(SV_r.special);
+				ds_list_add(SV_r.special,false);
 				
 				break;
 		#endregion

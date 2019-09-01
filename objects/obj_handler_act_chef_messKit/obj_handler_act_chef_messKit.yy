@@ -9,9 +9,9 @@
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
-            "eventtype": 0,
-            "enumb": 0,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
             "m_owner": "78b936fc-a0e9-40a4-8f6d-3f458cb954de"
         }
     ],
@@ -72,6 +72,14 @@
             "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
             "propertyId": "ccfaef45-565c-4e6d-b8c1-a1e09e3eec90",
             "value": "ACT_TGT_SELF"
+        },
+        {
+            "id": "43f912bb-e242-4ebe-9006-c703afe28d69",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
+            "propertyId": "9108255f-bcc6-443a-9277-96977cecaf31",
+            "value": "spr_spark_dot"
         }
     ],
     "parentObjectId": "db25dc73-975c-455a-8673-2282d60439d6",

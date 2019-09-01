@@ -92,6 +92,14 @@
             "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
             "propertyId": "0badd2ea-7e62-458f-94eb-86204334cdcf",
             "value": "True"
+        },
+        {
+            "id": "df392098-6722-4a6c-beff-077a8002e59d",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
+            "propertyId": "9108255f-bcc6-443a-9277-96977cecaf31",
+            "value": "spr_spark_dot"
         }
     ],
     "parentObjectId": "db25dc73-975c-455a-8673-2282d60439d6",

@@ -15,6 +15,10 @@ switch(cEvent){
 				repeat(10){
 					scr_getLootRandom();
 				}
+				
+				if(scr_exists(src,asset_object)){
+				    scr_createSpark(src.x,src.y,spr_spark_dot,"");
+				}
 			}
 			
 			break;

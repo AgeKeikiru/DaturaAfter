@@ -10,7 +10,15 @@ SV_tgt = argument1,
 SV_type = argument2,
 SV_chance = argument3,
 SV_duration = argument4,
-SV_rng = random(1);
+SV_rng = random(1),
+SV_eles = [
+    CHAR_VAR_ELE_FIR,
+    CHAR_VAR_ELE_ICE,
+    CHAR_VAR_ELE_NAT,
+    CHAR_VAR_ELE_ELC,
+    CHAR_VAR_ELE_DRK,
+    CHAR_VAR_ELE_LGT
+];
 
 global.tempFloat = 0;
 global.tempInt = 0;
@@ -23,6 +31,9 @@ if(scr_exists(SV_tgt,asset_object)){
     
     if(SV_rng < SV_chance){
         SV_tgt.ailment[SV_type] += room_speed * (SV_duration + irandom(5));
+        
+        scr_createSpark(SV_tgt.x,SV_tgt.y,spr_spark_dotDn,SV_eles[SV_type]);
+        
         scr_cEvent(SV_tgt,EVENT_BATTLM_ICONREFRESH);
     }
 }

@@ -22,7 +22,7 @@ ss_desc = "Slightly increase base Melee Defense.";
 ss_icon = spr_icon_mDefUp;
 ss_toolTip = "M-DEF: !";
 
-stat_specialCd_base = 30;
+stat_specialCd_base = 3000;
 stat_specialCd_rate = stat_specialCd_base * -.1;
 
 stat_tt_base = .25;

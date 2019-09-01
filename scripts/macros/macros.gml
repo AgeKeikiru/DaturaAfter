@@ -137,12 +137,20 @@
 		#macro CHAR_BIGSLIME "char_bigSlime"
 		#macro CHAR_MINISLIME "char_miniSlime"
 		#macro CHAR_GREENDRAGON "char_greenDragon"
-		#macro CHAR_BLASTVENDOR "char_blastVendor"
-		#macro CHAR_SHELLVENDOR "char_shellVendor"
-		#macro CHAR_SNACKVENDOR "char_snackVendor"
+		
+		#macro CHAR_RND_CONDUIT "char_rnd_conduit"
+		#macro CHAR_LICONDUIT "char_liConduit"
+		#macro CHAR_ATCONDUIT "char_atConduit"
+		#macro CHAR_DFCONDUIT "char_dfConduit"
+		
+		#macro CHAR_RND_DRONE "char_rnd_drone"
+		#macro CHAR_GUNNERDRONE "char_gunnerDrone"
+		#macro CHAR_FLAMERDRONE "char_flamerDrone"
+		
 		#macro CHAR_TIMBERCAT "char_timberCat"
 		#macro CHAR_SKULLURKER "char_skullurker" //skeleton spider
 		#macro CHAR_GUNDROP "char_gundrop"
+		#macro CHAR_ARCMINE "char_arcmine"
 		#macro CHAR_NPC_AGENT "char_npc_agent"
 		#macro CHAR_NPC_EVOKER "char_npc_evoker"
 		#macro CHAR_PVP_IMO "char_pvp_imo"
@@ -335,6 +343,14 @@
 		#macro EACT_PETALSNIPE "eact_petalSnipe"
 		#macro EACT_TOXICPETAL "eact_toxicPetal"
 		#macro EACT_WAVECANNON "eact_waveCannon"
+		#macro EACT_RAZORCLAW "eact_razorClaw"
+		#macro EACT_DETONATE "eact_detonate"
+		#macro EACT_LIFESTIM "eact_lifeStim"
+		#macro EACT_BLASTSTIM "eact_blastStim"
+		#macro EACT_GUARDSTIM "eact_guardStim"
+		#macro EACT_SVULCAN "eact_sVulcan"
+		#macro EACT_FLAMESWEEP "eact_flameSweep"
+		#macro EACT_FIREBALL "eact_fireball"
 	
 	#endregion
 	
@@ -455,6 +471,7 @@
 		
 		//venus canal
 		#macro MSN_VCANAL_01 "msn_vCanal_01"
+		#macro MSN_VCANAL_02 "msn_vCanal_02"
 		
 		//naiboros tundra
 		#macro MSN_NABTUNDRA_01 "msn_nabTundra_01"

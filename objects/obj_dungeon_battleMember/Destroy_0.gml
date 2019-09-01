@@ -6,7 +6,7 @@ if(allyParty == global.grd_party_enemy){
 		instance_destroy(act[_i]);
 	}
 	
-	if(hpCurr <= 0){
+	if(hpCurr <= 0 && !noLoot){
 		if(random(1) < .3){
 			scr_getLoot(LOOT_RACE);
 		}

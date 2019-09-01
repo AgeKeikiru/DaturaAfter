@@ -329,8 +329,8 @@ SV_o;
     SV_map[? CHAR_VAR_ELE_ELC] = 0;
     SV_map[? CHAR_VAR_ELE_DRK] = 0;
     SV_map[? CHAR_VAR_ELE_LGT] = 0;
-    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_paraslime;
-    SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_enemy_paraslime;
+    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_froslime;
+    SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_enemy_froslime;
     SV_map[? CHAR_VAR_ABDO_X] = 0;
     SV_map[? CHAR_VAR_ABDO_Y] = 50;
     
@@ -644,6 +644,148 @@ SV_o;
     grapple: guaranteed poison/severe spd reduction on hit, used at 50%/25% hp thresholds
     lightning wave: wide elc spell attack, high paralyze rate, 40% proc rate, 5 turn cooldown, not usable above 75% hp
     */
+#endregion
+
+#region //arcmine
+    SV_map = scr_data_char_new(CHAR_ARCMINE);
+    SV_map[? CHAR_VAR_NAMEFULL] = "Arc Mine";
+    SV_map[? CHAR_VAR_NAMEDISP] = SV_map[? CHAR_VAR_NAMEFULL];
+    
+    SV_map[? CHAR_VAR_DESC] =
+    "TBA";
+    
+    SV_map[? CHAR_VAR_RACE] = RACE_ARTIFICE;
+    SV_map[? CHAR_VAR_HP] = 200;
+    SV_map[? CHAR_VAR_MATK] = 0;
+    SV_map[? CHAR_VAR_MDEF] = 0;
+    SV_map[? CHAR_VAR_FATK] = 0;
+    SV_map[? CHAR_VAR_FDEF] = 0;
+    SV_map[? CHAR_VAR_SATK] = 0;
+    SV_map[? CHAR_VAR_SDEF] = 0;
+    SV_map[? CHAR_VAR_ACC] = 0;
+    SV_map[? CHAR_VAR_EVA] = 0;
+    SV_map[? CHAR_VAR_SPD] = 10;
+    SV_map[? CHAR_VAR_MISC] = 0;
+    SV_map[? CHAR_VAR_ELE_FIR] = 80;
+    SV_map[? CHAR_VAR_ELE_ICE] = 80;
+    SV_map[? CHAR_VAR_ELE_NAT] = 80;
+    SV_map[? CHAR_VAR_ELE_ELC] = 80;
+    SV_map[? CHAR_VAR_ELE_DRK] = 80;
+    SV_map[? CHAR_VAR_ELE_LGT] = 80;
+    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_mine;
+    SV_map[? CHAR_VAR_SPR_NEUTRAL] = SV_map[? CHAR_VAR_SPR_BATTLEPORT];
+    SV_map[? CHAR_VAR_ABDO_X] = 0;
+    SV_map[? CHAR_VAR_ABDO_Y] = 50;
+#endregion
+
+#region //conduit
+    SV_map = scr_data_char_new(CHAR_LICONDUIT);
+    SV_map[? CHAR_VAR_NAMEFULL] = "LI-Conduit";
+    SV_map[? CHAR_VAR_NAMEDISP] = SV_map[? CHAR_VAR_NAMEFULL];
+    
+    SV_map[? CHAR_VAR_DESC] =
+    "TBA";
+    
+    SV_map[? CHAR_VAR_RACE] = RACE_ARTIFICE;
+    SV_map[? CHAR_VAR_HP] = 1000;
+    SV_map[? CHAR_VAR_MATK] = 0;
+    SV_map[? CHAR_VAR_MDEF] = 0;
+    SV_map[? CHAR_VAR_FATK] = 0;
+    SV_map[? CHAR_VAR_FDEF] = 0;
+    SV_map[? CHAR_VAR_SATK] = 0;
+    SV_map[? CHAR_VAR_SDEF] = 10;
+    SV_map[? CHAR_VAR_ACC] = 0;
+    SV_map[? CHAR_VAR_EVA] = -30;
+    SV_map[? CHAR_VAR_SPD] = -5;
+    SV_map[? CHAR_VAR_MISC] = 0;
+    SV_map[? CHAR_VAR_ELE_FIR] = 0;
+    SV_map[? CHAR_VAR_ELE_ICE] = 0;
+    SV_map[? CHAR_VAR_ELE_NAT] = 0;
+    SV_map[? CHAR_VAR_ELE_ELC] = 80;
+    SV_map[? CHAR_VAR_ELE_DRK] = 0;
+    SV_map[? CHAR_VAR_ELE_LGT] = 0;
+    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_hpStation;
+    SV_map[? CHAR_VAR_SPR_NEUTRAL] = SV_map[? CHAR_VAR_SPR_BATTLEPORT];
+    SV_map[? CHAR_VAR_ABDO_X] = 0;
+    SV_map[? CHAR_VAR_ABDO_Y] = 50;
+    
+    var SV_map2 = scr_data_char_new(CHAR_ATCONDUIT);
+    ds_map_copy(SV_map2,SV_map);
+    SV_map[? CHAR_VAR_NAMEFULL] = "AT-Conduit";
+    SV_map[? CHAR_VAR_NAMEDISP] = SV_map[? CHAR_VAR_NAMEFULL];
+    SV_map2[? CHAR_VAR_ID] = CHAR_ATCONDUIT;
+    SV_map2[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_atkStation;
+    
+    var SV_map2 = scr_data_char_new(CHAR_DFCONDUIT);
+    SV_map[? CHAR_VAR_NAMEFULL] = "DF-Conduit";
+    SV_map[? CHAR_VAR_NAMEDISP] = SV_map[? CHAR_VAR_NAMEFULL];
+    ds_map_copy(SV_map2,SV_map);
+    SV_map2[? CHAR_VAR_ID] = CHAR_DFCONDUIT;
+    SV_map2[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_defStation;
+#endregion
+
+#region //gunnerDrone
+    SV_map = scr_data_char_new(CHAR_GUNNERDRONE);
+    SV_map[? CHAR_VAR_NAMEFULL] = "Gunner Drone";
+    SV_map[? CHAR_VAR_NAMEDISP] = SV_map[? CHAR_VAR_NAMEFULL];
+    
+    SV_map[? CHAR_VAR_DESC] =
+    "TBA";
+    
+    SV_map[? CHAR_VAR_RACE] = RACE_ARTIFICE;
+    SV_map[? CHAR_VAR_HP] = 1000;
+    SV_map[? CHAR_VAR_MATK] = 0;
+    SV_map[? CHAR_VAR_MDEF] = 10;
+    SV_map[? CHAR_VAR_FATK] = 0;
+    SV_map[? CHAR_VAR_FDEF] = 30;
+    SV_map[? CHAR_VAR_SATK] = 0;
+    SV_map[? CHAR_VAR_SDEF] = 10;
+    SV_map[? CHAR_VAR_ACC] = 20;
+    SV_map[? CHAR_VAR_EVA] = 5;
+    SV_map[? CHAR_VAR_SPD] = 5;
+    SV_map[? CHAR_VAR_MISC] = 0;
+    SV_map[? CHAR_VAR_ELE_FIR] = 0;
+    SV_map[? CHAR_VAR_ELE_ICE] = 0;
+    SV_map[? CHAR_VAR_ELE_NAT] = 0;
+    SV_map[? CHAR_VAR_ELE_ELC] = 80;
+    SV_map[? CHAR_VAR_ELE_DRK] = 0;
+    SV_map[? CHAR_VAR_ELE_LGT] = 0;
+    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_gunnerDrone;
+    SV_map[? CHAR_VAR_SPR_NEUTRAL] = SV_map[? CHAR_VAR_SPR_BATTLEPORT];
+    SV_map[? CHAR_VAR_ABDO_X] = 0;
+    SV_map[? CHAR_VAR_ABDO_Y] = 50;
+#endregion
+
+#region //flamerDrone
+    SV_map = scr_data_char_new(CHAR_FLAMERDRONE);
+    SV_map[? CHAR_VAR_NAMEFULL] = "Flamer Drone";
+    SV_map[? CHAR_VAR_NAMEDISP] = SV_map[? CHAR_VAR_NAMEFULL];
+    
+    SV_map[? CHAR_VAR_DESC] =
+    "TBA";
+    
+    SV_map[? CHAR_VAR_RACE] = RACE_ARTIFICE;
+    SV_map[? CHAR_VAR_HP] = 1000;
+    SV_map[? CHAR_VAR_MATK] = 0;
+    SV_map[? CHAR_VAR_MDEF] = 10;
+    SV_map[? CHAR_VAR_FATK] = 0;
+    SV_map[? CHAR_VAR_FDEF] = 30;
+    SV_map[? CHAR_VAR_SATK] = 20;
+    SV_map[? CHAR_VAR_SDEF] = 10;
+    SV_map[? CHAR_VAR_ACC] = 20;
+    SV_map[? CHAR_VAR_EVA] = 5;
+    SV_map[? CHAR_VAR_SPD] = 5;
+    SV_map[? CHAR_VAR_MISC] = 0;
+    SV_map[? CHAR_VAR_ELE_FIR] = 80;
+    SV_map[? CHAR_VAR_ELE_ICE] = 0;
+    SV_map[? CHAR_VAR_ELE_NAT] = 0;
+    SV_map[? CHAR_VAR_ELE_ELC] = 80;
+    SV_map[? CHAR_VAR_ELE_DRK] = 0;
+    SV_map[? CHAR_VAR_ELE_LGT] = 0;
+    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_enemy_flamerDrone;
+    SV_map[? CHAR_VAR_SPR_NEUTRAL] = SV_map[? CHAR_VAR_SPR_BATTLEPORT];
+    SV_map[? CHAR_VAR_ABDO_X] = 0;
+    SV_map[? CHAR_VAR_ABDO_Y] = 50;
 #endregion
 
 #region //npc_evoker

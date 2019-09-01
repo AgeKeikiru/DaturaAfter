@@ -197,6 +197,7 @@ if(!nonAttack){
 		
 		if(dc_tgt[| _i].allyParty == global.grd_party_enemy && random(1) < stun_chance && (_hit || !stun_onHit)){
 			dc_tgt[| _i].enemyWait = dc_tgt[| _i].enemyWaitMax;
+			scr_createSpark(dc_tgt[| _i].x,dc_tgt[| _i].y,spr_spark_dotDn,"");
 		}
 	}
 }

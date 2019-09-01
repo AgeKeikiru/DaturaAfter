@@ -124,6 +124,11 @@ switch(cEvent){
 					recoil = floor(src.hpCurr / 2);
 					pwr = recoil * special[| 0];
 				}
+				
+				if(type == EACT_DETONATE){
+					src.noLoot = true;
+					src.hpCurr = 0;
+				}
 			#endregion
 		
 			ds_list_clear(dc_tgt);

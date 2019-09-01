@@ -53,7 +53,8 @@ if(scr_exists(SV_spr,asset_sprite)){
 	
 	switch(SV_spr){
 	    case spr_spark_dot:
-	        SV_r.image_angle = 90;
+	    case spr_spark_dotDn:
+	        SV_r.image_angle = SV_spr == spr_spark_dot ? 90 : -90;
 	    
 	        repeat(irandom_range(6,12)){
 				var SV_p = instance_create_depth(SV_x + random_range(-50,50),SV_y + random_range(-20,20),-999,obj_fpo_parent);
@@ -66,9 +67,26 @@ if(scr_exists(SV_spr,asset_sprite)){
 				SV_p.alarm[0] = SV_p.alarm[1] + 10;
 			}
 			
-			scr_playSfx(sfx_buff);
+			scr_playSfx(SV_spr == spr_spark_dot ? sfx_buff : sfx_debuff);
 	        
 	        break;
+	        
+	    case spr_spark_smoke:
+	    	SV_r.image_angle = 0;
+	    	SV_r.alarm[1] = random_range(1,0.8) * room_speed;
+	    	SV_r.alarm[0] = SV_r.alarm[1] + 10;
+	    	SV_r.hspeed = 1;
+	    	SV_r.image_alpha = .8;
+	    	
+	    	var SV_p = instance_create_depth(SV_x,SV_y,-999,obj_fpo_parent);
+	    	SV_p.sprite_index = SV_r.sprite_index;
+	    	SV_p.image_angle = 180;
+	    	SV_p.alarm[1] = random_range(1,0.8) * room_speed;
+	    	SV_p.alarm[0] = SV_p.alarm[1] + 10;
+	    	SV_p.hspeed = -SV_r.hspeed;
+	    	SV_p.image_alpha = SV_r.image_alpha;
+	    	
+	    	break;
 	    
 		default:
 			var _a = random_range(0,360);
