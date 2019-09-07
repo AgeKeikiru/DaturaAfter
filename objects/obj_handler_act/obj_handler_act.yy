@@ -115,6 +115,20 @@
             "varType": 2
         },
         {
+            "id": "ff7d304e-3bea-48ee-88e0-5d5d96579a09",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "\"\"",
+            "varName": "upgDesc",
+            "varType": 2
+        },
+        {
             "id": "c85448d9-8ea7-4f4c-8f38-4ecfafe2cb2b",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -530,8 +544,8 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "150",
-            "varName": "critThresh",
+            "value": "0",
+            "varName": "critMod",
             "varType": 0
         },
         {

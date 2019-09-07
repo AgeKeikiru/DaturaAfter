@@ -13,8 +13,8 @@ if(DEBUG){
 	}
 	
 	draw_set_font(ft_menuSub);
-	draw_set_halign(fa_left);
+	draw_set_halign(fa_right);
 	draw_set_valign(fa_top);
 	
-	ktk_scr_draw_text_stroke(0,0,_str,c_yellow,c_black,2,10);
+	ktk_scr_draw_text_stroke(room_width,0,_str,c_yellow,c_black,2,10);
 }

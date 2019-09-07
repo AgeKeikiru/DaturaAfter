@@ -20,6 +20,9 @@ with obj_fpo_parent{
 
 link_load.alarm[0] = 60;
 
+instance_destroy(obj_handler_dungeon);
+instance_destroy(obj_handler_mission_parent);
+
 with instance_create_depth(0,0,0,obj_handler_dungeon){
 	scr_dungeon_refreshMap();
 }

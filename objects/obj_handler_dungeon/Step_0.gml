@@ -8,12 +8,10 @@ _mh = _map[? MSN_VAR_HANDLER];
 global.tempBool = true;
 
 for(var _ix = 0;_ix < 3;_ix++){
-	for(var _iy = 0;_iy < 2;_iy++){
-		var _o = global.grd_party_player[# _ix,_iy];
-		
-		if(scr_exists(_o,asset_object) && _o.hpCurr > 0){
-			global.tempBool = false;
-		}
+	var _o = global.grd_party_player[# _ix,0];
+	
+	if(scr_exists(_o,asset_object) && _o.hpCurr > 0){
+		global.tempBool = false;
 	}
 }
 
@@ -57,24 +55,20 @@ if(
 }
 
 if(!state_event && !state_battle && !state_results && (missionComplete || missionFailed) && instance_number(obj_fpo_parent) == 0){
-	if(missionFailed){
-		state_results = true;
-		
-		script_execute(_map[? MSN_VAR_FAIL_DIA]);
+	var
+	_dia = missionFailed ? MSN_VAR_FAIL_DIA : MSN_VAR_OUTRO_DIA,
+	_ev = missionFailed ? EVENT_DND_FAIL : EVENT_DND_CLEAR;
+	
+	state_results = true;
+	
+	scr_cEvent(all,_ev);
+	
+	if(script_exists(_map[? _dia])){
+		script_execute(_map[? _dia]);
 		
 		instance_create_depth(0,0,0,obj_handler_dialogue);
-	}else if(missionComplete){
-		state_results = true;
-		
-		scr_cEvent(all,EVENT_DND_CLEAR);
-		
-		if(script_exists(_map[? MSN_VAR_OUTRO_DIA])){
-			script_execute(_map[? MSN_VAR_OUTRO_DIA]);
-			
-			instance_create_depth(0,0,0,obj_handler_dialogue);
-		}else{
-			scr_dungeon_endDia();
-		}
+	}else{
+		scr_dungeon_endDia();
 	}
 }else{
 	battleTrans = ktk_scr_tween(battleTrans,!state_battle,4,-1);

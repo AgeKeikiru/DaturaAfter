@@ -1,4 +1,3 @@
-/// @description Insert description here
 
 if(DEBUG){
 	if(keyboard_check_pressed(vk_home)){
@@ -11,6 +10,12 @@ if(DEBUG){
 		with obj_handler_dungeon{
 			missionComplete = true;
 		}
+	}
+}
+
+if(CANARY){
+	if(keyboard_check_pressed(vk_tab)){
+		global.manualDebug = !global.manualDebug;
 	}
 }
 

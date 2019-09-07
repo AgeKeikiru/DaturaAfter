@@ -1,4 +1,4 @@
-==DateND After v0.1.1==
+==DateND After v0.1.3==
 
 [WARNING: NOT COMPATIBLE WITH PRE-v0.1.1 SAVES]
 
@@ -20,6 +20,12 @@ LeftShift - Shift Menu
 
 ==Patch Notes==
 
+=v0.1.3=
+- Added proper stat changes for higher rank weapons
+
+=v0.1.2=
+- Bugfix update
+
 =v0.1.1=
 - Added [Minimap Size] and [Camera Distance] options to further improve performance during missions for lower end machines
 - New character: Ari
@@ -32,6 +38,7 @@ LeftShift - Shift Menu
 - Added visual indication of when attacks are effective/ineffective
 - Added [Gathering Hub] area
 - Changed the following acts to auto stances: [Angelite], [Mess Kit], [Hype Meter]
+- Added Simulator functionality
 
 
 ==Known Bugs==
@@ -43,14 +50,20 @@ LeftShift - Shift Menu
 - None yet
 
 =Fixed, needs further testing=
+- Crits ignoring minimum damage limit
+- Wiping during a simulator session resulted in a crash
+- [Fire Support] can activate class skills
+- Fail state occasionally fails to trigger
+
+=Fixed, no further sign of bug=
 - Returning to title, starting a new game, entering the Market at the earliest possibility and exiting without entering any submenus would result in a crash
 - Class acts are replaced by "???" and behave strangely the next time a save file is loaded
 - Saving the game after clearing the secret misison can result in a crash (inconsistent, suspected to crash only when clearing it a 2nd time)
-
-=Fixed, no further sign of bug=
-- None yet
 
 
 ==Plans for Next Update==
 - Nerf Imo'lei base F-ATK
 - Add option to change "Battle:Untarget" key to mimic "Battle:MiddleTarget" key function
+- Add item usage
+- Add stat preview in shop, stat comparison
+- New character, classes, missions

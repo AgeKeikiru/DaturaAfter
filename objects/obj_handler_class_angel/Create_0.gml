@@ -8,7 +8,7 @@ desc = "Soldiers equipped with specialized armor originally built to combat an a
 cName = "ANGE_" + string(global.cid++);
 
 ms_name = "Angelite";
-ms_desc = "Collect holy energy from attacks to use special skills. Up to a max of Lv/6 rounded up, caps at 5.";
+ms_desc = "[Stance] Collect holy energy from attacks to use special skills. Up to a max of Lv/6 rounded up, caps at 5.";
 ms_icon = spr_icon_stance;
 
 ss_name = "SPD+ (s)";

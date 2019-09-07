@@ -87,7 +87,6 @@ if(!nonAttack){
 				_p.y += -100;
 				
 				global.critChance = clamp(dc_aim[| _i],0.01,0.1);
-				//if(DEBUG){global.critChance = .5;}
 				global.critBonus = 1.2;
 				
 				scr_cEvent(all,EVENT_BATTLE_CRITMOD,src,dc_tgt[| _i],id);
@@ -105,7 +104,7 @@ if(!nonAttack){
 					_p.txt_xScale[0] += .5;
 					_p.txt_yScale[0] = _p.txt_xScale[0];
 					
-					_dmg = ceil(dc_dmgMax[| _i] * global.critBonus);
+					_dmg = max(ceil(dc_dmgMax[| _i] * global.critBonus),0);
 					
 					_p.txt[0] = string(_dmg);
 				}

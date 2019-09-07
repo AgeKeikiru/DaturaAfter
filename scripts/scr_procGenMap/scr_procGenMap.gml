@@ -12,12 +12,21 @@ SV_branches = [
 SV_str = "";
 
 ds_grid_resize(global.grd_dMap_terrain,SV_grd_w,SV_grd_h);
-ds_grid_clear(global.grd_dMap_terrain,-1);
+ds_grid_clear(global.grd_dMap_terrain,noone);
+ds_grid_resize(global.grd_dMap_visible,SV_grd_w,SV_grd_h);
+ds_grid_clear(global.grd_dMap_visible,false);
 
 //start/end points
 var
 SV_start_point = scr_pgm_newChamber(SV_start_x,SV_start_y,4,6),
 SV_end_point = scr_pgm_newChamber(SV_end_x,SV_end_y,4,6);
+
+global.dMap_pgmCoords = [
+    SV_start_x,
+    SV_start_y,
+    SV_end_x,
+    SV_end_y
+];
 
 //main path
 var
@@ -85,7 +94,7 @@ while(ds_list_empty(SV_lst2)){
 //trace map result
 for(var SV_y = 0;SV_y < SV_grd_h;SV_y++){
     for(var SV_x = 0;SV_x < SV_grd_w;SV_x++){
-        SV_str += (global.grd_dMap_terrain[# SV_x,SV_y] == -1) ? " " : "#";
+        SV_str += (global.grd_dMap_terrain[# SV_x,SV_y] == noone) ? " " : "#";
     }
     
     SV_str += "\n";

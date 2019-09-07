@@ -17,6 +17,19 @@ var SV_map;
 	
 #endregion
 
+#region //sim
+	
+	SV_map = scr_data_mission_new(MSN_SIM);
+	SV_map[? MSN_VAR_CLIENT] = "n/a";
+	SV_map[? MSN_VAR_OPNAME] = "Benchmark";
+	SV_map[? MSN_VAR_FAIL_DIA] = scr_dia_build_simFailed;
+	SV_map[? MSN_VAR_HANDLER] = obj_handler_mission_sim;
+	/*
+	prologue
+	*/
+	
+#endregion
+
 #region //msn0
 	
 	SV_map = scr_data_mission_new(MSN_0);

@@ -18,10 +18,10 @@ with SV_m{
 	
 	SV_i++;
 	
-	grd_txt[# 0,SV_i] = "Exploration";
-	grd_desc[# 0,SV_i] = "Venture into the depths.";
-	grd_descLabel[# 0,SV_i] = "Exploration Counter";
-	grd_scr[# 0,SV_i] = noone;
+	grd_txt[# 0,SV_i] = "Simulator";
+	grd_desc[# 0,SV_i] = "Train in a simulated environment.";
+	grd_descLabel[# 0,SV_i] = "Training Counter";
+	grd_scr[# 0,SV_i] = (global.map_flags[? FG_TUT_SIM] || DEBUG) ? scr_menu_sim : noone;
 	
 	SV_i++;
 	

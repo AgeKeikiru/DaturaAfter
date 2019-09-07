@@ -26,7 +26,7 @@ SV_r.hitGap = 10;
 SV_r.hitSimul = 1;
 SV_r.atkScale = CHAR_VAR_MATK;
 SV_r.defScale = CHAR_VAR_MDEF;
-SV_r.critThresh = 0;
+SV_r.critMod = 0;
 SV_r.tgtEnemy = true;
 SV_r.spark_start = noone;
 SV_r.spark_hit = noone;
@@ -51,12 +51,13 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Balanced, straightforward weapon. Solid choice for any melee class.";
+			SV_r.upgDesc = "Upgrade Swords to increase power and accuracy.";
 			SV_r.icon = spr_icon_swd;
 			SV_r.basePrice *= 1;
 			SV_r.enBase *= 1.5;
 			SV_r.cdBase *= 4;
-			SV_r.basePwr *= 1.5;
-			SV_r.acc *= .9;
+			SV_r.basePwr *= 1.5 + (.15 * SV_rare);
+			SV_r.acc *= .8 + (.02 * SV_rare);
 			SV_r.hitCount = 3;
 			SV_r.hitGap *= 1.4;
 			SV_r.atkScale = CHAR_VAR_MATK;
@@ -80,11 +81,12 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Violent weapon that relies on raw power. Cumbersome, but decimates when it hits.";
+			SV_r.upgDesc = "Upgrade Axes to increase power.";
 			SV_r.icon = spr_icon_axe;
 			SV_r.basePrice *= 2;
 			SV_r.enBase *= 3;
 			SV_r.cdBase *= 12;
-			SV_r.basePwr *= 8;
+			SV_r.basePwr *= 8 + (.5 * SV_rare);
 			SV_r.acc *= .6;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
@@ -110,13 +112,14 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Reckless, difficult to use weapon that hits many times. Effective against unarmored enemies.";
+			SV_r.upgDesc = "Upgrade Chainsaws to increase hit count.";
 			SV_r.icon = spr_icon_csw;
 			SV_r.basePrice *= 2;
 			SV_r.enBase *= 3;
 			SV_r.cdBase *= 6;
 			SV_r.basePwr *= 1;
 			SV_r.acc *= .5;
-			SV_r.hitCount = 10;
+			SV_r.hitCount = 6 + (1 * SV_rare);
 			SV_r.hitGap *= .2;
 			SV_r.atkScale = CHAR_VAR_MATK;
 			SV_r.defScale = CHAR_VAR_MDEF;
@@ -139,15 +142,17 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "A stylish weapon that trades power for wide range. Best used to get rid of adds.";
+			SV_r.upgDesc = "Upgrade Scythes to increase crit rate and hit count (every 2 ranks).";
 			SV_r.icon = spr_icon_scy;
 			SV_r.tgtType = ACT_TGT_WIDE;
 			SV_r.basePrice *= 1.5;
 			SV_r.enBase *= 2;
 			SV_r.cdBase *= 4;
 			SV_r.basePwr *= 1.3;
-			SV_r.acc *= .9;
-			SV_r.hitCount = 1;
-			SV_r.hitGap *= 1;
+			SV_r.critMod = .05 * SV_rare;
+			SV_r.acc *= .7;
+			SV_r.hitCount = floor(1 + (.5 * SV_rare));
+			SV_r.hitGap *= .8;
 			SV_r.atkScale = CHAR_VAR_MATK;
 			SV_r.defScale = CHAR_VAR_MDEF;
 			SV_r.spark_hit = spr_spark_slash;
@@ -170,6 +175,7 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Lightweight, easy to use melee weapon. Accurate and swift, at the cost of power.";
+			SV_r.upgDesc = "Upgrade Daggers to increase EN recovery."; //todo
 			SV_r.icon = spr_icon_dgr;
 			SV_r.basePrice *= .5;
 			SV_r.enBase *= .2;
@@ -199,6 +205,7 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Provides accurate and powerful blows, but exhausts the wielder.";
+			SV_r.upgDesc = "Upgrade Gauntlets to add stun chance.";
 			SV_r.icon = spr_icon_gnt;
 			SV_r.basePrice *= 1.5;
 			SV_r.enBase *= 2.5;
@@ -210,6 +217,8 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_MATK;
 			SV_r.defScale = CHAR_VAR_MDEF;
 			SV_r.spark_hit = spr_spark_bash;
+			SV_r.stun_chance = .1 * SV_rare;
+			SV_r.stun_onHit = true;
 			
 			break;
 			
@@ -228,10 +237,12 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "An unorthodox weapon - weak, but feeds allies if used after preparing food.";
+			SV_r.upgDesc = "Upgrade Pans to reduce cooldown duration.";
 			SV_r.icon = spr_icon_pan;
 			SV_r.basePrice *= .5;
 			SV_r.enBase *= 1.6;
 			SV_r.cdBase *= 8;
+			SV_r.cdRate = -.1;
 			SV_r.basePwr *= 1;
 			SV_r.acc = 999;
 			SV_r.hitCount = 1;
@@ -261,6 +272,7 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Lightweight, easy to use weapon. Good backup firearm for recovering EN.";
+			SV_r.upgDesc = "Upgrade Handguns to increase EN recovery."; //todo
 			SV_r.icon = spr_icon_hgn;
 			SV_r.basePrice *= .5;
 			SV_r.enBase *= .2;
@@ -290,14 +302,15 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Relatively accurate and easy to use weapon, essentially a scaled up pistol.";
+			SV_r.upgDesc = "Upgrade SMGs to increase accuracy and hit count.";
 			SV_r.icon = spr_icon_smg;
 			SV_r.basePrice *= .8;
 			SV_r.enBase *= 1;
 			SV_r.cdBase *= 1.4;
 			SV_r.basePwr *= .5;
-			SV_r.acc *= .65;
-			SV_r.hitCount = 8;
-			SV_r.hitGap *= .6;
+			SV_r.acc *= .65 + (.01 * SV_rare);
+			SV_r.hitCount = 5 + (1 * SV_rare);
+			SV_r.hitGap *= .7 + (-.02 * SV_rare);
 			SV_r.atkScale = CHAR_VAR_FATK;
 			SV_r.defScale = CHAR_VAR_FDEF;
 			SV_r.spark_hit = spr_spark_shoot;
@@ -319,6 +332,7 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Low accuracy balanced with a flurry of pellets makes this weapon inconsistent but capable of immense damage.";
+			SV_r.upgDesc = "Upgrade Shotguns to increase hit count.";
 			SV_r.icon = spr_icon_shg;
 			SV_r.basePrice *= 1.5;
 			SV_r.enBase *= 3;
@@ -326,7 +340,7 @@ switch(SV_type){
 			SV_r.basePwr *= 1;
 			SV_r.acc *= .4;
 			SV_r.hitCount = 1;
-			SV_r.hitSimul = 8;
+			SV_r.hitSimul = 6 + (1 * SV_rare);
 			SV_r.hitGap *= 1;
 			SV_r.atkScale = CHAR_VAR_FATK;
 			SV_r.defScale = CHAR_VAR_FDEF;
@@ -349,6 +363,7 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Hails high power bullets to hit all enemies at random. Unwieldly, but devastating to an isolated target.";
+			SV_r.upgDesc = "Upgrade LMGs to add stun chance.";
 			SV_r.icon = spr_icon_lmg;
 			SV_r.tgtType = ACT_TGT_RANDOM;
 			SV_r.basePrice *= 2;
@@ -361,6 +376,8 @@ switch(SV_type){
 			SV_r.atkScale = CHAR_VAR_FATK;
 			SV_r.defScale = CHAR_VAR_FDEF;
 			SV_r.spark_hit = spr_spark_shoot;
+			SV_r.stun_chance = .1 * SV_rare;
+			SV_r.stun_onHit = true;
 			
 			break;
 			
@@ -379,12 +396,13 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Incredibly slow and exhausting to fire, but deals incredible damage to all enemies.";
+			SV_r.upgDesc = "Upgrade RPGs to increase power and add stun chance.";
 			SV_r.icon = spr_icon_rpg;
 			SV_r.tgtType = ACT_TGT_WIDE;
 			SV_r.basePrice *= 3;
 			SV_r.enBase *= 5;
 			SV_r.cdBase *= 20;
-			SV_r.basePwr *= 8;
+			SV_r.basePwr *= 8 + (.2 * SV_rare);
 			SV_r.acc *= .8;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
@@ -392,6 +410,8 @@ switch(SV_type){
 			SV_r.defScale = CHAR_VAR_FDEF;
 			SV_r.spark_hit = spr_spark_bash;
 			SV_r.spark_end = spr_spark_smoke;
+			SV_r.stun_chance = .05 * SV_rare;
+			SV_r.stun_onHit = true;
 			
 			break;
 			
@@ -410,18 +430,19 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Cumbersome, but deals consistently high and accurate damage to single targets.";
+			SV_r.upgDesc = "Upgrade Rifles to increase accuracy and crit rate.";
 			SV_r.icon = spr_icon_rfl;
 			SV_r.basePrice *= 1.8;
 			SV_r.enBase *= 3;
 			SV_r.cdBase *= 8;
 			SV_r.basePwr *= 8;
-			SV_r.acc *= .95;
+			SV_r.acc *= .9 + (.05 * SV_rare);
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
 			SV_r.atkScale = CHAR_VAR_FATK;
 			SV_r.defScale = CHAR_VAR_FDEF;
 			SV_r.spark_hit = spr_spark_pierce;
-			SV_r.se_hit = sfx_gun;
+			SV_r.critMod = .05 * SV_rare;
 			
 			break;
 			
@@ -440,12 +461,14 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "An unorthodox weapon - weak, but inflicts strange effects on enemies if used after preparing food.";
+			SV_r.upgDesc = "Upgrade Slings to reduce cooldown duration.";
 			SV_r.icon = spr_icon_slg;
 			SV_r.basePrice *= .5;
 			SV_r.enBase *= 1.5;
 			SV_r.cdBase *= 4;
+			SV_r.cdRate = -.1;
 			SV_r.basePwr *= 1;
-			SV_r.acc = .7;
+			SV_r.acc *= .7;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 2;
 			SV_r.atkScale = CHAR_VAR_FATK;
@@ -472,6 +495,7 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Simple, easy to use scroll. Best for exploiting elemental weaknesses.";
+			SV_r.upgDesc = "Upgrade ARROW to greatly increase crit rate.";
 			SV_r.icon = spr_icon_arw;
 			SV_r.basePrice *= .6;
 			SV_r.enBase *= 1.5;
@@ -484,6 +508,7 @@ switch(SV_type){
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_pierce;
 			SV_r.se_hit = sfx_spell;
+			SV_r.critMod = .15 * SV_rare;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -506,18 +531,21 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Scroll that casts a beam of energy as damaging as it is draining to use.";
+			SV_r.upgDesc = "Upgrade RAY to increase accuracy and add stun chance.";
 			SV_r.icon = spr_icon_ray;
 			SV_r.basePrice *= 1;
 			SV_r.enBase *= 3;
 			SV_r.cdBase *= 5;
 			SV_r.basePwr *= 8;
-			SV_r.acc *= .85;
+			SV_r.acc *= .8 + (.01 * SV_rare);
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
 			SV_r.spark_hit = spr_spark_bash;
 			SV_r.se_hit = sfx_spell;
+			SV_r.stun_chance = .1 * SV_rare;
+			SV_r.stun_onHit = true;
 			
 			if(SV_ele == ""){
 				SV_ele = choose(CHAR_VAR_ELE_DRK,CHAR_VAR_ELE_LGT,CHAR_VAR_ELE_FIR,CHAR_VAR_ELE_ICE,CHAR_VAR_ELE_ELC,CHAR_VAR_ELE_NAT);
@@ -540,12 +568,13 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Complex scroll that damages all enemies. Increases in power with rank, but difficult to use properly.";
+			SV_r.upgDesc = "Upgrade VORTEX to increase power.";
 			SV_r.icon = spr_icon_vrt;
 			SV_r.tgtType = ACT_TGT_WIDE;
 			SV_r.basePrice *= 2;
 			SV_r.enBase *= 3;
 			SV_r.cdBase *= 4;
-			SV_r.basePwr *= 4;
+			SV_r.basePwr *= 4 + (.4 * SV_rare);
 			SV_r.acc *= .75;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
@@ -574,15 +603,16 @@ switch(SV_type){
 				SV_r.baseName = "BURST " + SV_names[SV_rare];
 			}
 			
-			SV_r.desc = "A reckless scroll that fires off energy at random. Becomes more consistent at higher ranks.";
+			SV_r.desc = "A reckless scroll that fires off energy at random. Becomes more volatile at higher ranks.";
+			SV_r.upgDesc = "Upgrade BURST to increase power and hit count (every 2 ranks).";
 			SV_r.icon = spr_icon_brt;
 			SV_r.tgtType = ACT_TGT_RANDOM;
 			SV_r.basePrice *= 1.8;
 			SV_r.enBase *= 1.5;
 			SV_r.cdBase *= 1.5;
-			SV_r.basePwr *= 2;
-			SV_r.acc *= .8;
-			SV_r.hitCount = 4;
+			SV_r.basePwr *= 2 + (.2 * SV_rare);
+			SV_r.acc *= .7;
+			SV_r.hitCount = floor(3 + (.5 * SV_rare));
 			SV_r.hitGap *= 1;
 			SV_r.atkScale = CHAR_VAR_SATK;
 			SV_r.defScale = CHAR_VAR_SDEF;
@@ -610,12 +640,13 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Inflicts ailments on a target. Easier to use at higher ranks, but susceptible to elemental resistances.";
+			SV_r.upgDesc = "Upgrade FLICT to increase accuracy and effect duration.";
 			SV_r.icon = spr_icon_csc;
 			SV_r.basePrice *= 1;
 			SV_r.enBase *= 2;
 			SV_r.cdBase *= 6;
 			SV_r.basePwr *= 0;
-			SV_r.acc *= .9;
+			SV_r.acc *= .4 + (.1 * SV_rare);
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
 			SV_r.atkScale = CHAR_VAR_SATK;
@@ -656,7 +687,7 @@ switch(SV_type){
 			}
 			
 			SV_r.sa_chance[| SV_sa] = 1;
-			SV_r.sa_inflict[| SV_sa] = 10;
+			SV_r.sa_inflict[| SV_sa] = 5 + (1 * SV_rare);
 			
 			break;
 			
@@ -677,12 +708,13 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Restore an ally's HP. Heal rate scales with rank.";
+			SV_r.upgDesc = "Upgrade MEDA to increase heal power.";
 			SV_r.icon = spr_icon_heal;
 			SV_r.basePrice *= 1;
 			SV_ele = "";
 			SV_r.enBase *= 3;
 			SV_r.cdBase *= 5;
-			SV_r.basePwr *= 2;
+			SV_r.basePwr *= 2 + (.6 * SV_rare);
 			SV_r.acc = 999;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
@@ -710,11 +742,13 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Cure an ally of ailments. Recovery time improves with rank.";
+			SV_r.upgDesc = "Upgrade PURA to reduce cooldown duration.";
 			SV_r.icon = spr_icon_cure;
 			SV_r.basePrice *= 1.5;
 			SV_ele = "";
 			SV_r.enBase *= 5;
 			SV_r.cdBase *= 10;
+			SV_r.cdRate = -.12;
 			SV_r.basePwr *= 0;
 			SV_r.acc = 999;
 			SV_r.hitCount = 1;
@@ -745,11 +779,13 @@ switch(SV_type){
 			}
 			
 			SV_r.desc = "Revive a fallen ally. Recovery time improves with rank.";
+			SV_r.upgDesc = "Upgrade VYRA to reduce cooldown duration.";
 			SV_r.icon = spr_icon_raise;
 			SV_r.basePrice *= 5;
 			SV_ele = "";
 			SV_r.enBase *= 20;
 			SV_r.cdBase *= 20;
+			SV_r.cdRate = -.05;
 			SV_r.basePwr *= .5;
 			SV_r.acc = 999;
 			SV_r.hitCount = 1;
@@ -784,6 +820,7 @@ switch(SV_type){
 			SV_r.tgtType = ACT_TGT_SELF;
 			SV_r.nonAttack = true;
 			SV_r.desc = "Flash shield - with proper timing, moderately reduce incoming damage to allies.";
+			SV_r.upgDesc = "Upgrade Shields to increase damage protection.";
 			SV_r.icon = spr_icon_shd;
 			SV_r.basePrice *= 1.5;
 			SV_ele = "";
@@ -796,7 +833,7 @@ switch(SV_type){
 			SV_r.spark_start = spr_spark_dot;
 			SV_r.effect_start = obj_handler_actEffect_shd;
 			ds_list_clear(SV_r.special);
-			ds_list_add(SV_r.special,.6); //def
+			ds_list_add(SV_r.special,.6 + (.2 * SV_rare)); //def
 			ds_list_add(SV_r.special,1); //duration
 			
 			break;
@@ -819,6 +856,7 @@ switch(SV_type){
 			SV_r.tgtType = ACT_TGT_SELF;
 			SV_r.nonAttack = true;
 			SV_r.desc = "Burn Shield - slightly reduce incoming damage to allies for a long duration.";
+			SV_r.upgDesc = "Upgrade Shields to increase damage protection.";
 			SV_r.icon = spr_icon_shd;
 			SV_r.basePrice *= 1.5;
 			SV_ele = "";
@@ -831,7 +869,7 @@ switch(SV_type){
 			SV_r.spark_start = spr_spark_dot;
 			SV_r.effect_start = obj_handler_actEffect_shd;
 			ds_list_clear(SV_r.special);
-			ds_list_add(SV_r.special,.2); //def
+			ds_list_add(SV_r.special,.2 + (.2 * SV_rare)); //def
 			ds_list_add(SV_r.special,6); //duration
 			
 			break;
@@ -855,6 +893,7 @@ switch(SV_type){
 			SV_r.nonAttack = true;
 			SV_r.stanceAct = true;
 			SV_r.desc = "[Stance Act] Stance Shield - while active, EN slowly drains but damage to allies is reduced moderately.";
+			SV_r.upgDesc = "Upgrade Shields to increase damage protection.";
 			SV_r.icon = spr_icon_shd;
 			SV_r.basePrice *= 2;
 			SV_ele = "";
@@ -867,7 +906,7 @@ switch(SV_type){
 			SV_r.spark_start = spr_spark_dot;
 			SV_r.effect_start = obj_handler_actEffect_shd;
 			ds_list_clear(SV_r.special);
-			ds_list_add(SV_r.special,.4); //def
+			ds_list_add(SV_r.special,.4 + (.1 * SV_rare)); //def
 			ds_list_add(SV_r.special,-1); //duration
 			
 			break;

@@ -12,22 +12,6 @@ skills
 
 main: Orbital Efficiency - Decrease EN cost of Orbital skills by Lv*0.5%
 sub: ACC+
-
-[F-ATK+]
-[EN+]
-[F-DEF+]
-
-[Assault Orbital] Summon Orbitals that coordinate attacks alongside your own
-/[Hide] stance act - reduce aggro, increase crit rate, effect ends when hit
-/[Snare Trap] stance act - when attacked, trigger a trap that slows the attacker to a halt
-
-/[Spellshot] a unique firearm attack that deals damage vs target's S-DEF
-/[Analyze] relay an enemy's information to the party, greatly reducing its EVA for a time
-/[Blast Trap] stance act - when attacked, trigger a trap that deals fire damage to all enemies, has a moderate chance to Burn
-
-/[Fire Support] while Hide is active, allied attacks have a chance of instantly triggering a user's equipped firearm-type weapon
-/[Weak Mark] quick firearm attack that reduces the target's defenses on hit, has a stronger effect on F-DEF
-/[Capture] X act - charges when traps are activated. deal severe firearm damage to a target - if this attack kills, a large amount of loot is collected
 */
 
 #region //tier 1
@@ -45,7 +29,7 @@ sub: ACC+
     grd_skillName[# _ix,_iy] = "ELC Res+";
     grd_skillDesc[# _ix,_iy] = "Decrease damage taken from Elec Element.";
     grd_skillTooltip[# _ix,_iy] = "ELC Res: +!";
-    grd_skillRate[# _ix,_iy] = 100;
+    grd_skillRate[# _ix,_iy] = 10;
     
     _iy++;
     
@@ -88,15 +72,15 @@ sub: ACC+
 
     grd_skillName[# _ix,_iy] = "Quick Orb";
     grd_skillDesc[# _ix,_iy] = "Reduce cooldown of Orbital skills.";
-    grd_skillTooltip[# _ix,_iy] = "Cooldown: -!%";
-    grd_skillRate[# _ix,_iy] = .1;
+    grd_skillTooltip[# _ix,_iy] = "Cooldown: !%";
+    grd_skillRate[# _ix,_iy] = -.1;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Armor Orb";
     grd_skillDesc[# _ix,_iy] = "Increase durability of Orbitals.";
     grd_skillTooltip[# _ix,_iy] = "HP: +!%";
-    grd_skillRate[# _ix,_iy] = .1;
+    grd_skillRate[# _ix,_iy] = .2;
     
     _iy++;
     

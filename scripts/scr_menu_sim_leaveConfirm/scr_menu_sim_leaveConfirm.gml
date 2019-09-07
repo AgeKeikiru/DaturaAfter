@@ -1,0 +1,1 @@
+scr_menu_confirmWindow("message/confirm/..","End session? No reward will be collected.",scr_menu_sim_leaveConfirm_yes,scr_menu_backNoRefresh);

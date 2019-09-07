@@ -170,6 +170,27 @@ switch cEvent{
     
         break;
         
+    case EVENT_DND_CLEAR:
+    	scr_unlockMission(MSN_VWOODS_01);
+    	scr_unlockMission(MSN_VCANAL_01);
+    	scr_unlockMission(MSN_NABTUNDRA_01);
+    	
+    	ds_stack_push(global.stk_menuAlert,scr_unlockSim_forest);
+    	
+    	var _arr = [
+			SOC_FG_STATUS + SOC_ARI_JOIN1
+		];
+		
+		for(var _i = 0;_i < array_length_1d(_arr);_i++){
+			var _key = _arr[_i];
+			
+			if(!global.map_flags[? _key]){
+				global.map_flags[? _key] = 1;
+			}
+		}
+    	
+    	break;
+    
     default:
         event_inherited();
         break;

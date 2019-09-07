@@ -229,7 +229,7 @@ switch(cEvent){
 				for(var _i = 0;_i < 8;_i++){
 					var _o = src.act[_i];
 					
-					if(scr_exists(_o,asset_object) && _o.atkScale == CHAR_VAR_FATK){
+					if(scr_exists(_o,asset_object) && _o.atkScale == CHAR_VAR_FATK && _o.object_index == obj_handler_act){
 						ds_list_add(_lst,_o);
 					}
 				}

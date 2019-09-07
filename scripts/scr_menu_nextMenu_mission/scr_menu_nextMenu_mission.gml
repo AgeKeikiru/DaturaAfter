@@ -12,9 +12,13 @@ with SV_m{
 	var SV_i = 0;
 	
 	for(var SV_i2 = 0;SV_i2 < ds_grid_height(global.grd_missions);SV_i2++){
-		var SV_mission = global.grd_missions[# 1,SV_i2];
+		var
+		SV_mission = global.grd_missions[# 1,SV_i2],
+		SV_lst = ds_list_create();
 		
-		if((SV_mission[? MSN_VAR_STATUS] == 1 || global.map_flags[? FG_FREEPLAY] || DEBUG) && SV_mission[? MSN_VAR_ID] != MSN_0 && SV_mission[? MSN_VAR_ID] != MSN_DEBUG){
+		ds_list_add(SV_lst,MSN_0,MSN_DEBUG,MSN_SIM);
+		
+		if((SV_mission[? MSN_VAR_STATUS] == 1 || global.map_flags[? FG_FREEPLAY] || DEBUG) && ds_list_find_index(SV_lst,SV_mission[? MSN_VAR_ID]) == -1){
 			ds_list_add(global.lst_missionIndex,SV_mission[? MSN_VAR_ID]);
 		
 			grd_txt[# 0,SV_i] = SV_mission[? MSN_VAR_NAME];
@@ -27,6 +31,8 @@ with SV_m{
 			ds_grid_resize(grd_txt,1,ds_grid_height(grd_txt) + 1);
 			scr_menu_matchGrids(id,false);
 		}
+		
+		ds_list_destroy(SV_lst);
 	}
 	
 	grd_txt[# 0,SV_i] = "Return";

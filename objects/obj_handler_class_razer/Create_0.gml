@@ -133,7 +133,7 @@ stat_bl_rate = 5;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Bloodlust";
-    grd_skillDesc[# _ix,_iy] = "[Stance Act] Slowly drain the user's HP to gain a damage buff that increases as damage is dealt. Effect ends at 20% HP.";
+    grd_skillDesc[# _ix,_iy] = "Slowly drain the user's HP to gain a damage buff that increases as damage is dealt. Effect ends at 20% HP.";
     grd_skillTooltip[# _ix,_iy] = "Drain Rate: !/sec\n Max Boost: @%";
     grd_skillRate[# _ix,_iy] = .2;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_bLust);
@@ -142,7 +142,7 @@ stat_bl_rate = 5;
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Recompense Cross";
-    grd_skillDesc[# _ix,_iy] = "[X Act] Charges by taking damage - Deal severe Melee damage to all enemies, slight chance of Instakill but leaves the user exhausted.";
+    grd_skillDesc[# _ix,_iy] = "Charge via taking damage - Deal severe Melee damage to all enemies, slight chance of Instakill but leaves the user exhausted.";
     grd_skillTooltip[# _ix,_iy] = "IK Chance: !%";
     grd_skillRate[# _ix,_iy] = .02;
     grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_raze_rCross);

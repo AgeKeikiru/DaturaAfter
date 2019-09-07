@@ -8,7 +8,7 @@ desc = "Charismatic performers that make a show out of every battle. Focused on 
 cName = "IDOL_" + string(global.cid++);
 
 ms_name = "Hype Meter";
-ms_desc = "Generate Hype and Aggro based on Lv by attacking to use special actions. Lowers over time.";
+ms_desc = "[Stance] Generate Hype and Aggro based on Lv by attacking to use special actions. Lowers over time.";
 ms_icon = spr_icon_stance;
 
 ss_name = "ACC+ (s)";

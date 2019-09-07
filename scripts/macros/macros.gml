@@ -1,10 +1,10 @@
 #region //general
 	
-	#macro GAMEVER "v0.1.1"
+	#macro GAMEVER "v0.1.3"
 	#macro UNIVERSAL_COOLDOWN (room_speed * 100 * 5)
 	#macro DEFAULT_PANEL_BEZEL 8
 	#macro CANARY true
-	#macro DEBUG (true || debug_mode)
+	#macro DEBUG ((false || debug_mode) ^^ global.manualDebug)
 	#macro GCAP 999999
 	#macro SELLPRICE .5
 	#macro AUTOSCROLLTHRESH (room_speed * .1)
@@ -16,7 +16,7 @@
 
 #region //data handling
 
-	#macro DATA_FNAME working_directory + "SAVg1\\"
+	#macro DATA_FNAME working_directory + "SAVg2\\"
 	#macro DATA_LOG working_directory + "log.txt"
 	
 	#macro DATA_ITEMSET "data_itemSet"
@@ -444,7 +444,7 @@
 	
 		//additive values
 		#macro MSN_CEV_DARK -.15
-		#macro MSN_CEV_DTERR -.2
+		#macro MSN_CEV_DTERR .2
 		#macro MSN_CEV_CHRG 1
 		
 		//multiply values
@@ -461,6 +461,7 @@
 		//special
 		#macro MSN_0 "msn_0"
 		#macro MSN_DEMOBOSS "msn_demoBoss"
+		#macro MSN_SIM "msn_sim"
 	
 		//north loewi
 		#macro MSN_NLOEWI_01 "msn_nLoewi_01"
@@ -468,6 +469,7 @@
 		
 		//venus woods
 		#macro MSN_VWOODS_01 "msn_vWoods_01"
+		#macro MSN_VWOODS_02 "msn_vWoods_02"
 		
 		//venus canal
 		#macro MSN_VCANAL_01 "msn_vCanal_01"
@@ -585,6 +587,7 @@
 	#macro EVENT_DND_BATTLEWIN "event_dnd_battleWin"
 	#macro EVENT_DND_BATTLELOSE "event_dnd_battleLose"
 	#macro EVENT_DND_CLEAR "event_dnd_clear"
+	#macro EVENT_DND_FAIL "event_dnd_fail"
 	
 	#macro EVENT_ACT_USE "event_act_use"
 	#macro EVENT_ACT_ABORT "event_act_abort"
@@ -608,6 +611,7 @@
 	#macro EVENT_AGNT_FSCHECK "event_agnt_fsCheck"
 	
 	#macro EVENT_SNCT_SAVECHECK "event_snct_saveCheck"
+	#macro EVENT_SNCT_SHDMOD "event_snct_shdMod"
 	
 	#macro EVENT_CHEF_ADDFOOD "event_chef_addFood"
 	
@@ -710,6 +714,24 @@
 
 #endregion
 
+#region //sim data
+
+	#region //areas
+	
+		#macro SIM_FOREST "Forest"
+		#macro SIM_TUNDRA "Tundra"
+		#macro SIM_TUNNELS "Tunnels"
+	
+	#endregion
+	
+	#region //flag headers
+	
+		#macro SIM_FG_STATUS "sim_fg_status" //furthest zone reached, -1 for locked
+	
+	#endregion
+
+#endregion
+
 #region //loot data
 
 	#macro LOOT_RACE 0
@@ -747,12 +769,16 @@
 
 	#macro FG_SHOPPROGRESS "fg_shopProgress"
 	#macro FG_PROLOGUE "fg_prologue"
+	#macro FG_FREEPLAY "fg_freePlay"
+	
+	//mission phases
 	#macro FG_MSNCLEARS "fg_msnClears"
 	#macro FG_MSNPHASE "fg_msnPhase"
-	#macro FG_FREEPLAY "fg_freePlay"
+	#macro FG_MP1 "fg_mp1" //intro 3 missions, clear all 3 to progress
 	
 	#macro FG_TUT_QUEST "fg_tut_quest"
 	#macro FG_TUT_FORMATION "fg_tut_formation"
+	#macro FG_TUT_SIM "fg_tut_sim"
 
 #endregion
 
@@ -762,6 +788,7 @@
 	#macro CS_AUTOSTANCECHECK (scr_exists(src,asset_object) && !scr_exists(src.stance,asset_object) && src.src[? CHAR_VAR_CLS0] == id && instance_exists(obj_handler_dungeon) && src.ailment[CHAR_SA_PAR] <= 0)
 	#macro CS_SRCMAINCHECK (scr_exists(src,asset_object) && scr_exists(src.src[? CHAR_VAR_CLS0],asset_object) && src.src[? CHAR_VAR_CLS0] == id)
 	#macro CS_UI_PSOPEN grd_ps_xDraw[# 0,0] == 0
+	#macro CS_SIMREWARD (global.simFloor * 1000)
 	
 	#macro CS_SWITCHDIAFOCUS global.grd_dia[# DIA_FOCUS_L,SV_i] = !global.grd_dia[# DIA_FOCUS_L,SV_i] \
 	global.grd_dia[# DIA_FOCUS_R,SV_i] = !global.grd_dia[# DIA_FOCUS_R,SV_i]

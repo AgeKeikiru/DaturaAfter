@@ -267,7 +267,7 @@ switch(cEvent){
 						}
 					}
 				}else{
-					var _key = "char_var_hb";
+					var _key = CHAR_VAR_HB;
 					
 					for(var _i = 0;_i < 8;_i++){
 						with act[_i]{

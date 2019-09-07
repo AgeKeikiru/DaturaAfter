@@ -279,6 +279,11 @@ switch(cEvent){
 							scr_trace("con_dark: " + string(MSN_CEV_DARK * 100) + "%");
 						}
 						
+						if(scr_exists(_msn,asset_object) && _msn.con_diffTerrain){
+							_aimBonus += MSN_CEV_DTERR;
+							scr_trace("con_dTerr: " + string(MSN_CEV_DTERR * 100) + "%");
+						}
+						
 						if(_defDiff >= 30){
 							_weakRes = "RES";
 						}

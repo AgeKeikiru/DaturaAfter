@@ -41,7 +41,7 @@ with SV_m{
 	    
     	grd_txt[# 0,SV_i] = scr_stringGapFormat(SV_o.name,string(SV_o.price) + "g",30);
     	grd_desc[# 0,SV_i] = SV_o.desc;
-    	grd_descLabel[# 0,SV_i] = global.buying + " Chip";
+    	grd_descLabel[# 0,SV_i] = (global.buyLst == global.lst_shop_classes) ? (global.buying + " Chip") : "Rank " + string(SV_o.rare);
     	grd_scr[# 0,SV_i] = scr_menu_market_wpnArmConfirm;
     }
     

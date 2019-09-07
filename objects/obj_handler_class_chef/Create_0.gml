@@ -14,7 +14,7 @@ desc = "Hearty adventurers that feed enemies and allies alike. An unorthodox sup
 cName = "CHEF_" + string(global.cid++);
 
 ms_name = "Mess Kit";
-ms_desc = "Store ingredients to be used alongside Pan/Sling weapons. Up to a max of Lv/6 rounded up, caps at 5.";
+ms_desc = "[Stance] Store ingredients to be used alongside Pan/Sling weapons. Up to a max of Lv/6 rounded up, caps at 5.";
 ms_icon = spr_icon_stance;
 
 ss_name = "M-DEF+ (s)";

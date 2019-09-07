@@ -1,6 +1,6 @@
 //select mission briefing and build dialogue
 if(menu_y < ds_list_size(global.lst_missionIndex)){
-    global.missionCurr = global.lst_missionIndex[| menu_y]
+    global.missionCurr = global.lst_missionIndex[| menu_y];
     
     var SV_map = scr_data_getMap(global.grd_missions,global.missionCurr);
     

@@ -17,7 +17,8 @@
         "004ef371-8d94-e2be-6c39-3e40704e4473",
         "169fda7a-5ea4-8fe4-ee72-a4722e3a7b9f",
         "c2b5348e-1b41-f6c0-d0ff-f81d9707f26e",
-        "74169ed6-6764-c42b-ad27-89fa8478b42b"
+        "74169ed6-6764-c42b-ad27-89fa8478b42b",
+        "d5f3fe77-e46d-4e07-ba44-87ba265a68ca"
     ],
     "filterType": "GMObject",
     "folderName": "handler_class",

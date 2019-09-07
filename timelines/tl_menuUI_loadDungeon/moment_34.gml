@@ -33,7 +33,14 @@ load_step++;
 var
 SV_x = 1100,
 SV_yStart = 95,
-SV_yGap = 95;
+SV_yGap = 95,
+SV_sim = global.missionCurr == MSN_SIM;
+
+if(SV_sim){
+	SV_map[? MSN_VAR_DESC_LOC] = global.lst_simAreas[| global.simArea];
+	SV_map[? MSN_VAR_OPFOR] = "Depth " + string(global.simFloor);
+	SV_map[? MSN_VAR_ESR] = string(irandom_range(10,20) * 3 * global.simFloor) + "/" + string(irandom_range(10,20) * global.simFloor)
+}
 
 switch load_step{
 	case 3:
@@ -152,7 +159,7 @@ switch load_step{
 		with SV_o{
 			layer = global.ly_obj[5];
 			
-			txt[0] = "-OpFor-";
+			txt[0] = !SV_sim ? "-OpFor-" : "-Zone-";
 			txt[1] = SV_map[? MSN_VAR_OPFOR];
 			
 			txt_halign[0] = fa_right;
@@ -212,7 +219,7 @@ switch load_step{
 		with SV_o{
 			layer = global.ly_obj[5];
 			
-			txt[0] = "-Estimated Success Rate-";
+			txt[0] = !SV_sim ? "-Estimated Success Rate-" : "-Estimated Threat Rating-";
 			txt[1] = SV_map[? MSN_VAR_ESR];
 			
 			txt_halign[0] = fa_right;

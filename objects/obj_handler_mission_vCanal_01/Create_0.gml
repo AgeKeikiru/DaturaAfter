@@ -6,6 +6,19 @@ used to keep track of tile-triggered events
 
 event_inherited();
 
+var _arr = [
+	SOC_FG_STATUS + SOC_SKNIGHT,
+	SOC_FG_STATUS + SOC_WANDERERTIP
+];
+
+for(var _i = 0;_i < array_length_1d(_arr);_i++){
+	var _key = _arr[_i];
+	
+	if(!global.map_flags[? _key]){
+		global.map_flags[? _key] = 1;
+	}
+}
+
 ds_grid_resize(grd_events,1,3);
 
 var

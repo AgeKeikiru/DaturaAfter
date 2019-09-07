@@ -41,7 +41,11 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 	}
 	
 	if(!global.tempBool){
-		enCurr += -actUsing.enCost;
+		global.tempFloat = 1;
+		
+		scr_cEvent(all,EVENT_SNCT_SHDMOD,id);
+		
+		enCurr += -actUsing.enCost * max(global.tempFloat,0);
 	}
 	
 	globalvar G_tmp;

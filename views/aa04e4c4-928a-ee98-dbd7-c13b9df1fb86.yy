@@ -8,11 +8,13 @@
         "600529bf-2711-557c-da41-0e3be55f6178",
         "5bf2811b-ef20-8944-ca76-0ceffc4497d2",
         "9a129b19-7966-f52d-1296-49e0716d63f0",
+        "3375709e-47ab-3383-deaa-b4c754c91eb8",
         "de8d996b-2ee2-b1bf-35fe-f31943439bfe",
         "50c251bb-33a7-d2d0-2b3b-d98482f220fc",
         "672e8519-df77-81a1-5715-7964bd602d08",
         "54dc1df8-b445-4390-6e59-1b1ee054b867",
-        "03d72462-09dc-ab6a-5043-92aecd2cfe52"
+        "03d72462-09dc-ab6a-5043-92aecd2cfe52",
+        "fcea8db5-aa93-bb45-6573-a79ebb777ab1"
     ],
     "filterType": "GMScript",
     "folderName": "missions",

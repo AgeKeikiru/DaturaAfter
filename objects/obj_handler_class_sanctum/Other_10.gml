@@ -199,6 +199,20 @@ switch(cEvent){
 			
 			break;
 	#endregion
+	
+	#region //snct_shdMod
+		case EVENT_SNCT_SHDMOD:
+			var
+			_src = cArgs[| 0],
+			
+			if(src == _src){
+				global.tempFloat += -.005 * src.level;
+			}
+			
+			event_inherited();
+			
+			break;
+	#endregion
 		
 	default:
 	    event_inherited();

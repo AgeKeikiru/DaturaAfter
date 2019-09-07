@@ -1,27 +1,43 @@
 add [Debuff Love] effect to debuffs
-add dialogue backlog to C key
-add option to switch down arrow to middle-target
-add stat comparison to equip menu
-nerf imo base f-atk
 add bestiary
-add stat preview in shop
 buff demoBoss
 en cost/cd balance
-add item usage
+implement mission condition icons next to minimap
+make demoboss unlock when no other missions are available
+add "control party lead only" option
 
 add burn secondary effect
-1 new mission
-add explore (change to simulator) functionality
-add difficultTerrain effect
 add silence effect
+nerf imo base f-atk
+add en recover stat to acts
+add item usage
+add stat preview in shop
+add stat comparison to equip menu
+add option to switch down arrow to middle-target
+add dialogue backlog to C key
+add Jack
+add Draker
+new missions
 
 investigate crash after idling on mission clear screen (noticed on tree mission)
 
 fixed(?) bugs:
+	fixed negative crit damage
+	fixed crash from wiping during simulator
+	fixed fail dia not activating
+	Fire Support no longer activates class skills
+		
+fixed bugs:
 	fix newgame-market crash
 	fix class acts being replaced with ??? on load
 	investigate crash after post mission save (noticed in demoBoss)
 		apparently always crashes after clearing demoBoss a 2nd time, suspected to be tied to heldGold overflow
+
+mission idea
+	aptitude test proctor
+		"when no appropriate missions are available for new adventurers, a standardized aptitude test is conducted"
+		"escort adventurer to goal and prevent them from getting overwhelmed"
+		simple mission, get to the end of a linear path
 
 class idea:
 	Editor
@@ -31,20 +47,20 @@ class idea:
 			act that deactivates stance for element burst
 		stances that make future attacks scale against a specific defense stat, or scale with the target's atk stat
 			levelling up increases how many attacks use this property before the stance deactivates
-	Ace
-		stance act that changes to whatever type attack was used last
-			boosts damage dealt and taken with current type
-		weaponmaster type class
 	Strider
 		explorer type class, has utility skills
 		skill that heals party after battles
 		skill that increases drop rate
+		escape battle skill
+		heal share skill
 	Battery
 		more straightforward s-atk dps
-		[chain cast]: stance, insta-cooldown all acts (excluding acts already used) when dealing damage to an elemental weakness
-			each proc restarts a timer on the stance, when the timer runs out the list of excluded acts is cleared
+		[chain cast]: add tempAgile to all spell attacks
+		when a spell attack is "weak" effective, heal user slightly
 		en+ skill
 		s-atk+ skill
+		heal+ skill
+		make sub-class friendly
 
 R6 Weapons:
 	AC2-MNLT
@@ -61,6 +77,11 @@ R6 Weapons:
 		SCY
 		DRK
 		An unholy weapon that drains the lifeforce from its targets to nourish the wielder.
+		
+	Hammer
+		AXE
+		null
+		A blunt, graceless weapon that reduces the target's M-DEF on hit.
 		
 	Missile Rack
 		RPG

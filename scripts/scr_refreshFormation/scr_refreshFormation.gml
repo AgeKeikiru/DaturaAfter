@@ -23,7 +23,7 @@ with SV_m{
 	for(SV_i = ds_list_size(SV_lst) + -1;SV_i >= 0;SV_i--){
 	    var SV_key = SV_lst[| SV_i];
 	    
-	    if(!global.map_flags[? SV_key]){
+	    if(!global.map_flags[? SV_key] && !DEBUG){
 	        ds_list_delete(SV_lst,SV_i);
 	    }
 	}

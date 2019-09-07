@@ -16,14 +16,14 @@ var SV_m = scr_createMenuPanel(-999,-999,500,-1,"party/status/..");
 
 with SV_m{
 	ds_grid_resize(grd_txt,ds_list_size(global.lst_activePartySlots),1);
-	ds_grid_resize(grd_scr,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
-	ds_grid_resize(grd_desc,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
-	ds_grid_resize(grd_descLabel,ds_grid_width(grd_txt),ds_grid_height(grd_txt));
+	scr_menu_matchGrids(id,true);
 	
 	for(var SV_i = 0;SV_i < ds_list_size(global.lst_activePartySlots);SV_i++){ //menu x
     	var
-    	SV_memX = global.lst_activePartySlots[| SV_i],
-    	SV_mem = global.grd_party_player[# SV_memX,0];
+    	SV_pos = global.lst_activePartySlots[| SV_i],
+    	SV_memX = SV_pos % 3,
+    	SV_memY = SV_pos > 2,
+    	SV_mem = global.grd_party_player[# SV_memX,SV_memY];
     	
     	grd_txt[# SV_i,0] = SV_mem.name;
     	//grd_desc[# SV_i,0] = "Nothing equipped.";

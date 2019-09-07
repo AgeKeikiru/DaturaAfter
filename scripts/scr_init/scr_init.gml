@@ -1,5 +1,7 @@
 scr_trace("scr_init called");
 
+global.manualDebug = false;
+
 #region //sys handling
 
 	randomize();
@@ -81,7 +83,8 @@ scr_trace("scr_init called");
 	    "lst_shop_classes",
 	    "lst_bgmFadeOut",
 	    "lst_bgmStream",
-	    "lst_sfx"
+	    "lst_sfx",
+	    "lst_simAreas"
 	];
 	
 	for(var _i = 0;_i < array_length_1d(_arr);_i++){
@@ -94,10 +97,15 @@ scr_trace("scr_init called");
 	
 	global.map_flags[? FG_SHOPPROGRESS] = 0;
 	global.map_flags[? FG_PROLOGUE] = true;
-	global.map_flags[? FG_MSNCLEARS] = 0;
-	global.map_flags[? FG_MSNPHASE] = 0;
 	global.map_flags[? FG_FREEPLAY] = false;
 	global.map_flags[? FG_TUT_QUEST] = false;
+	global.map_flags[? FG_TUT_FORMATION] = false;
+	global.map_flags[? FG_TUT_SIM] = false;
+	
+	//mission phases
+	global.map_flags[? FG_MSNCLEARS] = 0;
+	global.map_flags[? FG_MSNPHASE] = 0;
+	global.map_flags[? FG_MP1] = 0;
 	
 	//character unlock status
 	global.map_flags[? CHAR_IMOLEI] = true;
@@ -105,6 +113,19 @@ scr_trace("scr_init called");
 	global.map_flags[? CHAR_PAPRIKA] = true;
 	global.map_flags[? CHAR_BLAZE] = false;
 	global.map_flags[? CHAR_ARI] = false;
+	
+	//sim area status
+	var SV_arr = [
+		SIM_FOREST,
+		SIM_TUNDRA,
+		SIM_TUNNELS
+	];
+	
+	for(var SV_i = 0;SV_i < array_length_1d(SV_arr);SV_i++){
+		var SV_key = SIM_FG_STATUS + SV_arr[SV_i];
+		
+		global.map_flags[? SV_key] = -1;
+	}
 	
 	scr_init_items();
 	scr_init_mats();
@@ -127,10 +148,13 @@ scr_trace("scr_init called");
 	global.grd_dMap_visible = ds_grid_create(6,5);
 	global.dMap_xPos = 1;
 	global.dMap_yPos = 0;
+	global.dMap_pgmCoords = [0,0,1,1];
 	global.dMap_xPosTgt = global.dMap_xPos;
 	global.dMap_yPosTgt = global.dMap_yPos;
 	
 	global.missionCurr = "";
+	global.simFloor = 0;
+	global.simArea = 0;
 	
 	global.playerControl = true;
 	global.cid = 0; //class id, used for default custom class names

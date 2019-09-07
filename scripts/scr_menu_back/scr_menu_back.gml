@@ -5,7 +5,11 @@ io_clear();
 
 var SV_ui = instance_find(obj_handler_menuUI,0);
 
-if(ds_stack_size(global.stk_menu) > 1 || (instance_exists(SV_ui) && SV_ui.ps_baseMenuIndex >= 0)){	
+if(
+	ds_stack_size(global.stk_menu) > 1 ||
+	(instance_exists(SV_ui) && SV_ui.ps_baseMenuIndex >= 0) ||
+	(instance_exists(obj_handler_dungeon) && ds_stack_size(global.stk_menu) > 0)
+){	
 	if(argument_count <= 1 || argument[1]){
 		scr_playSfx(sfx_back);
 	}
@@ -23,6 +27,10 @@ if(ds_stack_size(global.stk_menu) > 1 || (instance_exists(SV_ui) && SV_ui.ps_bas
 			}
 		}
 	}else{
+		if(instance_exists(obj_handler_dungeon) && ds_stack_size(global.stk_menu) == 0){
+			global.playerControl = true;
+		}
+		
 		if(SV_ui.ps_baseMenuIndex + 1 == ds_stack_size(global.stk_menu)){
 			with(SV_ui){
 				instance_destroy(ps_portEquip);
