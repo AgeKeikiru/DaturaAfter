@@ -2,6 +2,12 @@
 if(instance_exists(talkbox)){
 	var _alpha = talkbox.image_xscale / talkbox.tgt_xScale;
 	
+	draw_set_alpha(_alpha);
+	
+	if(variable_instance_exists(id,"sfc_bg") && surface_exists(sfc_bg)){
+		draw_surface(sfc_bg,0,0);
+	}
+	
 	draw_set_alpha(_alpha * .5);
 	draw_set_color(c_black);
 	

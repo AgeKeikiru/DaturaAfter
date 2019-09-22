@@ -13,6 +13,7 @@ with obj_handler_menu_parent{
 }
 
 alarm[0] = 30;
+alarm[1] = 1;
 
 talkbox = instance_create_layer((room_width / 2) + -(tb_width / 2),room_height + -tb_height + -20,global.ly_obj[1],obj_fpo_panel);
 ds_list_add(lst_panels,talkbox);
@@ -49,3 +50,9 @@ tb_obj_l.tween_alpha = true;
 tb_obj_l.persistent = true;
 tb_obj_l.image_xscale = -1;
 tb_obj_l.visible = false;
+
+#region //shader uniforms
+
+	suni_blur_size = shader_get_uniform(shd_blur,"size");
+	
+#endregion

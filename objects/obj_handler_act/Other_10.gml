@@ -142,15 +142,16 @@ switch(cEvent){
 				tgt_yPos += bSize + 8;
 			}
 		
-			var _p = instance_create_depth(0,80,-999,obj_fpo_actBanner);
+			var _p = instance_create_depth(-20,80,-999,obj_fpo_actBanner);
 			_p.sprite_index = src.src[? CHAR_VAR_SPR_NEUTRAL];
 			_p.src = src;
 			_p.txt[0] = name;
 			_p.txt_ft[0] = ft_dungeonBoldLarge;
-			_p.txt_col[0] = c_dkgray;
+			_p.txt_col[0] = global.set_shaders ? c_white : c_dkgray;
 			_p.txt_halign[0] = fa_right;
 			_p.txt_valign[0] = fa_top;
-			_p.txt_y[0] = 0;
+			_p.txt_y[0] = 10;
+			
 			
 			_p.txt[1] = src.name;
 			_p.txt_ft[1] = ft_dungeonBold;
@@ -158,6 +159,7 @@ switch(cEvent){
 			_p.txt_halign[1] = fa_right;
 			_p.txt_valign[1] = fa_bottom;
 			_p.txt_y[1] = 0;
+			
 			
 			//select target
 			var

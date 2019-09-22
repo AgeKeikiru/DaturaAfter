@@ -1,5 +1,4 @@
 /// @description Insert description here
-// You can write your code in this editor
 alarm[0] = room_speed * 5;
 
 if(instance_number(obj_handler_menuUI) > 1){
@@ -14,3 +13,13 @@ if(instance_number(obj_handler_menuUI) > 1){
 	layer = global.ly_obj[2];
 	ds_grid_set_region(grd_ps_xDraw,0,0,3,1,1); //x positions for drawing menu fill, 0-1 for bottom layer, 2-3 for top layer
 }
+
+#region //shader uniforms
+
+	suni_silhouette_col = shader_get_uniform(shd_silhouette,"v4_col");
+	suni_silhouette_col2 = shader_get_uniform(shd_silhouette,"v4_col2");
+	suni_silhouette_grad = shader_get_uniform(shd_silhouette,"gradient");
+	suni_silhouette_bounds = shader_get_uniform(shd_silhouette,"v2_bounds");
+	suni_silhouette_boundMod = shader_get_uniform(shd_silhouette,"boundMod");
+
+#endregion

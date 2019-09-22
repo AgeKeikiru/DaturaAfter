@@ -1,6 +1,6 @@
 #region //general
 	
-	#macro GAMEVER "v0.1.3"
+	#macro GAMEVER "v0.2.1"
 	#macro UNIVERSAL_COOLDOWN (room_speed * 100 * 5)
 	#macro DEFAULT_PANEL_BEZEL 8
 	#macro CANARY true

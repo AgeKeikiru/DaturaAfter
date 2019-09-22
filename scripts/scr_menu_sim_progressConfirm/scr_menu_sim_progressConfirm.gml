@@ -14,3 +14,5 @@ SV_m.back_function = scr_menu_backNoRefresh;
 SV_m.grd_txt[# 0,0] = "Next Zone";
 SV_m.grd_txt[# 1,0] = "End Session";
 SV_m.btn_w = 300;
+
+SV_m.x += -SV_m.btn_w / 2;

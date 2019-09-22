@@ -218,6 +218,7 @@ global.manualDebug = false;
 	global.set_atbMod = 20;
 	global.set_mmSize = 30;
 	global.set_mapZoom = false;
+	global.set_shaders = true;
 	
 #endregion
 

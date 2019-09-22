@@ -72,7 +72,26 @@ if(title){
 		}
 		
 		if(scr_exists(_spr,asset_sprite)){
-			draw_sprite_ext(_spr,0,_leadX + -10,720,1,1,0,c_black,transCurr * .8); //drop shadow
+			var _arr = sprite_get_uvs(_spr,0);
+			
+			//drop shadow
+			if(global.set_shaders){
+				shader_set(shd_silhouette);
+				shader_set_uniform_f(suni_silhouette_col,0.2,0.2,0.2,transCurr);
+				shader_set_uniform_f(suni_silhouette_grad,false);
+				
+				draw_sprite(_spr,0,_leadX + -(20 * transCurr),720);
+				
+				shader_set_uniform_f(suni_silhouette_col,1,1,1,transCurr);
+				shader_set_uniform_f(suni_silhouette_grad,false);
+				
+				draw_sprite(_spr,0,_leadX + -(3 * transCurr),720);
+				
+				shader_reset();
+			}else{
+				draw_sprite_ext(_spr,0,_leadX + -(10 * transCurr),720,1,1,0,c_black,0.8 * transCurr);
+			}
+			
 			draw_sprite_ext(_spr,0,_leadX,720,1,1,0,c_white,transCurr);
 		}
 	

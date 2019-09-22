@@ -42,7 +42,7 @@
             "Key": "004ef371-8d94-e2be-6c39-3e40704e4473",
             "Value": {
                 "id": "a92c1855-2206-7729-f6d3-0d94eb0469f1",
-                "resourcePath": "objects\/obj_handler_class_draker\/obj_handler_class_draker.yy",
+                "resourcePath": "objects/obj_handler_class_draker/obj_handler_class_draker.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -66,7 +66,7 @@
             "Key": "03d72462-09dc-ab6a-5043-92aecd2cfe52",
             "Value": {
                 "id": "ad4e2ed4-4e73-1ba6-40b7-217fa28e8f23",
-                "resourcePath": "scripts\/scr_dia_build_missionFailed\/scr_dia_build_missionFailed.yy",
+                "resourcePath": "scripts/scr_dia_build_missionFailed/scr_dia_build_missionFailed.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -623,6 +623,14 @@
             }
         },
         {
+            "Key": "1dcadfb2-7a69-496a-baf0-080d98607d86",
+            "Value": {
+                "id": "bed560c5-fdf5-4af6-87d6-5059c9b3f1ba",
+                "resourcePath": "fonts\\ft_menuButton_m\\ft_menuButton_m.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "1de76ae9-cc5c-86d9-81d1-6fee30641f64",
             "Value": {
                 "id": "f7c587f9-b80f-9e40-f31b-f5f9b09ef9ec",
@@ -1018,7 +1026,7 @@
             "Key": "34f9ecba-ee5d-79e1-71ef-e6a93a1573fe",
             "Value": {
                 "id": "ccee340b-9527-01ad-5494-d432496fcb19",
-                "resourcePath": "scripts\/scr_alert_formationTut\/scr_alert_formationTut.yy",
+                "resourcePath": "scripts/scr_alert_formationTut/scr_alert_formationTut.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1226,7 +1234,7 @@
             "Key": "3ad5a219-099f-b1fa-97aa-c8385fbe8027",
             "Value": {
                 "id": "f89ccd70-b8e3-9485-1765-ec2458d782c8",
-                "resourcePath": "scripts\/scr_dia_build_vCanal_02_brief\/scr_dia_build_vCanal_02_brief.yy",
+                "resourcePath": "scripts/scr_dia_build_vCanal_02_brief/scr_dia_build_vCanal_02_brief.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1234,7 +1242,7 @@
             "Key": "3b445ba9-59e3-836c-3c05-117e2a95559c",
             "Value": {
                 "id": "d8011922-c5d3-41f6-0810-06ba21de4633",
-                "resourcePath": "scripts\/scr_menu_market_wpnArmConfirm_yes\/scr_menu_market_wpnArmConfirm_yes.yy",
+                "resourcePath": "scripts/scr_menu_market_wpnArmConfirm_yes/scr_menu_market_wpnArmConfirm_yes.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1410,7 +1418,7 @@
             "Key": "4234b979-09de-5c40-f0e5-ba435247d6ae",
             "Value": {
                 "id": "c14d7d4a-6833-8516-bdf8-d056ebd54553",
-                "resourcePath": "scripts\/scr_menu_market_wpnArm\/scr_menu_market_wpnArm.yy",
+                "resourcePath": "scripts/scr_menu_market_wpnArm/scr_menu_market_wpnArm.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1516,6 +1524,14 @@
                 "id": "54b2c111-0dd0-48e4-8ce2-709007b9e558",
                 "resourcePath": "rooms\\rm_home\\rm_home.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "4a385ca1-f49d-45d8-8668-6679be7aeda2",
+            "Value": {
+                "id": "f88e0f94-2ef3-457f-a407-0bc21ac757e4",
+                "resourcePath": "fonts\\ft_menuButton\\ft_menuButton.yy",
+                "resourceType": "GMFont"
             }
         },
         {
@@ -1935,6 +1951,14 @@
             }
         },
         {
+            "Key": "5c37971d-809b-495e-b528-184a92c40854",
+            "Value": {
+                "id": "06395850-88e6-4043-bdd6-ce8f6a2c6aa2",
+                "resourcePath": "fonts\\ft_menuDesc_m\\ft_menuDesc_m.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "5c4a3a8c-3a76-4a87-a7d1-c4db1fd86ea1",
             "Value": {
                 "id": "9df77248-23bb-45d3-a20e-401a2e6f1c2f",
@@ -2130,7 +2154,7 @@
             "Key": "64b3522e-26ec-725e-503f-cb058f3a903f",
             "Value": {
                 "id": "5d1bdf47-db54-788d-ea76-8566645ecb8d",
-                "resourcePath": "scripts\/scr_menu_briefConfirm\/scr_menu_briefConfirm.yy",
+                "resourcePath": "scripts/scr_menu_briefConfirm/scr_menu_briefConfirm.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2212,14 +2236,6 @@
                 "id": "6b316ed5-43ea-595b-8a20-18970a4f47f3",
                 "resourcePath": "views\\672e8519-df77-81a1-5715-7964bd602d08.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "676753bd-7a8c-4803-8025-eb734cba1d53",
-            "Value": {
-                "id": "693a3fdd-c42c-42fc-844a-660b517c2136",
-                "resourcePath": "fonts\\ft_menuDesc\\ft_menuDesc.yy",
-                "resourceType": "GMFont"
             }
         },
         {
@@ -2978,7 +2994,7 @@
             "Key": "8a1b94be-6b68-b6c3-0d54-4183f0c9bb06",
             "Value": {
                 "id": "e92a2b4c-b9a5-6936-c4b0-d95c6ef99272",
-                "resourcePath": "scripts\/scr_menu_market_wpnArmConfirm\/scr_menu_market_wpnArmConfirm.yy",
+                "resourcePath": "scripts/scr_menu_market_wpnArmConfirm/scr_menu_market_wpnArmConfirm.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -3066,7 +3082,7 @@
             "Key": "9058b944-a351-af1a-d0a7-5062ccf08990",
             "Value": {
                 "id": "22b90491-fe75-8482-5f8d-7b1b2ffa39e2",
-                "resourcePath": "scripts\/scr_menu_social_formation_cancel\/scr_menu_social_formation_cancel.yy",
+                "resourcePath": "scripts/scr_menu_social_formation_cancel/scr_menu_social_formation_cancel.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -3194,7 +3210,7 @@
             "Key": "95f37350-c121-d5fa-b519-3b78f0525ada",
             "Value": {
                 "id": "96f40b56-f0be-7c5a-8941-c7d51b1de699",
-                "resourcePath": "scripts\/scr_dia_build_social_seriousRazer\/scr_dia_build_social_seriousRazer.yy",
+                "resourcePath": "scripts/scr_dia_build_social_seriousRazer/scr_dia_build_social_seriousRazer.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -3983,6 +3999,14 @@
             }
         },
         {
+            "Key": "b801b7b2-5313-4e31-b8b8-3bcc629abdb1",
+            "Value": {
+                "id": "29a58df2-04c6-422d-8d61-c8eec7715d65",
+                "resourcePath": "fonts\\ft_menuDesc\\ft_menuDesc.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "b809fc5c-0cdb-89d6-bf01-94324f8c2a02",
             "Value": {
                 "id": "eb4631ce-7729-c1d8-09f5-96531223f9b0",
@@ -4258,7 +4282,7 @@
             "Key": "c2164d51-dff6-7dc6-2063-2ef917646394",
             "Value": {
                 "id": "04824274-6ff3-5ab4-d04a-b2a5db2a6433",
-                "resourcePath": "scripts\/scr_dia_build_nLoewi_02_miss2\/scr_dia_build_nLoewi_02_miss2.yy",
+                "resourcePath": "scripts/scr_dia_build_nLoewi_02_miss2/scr_dia_build_nLoewi_02_miss2.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -4418,7 +4442,7 @@
             "Key": "c8c70ce1-c16d-1ee0-d37b-39a54e08b751",
             "Value": {
                 "id": "1439efbf-7fae-6d3e-f9ff-9d6928979478",
-                "resourcePath": "scripts\/scr_dia_build_nTundra_01_brief_img01\/scr_dia_build_nTundra_01_brief_img01.yy",
+                "resourcePath": "scripts/scr_dia_build_nTundra_01_brief_img01/scr_dia_build_nTundra_01_brief_img01.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -4943,14 +4967,6 @@
             }
         },
         {
-            "Key": "dfd68a7c-5e19-4219-a1ca-b44d83f00cf3",
-            "Value": {
-                "id": "88282a86-2874-42a6-8d7e-27c82bcd8766",
-                "resourcePath": "fonts\\ft_menuButton\\ft_menuButton.yy",
-                "resourceType": "GMFont"
-            }
-        },
-        {
             "Key": "dffd491c-a374-4033-925c-c8c97374697d",
             "Value": {
                 "id": "ed1ac829-332b-487c-8cbc-d82bac523e14",
@@ -5378,7 +5394,7 @@
             "Key": "f6ae2c92-47ec-ee08-222a-94dbeeaafaec",
             "Value": {
                 "id": "835f08fb-7e16-26d2-7996-ee863006ac54",
-                "resourcePath": "scripts\/scr_menu_party_equip_swapEquip\/scr_menu_party_equip_swapEquip.yy",
+                "resourcePath": "scripts/scr_menu_party_equip_swapEquip/scr_menu_party_equip_swapEquip.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -5394,7 +5410,7 @@
             "Key": "f729ee4a-e22b-6721-ed2e-df8f3e97d938",
             "Value": {
                 "id": "5b73deba-7b6d-5198-7ea9-dd02a6f18691",
-                "resourcePath": "scripts\/scr_menu_briefConfirm_yes\/scr_menu_briefConfirm_yes.yy",
+                "resourcePath": "scripts/scr_menu_briefConfirm_yes/scr_menu_briefConfirm_yes.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -5580,6 +5596,22 @@
                 "id": "4ff4fb57-6ab8-91f8-c2ea-f2599d6aeb5f",
                 "resourcePath": "scripts\\scr_menu_lab_class_rename\\scr_menu_lab_class_rename.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ba480369-ba75-3077-d15b-02ec5f33dc05",
+            "Value": {
+                "id": "26964a31-c992-ba78-9e7e-36e269923dd8",
+                "resourcePath": "shaders\\shd_blur\\shd_blur.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
+            "Key": "9074f0fe-6292-0e52-0e0f-b142686c880f",
+            "Value": {
+                "id": "3ba03bb6-f12e-a517-c6d6-dec9af66fc77",
+                "resourcePath": "shaders\\shd_silhouette\\shd_silhouette.yy",
+                "resourceType": "GMShader"
             }
         }
     ],

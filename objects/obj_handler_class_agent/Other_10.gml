@@ -222,7 +222,7 @@ switch(cEvent){
 			_y = 0,
 			_proc = grd_skills[# _x,_y] * grd_skillRate[# _x,_y];
 			
-			if(scr_exists(src,asset_object) && _src != src && _src.allyParty == src.allyParty && _act.tgtEnemy && random(1) < _proc && fsCooldown <= 0){
+			if(CS_SRCSTANCEIS obj_handler_actEffect_agnt_hide && _src != src && _src.allyParty == src.allyParty && _act.tgtEnemy && random(1) < _proc && fsCooldown <= 0){
 				//fire support
 				var _lst = ds_list_create();
 				

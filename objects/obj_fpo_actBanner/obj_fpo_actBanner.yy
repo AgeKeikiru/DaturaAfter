@@ -103,7 +103,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "60",
+            "value": "80",
             "varName": "bSize",
             "varType": 0
         },
