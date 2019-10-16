@@ -24,7 +24,7 @@ if(!nonAttack){
 		}
 		
 		global.tempInt = dc_tgt[| _i];
-		scr_cEvent(all,EVENT_SNCT_SAVECHECK,dc_dmgMax[| _i],id);
+		scr_cEvent(EVENT_SNCT_SAVECHECK,dc_dmgMax[| _i],id);
 		
 		dc_tgt[| _i] = global.tempInt;
 		
@@ -89,7 +89,7 @@ if(!nonAttack){
 				global.critChance = clamp(dc_aim[| _i],0.01,0.1);
 				global.critBonus = 1.2;
 				
-				scr_cEvent(all,EVENT_BATTLE_CRITMOD,src,dc_tgt[| _i],id);
+				scr_cEvent(EVENT_BATTLE_CRITMOD,src,dc_tgt[| _i],id);
 				
 				var _crit = random(1) < global.critChance;
 				
@@ -110,7 +110,7 @@ if(!nonAttack){
 				}
 				
 				if(pwr > 0){
-					scr_cEvent(all,tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt[| _i],id,_dmg);
+					scr_cEvent(tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt[| _i],id,_dmg);
 				}
 				
 				global.tempLst = ds_list_create();
@@ -141,7 +141,7 @@ if(!nonAttack){
 					global.tempLst2[| _i2] += sa_chance[| _i2];
 				}
 				
-				scr_cEvent(all,EVENT_BATTLE_SAINFLICT,src,dc_tgt[| _i],id);
+				scr_cEvent(EVENT_BATTLE_SAINFLICT,src,dc_tgt[| _i],id);
 				
 				for(var _i2 = 0;_i2 < 6;_i2++){
 					if(global.tempLst[| _i2] > 0){
@@ -157,7 +157,7 @@ if(!nonAttack){
 				dc_tgt[| _i].hpCurr = clamp(dc_tgt[| _i].hpCurr,0,dc_tgt[| _i].hpMax);
 				
 				if(!_overkill && dc_tgt[| _i].hpCurr <= 0){
-					scr_cEvent(all,EVENT_BATTLE_ENEMYKILLED,src,dc_tgt[| _i],id);
+					scr_cEvent(EVENT_BATTLE_ENEMYKILLED,src,dc_tgt[| _i],id);
 				}
 				
 				var _tgt = eSelf_hit ? src : dc_tgt[| _i];
@@ -181,7 +181,7 @@ if(!nonAttack){
 				}
 			}else{
 				_p.txt[0] = "miss";
-				scr_cEvent(all,EVENT_BATTLE_MISS,src,dc_tgt[| _i],id);
+				scr_cEvent(EVENT_BATTLE_MISS,src,dc_tgt[| _i],id);
 			}
 			
 			var _recoil = recoil + ceil((src.ailment[CHAR_SA_BRN] > 0) * _dmg * .5 * _hit);

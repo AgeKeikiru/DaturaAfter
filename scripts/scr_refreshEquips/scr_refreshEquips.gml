@@ -1,4 +1,4 @@
-scr_cEvent(obj_dungeon_battleMember,EVENT_BATTLM_INIT);
+scr_cEvent(EVENT_BATTLM_INIT);
 
 with ds_stack_top(global.stk_menu){
     ds_grid_resize(grd_txt,ds_list_size(global.lst_activePartySlots),12);

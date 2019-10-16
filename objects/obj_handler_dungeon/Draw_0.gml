@@ -107,7 +107,7 @@ if(!state_event && !state_results){
 				_o.image_alpha = ktk_scr_tween(_o.image_alpha,1,5,.2);
 				
 				if(_o.hpCurr > 0){
-					scr_cEvent(_o,EVENT_BATTLM_ICONDRAW);
+					scr_cEvent_id(_o,EVENT_BATTLM_ICONDRAW);
 					
 					var
 					_fill = ceil(360 * (_o.enemyWait / _o.enemyWaitMax)),
@@ -535,7 +535,7 @@ if(!state_event && !state_results){
 					_drawY += _barH + _barGap;
 					
 					draw_rectangle(_drawX,_drawY,_drawX + (_drawW * .65),_drawY + (_drawH * 1.5),false);
-					scr_cEvent(_mem.stance,EVENT_EFFECT_STANCEDRAW,_drawX,_drawY,_uiCol[0]);
+					scr_cEvent_id(_mem.stance,EVENT_EFFECT_STANCEDRAW,_drawX,_drawY,_uiCol[0]);
 				}
 			
 			#endregion
@@ -571,7 +571,7 @@ if(!state_event && !state_results){
 				_tg_size = 0,
 				_tg_gap = 2;
 				
-				scr_cEvent(_mem,EVENT_BATTLM_ICONDRAW);
+				scr_cEvent_id(_mem,EVENT_BATTLM_ICONDRAW);
 				
 				if(_partyI == tgtSlot){
 					draw_set_color(c_white);

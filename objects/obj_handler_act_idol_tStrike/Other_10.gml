@@ -16,7 +16,7 @@ switch(cEvent){
             		aggro = floor(charge);
     		    }
     		    
-    		    scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+    		    scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
     		}
     		
     		break;

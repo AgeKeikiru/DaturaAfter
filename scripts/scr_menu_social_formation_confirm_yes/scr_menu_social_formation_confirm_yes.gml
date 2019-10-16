@@ -9,7 +9,7 @@ for(var SV_i = 0;SV_i < ds_list_size(global.lst_newFormation);SV_i++){
     global.grd_party_player[# SV_x,SV_y] = global.map_chars[? SV_id];
 }
 
-scr_cEvent(obj_dungeon_battleMember,EVENT_BATTLM_INIT);
+scr_cEvent(EVENT_BATTLM_INIT);
 
 scr_menu_backNoRefresh();
 scr_menu_backNoRefresh();

@@ -1,7 +1,7 @@
 with obj_handler_dungeon{
     timeline_speed = 1;
     
-    scr_cEvent(obj_fpo_battleBanner,EVENT_FPO_FADEKILL);
+    scr_cEvent_id(obj_fpo_battleBanner,EVENT_FPO_FADEKILL);
     
     popcornTimer = .5 * room_speed;
     

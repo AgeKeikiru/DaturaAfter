@@ -465,6 +465,20 @@
             "value": "0",
             "varName": "depthMem",
             "varType": 0
+        },
+        {
+            "id": "caabed31-129d-48d5-8d28-a18272cd670d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "fancyMenu",
+            "varType": 3
         }
     ],
     "solid": false,

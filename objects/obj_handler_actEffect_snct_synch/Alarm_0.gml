@@ -24,7 +24,7 @@ if(scr_exists(src,asset_object)){
 		}
 	}
 	
-	scr_cEvent(all,EVENT_BATTLM_ICONREFRESH);
+	scr_cEvent(EVENT_BATTLM_ICONREFRESH);
 }
 
 event_inherited();

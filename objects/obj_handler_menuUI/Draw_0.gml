@@ -48,11 +48,36 @@ if(title){
 		}
 	}
 }else{
+	var
+	_bgTop = 0,
+	_bgBot = room_height;
+	
+	#region //menuBG bottom
+	
+		var
+		_px = [0,menuBG_curr + 10,menuBG_curr + menuBG_w2,0],
+		_py = [_bgTop,_bgTop,_bgBot,_bgBot];
+		
+		draw_primitive_begin(pr_trianglefan);
+		draw_set_color(c_white);
+		draw_set_alpha(1);
+		
+		if(menuBG_curr > -menuBG_w2){
+			for(var _i = 0;_i < 5;_i++){
+				draw_vertex(_px[_i % 4],_py[_i % 4]);
+			}
+		}
+		
+		draw_primitive_end();
+		draw_set_color(c_white);
+	
+	#endregion
+	
 	#region //draw party lead
 	
 		var
 		_lead = global.grd_party_player[# 0,0],
-		_leadX = 900 + -(100 * (transCurr + -1)),
+		_leadX = 920 + -(100 * (transCurr + -1)),
 		_spr = noone;
 		
 		if(scr_exists(_lead,asset_object)){
@@ -77,208 +102,289 @@ if(title){
 			//drop shadow
 			if(global.set_shaders){
 				shader_set(shd_silhouette);
-				shader_set_uniform_f(suni_silhouette_col,0.2,0.2,0.2,transCurr);
+				shader_set_uniform_f(suni_silhouette_col,0.25,0.25,0.25,transCurr);
 				shader_set_uniform_f(suni_silhouette_grad,false);
 				
-				draw_sprite(_spr,0,_leadX + -(20 * transCurr),720);
+				draw_sprite(_spr,0,_leadX + -(35 * transCurr),720);
 				
 				shader_set_uniform_f(suni_silhouette_col,1,1,1,transCurr);
 				shader_set_uniform_f(suni_silhouette_grad,false);
 				
-				draw_sprite(_spr,0,_leadX + -(3 * transCurr),720);
+				draw_sprite(_spr,0,_leadX + -(8 * transCurr),720);
 				
 				shader_reset();
 			}else{
 				draw_sprite_ext(_spr,0,_leadX + -(10 * transCurr),720,1,1,0,c_black,0.8 * transCurr);
 			}
 			
-			draw_sprite_ext(_spr,0,_leadX,720,1,1,0,c_white,transCurr);
+			var
+			_blend = c_white,
+			_key = layer_background_get_sprite(global.ly_bg[0]);
+			
+			if(ds_map_exists(global.map_bgCol,_key) && !DEBUG){
+				_blend = global.map_bgCol[? _key];
+			}
+			
+			draw_sprite_ext(_spr,0,_leadX,720,1,1,0,_blend,transCurr);
 		}
+	
+	#endregion
+	
+	#region //menuBG top
+	
+		var
+		_px = [0,menuBG_curr,menuBG_curr + menuBG_w,0],
+		_py = [_bgTop,_bgTop,_bgBot,_bgBot],
+		_alpha = max(transCurr + -0.9,0) / 0.1;
+		
+		draw_primitive_begin(pr_trianglefan);
+		draw_set_color(c_dkgray);
+		draw_set_alpha(1);
+		
+		if(menuBG_curr > -menuBG_w2){
+			for(var _i = 0;_i < 5;_i++){
+				draw_vertex(_px[_i % 4],_py[_i % 4]);
+			}
+		}
+		
+		draw_primitive_end();
+		draw_set_color(c_white);
+		draw_set_alpha(0.1 * _alpha);
+		draw_set_font(ft_menuTitle);
+		draw_set_halign(fa_right);
+		draw_set_valign(fa_top);
+		
+		draw_text(menuBG_curr,80,"BABEL XR \nNAV SYSTEM");
+		
+		draw_set_font(rndTxt_ft);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_bottom);
+		
+		if(visible && menuBG_curr > 1){
+			if(rndTxt_draw < string_length(rndTxt_tgt)){
+				rndTxt_draw++;
+			}
+			
+			draw_text_ext_transformed(10,600,string_copy(rndTxt_tgt,1,rndTxt_draw),-1,menuBG_tgt / 0.5,0.5,0.5,0);
+		}
+		
+		draw_set_alpha(1);
 	
 	#endregion
 	
 	#region //class upgrade screen
 	
 		if(
-			scr_exists(_m,asset_object)
-			&& (
-				_m.link_panel.txt[0] == "menu/lab/class1/upgrade/.."
-				|| _m.link_panel.txt[0] == "menu/lab/class1/upgrade/confirm/.."
-			)
-			&& variable_global_exists("labObj")
-			&& scr_exists(global.labObj,asset_object)
+			variable_global_exists("labMenu") && scr_exists(global.labMenu,asset_object) &&
+			variable_global_exists("labObj") && scr_exists(global.labObj,asset_object)
 		){
 			var
-			_d_xStart = 190,
-			_d_yStart = 360,
+			_d_xStart = 580 + global.labMenu.link_panel.x + -global.labMenu.link_panel.tgt_xPos,
+			_d_yStart = 170,
 			_d_x = _d_xStart,
 			_d_y = _d_yStart,
-			_d_xGap = 180,
-			_d_yGap = 80,
+			_d_xGap = 40,
+			_d_yGap = 120,
 			_d_b = 10,
-			_d_tx1 = 0,
-			_d_ty1 = 20,
-			_d_tx2 = 30,
-			_d_ty2 = 0,
-			_d_tx3 = 30,
-			_d_ty3 = 40,
-			_d_a = _m.link_panel.txt[0] == "menu/lab/class1/upgrade/.." ? (_m.link_panel.image_xscale / _m.link_panel.tgt_xScale) : 1,
-			_d_hx = 50,
-			_d_hy = 120,
-			_d_hy2 = _d_hy + 42,
+			
+			_d_pw = 500,
+			_d_pw2 = _d_pw * 1.0,
+			_d_ph = _d_yGap + -30,
+			_d_po = _d_xGap,
+			
+			_d_px = [
+				0,
+				_d_pw,
+				_d_pw + _d_po,
+				_d_po
+			],
+			
+			_d_py = [
+				0,
+				0,
+				_d_ph,
+				_d_ph
+			],
+			
+			_d_px2 = [
+				0,
+				_d_pw2 + (_d_po * 2),
+				_d_pw2 + _d_po,
+				_d_po
+			],
+			
+			_d_py2 = [
+				0,
+				0,
+				_d_ph,
+				_d_ph
+			],
+			
+			_d_a = global.labMenu.link_panel.image_xscale / global.labMenu.link_panel.tgt_xScale,
+			_d_hx = 40,
+			_d_hx2 = _d_hx + 20,
+			_d_hy = 170,
+			_d_hy2 = _d_hy + 150,
 			_d_hw = 280,
 			_d_hh = 160,
-			_ix = 0,
+			_ix = global.labMenu.menu_x,
 			_iy = 0,
-			_str = "";
+			_str = "",
 			
-			if(highlight_x == 0){
-				highlight_x = _d_xStart;
-				highlight_y = _d_yStart;
-			}
+			_tierName = ["General","Primary","Primary 2","Extended","Specialist"],
 			
-			if(_m.link_panel.txt[0] == "menu/lab/class1/upgrade/.."){
-				highlight_x = ktk_scr_tween(highlight_x,_d_xStart + (_d_xGap * _m.menu_x),2,-1);
-				highlight_y = ktk_scr_tween(highlight_y,_d_yStart + (_d_yGap * _m.menu_y),2,-1);
-			}
+			_tierDesc = [
+				"Main Skill: Skills that scale based on the user's level. Main Skills only take effect when the class chip is in slot 1." +
+				"\n\nSub Skill: Stat boosts that have a smaller effect per level than normal skills, but have a very large level cap. Sub skills are useful if you have no interest in a chass chip's primary functions.",
+				"Primary Skills include a set of passive stat boosts important to the class, as well as the class' most basic features. Examining these skills will help identify the role they fill in a party.",
+				"",
+				"Unlocked at Lv.10, Extended Skills typically include auxiliary abilities that either broaden the class' functionality or modify its Primary Skills. Experience and familiarity with a class is recommended before deciding which Extended Skills to invest in.",
+				"Unlocked at Lv.20, Specialist Skills are a class' most powerful tools. While their effects can be devastating, Specialist Skills often heavily rely on earlier skills and thus a proper understanding of the class and the user's role in the party is imperative to using these skills to their full potential."
+			],
 			
-			gpu_set_blendmode(bm_subtract);
-			draw_set_color(c_ltgray);
+			_tierNum = ["G","I","II","III","IV"];
 			
-			draw_rectangle(0,_d_hy,_d_hw,_d_hy + _d_hh,false);
-			draw_rectangle_color(_d_hw + 1,_d_hy,_d_hw + 200,_d_hy + _d_hh,c_ltgray,c_black,c_black,c_ltgray,false);
+			_tierDesc[2] = _tierDesc[1];
 			
-			gpu_set_blendmode(bm_add);
-			draw_set_color(c_white);
-			
-			draw_line_width(0,_d_hy2,_d_hw,_d_hy2,2);
-			draw_line_width_color(_d_hw,_d_hy2,_d_hw + 200,_d_hy2,2,c_white,c_black);
-			
-			gpu_set_blendmode(bm_normal);
 			draw_set_alpha(1 * _d_a);
 			draw_set_font(ft_dungeonBoldLarge);
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_top);
 			_str = global.labObj.name;
 			
-			ktk_scr_draw_text_shadow(_d_hx,_d_hy + 10,_str,c_white,c_gray,3);
+			ktk_scr_draw_text_shadow(_d_hx,_d_hy,_str,c_white,c_gray,3);
+			
+			_str = _tierName[_ix];
+			
+			ktk_scr_draw_text_shadow(_d_hx,_d_hy2,_str,c_white,c_gray,3);
 			
 			var _skills = 0;
 								
 			for(var _xx = 0;_xx < ds_grid_width(global.labObj.grd_skills);_xx++){
 				for(var _yy = 0;_yy < ds_grid_height(global.labObj.grd_skills);_yy++){
 					_skills += sign(global.labObj.grd_skills[# _xx,_yy]);
+					
+					global.labMenu.grd_ex_str[# _xx + 1,_yy] = string(global.labObj.grd_skills[# _xx,_yy]) + "/5";
 				}
 			}
 			
+			global.labMenu.grd_ex_str[# 0,1] = string(global.labObj.ss_level) + "/30";
+			
 			draw_set_font(ft_dungeonBold);
-			_str = "lv." + string(global.labObj.level) + "/30\n"
+			_str = "lv." + string(global.labObj.level) + "/30"
 			+ "\n\"" + global.labObj.cName + "\""
 			+ "\nSkills: " + string(_skills)
 			+ "\nNext Level: " + string(scr_calcLevelupCost(global.labObj)) + "g";
 			
-			ktk_scr_draw_text_shadow(_d_hx,_d_hy + 55,_str,c_white,c_gray,2);
+			ktk_scr_draw_text_shadow(_d_hx2,_d_hy + 45,_str,c_white,c_gray,2);
 			
-			draw_set_font(ft_dungeonBold);
-			draw_set_halign(fa_center);
+			_str = _tierDesc[_ix];
 			
-			for(var _i = 0;_i < ds_grid_width(global.labObj.grd_skills) + 1;_i++){
-				var
-				_r = 25,
-				_x1 = _d_xStart + (_d_xGap * _i) + -_d_b,
-				_y1 = _d_yStart + -0 + -_r,
-				_x2 = _x1 + _d_xGap + -(_d_b * 2),
-				_y2 = _y1 + (_d_yGap * 3) + -30 + (_r * 2);
-				
-				draw_set_alpha(.9 * _d_a);
-				draw_set_color(c_dkgray);
-				
-				draw_roundrect_ext(_x1,_y1,_x2,_y2,_r,_r,false);
-				
-				draw_set_alpha(1 * _d_a);
-				draw_set_color(c_white);
-				
-				for(var _s = 0;_s < 2;_s += .5){
-					draw_roundrect_ext(_x1 + -_s,_y1 + -_s,_x2 + _s,_y2 + _s,_r,_r,true);
-				}
-				
-				if(_i > 1){
-					_str = "Lv." + string((_i + -1) * 5);
-					
-					ktk_scr_draw_text_stroke(mean(_x1,_x2),_y1 + -6,_str,c_dkgray,c_white,2,10);
-				}
-			}
+			ktk_scr_draw_text_shadow_ext_w(_d_hx2,_d_hy2 + 45,_str,c_white,c_white,1,c_gray,c_gray,1,1,1,1,0,-1,350);
 			
 			draw_set_color(c_gray);
 			draw_set_halign(fa_left);
-			draw_set_font(ft_menuSub);
-			
-			draw_rectangle(highlight_x + 1 + -_d_b,highlight_y + -_d_b,highlight_x + _d_xGap + -(_d_b * 3),highlight_y + 50 + _d_b,false);
-			
 			draw_set_alpha(1 * _d_a);
 			draw_set_color(c_white);
 			
-			_str = string_replace(global.labObj.ms_name," ","\n");
-			
-			draw_rectangle(_d_x,_d_y,_d_x + 35,_d_y + 35,false);
-			draw_sprite(global.labObj.ms_icon,0,_d_x,_d_y);
-			ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
-			ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
-			
-			_str = "Main";
-			
-			ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,1);
-			ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,2);
-			
-			_d_y += _d_yGap;
-			_str = string_replace(global.labObj.ss_name," ","\n");
-			
-			draw_rectangle(_d_x,_d_y,_d_x + 35,_d_y + 35,false);
-			draw_sprite(global.labObj.ss_icon,0,_d_x,_d_y);
-			ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
-			ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
-			
-			_str = string(global.labObj.ss_level) + "/30";
-			
-			ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,1);
-			ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,c_white,c_dkgray,2);
-			
-			_d_y += _d_yGap;
-			_str = "Return";
-			
-			draw_sprite(spr_backIcon,0,_d_x,_d_y);
-			ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,1);
-			ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,c_white,c_dkgray,2);
-			
-			_d_y = _d_yStart;
-			_d_x += _d_xGap;
-			
-			for(_ix = 0;_ix < ds_grid_width(global.labObj.grd_skills);_ix++){
-				_d_y = _d_yStart;
-				
-				for(_iy = 0;_iy < ds_grid_height(global.labObj.grd_skills);_iy++){
-					_str = string_replace(global.labObj.grd_skillName[# _ix,_iy]," ","\n");
+			if(variable_instance_exists(global.labMenu,"grd_ex_icon") && variable_instance_exists(global.labMenu,"grd_ex_str")){
+				for(_iy = 0;_iy < ds_grid_height(global.labMenu.grd_txt);_iy++){
+					var
+					_highlight = global.labMenu.menu_y == _iy,
+					_border = 0,
+					_iconX = _d_x + 34,
+					_iconY = _d_y + 2,
+					_iconB = 0, //bezel
+					_iconS = 1.5, //scale
+					_iconW = sprite_get_width(spr_icon_test) * _iconS; //width
 					
-					image_blend = (global.labObj.level >= _ix * 5) ? c_white : c_gray;
-					draw_set_color(image_blend);
+					_str = global.labMenu.grd_txt[# _ix,_iy];
 					
-					draw_rectangle(_d_x,_d_y,_d_x + 35,_d_y + 35,false);
-					draw_sprite_ext(global.labObj.grd_skillIcon[# _ix,_iy],0,_d_x,_d_y,1,1,0,image_blend,draw_get_alpha());
-					ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,image_blend,c_dkgray,1);
-					ktk_scr_draw_text_shadow(_d_x + 40,_d_y,_str,image_blend,c_dkgray,2);
+					image_blend = (global.labObj.level >= (_ix + -2) * 10) ? c_white : c_gray;
+					draw_set_color(c_dkgray);
+					draw_set_alpha((_highlight ? 0.95 : 0.8) * _d_a);
+					draw_set_font(ft_dungeonBoldLarge);
+					draw_set_halign(fa_left);
+					draw_set_valign(fa_top);
 					
-					_str = string(global.labObj.grd_skills[# _ix,_iy]) + "/5";
+					draw_primitive_begin(pr_trianglefan);
 					
-					ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,image_blend,c_dkgray,1);
-					ktk_scr_draw_text_shadow(_d_x,_d_y + 38,_str,image_blend,c_dkgray,2);
+					for(var _i = 0;_i < 5;_i++){
+						draw_vertex(_d_x + _d_px[_i % 4],_d_y + _d_py[_i % 4]);
+					}
+					
+					draw_primitive_end();
+					
+					draw_set_color(_highlight ? c_white : c_ltgray);
+					draw_set_alpha(_d_a);
+					
+					draw_primitive_begin(pr_trianglefan);
+					
+					for(var _i = 0;_i < 5;_i++){
+						draw_vertex(_d_x + (_d_px2[_i % 4] * 0.3),_d_y + (_d_py2[_i % 4] * 0.3));
+					}
+					
+					draw_primitive_end();
+					
+					draw_set_halign(fa_right);
+					draw_set_valign(fa_bottom);
+					draw_set_color(c_white);
+					draw_set_alpha(_d_a * 0.1);
+					
+					draw_text_transformed(_d_x + _d_px[2] + -35,_d_y + _d_py[2] + 20,_tierNum[_ix],2,2,0);
+					
+					draw_set_color(_highlight ? c_white : c_ltgray);
+					draw_set_alpha(_d_a);
+					draw_set_halign(fa_left);
+					draw_set_valign(fa_top);
+					
+					while(_border < 15){
+						var
+						_bx = [
+							_d_x + _d_px[0] + _border,
+							_d_x + _d_px[1] + -_border,
+							_d_x + _d_px[2] + -_border,
+							_d_x + _d_px[3] + _border
+						],
+						
+						_by = [
+							_d_y + _d_py[0] + _border,
+							_d_y + _d_py[1] + _border,
+							_d_y + _d_py[2] + -_border,
+							_d_y + _d_py[3] + -_border
+						];
+						
+						if(!(13 > _border && _border > 6)){
+							for(var _i = 0;_i < 4;_i++){
+								draw_line(_bx[_i % 4],_by[_i % 4],_bx[(_i + 1) % 4],_by[(_i + 1) % 4]);
+							}
+						}
+						
+						_border += 0.5;
+					}
+					
+					draw_rectangle(_iconX + -_iconB,_iconY + -_iconB,_iconX + _iconW + _iconB,_iconY + _iconW + _iconB,false);
+					
+					if(!_highlight){
+						image_blend = c_gray;
+					}
+					
+					draw_sprite_ext(global.labMenu.grd_ex_icon[# _ix,_iy],0,_iconX,_iconY,_iconS,_iconS,0,image_blend,draw_get_alpha());
+					
+					ktk_scr_draw_text_shadow(_d_x + 95,_d_y + 40,_str,image_blend,c_dkgray,2);
+					
+					_str = global.labMenu.grd_ex_str[# _ix,_iy];
+					draw_set_font(ft_dungeonBold);
+					draw_set_color(c_dkgray);
+					
+					draw_text(_d_x + 100,_d_y + 10,_str);
 					
 					image_blend = c_white;
 					draw_set_color(image_blend);
 					
+					_d_x += _d_xGap;
 					_d_y += _d_yGap;
 				}
-				
-				_d_x += _d_xGap;
 			}
 		}
 		
@@ -671,9 +777,9 @@ if(title){
 		
 		#region //equip portrait
 		
+			var _menu = ds_stack_top(global.stk_menu);
+			
 			if(scr_exists(ps_portEquip,asset_object)){
-				var _menu = ds_stack_top(global.stk_menu);
-				
 				if(scr_exists(_menu,asset_object)){
 					var
 					_memI = global.lst_activePartySlots[| _menu.menu_x],
@@ -718,145 +824,26 @@ if(title){
 						
 						//draw equipment info
 						if(
-							(_menu.menu_y < 8 && _menu.link_panel.txt[0] == "party/equip/..") ||
-							(_menu.menu_y < ds_grid_height(_menu.grd_equipSrc) + -2 && _menu.link_panel.txt[0] == "party/equip/act/..")
+								(_menu.menu_y < 8 && _menu.link_panel.txt[0] == "party/equip/..") ||
+								(_menu.menu_y < ds_grid_height(_menu.grd_equipSrc) + -2 && _menu.link_panel.txt[0] == "party/equip/act/..")
 						){
-							//act
-							if(_menu.link_panel.txt[0] == "party/equip/.."){
-								ps_tgtPortX = ps_equipMem.src[? CHAR_VAR_PSDO_ACT_X];
-								ps_tgtPortY = ps_equipMem.src[? CHAR_VAR_PSDO_ACT_Y];
-							}
-							
-							_iww = 120 * -sign(ps_tgtPortX);
-							_xFlip = _iww > 0;
-							_x1 = ps_portEquip.x + -ps_tgtPortX;
-							_y1 = ps_portEquip.y + -ps_tgtPortY;
-							_x2 = _x1 + -(sign(ps_tgtPortX) * 50);
-							_y2 = _y1 + -clamp(abs(ps_tgtPortY) * .8,40,80);
-							_strArr = [
-								"---", //pwr
-								"---", //acc
-								"---", //enCost
-								"---", //cd
-								"---", //typ
-								"---", //tgt
-								"---" //ele
-							];
-							_str = "";
-							_label = " PWR:\n ACC:\nCOST:\n  CD:\n TYP:\n TGT:\n ELE:";
 							
 							var _act = ps_equipMem.act[_menu.menu_y % array_length_1d(ps_equipMem.act)];
 							
 							if(_menu.link_panel.txt[0] == "party/equip/act/.."){
-								_act = _menu.grd_equipSrc[# 0,_menu.menu_y];
-							}
+				            	_act = _menu.grd_equipSrc[# 0,_menu.menu_y];
+				            }
 							
-							if(_act != undefined && instance_exists(_act)){
-								_name = _act.name;
-								
-								if(_act.pwr > 0){
-									_strArr[0] = string(round(_act.pwr)) + "x" + string(_act.hitCount * _act.hitSimul);
-								}
-								
-								if(_act.acc <= 100){
-									_strArr[1] = string(round(_act.acc));
-								}
-								
-								if(_act.enCost > 0){
-									_strArr[2] = string(round(_act.enCost));
-								}
-								
-								if(_act.cdAdd > 0){
-									_strArr[3] = string(round(_act.cdAdd));
-								}
-								
-								switch(_act.atkScale){
-									case CHAR_VAR_MATK:
-									case CHAR_VAR_MDEF:
-										_strArr[4] = "M"
-										
-										break;
-									case CHAR_VAR_FATK:
-									case CHAR_VAR_FDEF:
-										_strArr[4] = "F"
-										
-										break;
-									case CHAR_VAR_SATK:
-									case CHAR_VAR_SDEF:
-										_strArr[4] = "S"
-										
-										break;
-								}
-								
-								if(_act.tgtEnemy){
-									switch(_act.defScale){
-										case CHAR_VAR_MDEF:
-											_strArr[4] += "vM"
-											
-											break;
-										case CHAR_VAR_FDEF:
-											_strArr[4] += "vF"
-											
-											break;
-										case CHAR_VAR_SDEF:
-											_strArr[4] += "vS"
-											
-											break;
-									}
-								}
-								
-								switch(_act.tgtType){
-									case ACT_TGT_SINGLE:
-										_strArr[5] = "SINGLE"
-										
-										break;
-									case ACT_TGT_WIDE:
-										_strArr[5] = "WIDE"
-										
-										break;
-									case ACT_TGT_RANDOM:
-										_strArr[5] = "RANDOM"
-										
-									case ACT_TGT_SELF:
-										_strArr[5] = "SELF"
-										
-										break;
-								}
-								
-								switch(_act.ele){
-									case CHAR_VAR_ELE_FIR:
-										_strArr[6] = "FIRE"
-										
-										break;
-									case CHAR_VAR_ELE_ICE:
-										_strArr[6] = "ICE"
-										
-										break;
-									case CHAR_VAR_ELE_DRK:
-										_strArr[6] = "DARK"
-										
-										break;
-									case CHAR_VAR_ELE_LGT:
-										_strArr[6] = "LIGHT"
-										
-										break;
-									case CHAR_VAR_ELE_ELC:
-										_strArr[6] = "ELEC"
-										
-										break;
-									case CHAR_VAR_ELE_NAT:
-										_strArr[6] = "NATURE"
-										
-										break;
-								}
-							}
+							ps_tgtPortX = ps_equipMem.src[? CHAR_VAR_PSDO_ACT_X];
+            				ps_tgtPortY = ps_equipMem.src[? CHAR_VAR_PSDO_ACT_Y];
+							scr_menuUI_drawEquipStats(_act);
 							
-							for(var _i = 0;_i < 7;_i++){
-								_str += _strArr[_i] + "\n";
-							}
-						
 							//hotbar
 							var
+							_x1 = ps_portEquip.x + -ps_tgtPortX,
+				            _y1 = ps_portEquip.y + -ps_tgtPortY,
+				            _x2 = _x1 + -(sign(ps_tgtPortX) * 50),
+				            _y2 = _y1 + -clamp(abs(ps_tgtPortY) * .8,40,80),
 							_hb_x = -ps_equipMem.src[? CHAR_VAR_PSDO_ACT_X] + ps_portEquip.x + -30 + -(sign(_x1 + -_x2) * 110),
 							_hb_y = _y2 + -150,
 							_hb_size = 35,
@@ -926,151 +913,32 @@ if(title){
 								_hb_y += lengthdir_y(_hb_size + 50,-30);
 								_hb_iOffset += 4;
 							}
-						
+							
 						}else if(
 							(_menu.menu_y < 10 && _menu.link_panel.txt[0] == "party/equip/..") ||
 							(_menu.menu_y < ds_list_size(global.lst_inv_arms) && _menu.link_panel.txt[0] == "party/equip/armor/..")
 						){
-							//armor
-							if(_menu.link_panel.txt[0] == "party/equip/.."){
-								ps_tgtPortX = ps_equipMem.src[? CHAR_VAR_PSDO_ARM_X];
-								ps_tgtPortY = ps_equipMem.src[? CHAR_VAR_PSDO_ARM_Y];
-							}
-							
-							_iww = 120 * -sign(ps_tgtPortX);
-							_xFlip = _iww > 0;
-							_x1 = ps_portEquip.x + -ps_tgtPortX;
-							_y1 = ps_portEquip.y + -ps_tgtPortY;
-							_x2 = _x1 + -(sign(ps_tgtPortX) * 50);
-							_y2 = _y1 + -clamp(abs(ps_tgtPortY) * .8,40,80);
-							_strArr = [
-								"---", //main
-								"---", //fir
-								"---", //ice
-								"---", //elc
-								"---", //nat
-								"---", //lgt
-								"---" //drk
-							];
-							_str = "";
-							_label = "\nFIR:\nICE:\nELC:\nNAT:\nLGT:\nDRK:";
 							
 							var _arm = _menu.link_panel.txt[0] == "party/equip/armor/.." ?
 								global.lst_inv_arms[| _menu.menu_y] :
 								ps_equipMem.src[? "char_var_arm" + string(_menu.menu_y + -8)];
 							
-							if(_arm != noone && _arm != undefined && instance_exists(_arm)){
-								_name = _arm.name;
-								
-								switch(_arm.type){
-									case CHAR_VAR_HP:
-										_label = "HP" + _label;
-										break;
-										
-									case CHAR_VAR_EN:
-										_label = "EN" + _label;
-										break;
-										
-									case CHAR_VAR_MATK:
-										_label = "M-ATK" + _label;
-										break;
-										
-									case CHAR_VAR_MDEF:
-										_label = "M-DEF" + _label;
-										break;
-										
-									case CHAR_VAR_FATK:
-										_label = "F-ATK" + _label;
-										break;
-										
-									case CHAR_VAR_FDEF:
-										_label = "F-DEF" + _label;
-										break;
-										
-									case CHAR_VAR_SATK:
-										_label = "S-ATK" + _label;
-										break;
-										
-									case CHAR_VAR_SDEF:
-										_label = "S-DEF" + _label;
-										break;
-										
-									case CHAR_VAR_ACC:
-										_label = "ACC" + _label;
-										break;
-										
-									case CHAR_VAR_EVA:
-										_label = "EVA" + _label;
-										break;
-										
-									case CHAR_VAR_SPD:
-										_label = "SPD" + _label;
-										break;
-										
-									case CHAR_VAR_MISC:
-										_label = "MISC" + _label;
-										break;
-								}
-								
-								_strArr[0] = "+" + string(_arm.pwr);
-								_strArr[1] = "+" + string(_arm.ele_fir * _arm.plus);
-								_strArr[2] = "+" + string(_arm.ele_ice * _arm.plus);
-								_strArr[3] = "+" + string(_arm.ele_elc * _arm.plus);
-								_strArr[4] = "+" + string(_arm.ele_nat * _arm.plus);
-								_strArr[5] = "+" + string(_arm.ele_lgt * _arm.plus);
-								_strArr[6] = "+" + string(_arm.ele_drk * _arm.plus);
-							}
+							ps_tgtPortX = ps_equipMem.src[? CHAR_VAR_PSDO_ARM_X];
+        					ps_tgtPortY = ps_equipMem.src[? CHAR_VAR_PSDO_ARM_Y];
+							scr_menuUI_drawEquipStats(_arm);
 							
-							for(var _i = 0;_i < 7;_i++){
-								_str += _strArr[_i] + "\n";
-							}
-						
 						}else if(
 							(_menu.menu_y < ds_grid_height(_menu.grd_txt) + -1 && _menu.link_panel.txt[0] == "party/equip/..") ||
 							(_menu.menu_y < ds_list_size(global.lst_inv_classes) && _menu.link_panel.txt[0] == "party/equip/class/..")
 						){
-							//class
-							if(_menu.link_panel.txt[0] == "party/equip/.."){
-								ps_tgtPortX = _mem.src[? CHAR_VAR_PSDO_CLS_X];
-								ps_tgtPortY = _mem.src[? CHAR_VAR_PSDO_CLS_Y];
-							}
-							
-							_iww = 120 * -sign(ps_tgtPortX);
-							_xFlip = _iww > 0;
-							_x1 = ps_portEquip.x + -ps_tgtPortX;
-							_y1 = ps_portEquip.y + -ps_tgtPortY;
-							_x2 = _x1 + -(sign(ps_tgtPortX) * 50);
-							_y2 = _y1 + -clamp(abs(ps_tgtPortY) * .8,40,80);
-							_strArr = [
-								"---", //lvl
-								"---" //skills
-							];
-							_str = "";
-							_label = "LEVEL:\nSKILLS:";
 							
 							var _cls = _menu.link_panel.txt[0] == "party/equip/class/.." ?
 								global.lst_inv_classes[| _menu.menu_y] :
 								_mem.class[_menu.menu_y + -10];
 							
-							if(_cls != undefined && instance_exists(_cls)){
-								_name = _cls.name;
-								
-								_strArr[0] = string(ds_grid_get_sum(_cls.grd_skills,0,0,ds_grid_width(_cls.grd_skills) + -1,ds_grid_height(_cls.grd_skills) + -1));
-								
-								var _skills = 0;
-								
-								for(var _ix = 0;_ix < ds_grid_width(_cls.grd_skills);_ix++){
-									for(var _iy = 0;_iy < ds_grid_height(_cls.grd_skills);_iy++){
-										_skills += sign(_cls.grd_skills[# _ix,_iy]);
-									}
-								}
-								
-								_strArr[1] = string(_skills);
-							}
-							
-							for(var _i = 0;_i < 2;_i++){
-								_str += _strArr[_i] + "\n";
-							}
+							ps_tgtPortX = ps_equipMem.src[? CHAR_VAR_PSDO_CLS_X];
+        					ps_tgtPortY = ps_equipMem.src[? CHAR_VAR_PSDO_CLS_Y];
+							scr_menuUI_drawEquipStats(_cls);
 							
 						}else{
 							draw_set_alpha(0);
@@ -1080,36 +948,6 @@ if(title){
 								ps_tgtPortY = 0;
 							}
 						}
-						
-						draw_set_font(ft_menuSub);
-						draw_set_halign(!_xFlip ? fa_right : fa_left);
-						draw_set_valign(fa_bottom);
-						draw_set_color(c_dkgray);
-						draw_set_alpha(ps_portEquip.image_alpha * .7);
-						
-						draw_rectangle(_x2,_y2,_x2 + _iww,_y2 + string_height(_label) + 4,false);
-						
-						draw_set_alpha(ps_portEquip.image_alpha);
-						draw_set_color(c_ltgray);
-						
-						draw_line_width(_x1,_y1,_x2,_y2,4);
-						draw_line_width(_x2,_y2,_x2 + _iww,_y2,4);
-						
-						draw_set_color(c_dkgray);
-						
-						draw_line_width(_x1,_y1,_x2,_y2,2);
-						draw_line_width(_x2,_y2,_x2 + _iww,_y2,2);
-						
-						ktk_scr_draw_text_stroke(_x2,_y2,_name,c_dkgray,c_ltgray,1,10);
-						
-						draw_set_valign(fa_top);
-						draw_set_halign(fa_right);
-						
-						ktk_scr_draw_text_shadow(_x2 + (_iww * _xFlip) + -3,_y2 + 4,_str,c_white,c_dkgray,1);
-						
-						draw_set_halign(fa_left);
-						
-						ktk_scr_draw_text_shadow(_x2 + (_iww * !_xFlip) + 3,_y2 + 4,_label,c_white,c_dkgray,1);
 						
 						//stats window
 						var
@@ -1128,6 +966,8 @@ if(title){
 						(ps_equipMem.misc > 0 ? "+" : "") + string(ps_equipMem.misc) + "\n";
 						
 						draw_set_alpha(ps_portEquip.image_alpha * .7);
+						draw_set_color(c_dkgray);
+						draw_set_font(ft_menuSub);
 						
 						draw_rectangle(_drawX + -5,_drawY,_drawX + (_drawX2 * 3) + (_drawGap * 2) + 5,_drawY + string_height(_label),false);
 						
@@ -1180,6 +1020,14 @@ if(title){
 						draw_set_color(c_white);
 					}
 				}
+			}else if(
+				scr_exists(_menu,asset_object) && _menu.menu_y < ds_grid_height(_menu.grd_txt) + -1 &&
+				(_menu.link_panel.txt[0] == "menu/market/armor/.." || _menu.link_panel.txt[0] == "menu/market/weapon/..")
+			){
+				//market stat preview
+				var _obj = global.buyLst[| _menu.menu_y];
+				
+				scr_menuUI_drawEquipStats(_obj);
 			}
 			
 		#endregion

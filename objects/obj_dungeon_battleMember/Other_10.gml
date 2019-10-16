@@ -355,10 +355,10 @@ switch(cEvent){
 				repeat(3){
 					class[_i] = src[? "char_var_cls" + string(_i)];
 					
-					if(class[_i] != undefined && instance_exists(class[_i])){
+					if(scr_exists(class[_i],asset_object)){
 						class[_i].src = id;
-						scr_cEvent(class[_i],EVENT_CLASS_SKILLREFRESH);
-						scr_cEvent(class[_i],EVENT_CLASS_BASESTATADD);
+						scr_cEvent_id(class[_i],EVENT_CLASS_SKILLREFRESH);
+						scr_cEvent_id(class[_i],EVENT_CLASS_BASESTATADD);
 						level += class[_i].level;
 					}
 					
@@ -369,7 +369,7 @@ switch(cEvent){
 				
 				if(scr_exists(class[_i],asset_object)){
 					class[_i].src = id;
-					scr_cEvent(class[_i],EVENT_CLASS_BASESTATADD);
+					scr_cEvent_id(class[_i],EVENT_CLASS_BASESTATADD);
 					level += class[_i].level;
 				}
 				
@@ -396,7 +396,7 @@ switch(cEvent){
 					hpBarUnder = 1;
 				}
 				
-				scr_cEvent(id,EVENT_BATTLM_ICONREFRESH);
+				scr_cEvent_id(id,EVENT_BATTLM_ICONREFRESH);
 			}
 			
 			break;

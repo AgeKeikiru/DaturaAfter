@@ -21,5 +21,5 @@ with SV_m{
     
 	scr_refreshEquips();
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

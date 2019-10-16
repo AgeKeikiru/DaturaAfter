@@ -38,5 +38,5 @@ with scr_createSubmenu(500){
 	grd_txt[# 0,SV_i] = "Return";
 	grd_scr[# 0,SV_i] = back_function;
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

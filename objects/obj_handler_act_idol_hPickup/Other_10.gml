@@ -9,7 +9,7 @@ switch(cEvent){
 				src.stance.aggro = floor(src.stance.charge);
 			}
 			
-			scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+			scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 			
 			break;
 	#endregion

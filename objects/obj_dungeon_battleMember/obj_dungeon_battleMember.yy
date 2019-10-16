@@ -5,6 +5,16 @@
     "name": "obj_dungeon_battleMember",
     "eventList": [
         {
+            "id": "c936692f-6cbd-3aff-7350-5ed2db7e33dd",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 0,
+            "enumb": 0,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "df520995-f703-419e-8f4d-90f131daf754"
+        },
+        {
             "id": "3ff7028f-d285-413f-9565-33979db1cade",
             "modelName": "GMEvent",
             "mvc": "1.0",

@@ -7,7 +7,7 @@ if(instance_exists(obj_handler_dungeon) || title){
 	instance_destroy(obj_handler_dungeon);
 	instance_destroy(obj_handler_mission_parent);
 	
-	scr_cEvent(obj_dungeon_battleMember,EVENT_BATTLM_INIT);
+	scr_cEvent(EVENT_BATTLM_INIT);
 	
 	//reset music
 	while(ds_list_size(global.lst_bgmStream) > 0){
@@ -69,12 +69,12 @@ if(!title){
 
 scr_bgManip_reset();
 
-scr_cEvent(link_load,EVENT_FPO_FADEKILL);
+scr_cEvent_id(link_load,EVENT_FPO_FADEKILL);
 
 for(var SV_i = 0;SV_i < ds_list_size(lst_link_loadExtra);SV_i++){
 	var SV_o = lst_link_loadExtra[| SV_i];
 	
-	scr_cEvent(SV_o,EVENT_FPO_FADEKILL);
+	scr_cEvent_id(SV_o,EVENT_FPO_FADEKILL);
 	
 	switch SV_i{
 		case 0:

@@ -36,7 +36,8 @@ global.manualDebug = false;
 	    "map_mat_name",
 	    "map_mat_desc",
 	    "map_flags",
-	    "map_chars"
+	    "map_chars",
+	    "map_bgCol"
 	];
 	
 	for(var _i = 0;_i < array_length_1d(_arr);_i++){
@@ -84,7 +85,8 @@ global.manualDebug = false;
 	    "lst_bgmFadeOut",
 	    "lst_bgmStream",
 	    "lst_sfx",
-	    "lst_simAreas"
+	    "lst_simAreas",
+	    "lst_listeners"
 	];
 	
 	for(var _i = 0;_i < array_length_1d(_arr);_i++){
@@ -113,6 +115,18 @@ global.manualDebug = false;
 	global.map_flags[? CHAR_PAPRIKA] = true;
 	global.map_flags[? CHAR_BLAZE] = false;
 	global.map_flags[? CHAR_ARI] = false;
+	global.map_flags[? CHAR_JACK] = true;
+	
+	//bg colors, used for dialogue lighting
+	global.map_bgCol[? bg_city] = make_color_hsv(0,0,255);
+	global.map_bgCol[? bg_forest] = make_color_hsv(0,0,255);
+	global.map_bgCol[? bg_lab] = make_color_hsv(150,20,255);
+	global.map_bgCol[? bg_mission] = make_color_hsv(150,50,255);
+	global.map_bgCol[? bg_shop] = make_color_hsv(30,30,255);
+	global.map_bgCol[? bg_social] = make_color_hsv(0,0,255);
+	global.map_bgCol[? bg_subway] = make_color_hsv(0,0,255);
+	global.map_bgCol[? bg_tundra] = make_color_hsv(0,0,255);
+	global.map_bgCol[? bg_underground] = make_color_hsv(0,0,255);
 	
 	//sim area status
 	var SV_arr = [
@@ -210,15 +224,22 @@ global.manualDebug = false;
 
 #region //settings
 	
+	//game
 	global.set_txtSpeed = 6;
-	global.set_winTrans = 98;
-	global.set_volBgm = 50;
-	global.set_volSfx = 50;
 	global.set_atbSpeed = 80;
 	global.set_atbMod = 20;
+	global.set_altDownTgt = false; //when true, down targets middle enemy instead of untargetting
+	
+	//audio
+	global.set_volBgm = 50;
+	global.set_volSfx = 50;
+	
+	//graphics
+	global.set_winTrans = 98;
 	global.set_mmSize = 30;
 	global.set_mapZoom = false;
 	global.set_shaders = true;
+	global.set_lightEffect = 0.5;
 	
 #endregion
 
@@ -244,10 +265,10 @@ with _temp{
 	with src[? CHAR_VAR_CLS0]{
 		ds_grid_set_region(grd_skills,0,0,3,2,10);
 		
-		scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);
+		scr_cEvent_id(id,EVENT_CLASS_SKILLREFRESH);
 	}
 	
-	scr_cEvent(id,EVENT_BATTLM_INIT);
+	scr_cEvent_id(id,EVENT_BATTLM_INIT);
 	
 	ds_list_add(global.lst_inv_acts,
 		src[? CHAR_VAR_HB0],

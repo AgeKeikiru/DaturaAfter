@@ -14,9 +14,7 @@ for(var SV_i = 0;SV_i < ds_list_size(lst_link_loadExtra);SV_i++){
 
 ds_list_clear(lst_link_loadExtra);
 
-with obj_fpo_parent{
-	scr_cEvent(id,EVENT_FPO_FADEKILL);
-}
+scr_cEvent(EVENT_FPO_FADEKILL);
 
 link_load.alarm[0] = 60;
 

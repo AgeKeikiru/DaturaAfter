@@ -2,6 +2,8 @@
 // You can write your code in this editor
 global.playerControl = false;
 
+ds_list_add(global.lst_listeners,id);
+
 layer = global.ly_obj[3];
 
 btn_draw = false;

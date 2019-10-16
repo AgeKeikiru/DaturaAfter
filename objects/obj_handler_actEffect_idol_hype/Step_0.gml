@@ -32,6 +32,6 @@ if(scr_exists(src,asset_object) && ds_list_size(special) > 3){
 	
 	if(floor(charge) != _prev){
 		aggro = floor(charge);
-		scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+		scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 	}
 }

@@ -20,7 +20,7 @@ with obj_fpo_actBanner{
 }
 
 if(global.tempBool && !missionFailed){
-	scr_cEvent(id,EVENT_DND_BATTLELOSE);
+	scr_cEvent(EVENT_DND_BATTLELOSE);
 }
 
 //ow sprite handling
@@ -61,7 +61,7 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 	
 	state_results = true;
 	
-	scr_cEvent(all,_ev);
+	scr_cEvent(_ev);
 	
 	if(script_exists(_map[? _dia])){
 		script_execute(_map[? _dia]);
@@ -96,7 +96,7 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 						
 						scr_trace(string(grd_events[# _i,MHE_VAR_X]) + "," + string(grd_events[# _i,MHE_VAR_Y]));
 						
-						scr_cEvent(id,MHE_ETILE + string(_i));
+						scr_cEvent_id(id,MHE_ETILE + string(_i));
 					}
 				}
 			}
@@ -111,7 +111,7 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 					
 					scr_playSfx(sfx_loot);
 				}else if(random(1) < battleChance){
-					scr_cEvent(id,EVENT_DND_ENCOUNTER);
+					scr_cEvent(EVENT_DND_ENCOUNTER);
 				}else{
 					battleChance += .02;
 					battleChance = min(battleChance,.6);
@@ -137,7 +137,7 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 		}
 		
 		if(G_tmp && global.playerControl){
-			scr_cEvent(id,EVENT_DND_BATTLEWIN);
+			scr_cEvent(EVENT_DND_BATTLEWIN);
 		}else{
 			popcornTimer += -scr_timeMod(1);
 			

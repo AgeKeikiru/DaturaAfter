@@ -1,6 +1,8 @@
 /// @description Insert description here
 layer = global.ly_obj[1];
 
+ds_list_add(global.lst_listeners,id);
+
 with obj_handler_act{
 	using = false;
 }
@@ -48,7 +50,7 @@ grd_mobPool[# _i,2] = noone;
 ds_list_clear(global.lst_missionLoot_table);
 ds_list_clear(lst_popcornPool);
 
-scr_cEvent(obj_handler_mission_parent,MHE_INIT);
+scr_cEvent(MHE_INIT);
 
 scr_bgManip_reset();
 

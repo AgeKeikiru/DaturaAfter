@@ -9,7 +9,10 @@ if(scr_exists(src,asset_object)){
 		var _spd = src.spd;
 		
 		global.tempFloat = 0;
-		scr_cEvent(all,EVENT_BATTLE_SPDMOD,src);
+		
+		scr_cEvent_id(obj_handler_actEffect,EVENT_BATTLE_SPDMOD,src);
+		scr_cEvent_id(obj_handler_class_parent,EVENT_BATTLE_SPDMOD,src);
+		
 		_spd += src.spd * global.tempFloat;
 			
 		_spd = max(_spd,-99);

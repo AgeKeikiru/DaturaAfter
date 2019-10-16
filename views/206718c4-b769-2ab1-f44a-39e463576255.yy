@@ -10,7 +10,8 @@
         "3f2e9448-f732-4c36-824a-fb65b7e213b8",
         "1de76ae9-cc5c-86d9-81d1-6fee30641f64",
         "019bdb93-961d-3d31-652b-1c534a0d78ab",
-        "e7ae630d-804e-4ac1-ab74-ccc4dbe3a984"
+        "e7ae630d-804e-4ac1-ab74-ccc4dbe3a984",
+        "e1928c69-f47a-af07-3012-9013ee6667ba"
     ],
     "filterType": "GMScript",
     "folderName": "dia",

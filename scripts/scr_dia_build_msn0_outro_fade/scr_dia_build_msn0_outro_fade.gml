@@ -19,7 +19,8 @@ ds_list_add(global.lst_inv_classes,
 	instance_create_depth(0,0,0,obj_handler_class_idol),
 	instance_create_depth(0,0,0,obj_handler_class_razer),
 	instance_create_depth(0,0,0,obj_handler_class_agent),
-	instance_create_depth(0,0,0,obj_handler_class_sanctum)
+	instance_create_depth(0,0,0,obj_handler_class_sanctum),
+	instance_create_depth(0,0,0,obj_handler_class_draker)
 );
 
 global.grd_party_player[# 0,0] = global.map_chars[? CHAR_IMOLEI];
@@ -59,7 +60,7 @@ with global.grd_party_player[# 2,0]{
 	);
 }
 
-scr_cEvent(obj_dungeon_battleMember,EVENT_BATTLM_INIT);
+scr_cEvent(EVENT_BATTLM_INIT);
 
 scr_dungeon_endDia();
 scr_menu_nextMenu();

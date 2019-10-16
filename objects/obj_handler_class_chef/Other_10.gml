@@ -56,7 +56,7 @@ switch(cEvent){
 			ds_list_add(grd_skillAct[# _ix,_iy].special,stat_specialCd_base + (grd_skills[# _ix,_iy] * stat_specialCd_rate));
 			grd_skillAct[# _ix,_iy].cdBase = stat_specialCd_base;
 			grd_skillAct[# _ix,_iy].cdRate = -.1;
-			scr_cEvent(grd_skillAct[# _ix,_iy],EVENT_ACT_REFRESHINFO);
+			scr_cEvent_id(grd_skillAct[# _ix,_iy],EVENT_ACT_REFRESHINFO);
 			
 			//winter green
 			_ix = 1;
@@ -83,7 +83,7 @@ switch(cEvent){
 			ds_list_add(grd_skillAct[# _ix,_iy].special,stat_specialCd_base + (grd_skills[# _ix,_iy] * stat_specialCd_rate));
 			grd_skillAct[# _ix,_iy].cdBase = stat_specialCd_base;
 			grd_skillAct[# _ix,_iy].cdRate = -.1;
-			scr_cEvent(grd_skillAct[# _ix,_iy],EVENT_ACT_REFRESHINFO);
+			scr_cEvent_id(grd_skillAct[# _ix,_iy],EVENT_ACT_REFRESHINFO);
 			
 			//citruswift
 			_ix = 2;

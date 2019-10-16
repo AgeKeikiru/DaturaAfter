@@ -58,5 +58,5 @@ with SV_m{
 	grd_descLabel[# 0,SV_i] = "Home";
 	grd_scr[# 0,SV_i] = scr_menu_back;
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

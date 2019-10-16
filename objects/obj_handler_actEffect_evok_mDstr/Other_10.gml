@@ -97,7 +97,7 @@ switch(cEvent){
             
             map_statMod[? _stat[| _i]] += _boost[| _i];
             scr_createEffectTxt(src,_txt[| _i]);
-            scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+            scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 	    }
 	    
 	    break;
@@ -123,7 +123,7 @@ switch(cEvent){
             map_statMod[? CHAR_VAR_EVA] = 0;
             map_statMod[? CHAR_VAR_SPD] = 0;
             
-            scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+            scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 	    }
 	    
 	    break;

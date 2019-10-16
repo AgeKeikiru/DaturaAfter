@@ -16,7 +16,7 @@ switch(cEvent){
 		        map_statMod[? CHAR_VAR_EVA] = .5;
 		        
 		        scr_createEffectTxt(src,"EVA++");
-		        scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+		        scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 		    }
 		    
 		    break;

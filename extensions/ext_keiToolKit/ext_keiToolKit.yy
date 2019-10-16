@@ -1,7 +1,7 @@
 {
     "id": "4c85d08e-8018-4a51-b256-8d8ff358de11",
     "modelName": "GMExtension",
-    "mvc": "1.0",
+    "mvc": "1.2",
     "name": "ext_keiToolKit",
     "IncludedResources": [
         
@@ -20,6 +20,7 @@
     "copyToTargets": -1,
     "date": "2017-54-31 03:12:06",
     "description": "",
+    "exportToGame": true,
     "extensionName": "",
     "files": [
         {
@@ -320,9 +321,12 @@
     "maccompilerflags": "",
     "maclinkerflags": "",
     "macsourcedir": "",
+    "options": null,
+    "optionsFile": "options.json",
     "packageID": "",
     "productID": "",
     "sourcedir": "",
+    "supportedTargets": -1,
     "tvosProps": false,
     "tvosSystemFrameworkEntries": [
         

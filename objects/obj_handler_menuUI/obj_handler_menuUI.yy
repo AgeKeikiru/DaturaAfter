@@ -25,6 +25,16 @@
             "m_owner": "5f96e16d-3167-44e7-9707-39a6c99c9d0e"
         },
         {
+            "id": "5ea38d2f-dedf-97a3-b33d-69f9bd4090f4",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "eventtype": 2,
+            "enumb": 1,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "m_owner": "5f96e16d-3167-44e7-9707-39a6c99c9d0e"
+        },
+        {
             "id": "a324e731-0393-4342-827d-eb3a85a7b533",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -555,6 +565,62 @@
             "value": "noone",
             "varName": "soc_formation",
             "varType": 4
+        },
+        {
+            "id": "23c4cdf6-be45-47ba-8423-f34b0db523c5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "menuBG_tgt",
+            "varType": 0
+        },
+        {
+            "id": "5bd85074-b3b2-4aef-bc51-78141f85c041",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "menuBG_curr",
+            "varType": 0
+        },
+        {
+            "id": "5bc29449-9ecb-406b-a5d7-868d99abf08f",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "250",
+            "varName": "menuBG_w",
+            "varType": 0
+        },
+        {
+            "id": "6204aa83-3305-4460-9093-8195a85e2961",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "menuBG_w + 50",
+            "varName": "menuBG_w2",
+            "varType": 0
         }
     ],
     "solid": false,

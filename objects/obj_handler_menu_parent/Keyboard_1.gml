@@ -2,12 +2,16 @@
 // You can write your code in this editor
 
 if(ds_stack_top(global.stk_menu) == id && visible){
-	var _sfx = noone;
+	var
+	_sfx = noone,
+	_xPressed = false,
+	_yPressed = false;
 	
 	if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_UP)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP)){
 			io_clear();
 			global.autoScrollDelay = AUTOSCROLLTHRESH;
+			_yPressed = true;
 		}
 		
 		if(global.autoScrollDelay == 0){
@@ -25,6 +29,7 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_DOWN)){
 			io_clear();
 			global.autoScrollDelay = AUTOSCROLLTHRESH;
+			_yPressed = true;
 		}
 		
 		if(global.autoScrollDelay == 0){
@@ -42,6 +47,7 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_LEFT)){
 			io_clear();
 			global.autoScrollDelay = AUTOSCROLLTHRESH;
+			_xPressed = true;
 		}
 		
 		if(global.autoScrollDelay == 0){
@@ -63,12 +69,22 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 				_sfx = SFX_SCROLLTICK;
 			}else{
 				menu_x--;
+				
+				if(
+					variable_global_exists("labMenu") &&
+					scr_exists(global.labMenu,asset_object) &&
+					(menu_x == clamp(menu_x,0,ds_grid_width(grd_txt) + -1) || _xPressed)
+				){
+					global.labMenu.link_panel.x += -200;
+					global.labMenu.link_panel.image_xscale = 0;
+				}
 			}
 		}
 	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_RIGHT)){
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_RIGHT)){
 			io_clear();
 			global.autoScrollDelay = AUTOSCROLLTHRESH;
+			_xPressed = true;
 		}
 		
 		if(global.autoScrollDelay == 0){
@@ -90,6 +106,15 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 				_sfx = SFX_SCROLLTICK;
 			}else{
 				menu_x++;
+				
+				if(
+					variable_global_exists("labMenu") &&
+					scr_exists(global.labMenu,asset_object) &&
+					(menu_x == clamp(menu_x,0,ds_grid_width(grd_txt) + -1) || _xPressed)
+				){
+					global.labMenu.link_panel.x += 200;
+					global.labMenu.link_panel.image_xscale = 0;
+				}
 			}
 		}
 	}else if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUACCEPT)){
@@ -117,11 +142,29 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 			script_execute(back_function);
 		}
 	}
+
+	if(_xPressed){
+		menu_x = (menu_x + ds_grid_width(grd_txt)) mod ds_grid_width(grd_txt);
+	}else{
+		if(menu_x != clamp(menu_x,0,ds_grid_width(grd_txt) + -1)){
+			_sfx = noone;
+		}
+		
+		menu_x = clamp(menu_x,0,ds_grid_width(grd_txt) + -1);
+	}
+	
+	if(_yPressed){
+		menu_y = (menu_y + ds_grid_height(grd_txt)) mod ds_grid_height(grd_txt);
+	}else{
+		if(menu_y != clamp(menu_y,0,ds_grid_height(grd_txt) + -1)){
+			_sfx = noone;
+		}
+		
+		menu_y = clamp(menu_y,0,ds_grid_height(grd_txt) + -1);
+	}
+	
 	
 	scr_playSfx(_sfx);
-
-	menu_x = (menu_x + ds_grid_width(grd_txt)) mod ds_grid_width(grd_txt);
-	menu_y = (menu_y + ds_grid_height(grd_txt)) mod ds_grid_height(grd_txt);
 	
 	if(menu_x > page_x + page_w + -1){
 		page_x = menu_x + -page_w + 1;
@@ -140,6 +183,6 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 	}
 	
 	if(!submenu){
-		scr_cEvent(id,EVENT_MENU_REFRESHMENUUI);
+		scr_cEvent_id(id,EVENT_MENU_REFRESHMENUUI);
 	}
 }

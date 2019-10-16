@@ -8,7 +8,7 @@ switch(cEvent){
 				exit;
 			}
 			
-			scr_cEvent(all,EVENT_AGNT_FSCHECK,src,id);
+			scr_cEvent(EVENT_AGNT_FSCHECK,src,id);
 		
 			#region //special act effects
 				if(type == WTAG_TYPE_PAN || type == WTAG_TYPE_SLG){
@@ -236,7 +236,7 @@ switch(cEvent){
 					}
 					
 					global.tempFloat = 0;
-					scr_cEvent(all,EVENT_BATTLE_ATKMOD,src,dc_tgt[| _i],id);
+					scr_cEvent(EVENT_BATTLE_ATKMOD,src,dc_tgt[| _i],id);
 					
 					if(tgtEnemy){
 						switch(defScale){
@@ -261,7 +261,7 @@ switch(cEvent){
 						}
 					}
 					
-					scr_cEvent(all,EVENT_BATTLE_DEFMOD,src,dc_tgt[| _i],id);
+					scr_cEvent(EVENT_BATTLE_DEFMOD,src,dc_tgt[| _i],id);
 					_dmgBonus += global.tempFloat;
 					
 					scr_trace("dmgBonus: " + string(_dmgBonus * 100) + "%");
@@ -270,8 +270,8 @@ switch(cEvent){
 						_aimBonus += (src.acc + -dc_tgt[| _i].eva) / 100;
 						
 						global.tempFloat = 0;
-						scr_cEvent(all,EVENT_BATTLE_ACCMOD,src,dc_tgt[| _i],id);
-						scr_cEvent(all,EVENT_BATTLE_EVAMOD,src,dc_tgt[| _i],id);
+						scr_cEvent(EVENT_BATTLE_ACCMOD,src,dc_tgt[| _i],id);
+						scr_cEvent(EVENT_BATTLE_EVAMOD,src,dc_tgt[| _i],id);
 						_aimBonus += global.tempFloat;
 						
 						var _msn = instance_find(obj_handler_mission_parent,0);
@@ -344,11 +344,11 @@ switch(cEvent){
 					
 					break;
 				case CHAR_VAR_ELE_ELC:
-					name = "Tesl " + name;
+					name = "Galv " + name;
 					
 					break;
 				case CHAR_VAR_ELE_NAT:
-					name = "Terr " + name;
+					name = "Gaia " + name;
 					
 					break;
 			}

@@ -25,6 +25,6 @@ if(SV_mh.menu_y < ds_grid_height(SV_mh.grd_txt) + -2){
     	grd_txt[# 0,SV_i] = "Sort...";
     	grd_scr[# 0,SV_i] = noone;
     	
-    	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+    	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
     }
 }

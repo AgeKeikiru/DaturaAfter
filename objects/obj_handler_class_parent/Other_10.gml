@@ -15,7 +15,7 @@ switch(cEvent){
 	    		        _obj.rare = grd_skills[# _ix,_iy];
 	    		        _obj.icon = grd_skillIcon[# _ix,_iy];
 	    		        
-	    		        scr_cEvent(_obj,EVENT_ACT_REFRESHINFO);
+	    		        scr_cEvent_id(_obj,EVENT_ACT_REFRESHINFO);
 	    		        
 	    		        _obj.name = _obj.baseName;
 	    		    }
@@ -70,6 +70,21 @@ switch(cEvent){
 				global.tempStr += "\nCooldown: " + scr_class_generateSkillTTStat(_num[0],_num[1],false,_first,8);
 			}
 		
+			break;
+	#endregion
+	
+	#region //class_proto
+		case EVENT_CLASS_PROTO:
+			prototype = true;
+			
+			ds_grid_set_region(grd_skillName,2,0,3,2,"-DAMAGED-");
+			ds_grid_set_region(grd_skillDesc,2,0,3,2,"This chip is damaged, the data in this slot is no longer accessible.");
+			ds_grid_set_region(grd_skillTooltip,2,0,3,2,"");
+			ds_grid_set_region(grd_skillIcon,2,0,3,2,spr_icon_test);
+			
+			desc = "[Damaged] " + desc;
+			name += "(D)";
+			
 			break;
 	#endregion
 		

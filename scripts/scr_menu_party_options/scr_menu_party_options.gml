@@ -19,7 +19,7 @@ with SV_m{
 	var
 	SV_i = 0;
 	
-	ds_grid_resize(grd_txt,1,9);
+	ds_grid_resize(grd_txt,1,10);
 	scr_menu_matchGrids(id,true);
 	
 	scr_menu_party_options_tog_volBgm(true,true);
@@ -54,6 +54,14 @@ with SV_m{
 	
 	menu_y = ++SV_i;
 	
+	scr_menu_party_options_tog_altDown(true,true);
+	grd_desc[# 0,SV_i] = "Adjust the behavior of the [Down] button when targetting to either normal (deselect target) or alternate (middle target).";
+	grd_descLabel[# 0,SV_i] = "Game Settings";
+	grd_scr[# 0,SV_i] = scr_menu_party_options_tog_altDown;
+	grd_toggle[# 0,SV_i] = true;
+	
+	menu_y = ++SV_i;
+	
 	scr_menu_party_options_tog_txtSpeed(true,true);
 	grd_desc[# 0,SV_i] = "Adjust the rate at which text crawls during dialogue.";
 	grd_descLabel[# 0,SV_i] = "Game Settings";
@@ -64,7 +72,7 @@ with SV_m{
 	
 	scr_menu_party_options_tog_winTrans(true,true);
 	grd_desc[# 0,SV_i] = "Adjust the transparency of menu panels and dialogue boxes.";
-	grd_descLabel[# 0,SV_i] = "Game Settings";
+	grd_descLabel[# 0,SV_i] = "Graphics Settings";
 	grd_scr[# 0,SV_i] = scr_menu_party_options_tog_winTrans;
 	grd_toggle[# 0,SV_i] = true;
 	
@@ -72,7 +80,7 @@ with SV_m{
 	
 	scr_menu_party_options_tog_mmSize(true,true);
 	grd_desc[# 0,SV_i] = "Adjust the size of the minimap. Reducing this option can improve performance during missions.";
-	grd_descLabel[# 0,SV_i] = "Game Settings";
+	grd_descLabel[# 0,SV_i] = "Graphics Settings";
 	grd_scr[# 0,SV_i] = scr_menu_party_options_tog_mmSize;
 	grd_toggle[# 0,SV_i] = true;
 	
@@ -80,7 +88,7 @@ with SV_m{
 	
 	scr_menu_party_options_tog_mapZoom(true,true);
 	grd_desc[# 0,SV_i] = "Toggle the viewable surrounding area. Setting this option to [ZOOM] can improve performance during missions.";
-	grd_descLabel[# 0,SV_i] = "Game Settings";
+	grd_descLabel[# 0,SV_i] = "Graphics Settings";
 	grd_scr[# 0,SV_i] = scr_menu_party_options_tog_mapZoom;
 	grd_toggle[# 0,SV_i] = true;
 	
@@ -93,5 +101,5 @@ with SV_m{
 	
 	menu_y = 0;
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

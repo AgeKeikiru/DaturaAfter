@@ -11,5 +11,5 @@ with obj_handler_menuUI{
     questDesc = "";
 }
 
-scr_cEvent(SV_obj,EVENT_QUEST_REWARD);
+scr_cEvent_id(SV_obj,EVENT_QUEST_REWARD);
 instance_destroy(SV_obj);

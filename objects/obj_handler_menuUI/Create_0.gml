@@ -1,5 +1,6 @@
 /// @description Insert description here
 alarm[0] = room_speed * 5;
+alarm[1] = room_speed * 2;
 
 if(instance_number(obj_handler_menuUI) > 1){
 	global.tempInt = id;
@@ -13,6 +14,11 @@ if(instance_number(obj_handler_menuUI) > 1){
 	layer = global.ly_obj[2];
 	ds_grid_set_region(grd_ps_xDraw,0,0,3,1,1); //x positions for drawing menu fill, 0-1 for bottom layer, 2-3 for top layer
 }
+
+compareItem = noone;
+rndTxt_tgt = "";
+rndTxt_draw = 0;
+rndTxt_ft = ft_menuSub;
 
 #region //shader uniforms
 

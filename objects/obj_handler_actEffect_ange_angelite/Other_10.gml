@@ -57,7 +57,7 @@ switch(cEvent){
 				var _add = .05;
 				
 				global.tempFloat = 0;
-				scr_cEvent(obj_handler_class_angel,EVENT_ANGE_ANGELITEGAINMOD,src,typeCurr != _act.atkScale,_act.ele == CHAR_VAR_ELE_LGT);
+				scr_cEvent(EVENT_ANGE_ANGELITEGAINMOD,src,typeCurr != _act.atkScale,_act.ele == CHAR_VAR_ELE_LGT);
 				_add += _add * global.tempFloat;
 				
 				charge = min(charge + _add,special[| 0]);

@@ -15,7 +15,7 @@ if( //check if outside of pause menus/events
 			
 			if(ailment[_i] <= 0){
 				ailment[_i] = 0;
-				scr_cEvent(id,EVENT_BATTLM_ICONREFRESH);
+				scr_cEvent_id(id,EVENT_BATTLM_ICONREFRESH);
 			}
 		}
 	}
@@ -43,7 +43,7 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 	if(!global.tempBool){
 		global.tempFloat = 1;
 		
-		scr_cEvent(all,EVENT_SNCT_SHDMOD,id);
+		scr_cEvent(EVENT_SNCT_SHDMOD,id);
 		
 		enCurr += -actUsing.enCost * max(global.tempFloat,0);
 	}
@@ -55,7 +55,7 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 	
 	//tgtIndex = G_tmp;
 	
-	scr_cEvent(actUsing,EVENT_ACT_USE);
+	scr_cEvent_id(actUsing,EVENT_ACT_USE);
 	
 	for(var _i = 0;_i < 8;_i++){
 		var _act = act[_i];
@@ -66,7 +66,7 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 		}
 	}
 	
-	actUsing.cdCurr += actUsing.cdAdd * 100;
+	actUsing.cdCurr += actUsing.cdAdd * (actUsing.xAct ? 1 : 100);
 	actUsing.cdMax = actUsing.cdCurr;
 	actUsing.tempAgile = false;
 	
@@ -79,7 +79,8 @@ if(hpCurr > 0){
 	if(!scr_exists(_ui,asset_object) || _ui.grd_ps_xDraw[# 0,0] == 1){
 		global.tempFloat = 0;
 		
-		scr_cEvent(obj_handler_actEffect,EVENT_EFFECT_ENRECMOD,id);
+		scr_cEvent_id(obj_handler_actEffect,EVENT_EFFECT_ENRECMOD,id);
+		scr_cEvent_id(obj_handler_class_parent,EVENT_EFFECT_ENRECMOD,id);
 		
 		with obj_handler_dungeon{
 			global.tempFloat += !state_battle;
@@ -97,12 +98,22 @@ if(hpCurr > 0){
 			enCurr += scr_timeMod(_rec / (1 + ((ailment[CHAR_SA_SLW] > 0) * 3)));
 		}
 		
-		enCurr = clamp(enCurr,0,enMax);
-		
-		if(ailment[CHAR_SA_PSN] > 0 && hpCurr > 1){
-			hpCurr += -scr_timeMod(hpMax * .0005);
-			hpCurr = max(hpCurr,1);
+		if(ailment[CHAR_SA_PSN] > 0){
+			if(hpCurr > 1){
+				hpCurr += -scr_timeMod(hpMax * .0005);
+				hpCurr = max(hpCurr,1);
+			}
+		}else if(hpCurr > 0){
+			global.tempFloat = 0;
+			
+			scr_cEvent_id(obj_handler_actEffect,EVENT_EFFECT_HPRECMOD,id);
+			scr_cEvent_id(obj_handler_class_parent,EVENT_EFFECT_HPRECMOD,id);
+			
+			hpCurr += global.tempFloat / room_speed;
 		}
+		
+		enCurr = clamp(enCurr,0,enMax);
+		hpCurr = clamp(hpCurr,0,hpMax);
 	}
 	
 	if(enemyWait > 0){
@@ -110,7 +121,10 @@ if(hpCurr > 0){
 			var _spd = spd;
 			
 			global.tempFloat = 0;
-			scr_cEvent(all,EVENT_BATTLE_SPDMOD,id);
+			
+			scr_cEvent_id(obj_handler_actEffect,EVENT_BATTLE_SPDMOD,id);
+			scr_cEvent_id(obj_handler_class_parent,EVENT_BATTLE_SPDMOD,id);
+			
 			_spd += abs(spd) * global.tempFloat;
 			
 			_spd = max(_spd,-99);
@@ -206,7 +220,7 @@ if(hpCurr > 0){
 				if(instance_exists(_act)){
 					enemyWait += _act.cdAdd * 100;
 				
-					scr_cEvent(_act,EVENT_ACT_USE);
+					scr_cEvent_id(_act,EVENT_ACT_USE);
 				}
 			
 				enemyWaitMax = enemyWait;

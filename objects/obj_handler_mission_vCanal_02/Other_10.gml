@@ -84,7 +84,7 @@ switch cEvent{
             ds_list_clear(lst_popcornPool);
             ds_list_add(lst_popcornPool,CHAR_RND_DRONE);
             
-            scr_cEvent(id,EVENT_DND_ENCOUNTER_FIXED);
+            scr_cEvent(EVENT_DND_ENCOUNTER_FIXED);
         }
         
         break;

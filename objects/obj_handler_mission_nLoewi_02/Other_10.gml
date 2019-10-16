@@ -85,7 +85,7 @@ switch cEvent{
             instance_create_depth(0,0,0,obj_handler_dialogue);
         }else{
             with obj_handler_dungeon{
-                scr_cEvent(id,EVENT_DND_ENCOUNTER_FIXED);
+                scr_cEvent(EVENT_DND_ENCOUNTER_FIXED);
             }
         }
     
@@ -132,7 +132,7 @@ switch cEvent{
                     grd_mobPool[# 0,DH_MOB_LV2] = 3;
                     grd_mobPool[# 0,DH_MOB_LV3] = 3;
                     
-                    scr_cEvent(id,EVENT_DND_ENCOUNTER_FIXED);
+                    scr_cEvent(EVENT_DND_ENCOUNTER_FIXED);
                 }
             }else{
                 with obj_handler_dungeon{

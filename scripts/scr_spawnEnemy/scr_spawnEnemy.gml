@@ -28,7 +28,7 @@ scr_trace(SV_src);
 SV_r.allyParty = global.grd_party_enemy;
 SV_r.enemyParty = global.grd_party_player;
 SV_r.level = SV_lv;
-scr_cEvent(SV_r,EVENT_BATTLM_INIT);
+scr_cEvent_id(SV_r,EVENT_BATTLM_INIT);
 SV_r.enemyWait = UNIVERSAL_COOLDOWN;
 SV_r.enemyWaitMax = SV_r.enemyWait;
 

@@ -8,5 +8,5 @@ if(scr_exists(src,asset_object)){
 		ds_list_delete(src.lst_effects,_i);
 	}
 	
-    scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+    scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 }

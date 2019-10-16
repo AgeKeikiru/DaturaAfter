@@ -54,5 +54,5 @@ with SV_m{
 	grd_desc[# 0,SV_i] = "Return to previous menu.";
 	grd_scr[# 0,SV_i] = back_function;
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

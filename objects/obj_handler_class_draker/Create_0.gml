@@ -3,35 +3,23 @@
 
 event_inherited();
 
-/*
-main skill
-Install Mastery
-while Draco Install is active, successful attacks extend its duration by Lv*0.05%
-*/
-
 name = "Draker";
 desc = "Warriors that channel the might of dragons to slay their foes. A majority of Drakers' benefits are reaped from their Draco Install stance and thus must be wary of avoiding paralysis.";
 cName = "DRAK_" + string(global.cid++);
 
-/*
-skills
+ms_name = "Draco Mastery";
+ms_desc = "While <Draco Install> is active, landing hits extend its duration by Lv*0.01%.";
+ms_icon = spr_icon_stanceUp;
 
-[M-ATK+]
-[Draco Install] X Stance act - charges by taking damage. take the form of a dragon, increasing aggro and base stats
-[S-ATK+]
+ss_name = "S-DEF+ (s)";
+ss_desc = "Slightly increase base Spell Defense.";
+ss_icon = spr_icon_sDefUp;
+ss_toolTip = "S-DEF: !";
 
-[Draco Claw] only usable while Draco Install is active. a fierce series of melee strikes with a high chance of reducing the target's defenses
-[EN+]
-[Drake's Vigor] recover EN faster while Draco Install is active
+stat_di_base = 9;
+stat_di_rate = 3;
 
-[Draco Blast] only usable while Draco Install is active. an intense spray of elemental breath that deals high spell damage to all enemies and has a high chance of inflicting status effects
-[Uproar] draw the enemies' attention with a thunderous roar
-[Drake's Regen] recover HP while Draco Install is active
-
-[Draco Finish] only usable while Draco Install is active. deals severe melee damage to a target using both the user's full M-ATK and S-ATK stats. ends Draco Install immediately
-[Reinstall] add a chance for Dragon Install to reactivate immediately upon expiration
-[Drake's Aura] while Draco Install is active, gain a high resistance to status effects, and greatly reduce their duration
-*/
+reinstall = false;
 
 #region //tier 1
 
@@ -39,21 +27,25 @@ skills
     _ix = 0,
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "LGT Res+";
-    //grd_skillDesc[# _ix,_iy] = "Decrease damage taken from Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Res: +!";
+    grd_skillName[# _ix,_iy] = "M-ATK+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Melee Attack.";
+    grd_skillTooltip[# _ix,_iy] = "M-ATK: !";
+    grd_skillIcon[# _ix,_iy] = spr_icon_mAtkUp;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "TRI-DEF+";
-    //grd_skillDesc[# _ix,_iy] = "Increase Melee/Firearm/Spell Defense.";
-    //grd_skillTooltip[# _ix,_iy] = "M/F/S-Def: +!";
+    grd_skillName[# _ix,_iy] = "EN+";
+    grd_skillDesc[# _ix,_iy] = "Increase base EN.";
+    grd_skillTooltip[# _ix,_iy] = "EN: !";
+    grd_skillRate[# _ix,_iy] = 200;
+    grd_skillIcon[# _ix,_iy] = spr_icon_enUp;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Light Love";
-    //grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Light Element.";
-    //grd_skillTooltip[# _ix,_iy] = "LGT Damage: +!";
+    grd_skillName[# _ix,_iy] = "S-ATK+";
+    grd_skillDesc[# _ix,_iy] = "Increase base Spell Attack.";
+    grd_skillTooltip[# _ix,_iy] = "S-ATK: !";
+    grd_skillIcon[# _ix,_iy] = spr_icon_sAtkUp;
 
 #endregion
 
@@ -62,24 +54,29 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Step";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Negate 1 attack, briefly increase EVA after negation.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Draco Claw";
+    grd_skillDesc[# _ix,_iy] = "Usable while <Draco Install> is active. A fierce series of melee strikes with a high chance of reducing the target's defenses.";
+    grd_skillTooltip[# _ix,_iy] = "Debuff Effect: !%";
+    grd_skillRate[# _ix,_iy] = -0.06;
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_drak_dClaw);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceSlashEnemy;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite";
-    //grd_skillDesc[# _ix,_iy] = "Stance Act. Collect holy energy during battle to use special skills.";
-    //grd_skillTooltip[# _ix,_iy] = "Max Angelite: !";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Draco Install";
+    grd_skillDesc[# _ix,_iy] = "Charges by taking damage. Take the form of a dragon for a limited time, increasing aggro and base stats.";
+    grd_skillTooltip[# _ix,_iy] = "Duration: !sec\nAggro: @";
+    grd_skillRate[# _ix,_iy] = 1;
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_drak_install);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stance;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Dash";
-    //grd_skillDesc[# _ix,_iy] = "Costs 50 Angelite. Reset all active cooldowns.";
-    //grd_skillTooltip[# _ix,_iy] = "Cooldown: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Drake's Vigor";
+    grd_skillDesc[# _ix,_iy] = "Recover EN faster while <Draco Install> is active.";
+    grd_skillTooltip[# _ix,_iy] = "EN Rec: !%";
+    grd_skillRate[# _ix,_iy] = 0.5;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
 
 #endregion
 
@@ -88,24 +85,28 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Angelic Blessing";
-    //grd_skillDesc[# _ix,_iy] = "Costs 150 Angelite. Fully restore ally allies' EN and briefly boost their stats.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Draco Burst";
+    grd_skillDesc[# _ix,_iy] = "Usable while <Draco Install> is active. An intense spray of fire breath that deals high spell damage to all enemies and has a high chance of inflicting Burn.";
+    grd_skillTooltip[# _ix,_iy] = "Power: !";
+    grd_skillRate[# _ix,_iy] = 30;
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_drak_dBurst);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceBrt;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost TRI";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when alternating between Melee/Firearm/Spell attacks.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Uproar";
+    grd_skillDesc[# _ix,_iy] = "Unleash a thunderous roar that stuns enemies and draws their attention. Decreases enemy ATK if <Draco Install> is active.";
+    grd_skillTooltip[# _ix,_iy] = "";
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_drak_uproar);
+    grd_skillIcon[# _ix,_iy] = spr_icon_cycle;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelic Smite";
-    //grd_skillDesc[# _ix,_iy] = "Costs 100 Angelite. Delay the act time of all enemies and briefly reduce their Speed.";
-    //grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    //grd_skillRate[# _ix,_iy] = 3000;
+    grd_skillName[# _ix,_iy] = "Drake's Regen";
+    grd_skillDesc[# _ix,_iy] = "Recover HP while <Draco Install> is active.";
+    grd_skillTooltip[# _ix,_iy] = "Recovery: !/sec";
+    grd_skillRate[# _ix,_iy] = 5;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
 
 #endregion
 
@@ -114,23 +115,27 @@ skills
     _ix++;
     _iy = 0;
 
-    //grd_skillName[# _ix,_iy] = "Desynch";
-    //grd_skillDesc[# _ix,_iy] = "Only usable when Angelite is full. Drain Angelite to shift into the Angelic Plane, becoming fully immune to damage while active.";
-    //grd_skillTooltip[# _ix,_iy] = "Drain Rate: !";
-    //grd_skillRate[# _ix,_iy] = 1;
+    grd_skillName[# _ix,_iy] = "Draco Finish";
+    grd_skillDesc[# _ix,_iy] = "Usable while <Draco Install> is active. Deal severe melee damage to a target using both M-ATK and S-ATK stats. Ends <Draco Install> immediately.";
+    grd_skillTooltip[# _ix,_iy] = "S-ATK Add: !%";
+    grd_skillRate[# _ix,_iy] = 0.2;
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_drak_finish);
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceGntBrtEnemy;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Angelite Boost LGT";
-    //grd_skillDesc[# _ix,_iy] = "Increase Angelite gain when dealing Light damage.";
-    //grd_skillTooltip[# _ix,_iy] = "Angelite Gain: +!%";
-    //grd_skillRate[# _ix,_iy] = 50;
+    grd_skillName[# _ix,_iy] = "Reinstall";
+    grd_skillDesc[# _ix,_iy] = "Add a chance for <Draco Install> to reactivate immediately upon expiration. Can only proc once per activation.";
+    grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
+    grd_skillRate[# _ix,_iy] = 0.2;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
     
     _iy++;
     
-    //grd_skillName[# _ix,_iy] = "Heaven's Rend";
-    //grd_skillDesc[# _ix,_iy] = "Costs 250 Angelite. Deal damage to each enemy equal to half their remaining HP (up to a maximum value) and inflict a long lasting Blind.";
-    //grd_skillTooltip[# _ix,_iy] = "Maximum Damage: !";
-    //grd_skillRate[# _ix,_iy] = 1000;
+    grd_skillName[# _ix,_iy] = "Drake's Aura";
+    grd_skillDesc[# _ix,_iy] = "While <Draco Install> is active, gain a high resistance to status effects, and greatly reduce their duration.";
+    grd_skillTooltip[# _ix,_iy] = "Status Resist: !%";
+    grd_skillRate[# _ix,_iy] = 0.1;
+    grd_skillIcon[# _ix,_iy] = spr_icon_stanceUp;
 
 #endregion

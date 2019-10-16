@@ -31,5 +31,5 @@ with SV_m{
     	grd_scr[# SV_i,0] = scr_menu_back;
 	}
 	
-	//scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	//scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

@@ -4,6 +4,8 @@ persistent = true;
 alarm[0] = 1;
 visible = false;
 
+ds_list_add(global.lst_listeners,id);
+
 map_statMod[? CHAR_VAR_MATK] = 0;
 map_statMod[? CHAR_VAR_MDEF] = 0;
 map_statMod[? CHAR_VAR_FATK] = 0;

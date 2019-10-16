@@ -1209,6 +1209,6 @@ switch(SV_type){
 
 SV_r.ele = SV_ele;
 
-scr_cEvent(SV_r,EVENT_ACT_REFRESHINFO);
+scr_cEvent_id(SV_r,EVENT_ACT_REFRESHINFO);
 
 return SV_r;

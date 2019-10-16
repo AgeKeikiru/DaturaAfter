@@ -81,5 +81,5 @@ with SV_m{
 	grd_descLabel[# 0,SV_i] = "Title";
 	grd_scr[# 0,SV_i] = instance_exists(obj_handler_dungeon) ? noone : scr_menu_party_title;
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

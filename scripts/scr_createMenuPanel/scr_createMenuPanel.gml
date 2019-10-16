@@ -27,4 +27,8 @@ SV_panel.txt_ft[0] = ft_menuButton;
 SV_panel.txt_xScale[0] = .5;
 SV_panel.txt_yScale[0] = SV_panel.txt_xScale[0];
 
+SV_panel.image_xscale = SV_panel.tgt_xScale;
+SV_panel.tween_yPos = true;
+SV_panel.y += SV_panel.tgt_yScale / 2;
+
 return SV_menu;

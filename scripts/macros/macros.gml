@@ -603,6 +603,7 @@
 	#macro EVENT_CLASS_BASESTATADD "event_class_baseStatAdd" //called during battlm_init
 	#macro EVENT_CLASS_SKILLREFRESH "event_class_skillRefresh"
 	#macro EVENT_CLASS_FETCHTOOLTIP "event_class_fetchToolTip"
+	#macro EVENT_CLASS_PROTO "event_class_proto" //use to switch class to prototype mode
 	
 	#macro EVENT_EVOK_RBRANDCHECK "event_evok_rBrandCheck"
 	
@@ -617,6 +618,7 @@
 	
 	#macro EVENT_EFFECT_STANCEDRAW "event_effect_stanceDraw"
 	#macro EVENT_EFFECT_ENRECMOD "event_effect_enRecMod"
+	#macro EVENT_EFFECT_HPRECMOD "event_effect_hpRecMod"
 	
 	#macro EVENT_BATTLE_SAINFLICT "event_battle_saInflict"
 	#macro EVENT_BATTLE_ENEMYKILLED "event_battle_enemyKilled"

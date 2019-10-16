@@ -1,6 +1,6 @@
 
 if(ds_stack_size(global.stk_menu) > 0){
-    scr_cEvent(ds_stack_top(global.stk_menu),EVENT_MENU_REFRESHMENUUI);
+    scr_cEvent_id(ds_stack_top(global.stk_menu),EVENT_MENU_REFRESHMENUUI);
 }
 
 transTgt = instance_exists(obj_handler_dungeon) ? -1 : 1;

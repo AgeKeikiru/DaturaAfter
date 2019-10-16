@@ -11,11 +11,7 @@ add silence effect
 nerf imo base f-atk
 add en recover stat to acts
 add item usage
-add stat preview in shop
-add stat comparison to equip menu
 add option to switch down arrow to middle-target
-add dialogue backlog to C key
-add Jack
 add Draker
 new missions
 
@@ -38,6 +34,61 @@ mission idea
 		"when no appropriate missions are available for new adventurers, a standardized aptitude test is conducted"
 		"escort adventurer to goal and prevent them from getting overwhelmed"
 		simple mission, get to the end of a linear path
+		
+	Investigate Control Center (canal)
+		"the town is reporting power outage issues and attempts to contact control center staff have all failed"
+		"surveilance shows no visible entry, but the entrance you normally take has been blocked due to damage, suggesting an attack from within"
+		introduce glitch enemies, NPC is Harzer
+		group retreats at end of mission
+		
+	Investigate Aberration Sighting (woods)
+		"creatues similar to the glitches, now referred to as GDEs (Garbage Data Entities) have appeared"
+		mission is interrupted by Blaze's team when a massive GDE appears
+		Blaze's team replaces party for boss fight
+		
+	Retake Control Center (canal)
+		"now that we know how to stop GDEs from spawning, we can eliminate the infestation in the Control Center"
+		new missions in the area will not appear until this mission is completed
+		
+	Diversionary Attack (desert)
+		"launch an attack on a Leosocial Research Lab to draw out their defensive forces"
+		reward based on enemies defeated in alloted time
+		unique enemy effect: camera drone - if it lands an attack on the party the mission ends early
+		
+	Destroy Prototype Equipment (tundra)
+		"Zikade will be testing equipment made using tech stolen from Leosocial, interrupt the test and destroy the equipment"
+		enemies are Newtypes
+		reward: class chip [Newtype(D)]: a damaged newtype chip that only has tier 1-2 skills
+		
+	Rout Incursion (lowee)
+		"monsters have been summoned in lowee's financial district around a specific building"
+		"the area is not well equipped to deal with monsters from the inside, the workers are in danger"
+		target: 4+2 enemies
+		during target battles the objective meter displays hostage HP, decreases by 1 whenever a party member is hit
+		
+	Destroy Warp Points (lowee)
+		"during the chaos of Rout Incursion warp points were placed in the building to continue spawning monsters"
+		"beware of traps to slow you down"
+		same map as Rout Incursion
+		introduce damage floors
+		9 warps
+		
+	Assist Layered Forces (desert)
+		"Layered has found the location of the sorcerer that attacked the Control Center and Financial District"
+		"weaken the defenses around the stronghold to allow Layered forces to breach the entrance"
+		destroy a certain number of enemies to complete the mission
+		introduce mana charged terrain effect
+		
+	Eliminate Infestation (lowee)
+		"a control rod in one of lowee's mana reactors has malfunctioned, and slime is being generated at an alarming rate"
+		"eliminate the slimes so workers can repair the control rod, but avoid damaging the facility"
+		mana charged
+		objective meter shows facility HP, decreases by 1 when a party member attack misses
+		
+	Layered Training Exercise (tundra)
+		"a group of Layered squires are on a training patrol, ambush them to test their abilities"
+		battle starts immediately
+		5 layered theme enemies (gun/shield/mage + gun,mage)
 
 class idea:
 	Editor

@@ -1,4 +1,4 @@
-==DateND After v0.1.3==
+==DateND After v0.2.1==
 
 [WARNING: NOT COMPATIBLE WITH PRE-v0.1.1 SAVES]
 
@@ -20,26 +20,11 @@ LeftShift - Shift Menu
 
 ==Patch Notes==
 
-=v0.1.3=
-- Added proper stat changes for higher rank weapons
-
-=v0.1.2=
-- Bugfix update
-
-=v0.1.1=
-- Added [Minimap Size] and [Camera Distance] options to further improve performance during missions for lower end machines
-- New character: Ari
-- New class: Agent, Sanctum
-- Title screen now defaults to load game when a save file is detected
-- Added item selling in the Change Equipment menu
-- Added a new [Agile] property for Acts: Acts with this property are completely independant from global cooldowns
-- Healing Acts now scale off of S-DEF instead of S-ATK
-- 3 new missions
-- Added visual indication of when attacks are effective/ineffective
-- Added [Gathering Hub] area
-- Changed the following acts to auto stances: [Angelite], [Mess Kit], [Hype Meter]
-- Added Simulator functionality
-
+=v0.2.1=
+- Added pretty shaders (will add an option to disable if they cause performance issues)
+- Shop now displays stats of items for sale
+- Changing equipment now shows a stat comparison in the stat preview window
+- Nerfed Imo'lei base F-ATK
 
 ==Known Bugs==
 
@@ -50,12 +35,13 @@ LeftShift - Shift Menu
 - None yet
 
 =Fixed, needs further testing=
+- None yet
+
+=Fixed, no further sign of bug=
 - Crits ignoring minimum damage limit
 - Wiping during a simulator session resulted in a crash
 - [Fire Support] can activate class skills
 - Fail state occasionally fails to trigger
-
-=Fixed, no further sign of bug=
 - Returning to title, starting a new game, entering the Market at the earliest possibility and exiting without entering any submenus would result in a crash
 - Class acts are replaced by "???" and behave strangely the next time a save file is loaded
 - Saving the game after clearing the secret misison can result in a crash (inconsistent, suspected to crash only when clearing it a 2nd time)

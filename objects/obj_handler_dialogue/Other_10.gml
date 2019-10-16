@@ -9,15 +9,21 @@ switch(cEvent){
 			scr_trace("tb_index:" + string(tb_index));
 			scr_trace(global.grd_dia[# DIA_TXT,tb_index]);
 			
+			//get speaker name
+			txt_name = global.grd_dia[# DIA_NAME,tb_index];
+			
 			//get next text
 			if(global.grd_dia[# DIA_TXT,tb_index] != ""){
 				talkbox.txt[0] = "";
 				tb_strLen = 0;
 				txt_tgt = global.grd_dia[# DIA_TXT,tb_index];
+				
+				var _h = ds_grid_height(log_grd);
+				
+				ds_grid_resize(log_grd,ds_grid_width(log_grd),_h + 1);
+				log_grd[# 0,_h] = txt_name;
+				log_grd[# 1,_h] = txt_tgt;
 			}
-			
-			//get speaker name
-			txt_name = global.grd_dia[# DIA_NAME,tb_index];
 			
 			//get portraits
 			var

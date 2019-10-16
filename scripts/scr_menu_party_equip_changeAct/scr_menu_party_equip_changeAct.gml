@@ -1,3 +1,9 @@
+with obj_handler_menuUI{
+	var _menu = ds_stack_top(global.stk_menu);
+	
+	compareItem = ps_equipMem.act[_menu.menu_y % array_length_1d(ps_equipMem.act)];
+}
+
 with ds_stack_top(global.stk_menu){
 	global.tempInt = menu_y;
 	
@@ -19,5 +25,5 @@ with SV_m{
     
 	scr_refreshInv(global.lst_inv_acts);
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

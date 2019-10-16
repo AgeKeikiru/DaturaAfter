@@ -96,7 +96,7 @@ switch cEvent{
             grd_mobPool[# 0,DH_MOB_LV2] = 0;
             grd_mobPool[# 0,DH_MOB_LV3] = 0;
             
-            scr_cEvent(id,EVENT_DND_ENCOUNTER_FIXED);
+            scr_cEvent(EVENT_DND_ENCOUNTER_FIXED);
         }
     
         break;

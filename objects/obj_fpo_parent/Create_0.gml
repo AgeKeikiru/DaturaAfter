@@ -1,5 +1,6 @@
 /// @description Fake Particle Object
 // You can write your code in this editor
+ds_list_add(global.lst_listeners,id);
 
 tgt_xPos = x;
 tgt_yPos = y;

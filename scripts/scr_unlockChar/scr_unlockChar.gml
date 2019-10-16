@@ -36,7 +36,7 @@ if(!global.map_flags[? SV_id]){
         #endregion
     }
     
-    scr_cEvent(global.map_chars[? SV_id],EVENT_BATTLM_INIT);
+    scr_cEvent_id(global.map_chars[? SV_id],EVENT_BATTLM_INIT);
     
     global.map_flags[? SV_id] = true;
     

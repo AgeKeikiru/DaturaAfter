@@ -13,13 +13,12 @@ SV_w = clamp(string_width(argument1),250,1000) + (SV_b * 2),
 SV_h = max(string_height_ext(argument1,-1,SV_w),20) + (SV_b * 4) + SV_buttonH,
 SV_x = (room_width / 2) + -(SV_w / 2),
 SV_y = (room_height / 2) + -(SV_h / 2),
-SV_m = scr_createMenuPanel(SV_x,SV_y,SV_w,SV_h,argument0);
+SV_m = scr_createMenuPanel(0,SV_y,room_width,SV_h,argument0);
 
 SV_m.layer = global.ly_obj[4];
 SV_m.submenu = true;
+SV_m.fancyMenu = true;
 SV_m.y += SV_h + -(SV_buttonH / 2) + -(SV_b * 3);
-SV_m.btn_w = 90;
-SV_m.btn_gapX = 60;
 SV_m.alarm[0] = 8;
 
 //buttons
@@ -46,11 +45,18 @@ SV_m.x = (room_width / 2) + -(((SV_m.btn_w * ds_grid_width(SV_m.grd_txt)) + (SV_
 //text
 SV_m.link_panel.txt_ft[1] = ft_menuButton;
 SV_m.link_panel.txt_halign[1] = fa_center;
-SV_m.link_panel.txt_x[1] = (SV_w / 2) + (SV_b / 2);
+SV_m.link_panel.txt_x[1] = room_width / 2;
 SV_m.link_panel.txt_y[1] = SV_b;
 SV_m.link_panel.txt_w[1] = SV_w + -(SV_b * 2);
 SV_m.link_panel.txt[1] = argument1;
 
-SV_m.link_panel.tweenSpd = 2;
+with SV_m.link_panel{
+    tweenSpd = 2;
+    fill_col = c_white;
+    //fill_alpha = 0.85;
+    
+    txt_col[0] = c_dkgray;
+    txt_col[1] = txt_col[0];
+}
 
 return SV_m;

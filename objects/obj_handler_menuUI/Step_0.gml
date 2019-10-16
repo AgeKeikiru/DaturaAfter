@@ -27,7 +27,8 @@ if(
 	}
 }
 
-transCurr = ktk_scr_tween(transCurr,transTgt,4,.15);
+transCurr = ktk_scr_tween(transCurr,transTgt,4,0.15);
+menuBG_curr = ktk_scr_tween(menuBG_curr,menuBG_tgt,3,-1);
 
 for(var _i = 0;_i < 4;_i++){
     grd_ps_xDraw[# _i,0] = ktk_scr_tween(grd_ps_xDraw[# _i,0],grd_ps_xDraw[# _i,1],3,0);

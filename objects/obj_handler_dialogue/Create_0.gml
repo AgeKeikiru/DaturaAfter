@@ -1,4 +1,5 @@
 /// @description Insert description here
+ds_list_add(global.lst_listeners,id);
 
 layer = global.ly_obj[3];
 
@@ -23,12 +24,13 @@ talkbox.fixedAlpha = false;
 
 talkbox.tween_xScale = true;
 talkbox.tween_yScale = true;
+talkbox.tween_yPos = false;
 
 talkbox.tgt_xScale = tb_width;
 talkbox.tgt_yScale = tb_height;
 
 //body text
-talkbox.txt_ft[0] = ft_menuButton;
+talkbox.txt_ft[0] = ft_menuDesc;
 talkbox.txt_x[0] = 25;
 talkbox.txt_y[0] = 25;
 talkbox.txt_w[0] = tb_width + -(talkbox.txt_x[0] * 2) + -60;

@@ -1,4 +1,6 @@
 
+log_alpha = ktk_scr_tween(log_alpha,log_tgt,3,-1);
+
 if(instance_exists(talkbox)){
 	var _alpha = talkbox.image_xscale / talkbox.tgt_xScale;
 	
@@ -22,6 +24,8 @@ if(instance_exists(talkbox)){
 	_arr[!_rFocus] = tb_obj_l;
 	_arr[_rFocus] = tb_obj_r;
 	_arr[2] = talkbox;
+	
+	talkbox.y = talkbox.tgt_yPos + (250 * log_alpha);
 	
 	for(var _i = 0;_i < array_length_1d(_arr);_i++){
 		with _arr[_i]{
@@ -62,7 +66,7 @@ if(instance_exists(talkbox)){
 		
 		draw_triangle(_tx[0],_ty[0],_tx[1],_ty[1],_tx[2],_ty[2],false);
 		
-		draw_set_font(ft_menuButton);
+		draw_set_font(ft_menuDesc);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_bottom);
 		
@@ -78,7 +82,7 @@ if(instance_exists(talkbox)){
 		_str = [
 			"[Z]: Next",
 			"[X]: Skip",
-			"[C]: "
+			"[C]: Log"
 		];
 		
 		_x[0] = talkbox.x + talkbox.image_xscale + 5;

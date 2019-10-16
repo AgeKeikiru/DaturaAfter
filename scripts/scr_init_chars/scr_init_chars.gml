@@ -15,7 +15,7 @@ SV_o;
     SV_map[? CHAR_VAR_EN] = 1200;
     SV_map[? CHAR_VAR_MATK] = 10;
     SV_map[? CHAR_VAR_MDEF] = -5;
-    SV_map[? CHAR_VAR_FATK] = -25;
+    SV_map[? CHAR_VAR_FATK] = -35;
     SV_map[? CHAR_VAR_FDEF] = -5;
     SV_map[? CHAR_VAR_SATK] = 10;
     SV_map[? CHAR_VAR_SDEF] = -5;
@@ -169,7 +169,7 @@ SV_o;
     SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_ari_battlePort;
     SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_ari_neutral;
     SV_map[? CHAR_VAR_ABDO_X] = -100;
-    SV_map[? CHAR_VAR_ABDO_Y] = 130;
+    SV_map[? CHAR_VAR_ABDO_Y] = 110;
     SV_map[? CHAR_VAR_PSDO_ACT_X] = -180;
     SV_map[? CHAR_VAR_PSDO_ACT_Y] = -80;
     SV_map[? CHAR_VAR_PSDO_ARM_X] = 100;
@@ -222,6 +222,42 @@ SV_o;
     SV_map2[? CHAR_VAR_SPR_NEUTRAL] = spr_enemy_paprika;
     SV_map2[? CHAR_VAR_ABDO_X] = 0;
     SV_map2[? CHAR_VAR_ABDO_Y] = 90;
+#endregion
+
+#region //jack
+    SV_map = scr_data_char_new(CHAR_JACK,true);
+    SV_map[? CHAR_VAR_NAMEFULL] = "Baela \"Jack\" Norvecci";
+    SV_map[? CHAR_VAR_NAMEDISP] = "Jack";
+    SV_map[? CHAR_VAR_DESC] = "An all-rounder, Jack boasts high resilience with serviceable attack power at the cost of poor EN.";
+    SV_map[? CHAR_VAR_RACE] = RACE_DRACON;
+    SV_map[? CHAR_VAR_HP] = 1400 + (-0 * DEBUG);
+    SV_map[? CHAR_VAR_EN] = 600;
+    SV_map[? CHAR_VAR_MATK] = 5;
+    SV_map[? CHAR_VAR_MDEF] = 10;
+    SV_map[? CHAR_VAR_FATK] = 5;
+    SV_map[? CHAR_VAR_FDEF] = 10;
+    SV_map[? CHAR_VAR_SATK] = 5;
+    SV_map[? CHAR_VAR_SDEF] = 10;
+    SV_map[? CHAR_VAR_ACC] = 4;
+    SV_map[? CHAR_VAR_EVA] = 4;
+    SV_map[? CHAR_VAR_SPD] = 8;
+    SV_map[? CHAR_VAR_MISC] = 20;
+    SV_map[? CHAR_VAR_ELE_FIR] = 10;
+    SV_map[? CHAR_VAR_ELE_ICE] = 10;
+    SV_map[? CHAR_VAR_ELE_NAT] = 10;
+    SV_map[? CHAR_VAR_ELE_ELC] = 10;
+    SV_map[? CHAR_VAR_ELE_DRK] = 10;
+    SV_map[? CHAR_VAR_ELE_LGT] = 10;
+    SV_map[? CHAR_VAR_SPR_BATTLEPORT] = spr_jack_battlePort;
+    SV_map[? CHAR_VAR_SPR_NEUTRAL] = spr_jack_neutral;
+    SV_map[? CHAR_VAR_ABDO_X] = -120;
+    SV_map[? CHAR_VAR_ABDO_Y] = 100;
+    SV_map[? CHAR_VAR_PSDO_ACT_X] = -220;
+    SV_map[? CHAR_VAR_PSDO_ACT_Y] = -360;
+    SV_map[? CHAR_VAR_PSDO_ARM_X] = 70;
+    SV_map[? CHAR_VAR_PSDO_ARM_Y] = -30;
+    SV_map[? CHAR_VAR_PSDO_CLS_X] = 70;
+    SV_map[? CHAR_VAR_PSDO_CLS_Y] = 180;
 #endregion
 
 #region //slime

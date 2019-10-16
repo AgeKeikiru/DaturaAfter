@@ -151,4 +151,4 @@ stat_dbrand_rate = 3;
 
 #endregion
 
-scr_cEvent(id,EVENT_CLASS_SKILLREFRESH);
+scr_cEvent_id(id,EVENT_CLASS_SKILLREFRESH);

@@ -9,6 +9,8 @@ with ds_stack_top(global.stk_menu){
 var SV_m = scr_createMenuPanel(20,105,500,-1,"menu/lab/class" + string(global.labFunc + 1) + "/..");
 
 with SV_m{
+	fancyMenu = true;
+	
     page_h = 8;
     extra_function = -1;
     
@@ -37,5 +39,5 @@ with SV_m{
 	grd_descLabel[# 0,SV_i] = "Back";
 	grd_scr[# 0,SV_i] = scr_menu_back;
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

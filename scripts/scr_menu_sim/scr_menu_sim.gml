@@ -41,5 +41,5 @@ with scr_createSubmenu(450){
 	
 	menu_y = 0;
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }

@@ -17,7 +17,8 @@ with SV_m{
 	    CHAR_AILE,
 	    CHAR_PAPRIKA,
 	    CHAR_ARI,
-	    CHAR_BLAZE
+	    CHAR_BLAZE,
+	    CHAR_JACK
 	);
 	
 	for(SV_i = ds_list_size(SV_lst) + -1;SV_i >= 0;SV_i--){

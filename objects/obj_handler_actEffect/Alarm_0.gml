@@ -21,5 +21,5 @@ if(scr_exists(src,asset_object)){
     	}
     }
     
-    scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+    scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 }

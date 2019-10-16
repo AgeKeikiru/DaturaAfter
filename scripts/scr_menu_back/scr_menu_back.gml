@@ -58,7 +58,8 @@ if(
 					visible = true;
 					
 					with link_panel{
-						image_xscale = 0;
+						y += tgt_yScale / 2;
+						
 						image_yscale = 0;
 					}
 				}

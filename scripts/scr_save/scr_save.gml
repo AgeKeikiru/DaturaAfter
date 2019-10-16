@@ -193,7 +193,7 @@ SV_key = "";
 #region //chars
 
     var
-    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE,CHAR_ARI];
+    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE,CHAR_ARI,CHAR_JACK];
     
     scr_trace("");
     

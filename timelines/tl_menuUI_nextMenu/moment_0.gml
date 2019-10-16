@@ -2,6 +2,7 @@ global.playerControl = false;
 global.bgManip.zoom[0] = .01;
 
 transTgt = 0;
+menuBG_tgt = -menuBG_w2;
 
 menuNext = -1;
 

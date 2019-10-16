@@ -116,7 +116,7 @@ switch cEvent{
             scr_dia_build_vWoods_01_cut02();
             instance_create_depth(0,0,0,obj_handler_dialogue);
         }else{
-            scr_cEvent(obj_handler_dungeon,EVENT_DND_ENCOUNTER_FIXED);
+            scr_cEvent(EVENT_DND_ENCOUNTER_FIXED);
         }
     
         break;

@@ -425,6 +425,20 @@
             "value": "0",
             "varName": "ss_level",
             "varType": 0
+        },
+        {
+            "id": "166e01ee-195d-4c65-ae95-48e3899c7931",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "prototype",
+            "varType": 3
         }
     ],
     "solid": false,

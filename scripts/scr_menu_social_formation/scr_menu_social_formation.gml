@@ -21,7 +21,7 @@ with scr_createSubmenu(500){
 	
 	scr_refreshFormation();
 	
-	scr_cEvent(id,EVENT_MENU_RESIZEPANEL);
+	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
 }
 
 with obj_handler_menuUI{

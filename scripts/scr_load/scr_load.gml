@@ -173,7 +173,7 @@ file_text_close(SV_f);
 		ds_list_add(global.lst_inv_classes,SV_o);
 		scr_trace("added " + SV_o.name);
 		
-		scr_cEvent(SV_o,EVENT_CLASS_SKILLREFRESH);
+		scr_cEvent_id(SV_o,EVENT_CLASS_SKILLREFRESH);
 		
 		SV_key = DATA_CLSID + string(++SV_i);
 	}
@@ -238,7 +238,7 @@ file_text_close(SV_f);
 #region //chars
 
     var
-    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE,CHAR_ARI];
+    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE,CHAR_ARI,CHAR_JACK];
     
     scr_trace("");
     scr_init_chars();
@@ -246,52 +246,54 @@ file_text_close(SV_f);
     for(var SV_i = 0;SV_i < array_length_1d(SV_arr);SV_i++){
         SV_key = SV_arr[SV_i];
         
-        var
-        SV_cm = scr_data_getMap(global.grd_chars,SV_key),
-        SV_map2 = ds_map_create(),
-        SV_lst = ["char_var_cls","char_var_hb","char_var_arm"],
-        SV_lst2 = [global.lst_inv_classes,global.lst_inv_acts,global.lst_inv_arms];
-        
-        for(var SV_i2 = 0;SV_i2 < array_length_1d(SV_lst);SV_i2++){
-        	var
-        	SV_i3 = 0,
-        	SV_key2 = SV_lst[SV_i2] + string(SV_i3);
-        	
-        	ds_map_clear(SV_map2);
-        	ds_map_read(SV_map2,SV_map[? SV_key]);
-        	
-        	while(ds_map_exists(SV_cm,SV_key2)){
-	        	if(ds_map_exists(SV_map2,SV_key2)){
-	        	    if(is_real(SV_map2[? SV_key2])){
-	        	        SV_cm[? SV_key2] = ds_list_find_value(SV_lst2[SV_i2],SV_map2[? SV_key2]);
-	        	    }else{
-	        	        var SV_o = asset_get_index(SV_map2[? SV_key2]);
-	        	        scr_trace(SV_map2[? SV_key2]);
-	        	        scr_trace(object_get_name(SV_o));
-	        	        
-                        for(var SV_ci = 0;ds_map_exists(SV_cm,"char_var_cls" + string(SV_ci));SV_ci++){
-                            var SV_c = SV_cm[? "char_var_cls" + string(SV_ci)];
-                            
-                            if(scr_exists(SV_c,asset_object)){
-                                for(var SV_x = 0;SV_x < ds_grid_width(SV_c.grd_skillAct);SV_x++){
-                                    for(var SV_y = 0;SV_y < ds_grid_height(SV_c.grd_skillAct);SV_y++){
-                                        var SV_o2 = SV_c.grd_skillAct[# SV_x,SV_y];
-                                        
-                                        if(scr_exists(SV_o2,asset_object) && SV_o2.object_index == SV_o){
-                                            SV_cm[? SV_key2] = SV_o2;
-                                            scr_trace("HIT");
-                                        }
-                                    }
-                                }
-                            }
-	        	        }
-	        	    }
-	        	    
-	        	    scr_trace("subloaded " + SV_key2 + ": " + SV_cm[? SV_key2].name);
-	        	}
+        if(ds_map_exists(SV_map,SV_key)){
+	        var
+	        SV_cm = scr_data_getMap(global.grd_chars,SV_key),
+	        SV_map2 = ds_map_create(),
+	        SV_lst = ["char_var_cls","char_var_hb","char_var_arm"],
+	        SV_lst2 = [global.lst_inv_classes,global.lst_inv_acts,global.lst_inv_arms];
+	        
+	        for(var SV_i2 = 0;SV_i2 < array_length_1d(SV_lst);SV_i2++){
+	        	var
+	        	SV_i3 = 0,
+	        	SV_key2 = SV_lst[SV_i2] + string(SV_i3);
 	        	
-	        	SV_key2 = SV_lst[SV_i2] + string(++SV_i3);
-        	}
+	        	ds_map_clear(SV_map2);
+	        	ds_map_read(SV_map2,SV_map[? SV_key]);
+	        	
+	        	while(ds_map_exists(SV_cm,SV_key2)){
+		        	if(ds_map_exists(SV_map2,SV_key2)){
+		        	    if(is_real(SV_map2[? SV_key2])){
+		        	        SV_cm[? SV_key2] = ds_list_find_value(SV_lst2[SV_i2],SV_map2[? SV_key2]);
+		        	    }else{
+		        	        var SV_o = asset_get_index(SV_map2[? SV_key2]);
+		        	        scr_trace(SV_map2[? SV_key2]);
+		        	        scr_trace(object_get_name(SV_o));
+		        	        
+	                        for(var SV_ci = 0;ds_map_exists(SV_cm,"char_var_cls" + string(SV_ci));SV_ci++){
+	                            var SV_c = SV_cm[? "char_var_cls" + string(SV_ci)];
+	                            
+	                            if(scr_exists(SV_c,asset_object)){
+	                                for(var SV_x = 0;SV_x < ds_grid_width(SV_c.grd_skillAct);SV_x++){
+	                                    for(var SV_y = 0;SV_y < ds_grid_height(SV_c.grd_skillAct);SV_y++){
+	                                        var SV_o2 = SV_c.grd_skillAct[# SV_x,SV_y];
+	                                        
+	                                        if(scr_exists(SV_o2,asset_object) && SV_o2.object_index == SV_o){
+	                                            SV_cm[? SV_key2] = SV_o2;
+	                                            scr_trace("HIT");
+	                                        }
+	                                    }
+	                                }
+	                            }
+		        	        }
+		        	    }
+		        	    
+		        	    scr_trace("subloaded " + SV_key2 + ": " + SV_cm[? SV_key2].name);
+		        	}
+		        	
+		        	SV_key2 = SV_lst[SV_i2] + string(++SV_i3);
+	        	}
+	        }
         }
         
         scr_trace("loaded " + SV_key);

@@ -21,7 +21,7 @@ switch(cEvent){
 				
 				stun_chance = _proc * special[| 0];
 				
-				scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+				scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 				scr_createEffectTxt(src,"VEIL OFF");
 				scr_createSpark(src.x,src.y,spr_spark_pierce,"");
 			}

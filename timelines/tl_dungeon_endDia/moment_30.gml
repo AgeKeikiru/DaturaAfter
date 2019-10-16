@@ -12,7 +12,7 @@ if(missionFailed){
     endDia_battle = false;
     state_battle = true;
     
-    scr_cEvent(id,EVENT_DND_ENCOUNTER_FIXED);
+    scr_cEvent(EVENT_DND_ENCOUNTER_FIXED);
     
     state_event = false;
 }else if(missionComplete){

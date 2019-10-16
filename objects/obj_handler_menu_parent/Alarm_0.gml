@@ -7,5 +7,5 @@ btn_draw = true;
 image_alpha = 0;
 
 if(!submenu){
-	scr_cEvent(id,EVENT_MENU_REFRESHMENUUI);
+	scr_cEvent_id(id,EVENT_MENU_REFRESHMENUUI);
 }

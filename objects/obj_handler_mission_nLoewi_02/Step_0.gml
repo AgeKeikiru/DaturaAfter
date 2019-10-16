@@ -18,7 +18,7 @@ if(specCurr <= 0){
     specCurr = 999999;
     
     with obj_handler_dungeon{
-        scr_cEvent(id,EVENT_DND_BATTLELOSE);
+        scr_cEvent(EVENT_DND_BATTLELOSE);
         
         state_event = true;
     }

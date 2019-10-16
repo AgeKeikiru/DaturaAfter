@@ -413,13 +413,15 @@ SV_chSize = 6;
 	global.cid = ds_list_size(global.lst_inv_classes);
 
 	ds_list_add(global.lst_shop_classes,
-		instance_create_depth(0,0,0,obj_handler_class_evoker),
-		instance_create_depth(0,0,0,obj_handler_class_angel),
-		instance_create_depth(0,0,0,obj_handler_class_chef),
-		instance_create_depth(0,0,0,obj_handler_class_razer),
-		instance_create_depth(0,0,0,obj_handler_class_idol),
-		instance_create_depth(0,0,0,obj_handler_class_agent),
-		instance_create_depth(0,0,0,obj_handler_class_sanctum)
+		create(obj_handler_class_evoker),
+		create(obj_handler_class_angel),
+		create(obj_handler_class_chef),
+		create(obj_handler_class_razer),
+		create(obj_handler_class_idol),
+		create(obj_handler_class_agent),
+		create(obj_handler_class_sanctum),
+		
+		create(obj_handler_class_draker)
 	);
 
 #endregion

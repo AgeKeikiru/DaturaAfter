@@ -10,18 +10,8 @@ if(SV_m.menu_x > 0){
     global.labObj.ss_level++;
 }
 
-scr_cEvent(global.labObj,EVENT_CLASS_SKILLREFRESH);
+scr_cEvent_id(global.labObj,EVENT_CLASS_SKILLREFRESH);
 
 if(scr_exists(global.labObj.src,asset_object)){
-    scr_cEvent(global.labObj.src,EVENT_BATTLM_INIT);
-}
-
-with SV_m{
-    if(menu_x > 0){
-        grd_txt[# menu_x,menu_y] = global.labObj.grd_skillName[# menu_x + -1,menu_y] + " Lv." + string(global.labObj.grd_skills[# menu_x + -1,menu_y]);
-        grd_descLabel[# menu_x,menu_y] = grd_txt[# menu_x,menu_y];
-    }else{
-        grd_txt[# menu_x,menu_y] = global.labObj.ss_name + " Lv." + string(global.labObj.ss_level);
-    	grd_descLabel[# menu_x,menu_y] = grd_txt[# menu_x,menu_y];
-    }
+    scr_cEvent_id(global.labObj.src,EVENT_BATTLM_INIT);
 }

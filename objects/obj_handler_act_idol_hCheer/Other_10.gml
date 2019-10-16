@@ -14,7 +14,7 @@ switch(cEvent){
 				src.stance.charge = 0;
 				src.stance.aggro = 0;
 				
-				scr_cEvent(src,EVENT_BATTLM_ICONREFRESH);
+				scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 			}
 			
 			break;

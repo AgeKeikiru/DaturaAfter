@@ -48,6 +48,22 @@
             "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
             "propertyId": "31c65f17-51ed-4b26-b676-dcb07f44a8e5",
             "value": "spr_spark_bash"
+        },
+        {
+            "id": "e57ac1b4-1611-4ae8-aeea-ab21880d9d0b",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
+            "propertyId": "46429d3f-50a9-4d62-b7ec-6a44d3445e57",
+            "value": "CHAR_VAR_MATK"
+        },
+        {
+            "id": "b5118db5-2404-4ea9-b9ce-f992afde0ae3",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "db25dc73-975c-455a-8673-2282d60439d6",
+            "propertyId": "0f6fa4f9-a584-480e-b945-51e8b142cba7",
+            "value": "CHAR_VAR_MDEF"
         }
     ],
     "parentObjectId": "db25dc73-975c-455a-8673-2282d60439d6",

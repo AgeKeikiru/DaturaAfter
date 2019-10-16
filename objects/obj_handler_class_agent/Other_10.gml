@@ -238,7 +238,7 @@ switch(cEvent){
 					ds_list_shuffle(_lst);
 					
 					with _lst[| 0]{
-						scr_cEvent(id,EVENT_ACT_USE);
+						scr_cEvent_id(id,EVENT_ACT_USE);
 					}
 					
 					fsCooldown = 3 * room_speed;

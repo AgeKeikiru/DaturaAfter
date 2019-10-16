@@ -53,7 +53,7 @@ if(state_battle){
 		}
 		
 		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_DOWN)){
-			tgtSlot = -1;
+			tgtSlot = global.set_altDownTgt ? 1 : -1;
 		}
 	}
 }
