@@ -16,7 +16,7 @@
 
 #region //data handling
 
-	#macro DATA_FNAME working_directory + "SAVg2\\"
+	#macro DATA_FNAME working_directory + "SAVg3\\"
 	#macro DATA_LOG working_directory + "log.txt"
 	
 	#macro DATA_ITEMSET "data_itemSet"
@@ -745,25 +745,35 @@
 #endregion
 
 #region //input check
-
-	#macro IC_KEY_UP 0
-	#macro IC_KEY_LEFT 1
-	#macro IC_KEY_RIGHT 2
-	#macro IC_KEY_DOWN 3
-	#macro IC_KEY_PARTY1 4
-	#macro IC_KEY_PARTY2 5
-	#macro IC_KEY_PARTY3 6
-	#macro IC_KEY_PARTYITEM 7
-	#macro IC_KEY_PARTYSHIFT 8
-	#macro IC_KEY_MENUACCEPT 9
-	#macro IC_KEY_MENUBACK 10
-	#macro IC_KEY_MENUEXTRA 11
-	#macro IC_KEY_MENUPAGE 12
-	#macro IC_KEY_PAUSE 13
 	
-	#macro IC_CHECK_DOWN 0
-	#macro IC_CHECK_PRESS 1
-	#macro IC_CHECK_RELEASE 2
+	enum en_ic_key{
+		up,
+		left,
+		right,
+		down,
+		
+		party1,
+		party2,
+		party3,
+		partyItem,
+		partyShift,
+		
+		menuAccept,
+		menuBack,
+		menuExtra,
+		menuPage,
+		
+		pause,
+		
+		//must be at the end
+		JOY_ALT
+	}
+	
+	enum en_ic_check{
+		down,
+		press,
+		release
+	}
 
 #endregion
 

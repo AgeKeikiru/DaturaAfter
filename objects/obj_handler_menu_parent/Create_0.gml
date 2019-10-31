@@ -17,3 +17,5 @@ with obj_handler_menu_parent{
 		depth += 3;
 	}
 }
+
+rebindMode = false;

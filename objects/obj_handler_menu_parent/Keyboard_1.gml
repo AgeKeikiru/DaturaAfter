@@ -1,14 +1,27 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-if(ds_stack_top(global.stk_menu) == id && visible){
+if(rebindMode){
+	var _key = scr_keyToString(keyboard_lastkey);
+	
+	if(_key == ""){
+		link_panel.txt[1] = "Invalid character.";
+		grd_txt[# 0,0] = "OK";
+		grd_scr[# 0,0] = scr_menu_backNoRefresh;
+		rebindMode = false;
+	}else{
+		global.tempObj.grd_txt[# 0,global.tempInt] = scr_stringGapFormat(global.grd_controls[# global.tempInt,2],_key,25);
+		global.tempArr[global.tempInt] = keyboard_lastkey;
+		
+		scr_menu_backNoRefresh();
+	}
+}else if(ds_stack_top(global.stk_menu) == id && visible){
 	var
 	_sfx = noone,
 	_xPressed = false,
 	_yPressed = false;
 	
-	if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_UP)){
-		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP)){
+	if(scr_checkInput(en_ic_check.down,en_ic_key.up)){
+		if(scr_checkInput(en_ic_check.press,en_ic_key.up)){
 			io_clear();
 			global.autoScrollDelay = AUTOSCROLLTHRESH;
 			_yPressed = true;
@@ -25,8 +38,8 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 			
 			menu_y--;
 		}
-	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_DOWN)){
-		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_DOWN)){
+	}else if(scr_checkInput(en_ic_check.down,en_ic_key.down)){
+		if(scr_checkInput(en_ic_check.press,en_ic_key.down)){
 			io_clear();
 			global.autoScrollDelay = AUTOSCROLLTHRESH;
 			_yPressed = true;
@@ -43,8 +56,8 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 		
 			menu_y++;
 		}
-	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_LEFT)){
-		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_LEFT)){
+	}else if(scr_checkInput(en_ic_check.down,en_ic_key.left)){
+		if(scr_checkInput(en_ic_check.press,en_ic_key.left)){
 			io_clear();
 			global.autoScrollDelay = AUTOSCROLLTHRESH;
 			_xPressed = true;
@@ -80,8 +93,8 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 				}
 			}
 		}
-	}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_RIGHT)){
-		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_RIGHT)){
+	}else if(scr_checkInput(en_ic_check.down,en_ic_key.right)){
+		if(scr_checkInput(en_ic_check.press,en_ic_key.right)){
 			io_clear();
 			global.autoScrollDelay = AUTOSCROLLTHRESH;
 			_xPressed = true;
@@ -117,7 +130,7 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 				}
 			}
 		}
-	}else if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUACCEPT)){
+	}else if(scr_checkInput(en_ic_check.press,en_ic_key.menuAccept)){
 		io_clear();
 		
 		if(!script_exists(grd_scr[# menu_x,menu_y])){
@@ -135,7 +148,7 @@ if(ds_stack_top(global.stk_menu) == id && visible){
 			script_execute(grd_scr[# menu_x,menu_y]);
 			_sfx = SFX_ACCEPTTICK;
 		}
-	}else if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUBACK)){
+	}else if(scr_checkInput(en_ic_check.press,en_ic_key.menuBack)){
 		io_clear();
 	
 		if(script_exists(back_function)){

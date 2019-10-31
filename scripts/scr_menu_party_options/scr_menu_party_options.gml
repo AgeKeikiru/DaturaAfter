@@ -11,7 +11,7 @@ with(obj_handler_menuUI){
 	txt_titleDesc = "Adjust gameplay settings";
 }
 
-var SV_m = scr_createMenuPanel(80,120,500,-1,"party/option/..");
+var SV_m = scr_createMenuPanel(80,110,500,-1,"party/option/..");
 
 with SV_m{
 	extra_function = -1;
@@ -19,7 +19,7 @@ with SV_m{
 	var
 	SV_i = 0;
 	
-	ds_grid_resize(grd_txt,1,10);
+	ds_grid_resize(grd_txt,1,11);
 	scr_menu_matchGrids(id,true);
 	
 	scr_menu_party_options_tog_volBgm(true,true);
@@ -67,6 +67,13 @@ with SV_m{
 	grd_descLabel[# 0,SV_i] = "Game Settings";
 	grd_scr[# 0,SV_i] = scr_menu_party_options_tog_txtSpeed;
 	grd_toggle[# 0,SV_i] = true;
+	
+	menu_y = ++SV_i;
+	
+	grd_txt[# 0,SV_i] = "Key Bindings";
+	grd_desc[# 0,SV_i] = "Change keyboard control bindings.";
+	grd_descLabel[# 0,SV_i] = "Game Settings";
+	grd_scr[# 0,SV_i] = scr_menu_party_options_keyBind;
 	
 	menu_y = ++SV_i;
 	

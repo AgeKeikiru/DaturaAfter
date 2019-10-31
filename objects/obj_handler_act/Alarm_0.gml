@@ -86,6 +86,14 @@ if(!nonAttack){
 				_p.visible = pwr > 0;
 				_p.y += -100;
 				
+				global.tempFloat = 1;
+				
+				if(pwr > 0){
+					scr_cEvent(tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt[| _i],id,_dmg);
+				}
+				
+				_dmg = ceil(_dmg * global.tempFloat);
+				
 				global.critChance = clamp(dc_aim[| _i],0.01,0.1);
 				global.critBonus = 1.2;
 				
@@ -107,10 +115,6 @@ if(!nonAttack){
 					_dmg = max(ceil(dc_dmgMax[| _i] * global.critBonus),0);
 					
 					_p.txt[0] = string(_dmg);
-				}
-				
-				if(pwr > 0){
-					scr_cEvent(tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt[| _i],id,_dmg);
 				}
 				
 				global.tempLst = ds_list_create();

@@ -9,7 +9,7 @@ if(state_battle){
 		if(
 			global.grd_party_player[# _i,0] != noone
 			&& global.grd_party_player[# _i,0].hpCurr > 0
-			&& scr_checkInput(IC_CHECK_DOWN,IC_KEY_PARTY1 + _i)
+			&& scr_checkInput(en_ic_check.down,en_ic_key.party1 + _i)
 		){
 			_mem = global.grd_party_player[# _i,0];
 			break;
@@ -17,7 +17,7 @@ if(state_battle){
 	}
 	
 	if(_mem != noone){
-		var _i = scr_checkInput(IC_CHECK_DOWN,IC_KEY_PARTYSHIFT) * 4;
+		var _i = scr_checkInput(en_ic_check.down,en_ic_key.partyShift) * 4;
 		
 		global.tempBool = true;
 		global.tempObj = _mem;
@@ -29,7 +29,7 @@ if(state_battle){
 		}
 		
 		repeat(4){
-			if(scr_exists(_mem.act[_i],asset_object) && global.tempBool && scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP + (_i mod 4))){
+			if(scr_exists(_mem.act[_i],asset_object) && global.tempBool && scr_checkInput(en_ic_check.press,en_ic_key.up + (_i mod 4))){
 				_mem.actUsing = _mem.act[_i];
 				_mem.tgtIndex = tgtSlot;
 				_mem.tgtEnemy = _mem.actUsing.tgtEnemy;
@@ -40,19 +40,19 @@ if(state_battle){
 			_i++;
 		}
 	}else{
-		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_LEFT)){
+		if(scr_checkInput(en_ic_check.press,en_ic_key.left)){
 			tgtSlot = 0;
 		}
 		
-		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_UP)){
+		if(scr_checkInput(en_ic_check.press,en_ic_key.up)){
 			tgtSlot = 1;
 		}
 		
-		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_RIGHT)){
+		if(scr_checkInput(en_ic_check.press,en_ic_key.right)){
 			tgtSlot = 2;
 		}
 		
-		if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_DOWN)){
+		if(scr_checkInput(en_ic_check.press,en_ic_key.down)){
 			tgtSlot = global.set_altDownTgt ? 1 : -1;
 		}
 	}

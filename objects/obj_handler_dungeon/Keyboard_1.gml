@@ -16,7 +16,7 @@ if(global.playerControl){
 	var _ui = instance_find(obj_handler_menuUI,0);
 	
 	if(state_results && !instance_exists(obj_handler_dialogue)){
-		if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_MENUACCEPT)){
+		if(scr_checkInput(en_ic_check.down,en_ic_key.menuAccept)){
 			global.playerControl = false;
 			
 			with obj_handler_menuUI{
@@ -35,22 +35,22 @@ if(global.playerControl){
 		_newY = global.dMap_yPos,
 		_change = false; //flag if position is changed
 	
-		if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_RIGHT)){
+		if(scr_checkInput(en_ic_check.down,en_ic_key.right)){
 			_newX++;
 			_change = true;
 			
 			pIcon = spr_imo_ow_runRight;
-		}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_LEFT)){
+		}else if(scr_checkInput(en_ic_check.down,en_ic_key.left)){
 			_newX--;
 			_change = true;
 			
 			pIcon = spr_imo_ow_runLeft;
-		}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_UP)){
+		}else if(scr_checkInput(en_ic_check.down,en_ic_key.up)){
 			_newY--;
 			_change = true;
 			
 			pIcon = spr_imo_ow_runUp;
-		}else if(scr_checkInput(IC_CHECK_DOWN,IC_KEY_DOWN)){
+		}else if(scr_checkInput(en_ic_check.down,en_ic_key.down)){
 			_newY++;
 			_change = true;
 			

@@ -195,7 +195,7 @@ if(hpCurr > 0){
 				}
 				
 				if(_aggroIndex != -1){
-					repeat(1){
+					repeat(2){
 						ds_list_add(_tgts,_aggroIndex);
 					}
 				}

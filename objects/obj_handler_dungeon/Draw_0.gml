@@ -396,12 +396,12 @@ if(!state_event && !state_results){
 				//draw for highlighted character ui
 				if(
 					_highlight == -1
-					&& scr_checkInput(IC_CHECK_DOWN,IC_KEY_PARTY1 + _partyI)
+					&& scr_checkInput(en_ic_check.down,en_ic_key.party1 + _partyI)
 					&& _mem != noone
 					&& _mem.hpCurr > 0
 					&& state_battle
 				){
-					_i = scr_checkInput(IC_CHECK_DOWN,IC_KEY_PARTYSHIFT) * 4;
+					_i = scr_checkInput(en_ic_check.down,en_ic_key.partyShift) * 4;
 					_highlight = _partyI;
 					surface_reset_target();
 					surface_set_target(sfc_highlighted);
@@ -652,7 +652,7 @@ if(!state_event && !state_results){
 			
 			if(_highlight == _partyI){	
 				var
-				_i = scr_checkInput(IC_CHECK_DOWN,IC_KEY_PARTYSHIFT) * 4,
+				_i = scr_checkInput(en_ic_check.down,en_ic_key.partyShift) * 4,
 				_a = 105,
 				_actArr = [0,1,3,2,4,5,7,6],
 				_crossX = _uiDrawX + 50,

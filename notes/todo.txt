@@ -5,14 +5,13 @@ en cost/cd balance
 implement mission condition icons next to minimap
 make demoboss unlock when no other missions are available
 add "control party lead only" option
+adjust tutorial to show one step at a time
 
 add burn secondary effect
 add silence effect
 nerf imo base f-atk
 add en recover stat to acts
 add item usage
-add option to switch down arrow to middle-target
-add Draker
 new missions
 
 investigate crash after idling on mission clear screen (noticed on tree mission)
@@ -28,6 +27,39 @@ fixed bugs:
 	fix class acts being replaced with ??? on load
 	investigate crash after post mission save (noticed in demoBoss)
 		apparently always crashes after clearing demoBoss a 2nd time, suspected to be tied to heldGold overflow
+
+armor manufacturers
+	Zikade Global
+		HP
+		"Zikade Global has built a strong foothold in the adventurer market by supporting novices early on with training programs as well as affordable, beginner-friendly armor that focuses on survivability and ease of use. While some adventurers eventually switch to armor that better fits their playstyle, many stick with Zikade products out of a sense of loyalty or simply familiarity."
+	
+	Quisar Industries
+		EN
+	
+	Kurtzfeld Technologies
+		ACC
+	
+	AIDR (Advanced Investigation Development/Research)
+		EVA
+		"Advanced Investigation Development/Research is dedicated to providing equipment primarily designed for land surveyors, archaeologists, and other jobs that benefit greatly from ease of movement. These ergonomic designs are also preferred by adventurers that rely on dexterity and out-maneuvering their enemies."
+	
+	Ashe & Iris
+		ATK
+	
+	Zikade Loewi
+		DEF
+		"Zikade's Loewi branch has slowly seperated itself from the Global branch, but continues to use the Zikade name for brand recognition, much to the Global branch's chagrin. Zikade-L has a much more cutthroat focus on profit, and does not share Global's emphasis on forging bonds with adventurers. The name confusion between the two companies has negatively impacted Zikade-G's public image several times, and they have expressed their intention of forcing the Loewi branch to cut its association with Zikade eventually."
+		
+	Leosocial Advancements
+		SPD
+		
+	Xerion Ltd
+		MISC
+		"Not much is known of this company - its primary operating center, mission statement, and benefits of its products are all shrouded in mystery. Has been suspected of bootlegging and counterfeiting competing products on multiple occasions."
+		
+	Scrap
+		no bonus
+		"A hastily repaired second-hand armor chip. Impossible to trace back to its original manufacturer, and barely functions."
 
 mission idea
 	aptitude test proctor
@@ -193,6 +225,14 @@ request missions
 	Scavenger Hunt: Tundra III
 		
 quests
+	Tear
+		WC Module Calibration
+			Mg Powder (x3)
+			Fm Powder (x3)
+			Se Powder (x3)
+		AC Module Calibration
+			Sell 10 Armor Chips
+	
 	Ari
 		Show Me the Forest Was No Fluke!
 			Clear any exploration or request mission in Factory

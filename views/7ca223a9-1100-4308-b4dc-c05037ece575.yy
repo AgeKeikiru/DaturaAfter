@@ -15,7 +15,8 @@
         "fa48815c-9f28-46ab-85d4-f34f75fc6c90",
         "a79b48a5-6ef4-4b6d-b420-c246774892ed",
         "c391579d-48a6-45eb-868e-ae25f8a9839f",
-        "c7fb5349-34f5-499d-aa37-42b8ebdfebe5"
+        "c7fb5349-34f5-499d-aa37-42b8ebdfebe5",
+        "5933cde6-bae3-4f37-827a-7e992ca988c7"
     ],
     "filterType": "GMObject",
     "folderName": "handler_actEffect",

@@ -191,24 +191,77 @@ global.manualDebug = false;
 
 #region //controls
 
-	global.grd_controls = ds_grid_create(14,1);
+	global.grd_controls = ds_grid_create(en_ic_key.JOY_ALT,4);
 	
-	global.grd_controls[# IC_KEY_UP,0] = vk_up;
-	global.grd_controls[# IC_KEY_RIGHT,0] = vk_right;
-	global.grd_controls[# IC_KEY_DOWN,0] = vk_down;
-	global.grd_controls[# IC_KEY_LEFT,0] = vk_left;
+	global.grd_controls[# en_ic_key.up,0] = vk_up;
+	//global.grd_controls[# en_ic_key.up,1] = vk_up;
+	global.grd_controls[# en_ic_key.up,2] = "UP";
+	global.grd_controls[# en_ic_key.up,3] = "Menu navigation; top act bar slot; target center enemy. (Must be unique)";
 	
-	global.grd_controls[# IC_KEY_PARTY1,0] = ord("Z");
-	global.grd_controls[# IC_KEY_PARTY2,0] = ord("X");
-	global.grd_controls[# IC_KEY_PARTY3,0] = ord("C");
-	global.grd_controls[# IC_KEY_PARTYSHIFT,0] = vk_shift;
-	global.grd_controls[# IC_KEY_PARTYITEM,0] = vk_space;
+	global.grd_controls[# en_ic_key.right,0] = vk_right;
+	//global.grd_controls[# en_ic_key.right,1] = vk_up;
+	global.grd_controls[# en_ic_key.right,2] = "RIGHT";
+	global.grd_controls[# en_ic_key.right,3] = "Menu navigation; top act bar slot; target center enemy. (Must be unique)";
 	
-	global.grd_controls[# IC_KEY_MENUACCEPT,0] = ord("Z");
-	global.grd_controls[# IC_KEY_MENUBACK,0] = ord("X");
-	global.grd_controls[# IC_KEY_MENUEXTRA,0] = ord("C");
-	global.grd_controls[# IC_KEY_MENUPAGE,0] = vk_shift;
-	global.grd_controls[# IC_KEY_PAUSE,0] = vk_backspace;
+	global.grd_controls[# en_ic_key.down,0] = vk_down;
+	//global.grd_controls[# en_ic_key.down,1] = vk_up;
+	global.grd_controls[# en_ic_key.down,2] = "DOWN";
+	global.grd_controls[# en_ic_key.down,3] = "Menu navigation; bottom act bar slot; target center enemy. (Must be unique)";
+	
+	global.grd_controls[# en_ic_key.left,0] = vk_left;
+	//global.grd_controls[# en_ic_key.left,1] = vk_up;
+	global.grd_controls[# en_ic_key.left,2] = "LEFT";
+	global.grd_controls[# en_ic_key.left,3] = "Menu navigation; left act bar slot; target center enemy. (Must be unique)";
+	
+	global.grd_controls[# en_ic_key.party1,0] = ord("Z");
+	//global.grd_controls[# en_ic_key.party1,1] = vk_up;
+	global.grd_controls[# en_ic_key.party1,2] = "PARTY:1";
+	global.grd_controls[# en_ic_key.party1,3] = "Select party member 1. (Can overlap with MENU controls)";
+	
+	global.grd_controls[# en_ic_key.party2,0] = ord("X");
+	//global.grd_controls[# en_ic_key.party2,1] = vk_up;
+	global.grd_controls[# en_ic_key.party2,2] = "PARTY:2";
+	global.grd_controls[# en_ic_key.party2,3] = "Select party member 2. (Can overlap with MENU controls)";
+	
+	global.grd_controls[# en_ic_key.party3,0] = ord("C");
+	//global.grd_controls[# en_ic_key.party3,1] = vk_up;
+	global.grd_controls[# en_ic_key.party3,2] = "PARTY:3";
+	global.grd_controls[# en_ic_key.party3,3] = "Select party member 3. (Can overlap with MENU controls)";
+	
+	global.grd_controls[# en_ic_key.partyShift,0] = vk_shift;
+	//global.grd_controls[# en_ic_key.partyShift,1] = vk_up;
+	global.grd_controls[# en_ic_key.partyShift,2] = "PARTY:SHIFT";
+	global.grd_controls[# en_ic_key.partyShift,3] = "Switch to Shift slots on act bar. (Can overlap with MENU controls)";
+	
+	global.grd_controls[# en_ic_key.partyItem,0] = vk_space;
+	//global.grd_controls[# en_ic_key.partyItem,1] = vk_up;
+	global.grd_controls[# en_ic_key.partyItem,2] = "PARTY:ITEM";
+	global.grd_controls[# en_ic_key.partyItem,3] = "Select items in battle. (Can overlap with MENU controls)";
+	
+	global.grd_controls[# en_ic_key.menuAccept,0] = ord("Z");
+	//global.grd_controls[# en_ic_key.menuAccept,1] = vk_up;
+	global.grd_controls[# en_ic_key.menuAccept,2] = "MENU:ACCEPT";
+	global.grd_controls[# en_ic_key.menuAccept,3] = "Confirm/accept. (Can overlap with PARTY controls)";
+	
+	global.grd_controls[# en_ic_key.menuBack,0] = ord("X");
+	//global.grd_controls[# en_ic_key.menuBack,1] = vk_up;
+	global.grd_controls[# en_ic_key.menuBack,2] = "MENU:BACK";
+	global.grd_controls[# en_ic_key.menuBack,3] = "Cancel/return. (Can overlap with PARTY controls)";
+	
+	global.grd_controls[# en_ic_key.menuExtra,0] = ord("C");
+	//global.grd_controls[# en_ic_key.menuExtra,1] = vk_up;
+	global.grd_controls[# en_ic_key.menuExtra,2] = "MENU:EXTRA";
+	global.grd_controls[# en_ic_key.menuExtra,3] = "Context menu controls; party menu. (Can overlap with PARTY controls)";
+	
+	global.grd_controls[# en_ic_key.menuPage,0] = vk_shift;
+	//global.grd_controls[# en_ic_key.menuPage,1] = vk_up;
+	global.grd_controls[# en_ic_key.menuPage,2] = "MENU:PAGE";
+	global.grd_controls[# en_ic_key.menuPage,3] = "TBA. (Can overlap with PARTY controls)";
+	
+	global.grd_controls[# en_ic_key.pause,0] = vk_backspace;
+	//global.grd_controls[# en_ic_key.pause,1] = vk_up;
+	global.grd_controls[# en_ic_key.pause,2] = "PAUSE";
+	global.grd_controls[# en_ic_key.pause,3] = "Pause during combat; party menu. (Must be unique)";
 	
 	global.sfc_temp = surface_create(1,1);
 	global.sfc_map = noone;

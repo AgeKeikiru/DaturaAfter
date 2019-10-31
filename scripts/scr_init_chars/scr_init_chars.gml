@@ -10,6 +10,11 @@ SV_o;
     SV_map[? CHAR_VAR_NAMEFULL] = "Imo'lei Nari";
     SV_map[? CHAR_VAR_NAMEDISP] = "Imo'lei";
     SV_map[? CHAR_VAR_DESC] = "TBA";
+    /*
+    likes physical activity, competition
+    hates being underestimated, scheming
+    favorite movie genre: samurai cinema
+    */
     SV_map[? CHAR_VAR_RACE] = RACE_HUMAN;
     SV_map[? CHAR_VAR_HP] = 800 + (0 * DEBUG);
     SV_map[? CHAR_VAR_EN] = 1200;
@@ -56,6 +61,11 @@ SV_o;
     SV_map[? CHAR_VAR_NAMEFULL] = "Blaze Nari";
     SV_map[? CHAR_VAR_NAMEDISP] = "Blaze";
     SV_map[? CHAR_VAR_DESC] = "TBA";
+    /*
+    likes tech, acting
+    hates drama not about her, being unprepared
+    favorite weapon type: shotgun
+    */
     SV_map[? CHAR_VAR_RACE] = RACE_HUMAN;
     SV_map[? CHAR_VAR_HP] = 750;
     SV_map[? CHAR_VAR_EN] = 1400;

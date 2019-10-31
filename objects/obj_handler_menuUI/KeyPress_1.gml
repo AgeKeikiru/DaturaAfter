@@ -19,7 +19,7 @@ if(CANARY){
 	}
 }
 
-if(scr_checkInput(IC_CHECK_PRESS,IC_KEY_MENUEXTRA) && !instance_exists(obj_handler_dialogue) && !title){
+if(scr_checkInput(en_ic_check.press,en_ic_key.menuExtra) && !instance_exists(obj_handler_dialogue) && !title){
 	var
 	_ok = true,
 	_dh = instance_find(obj_handler_dungeon,0),
