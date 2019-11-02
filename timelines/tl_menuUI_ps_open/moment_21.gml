@@ -20,11 +20,9 @@ with ps_bg{
 var SV_m = scr_createMenuPanel(80,200,540,500,"party/..");
 
 with SV_m{
-    //link_panel.fill_alpha = 0;
-    //link_panel.crosshair_alpha = 0;
     extra_function = -1;
     
-	ds_grid_resize(grd_txt,1,7);
+	ds_grid_resize(grd_txt,1,8);
 	scr_menu_matchGrids(id,true);
 	
 	var SV_i = 0;
@@ -66,6 +64,13 @@ with SV_m{
 	if(false){ //check if there are active completed quests
 		grd_txt[# 0,SV_i] = "[!]" + grd_txt[# 0,SV_i];
 	}
+	
+	SV_i++;
+	
+	grd_txt[# 0,SV_i] = "Wiki";
+	grd_desc[# 0,SV_i] = "View information on the world of Babel XR.";
+	grd_descLabel[# 0,SV_i] = "Glossary";
+	grd_scr[# 0,SV_i] = scr_menu_party_wiki;
 	
 	SV_i++;
 	

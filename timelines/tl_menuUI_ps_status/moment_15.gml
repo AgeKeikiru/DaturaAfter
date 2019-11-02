@@ -4,7 +4,7 @@ txt_descLabel = "";
 txt_title = "STATUS";
 txt_titleDesc = "View the stats of party members";
 
-ps_portStatus = instance_create_depth(0,0,0,obj_fpo_parent);
+ps_portStatus = create(obj_fpo_parent);
 with ps_portStatus{
     visible = false;
     tween_alpha = true;

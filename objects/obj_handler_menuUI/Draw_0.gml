@@ -1339,6 +1339,45 @@ if(title){
 	
 	#endregion
 	
+	#region //wiki screen
+	
+		if(scr_exists(ps_wikiPanel,asset_object)){
+			var
+			_menu = ds_stack_top(global.stk_menu),
+			_x = 550,
+			_y = 200,
+			_w = 700,
+			_trans = _menu.link_panel.image_yscale / _menu.link_panel.tgt_yScale;
+			
+			draw_set_color(c_dkgray);
+			
+			draw_rectangle(0,_y,room_width * _trans,room_height,false);
+			
+			draw_set_alpha(_trans);
+			draw_set_font(ft_menuMain);
+			draw_set_halign(fa_right);
+			draw_set_valign(fa_bottom);
+			
+			draw_text(room_width + -(20 * draw_get_alpha()),_y + -10,_menu.grd_txt[# _menu.menu_x,_menu.menu_y]);
+			
+			draw_set_color(c_white);
+			draw_set_font(ft_menuDesc);
+			draw_set_halign(fa_left);
+			draw_set_valign(fa_top);
+			
+			draw_text_ext(_x,_y + 10,_menu.grd_desc[# _menu.menu_x,_menu.menu_y],-1,_w);
+			
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_bottom);
+			
+			draw_text(_x + (_w / 2),room_height + -20,_menu.grd_descLabel[# _menu.menu_x,_menu.menu_y]);
+		}
+		
+		draw_set_color(c_white);
+		draw_set_alpha(1);
+	
+	#endregion
+	
 	#region //quest screen
 	
 		if(scr_exists(ps_portStatus,asset_object) && txt_title == "QUEST"){
@@ -1606,7 +1645,7 @@ if(title){
 		
 		var
 		_descH = 720 + -string_height("1\n2") + -20,
-		_descY = scr_exists(ps_portStatus,asset_object) ? 800 : -((_descH) * (transCurr + -1));
+		_descY = (scr_exists(ps_portStatus,asset_object) || scr_exists(ps_wikiPanel,asset_object)) ? 800 : -((_descH) * (transCurr + -1));
 		
 		draw_rectangle(0,_descY + 720,1280,_descY + _descH,false);
 		

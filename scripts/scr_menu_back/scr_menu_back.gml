@@ -35,6 +35,7 @@ if(
 			with(SV_ui){
 				instance_destroy(ps_portEquip);
 				instance_destroy(ps_portStatus);
+				instance_destroy(ps_wikiPanel);
 				
 				for(var SV_i = 0;SV_i < ds_list_size(lst_ps_slots);SV_i++){
 				    lst_ps_slots[| SV_i].tgt_alpha = 1;

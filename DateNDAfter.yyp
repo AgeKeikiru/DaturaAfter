@@ -367,6 +367,14 @@
             }
         },
         {
+            "Key": "10cf6996-1ab1-02aa-4105-d178c2714d4a",
+            "Value": {
+                "id": "7c6d74bf-bbde-d1ef-eb2e-658a76d24c99",
+                "resourcePath": "scripts\\scr_init_wiki\\scr_init_wiki.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "10dc7a98-f6c5-4a05-b0a2-55394dcd8559",
             "Value": {
                 "id": "943cb288-76dd-4d3a-8ec4-7b7f9e17df34",
@@ -2775,6 +2783,14 @@
             }
         },
         {
+            "Key": "7a38d768-799b-a0fd-93db-12e273ce53e3",
+            "Value": {
+                "id": "cde2e12d-9196-129e-82a7-d67af027d580",
+                "resourcePath": "scripts\\scr_menu_party_wiki_entry\\scr_menu_party_wiki_entry.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "7a4dd653-6883-47e2-b86c-d6b74f6639d3",
             "Value": {
                 "id": "404ce1e8-3c34-4172-8b3c-48a8111c47ac",
@@ -3228,6 +3244,14 @@
                 "id": "129143f0-f624-437a-b3f9-c272af785a5a",
                 "resourcePath": "views\\907bb6a4-c24d-4224-9a51-0c37c43e1cb4.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "90fcb275-d56a-f39a-716e-7ee01d0df0f3",
+            "Value": {
+                "id": "148774d4-cd31-fe9a-7d2c-88b90448e0c1",
+                "resourcePath": "scripts\\scr_menu_party_wiki\\scr_menu_party_wiki.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5751,6 +5775,14 @@
             }
         },
         {
+            "Key": "fb18db40-abf9-4cf5-db96-2e7f4ea0195f",
+            "Value": {
+                "id": "83f036ae-d8af-9f1d-9bd2-0118797d4cf7",
+                "resourcePath": "scripts\\scr_menu_party_wiki_tog_page\\scr_menu_party_wiki_tog_page.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fb1c72be-0bfd-4951-9983-86800a9be92a",
             "Value": {
                 "id": "221916f9-cc5a-4106-baea-c296ad196e62",
@@ -5973,6 +6005,7 @@
         "b6af152c-8ef5-4d9d-84d6-6f6a49fcfa0a",
         "0ed35888-5b2a-29f2-83fb-d835ba983a37",
         "6ea5e8a6-7b86-d9fc-8275-262c364e7009",
+        "10cf6996-1ab1-02aa-4105-d178c2714d4a",
         "671f46cc-def1-4596-6e9c-a1e57136b1ee",
         "6047bec4-7f18-42fc-969f-eb5a35bc2980",
         "c22bf806-56c1-3a1d-80a2-eecefdc12076",
@@ -6022,6 +6055,9 @@
         "6becaf3a-6daa-f902-f2f1-2d89c3f43f11",
         "b1be2314-c52a-cc1e-7f10-0e34e299feb1",
         "cdfd5feb-3dc9-a51a-0137-53358155cb00",
+        "90fcb275-d56a-f39a-716e-7ee01d0df0f3",
+        "7a38d768-799b-a0fd-93db-12e273ce53e3",
+        "fb18db40-abf9-4cf5-db96-2e7f4ea0195f",
         "c5353bc9-509e-a794-3412-33c2588ade0b",
         "cbd3d4e2-dace-b93e-3f6f-e270b0b30206",
         "9ca6d98f-82bd-600d-9886-828f283523e6",

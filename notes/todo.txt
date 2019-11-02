@@ -36,7 +36,7 @@ armor manufacturers
 	Quisar Industries
 		EN
 	
-	Kurtzfeld Technologies
+	Kurtzfelt Technologies
 		ACC
 	
 	AIDR (Advanced Investigation Development/Research)

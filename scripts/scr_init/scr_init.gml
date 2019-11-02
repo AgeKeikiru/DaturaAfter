@@ -37,7 +37,8 @@ global.manualDebug = false;
 	    "map_mat_desc",
 	    "map_flags",
 	    "map_chars",
-	    "map_bgCol"
+	    "map_bgCol",
+	    "map_wiki"
 	];
 	
 	for(var _i = 0;_i < array_length_1d(_arr);_i++){
@@ -147,6 +148,7 @@ global.manualDebug = false;
 	scr_init_missions();
 	scr_init_socials();
 	scr_init_quests();
+	scr_init_wiki();
 	
 	global.currentSocial = noone;
 	

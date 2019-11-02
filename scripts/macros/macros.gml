@@ -87,6 +87,45 @@
 
 #endregion
 
+#region //wiki entries
+
+	#macro WIKI_TUT "wiki_tut"
+	enum en_wiki_tut{
+		stats,
+		elements,
+		wepChip,
+		armChip,
+		clsChip,
+		actProperties,
+		explore,
+		combat,
+		missionRank,
+		
+		LENGTH
+	}
+	
+	#macro WIKI_CHAR "wiki_char"
+	#macro WIKI_ENEMY "wiki_enemy"
+	
+	#macro WIKI_ORG "wiki_org"
+	enum en_wiki_org{
+		hp,
+		en,
+		acc,
+		eva,
+		atk,
+		def,
+		spd,
+		misc,
+		null,
+		
+		LENGTH
+	}
+	
+	#macro WIKI_LOC "wiki_loc"
+
+#endregion
+
 #region //food types
 
 	#macro FOOD_HP "food_hp"
@@ -103,6 +142,66 @@
 #endregion
 
 #region //char data
+
+	enum en_chars{
+		//players
+		imolei,
+		aile,
+		paprika,
+		levia,
+		jack,
+		harzer,
+		
+		blaze,
+		witchy,
+		altai,
+		seethe,
+		mina,
+		ari,
+		
+		//enemies
+		slime,
+		paraslime,
+		froslime,
+		minislime,
+		bigslime,
+		
+		candywing,
+		gundrop,
+		
+		bleedingBullet,
+		dartLily,
+		wolfeant,
+		wolfierce,
+		
+		wanderer,
+		trapped,
+		skullurker,
+		
+		rnd_conduit,
+		liConduit,
+		atConduit,
+		dfConduit,
+		
+		rnd_drone,
+		gunDrone,
+		firDrone,
+		
+		timbercat,
+		arcmine,
+		
+		npc_agent,
+		npc_evoker,
+		
+		greenDragon,
+		
+		pvp_imo,
+		pvp_aile,
+		pvp_paprika,
+		pvp_blaze,
+		
+		LENGTH
+	}
 	
 	#region //party members
 	
@@ -161,6 +260,112 @@
 	#endregion
 	
 	#region //char vars
+	
+		enum en_charVar{
+			//general
+			charID,
+			nameFull,
+			nameDisp,
+			desc,
+			descFull,
+			race,
+			
+			//stats
+			level,
+			hp,
+			acc,
+			spd,
+			en,
+			eva,
+			misc,
+			mAtk,
+			fAtk,
+			sAtk,
+			mDef,
+			fDef,
+			sDef,
+			
+			//resists
+			ele_fir,
+			ele_nat,
+			ele_lgt,
+			ele_ice,
+			ele_elc,
+			ele_drk,
+			
+			//hotbar
+			hb0,
+			hb1,
+			hb2,
+			hb3,
+			hb4,
+			hb5,
+			hb6,
+			hb7,
+			
+			//armor
+			arm0,
+			arm1,
+			
+			//class
+			cls0,
+			cls1,
+			cls2,
+			clsU,
+			
+			//sprites
+			spr_battlePort,
+			spr_neutral,
+			
+			//act banner draw offset
+			abdo_x,
+			abdo_y,
+			
+			//party screen draw offset
+			psdo_act_x,
+			psdo_act_y,
+			
+			psdo_arm_x,
+			psdo_arm_y,
+			
+			psdo_cls_x,
+			psdo_cls_y,
+			
+			LENGTH
+		}
+		
+		enum en_statIcon{
+			mAtkUp,
+			mAtkDn,
+			mDefUp,
+			mDefDn,
+			
+			fAtkUp,
+			fAtkDn,
+			fDefUp,
+			fDefDn,
+			
+			sAtkUp,
+			sAtkDn,
+			sDefUp,
+			sDefDn,
+			
+			accUp,
+			accDn,
+			evaUp,
+			evaDn,
+			spdUp,
+			spdDn,
+			
+			brn,
+			slw,
+			slc,
+			par,
+			psn,
+			bld,
+			
+			LENGTH
+		}
 		
 		//general
 		#macro CHAR_VAR_ID "char_var_id"

@@ -14,7 +14,7 @@ if(DEBUG){
 }
 
 if(CANARY){
-	if(keyboard_check_pressed(vk_tab)){
+	if(keyboard_check_pressed(vk_insert)){
 		global.manualDebug = !global.manualDebug;
 	}
 }
