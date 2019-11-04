@@ -68,6 +68,14 @@ if(!nonAttack){
 			_dmg = max(round(_dmg * global.tempFloat),0);
 			var _chip = ((_dmg / dc_tgt[| _i].hpMax) < .01) && tgtEnemy;
 			
+			global.tempBool = false;
+			scr_cEvent(EVENT_NEWT_SAVECHECK,dc_dmgMax[| _i],dc_tgt[| _i],id);
+			
+			if(global.tempBool){
+				_dmg = 0;
+				_chip = true;
+			}
+			
 			scr_trace("\naimCheck " + string(_aimCheck) + " > " + string(100 + -acc));
 			
 			if(

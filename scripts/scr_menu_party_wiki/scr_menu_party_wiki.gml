@@ -35,7 +35,6 @@ with _m{
 	
 	grd_txt[# 0,SV_i] = "Tutorial";
 	grd_desc[# 0,SV_i] = "Information on gameplay elements and strategies.";
-	//grd_descLabel[# 0,SV_i] = "Starter Guide";
 	grd_scr[# 0,SV_i] = scr_menu_party_wiki_entry;
 	grd_equipSrc[# 0,SV_i] = WIKI_TUT;
 	
@@ -43,15 +42,13 @@ with _m{
 	
 	grd_txt[# 0,SV_i] = "Characters";
 	grd_desc[# 0,SV_i] = "Information on characters met.";
-	//grd_descLabel[# 0,SV_i] = "Contacts";
 	grd_scr[# 0,SV_i] = scr_menu_party_wiki_entry;
 	grd_equipSrc[# 0,SV_i] = WIKI_CHAR;
 	
 	SV_i++;
 	
-	grd_txt[# 0,SV_i] = "Enemies";
+	grd_txt[# 0,SV_i] = "Bestiary";
 	grd_desc[# 0,SV_i] = "Information on enemies encountered.";
-	//grd_descLabel[# 0,SV_i] = "Bestiary";
 	grd_scr[# 0,SV_i] = noone;
 	grd_equipSrc[# 0,SV_i] = WIKI_ENEMY;
 	
@@ -59,15 +56,13 @@ with _m{
 	
 	grd_txt[# 0,SV_i] = "Organizations";
 	grd_desc[# 0,SV_i] = "Information on the various groups that request missions and provide goods/services for adventurers.";
-	//grd_descLabel[# 0,SV_i] = "Service List";
 	grd_scr[# 0,SV_i] = scr_menu_party_wiki_entry;
 	grd_equipSrc[# 0,SV_i] = WIKI_ORG;
 	
 	SV_i++;
 	
-	grd_txt[# 0,SV_i] = "Locations";
+	grd_txt[# 0,SV_i] = "Atlas";
 	grd_desc[# 0,SV_i] = "Information on the various locations missions take place in.";
-	//grd_descLabel[# 0,SV_i] = "Atlas";
 	grd_scr[# 0,SV_i] = noone;
 	grd_equipSrc[# 0,SV_i] = WIKI_LOC;
 	

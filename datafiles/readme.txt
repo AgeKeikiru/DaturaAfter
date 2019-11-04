@@ -1,6 +1,6 @@
 ==DateND After v0.2.1==
 
-[WARNING: NOT COMPATIBLE WITH PRE-v0.1.1 SAVES]
+[WARNING: NOT COMPATIBLE WITH PRE-v0.2.1 SAVES]
 
 By A.Kei.KI, in GameMaker Studio 2
 
@@ -25,6 +25,11 @@ LeftShift - Shift Menu
 - Shop now displays stats of items for sale
 - Changing equipment now shows a stat comparison in the stat preview window
 - Nerfed Imo'lei base F-ATK
+- Added [Wiki] option to party screen, a compendium for game info
+- Added ability to rebind keyboard controls to options menu
+- New classes: [Draker], [Newtype]
+- New character: [Jack]
+- Added option to change the function of [Down] during battle to select middle enemy instead of deselect
 
 ==Known Bugs==
 
@@ -49,7 +54,5 @@ LeftShift - Shift Menu
 
 ==Plans for Next Update==
 - Nerf Imo'lei base F-ATK
-- Add option to change "Battle:Untarget" key to mimic "Battle:MiddleTarget" key function
 - Add item usage
-- Add stat preview in shop, stat comparison
 - New character, classes, missions

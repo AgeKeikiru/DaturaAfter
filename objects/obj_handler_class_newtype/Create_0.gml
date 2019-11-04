@@ -118,10 +118,11 @@ sub: ACC+
     _iy = 0;
 
     grd_skillName[# _ix,_iy] = "Swarm Orb";
-    grd_skillDesc[# _ix,_iy] = "[X Act] Charge via keeping Orbitals alive - deal severe damage and paralysis to enemies at random.";
+    grd_skillDesc[# _ix,_iy] = "Charge via keeping Orbitals alive - deal severe damage and paralysis to enemies at random.";
     grd_skillTooltip[# _ix,_iy] = "Power: !";
-    grd_skillRate[# _ix,_iy] = 10;
+    grd_skillRate[# _ix,_iy] = 20;
     grd_skillIcon[# _ix,_iy] = spr_icon_stanceBrt;
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_newt_swarm);
     
     _iy++;
     

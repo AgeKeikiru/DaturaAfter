@@ -5183,6 +5183,14 @@
             }
         },
         {
+            "Key": "dec6ab78-6fe6-4034-bd86-ccdf223fbb5b",
+            "Value": {
+                "id": "66bdae24-b737-4045-bfed-9a39158cc734",
+                "resourcePath": "objects\\obj_handler_act_newt_swarm\\obj_handler_act_newt_swarm.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "df2d1705-0d91-4a7d-aed1-b68489568d7c",
             "Value": {
                 "id": "0698aa3a-79f5-4bda-a293-5a6eb118b619",

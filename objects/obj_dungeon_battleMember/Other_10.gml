@@ -229,7 +229,7 @@ switch(cEvent){
 								act[0] = scr_data_act_new(EACT_PETALSNIPE);
 								act[0].src = id;
 								
-								act[1] = scr_data_act_new(EACT_PETALSNIPE);
+								act[1] = scr_data_act_new(EACT_TOXICPETAL);
 								act[1].src = id;
 								
 								act[2] = scr_data_act_new(EACT_TOXICPETAL);

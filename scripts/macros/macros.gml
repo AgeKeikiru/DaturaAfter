@@ -821,6 +821,8 @@
 	
 	#macro EVENT_CHEF_ADDFOOD "event_chef_addFood"
 	
+	#macro EVENT_NEWT_SAVECHECK "event_newt_saveCheck"
+	
 	#macro EVENT_EFFECT_STANCEDRAW "event_effect_stanceDraw"
 	#macro EVENT_EFFECT_ENRECMOD "event_effect_enRecMod"
 	#macro EVENT_EFFECT_HPRECMOD "event_effect_hpRecMod"

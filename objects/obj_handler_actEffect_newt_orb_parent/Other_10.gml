@@ -67,6 +67,23 @@ switch(cEvent){
 			
 			break;
 	#endregion
+	
+	#region //battle_enemyDebuffed
+		case EVENT_BATTLE_ENEMYDEBUFFED:
+			if(ds_list_size(special) > 4 && scr_exists(src) && _tgt.allyParty == src.allyParty){
+				var
+				_src = cArgs[| 0],
+				_tgt = cArgs[| 1],
+				_proc = special[| 4];
+				
+				if(random(1) < _proc){
+					scr_createEffectTxt(_tgt,"PROTECT");
+					global.tempFloat = -99;
+				}
+			}
+			
+			break;
+	#endregion
 	    
 	default:
 	    event_inherited();
