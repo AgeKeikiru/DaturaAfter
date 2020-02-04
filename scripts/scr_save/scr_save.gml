@@ -92,7 +92,7 @@ SV_key = "";
 		
 		SV_key = DATA_ACTELE + string(SV_i);
 		SV_map[? SV_key] = SV_o.ele;
-		scr_trace("saved lst_inv_acts[" + string(SV_i) + "] ele: " + SV_map[? SV_key]);
+		scr_trace("saved lst_inv_acts[" + string(SV_i) + "] ele: " + string(SV_map[? SV_key]));
 	}
 
 #endregion
@@ -104,7 +104,7 @@ SV_key = "";
 		
 		SV_key = DATA_ARMTAG + string(SV_i);
 		SV_map[? SV_key] = SV_o.type;
-		scr_trace("saved lst_inv_arms[" + string(SV_i) + "] type: " + SV_map[? SV_key]);
+		scr_trace("saved lst_inv_arms[" + string(SV_i) + "] type: " + string(SV_map[? SV_key]));
 		
 		SV_key = DATA_ARMRARE + string(SV_i);
 		SV_map[? SV_key] = SV_o.rare;
@@ -162,6 +162,77 @@ SV_key = "";
 
 #endregion
 
+#region //flags
+
+	SV_key = DATA_FLAGS;
+	SV_map[? SV_key] = ds_map_write(global.map_flags);
+	scr_trace("saved flags");
+
+#endregion
+
+#region //chars
+
+    scr_trace("");
+    
+    for(var _char = 0;_char < en_chars.slime;_char++){
+    	var _cm = global.grd_chars[# 1,_char];
+    	
+    	if(ds_exists(_cm,ds_type_map)){
+	    	for(var _i = en_charVar.hb0;_i <= en_charVar.clsU;_i++){
+	    		var _inv = global.lst_inv_acts;
+	    		
+	    		if(_i >= en_charVar.arm0){
+	    			_inv = global.lst_inv_arms;
+	    		}
+	    		
+	    		if(_i >= en_charVar.cls0){
+	    			_inv = global.lst_inv_classes;
+	    		}
+	    		
+	    		SV_key = _cm[? en_charVar.charID] + string(_i);
+	    		
+	    		var _o = _cm[? _i];
+	    		
+	    		if(scr_exists(_o)){
+	    			var _pos = ds_list_find_index(_inv,_o);
+	    			
+	    			SV_map[? SV_key] = _pos >= 0 ? _pos : object_get_name(_o.object_index);
+	    			
+	    			scr_trace(string(SV_map[? SV_key]));
+	    		}
+	    		
+	    		scr_trace("saved " + SV_key);
+	    	}
+	    	
+	    	scr_trace("");
+    	}
+    }
+
+#endregion
+
+var SV_path = DATA_FNAME + "SYS";
+
+if(file_exists(SV_path)){
+	file_copy(SV_path,SV_path + "b");
+	file_delete(SV_path);
+}
+
+var SV_f = file_text_open_write(SV_path);
+
+scr_trace("writing to " + SV_path);
+file_text_write_string(SV_f,base64_encode(ds_map_write(SV_map)));
+file_text_close(SV_f);
+
+SV_path = DATA_FSETTINGS;
+
+if(file_exists(SV_path)){
+	file_copy(SV_path,SV_path + "b");
+	file_delete(SV_path);
+}
+
+ds_map_clear(SV_map);
+SV_f = file_text_open_write(SV_path);
+
 #region //controls
 
 	SV_key = DATA_KEYBIND;
@@ -182,66 +253,6 @@ SV_key = "";
 
 #endregion
 
-#region //flags
-
-	SV_key = DATA_FLAGS;
-	SV_map[? SV_key] = ds_map_write(global.map_flags);
-	scr_trace("saved flags");
-
-#endregion
-
-#region //chars
-
-    var
-    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE,CHAR_ARI,CHAR_JACK];
-    
-    scr_trace("");
-    
-    for(var SV_i = 0;SV_i < array_length_1d(SV_arr);SV_i++){
-        SV_key = SV_arr[SV_i];
-        
-        var
-        SV_cm = scr_data_getMap(global.grd_chars,SV_key),
-        SV_map2 = ds_map_create(),
-        SV_lst = ["char_var_hb","char_var_arm","char_var_cls"],
-        SV_lst2 = [global.lst_inv_acts,global.lst_inv_arms,global.lst_inv_classes];
-        
-        for(var SV_i2 = 0;SV_i2 < array_length_1d(SV_lst);SV_i2++){
-        	var
-        	SV_i3 = 0,
-        	SV_key2 = SV_lst[SV_i2] + string(SV_i3);
-        	
-        	while(ds_map_exists(SV_cm,SV_key2)){
-	        	var SV_o = SV_cm[? SV_key2];
-	        	
-	        	if(scr_exists(SV_o,asset_object)){
-	        		var SV_pos = ds_list_find_index(SV_lst2[SV_i2],SV_o);
-	        		
-	        		SV_map2[? SV_key2] = SV_pos >= 0 ? SV_pos : object_get_name(SV_o.object_index);
-	        		scr_trace("subsaved " + SV_key2 + ": " + string(SV_map2[? SV_key2]));
-	        	}
-	        	
-	        	SV_key2 = SV_lst[SV_i2] + string(++SV_i3);
-        	}
-        }
-        
-        SV_map[? SV_key] = ds_map_write(SV_map2);
-        scr_trace("saved " + SV_key);
-        scr_trace("");
-    }
-
-#endregion
-
-var SV_path = DATA_FNAME + "SYS";
-
-if(file_exists(SV_path)){
-	file_copy(SV_path,SV_path + "b");
-	file_delete(SV_path);
-}
-
-var SV_f = file_text_open_write(SV_path);
-
-scr_trace("writing to " + SV_path);
 file_text_write_string(SV_f,base64_encode(ds_map_write(SV_map)));
 file_text_close(SV_f);
 
@@ -252,5 +263,7 @@ SV_b.txt_ft[0] = ft_dungeonBold;
 SV_b.txt_valign[0] = fa_bottom;
 SV_b.txt_x[0] = 10;
 SV_b.txt_y[0] = 5;
+
+ds_map_destroy(SV_map);
 
 scr_writeLog();

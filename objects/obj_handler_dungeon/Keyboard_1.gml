@@ -29,7 +29,7 @@ if(global.playerControl){
 		//
 	}else if(state_battle){
 		//
-	}else if(ds_stack_size(global.stk_menu) < 1 && !instance_exists(obj_handler_dialogue)){
+	}else if(ds_stack_size(global.stk_menu) < 1 && !instance_exists(obj_handler_dialogue) && !scr_checkInput(en_ic_check.down,en_ic_key.partySwap)){
 		var
 		_newX = global.dMap_xPos,
 		_newY = global.dMap_yPos,

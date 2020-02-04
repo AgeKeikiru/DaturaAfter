@@ -10,8 +10,9 @@ if(global.missionCurr != MSN_SIM){
 	
 	var
 	SV_map = scr_data_getMap(global.grd_missions,global.missionCurr),
-	SV_w = sprite_get_width(SV_map[? MSN_VAR_MAP_SPR]),
-	SV_h = sprite_get_height(SV_map[? MSN_VAR_MAP_SPR]);
+	_mspr = SV_map[? MSN_VAR_MAP_SPR], //map sprite
+	SV_w = sprite_get_width(_mspr),
+	SV_h = sprite_get_height(_mspr);
 	
 	ds_grid_resize(global.grd_dMap_terrain,SV_w,SV_h);
 	ds_grid_set_region(global.grd_dMap_terrain,0,0,SV_w + -1,SV_h + -1,noone);
@@ -28,7 +29,7 @@ if(global.missionCurr != MSN_SIM){
 	
 	surface_set_target(global.sfc_temp);
 	
-	draw_sprite(SV_map[? MSN_VAR_MAP_SPR],0,sprite_get_xoffset(SV_map[? MSN_VAR_MAP_SPR]),sprite_get_yoffset(SV_map[? MSN_VAR_MAP_SPR]));
+	draw_sprite(_mspr,0,sprite_get_xoffset(_mspr),sprite_get_yoffset(_mspr));
 	
 	surface_reset_target();
 	

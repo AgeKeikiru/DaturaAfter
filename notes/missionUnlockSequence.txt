@@ -1,0 +1,56 @@
+[Phase 0]
+all missions required
+
+	nLoewi_01
+
+
+[Phase 1]
+all missions required
+
+	vWoods_01
+	vCanal_01
+	nTundra_01
+
+
+[Phase 2]
+all missions attempt required
+*1: disappears on fail
+*2: upon completion, other mission will disappear
+
+	vCanal_02 *1
+	vWoods_02 *1
+	nLoewi_02
+		zDesert_01 *2
+		nTundra_02 *2
+		
+
+[Phase 3]
+all missions required
+
+	cLoewi_01
+	vCanal_03
+		vWoods_03
+		
+		
+[Phase 4]
+all misisons required
+*1: must complete all to unlock *2
+
+	nTundra_03
+	vCanal_04 *1 (raid)
+	cLoewi_02
+		cLoewi_03 *1 (raid)
+	zDesert_02 *2 (raid)
+	nTundra_04
+	
+	
+[Final Phase]
+all missions required
+
+	tourney prelim
+		tourney quarter
+			tourney semi
+				tourney final
+					vs MPx
+						GDE cleanup (raid)
+							

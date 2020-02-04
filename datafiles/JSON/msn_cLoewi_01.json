@@ -1,0 +1,119 @@
+{
+	"name": "Eliminate Infestation",
+	"client": "AG Loewi",
+	"reward": 5200,
+	"opName": "Smother",
+	"opFor": "Wildlife",
+	"esr": "60%",
+	"loc": "Central Loewi",
+	"tgt": "Big Slime (x4)",
+	"obj": "Eliminate all targets",
+	"map": "spr_map_cLoewi_01",
+	"handler": "obj_handler_mission_cLoewi_01",
+	"bgm": "subway",
+	
+	"par_time": [4.5,6],
+	"par_dmg": [40000,20000],
+	"par_expl": [90,50],
+	
+	"loot_gold": [10,20],
+	"loot_rank": [1,4],
+	
+	"dia_brief": [
+		{
+			"name": "Tear",
+			"txt": "This is a high priority request from AG Loewi. A control rod in one of Central Loewi's mana reactor facilities has malfunctioned, causing slime to be generated at an alarming rate.",
+			"scr": "scr_dia_build_nLoewi_01_brief_img01"
+		},
+		{
+			"txt": "This includes several bio signatures that appear to be slimes, but are unnaturally large in scale. These are believed to be the primary source, and are preventing the maintenance crews from repairing the control rod.",
+			"scr": "scr_dia_build_cLoewi_01_brief_img02"
+        },
+		{
+			"txt": "Eliminate these massive slimes. They have since invaded other areas of the facility, so time is of the essence."
+		},
+		{
+			"txt": "The appropriate locks have already been disengaged to assist in navigating the facility. Just follow any doors that are unlocked and you should reach each target."
+		},
+		{
+			"txt": "Exercise caution however - the reactor has already been shut down, but the surrounding area will have dangerously high levels of mana saturation."
+		},
+		{
+			"txt": "You can use this to inflict status ailments with ease, however know that your enemies will have the same advantage. Good luck."
+		}
+	],
+	
+	"dia_intro": [
+		{
+			"name": "Tear",
+			"charIn_l": "spr_aile_neutral",
+			"charIn_r": "spr_paprika_neutral",
+			"focus_l": false,
+			"focus_r": false,
+			"txt": "Looks like you made it. Now get moving, the damage is still spreading."
+		},
+		{
+			"name": "Paprika",
+			"focus_r": true,
+			"txt": "Uwah, this place is a wreck! Who knew a bunch of slime could do this much damage?"
+		},
+		{
+			"name": "Aile",
+			"focus_switch": true,
+			"txt": "T-they're... everywhere..."
+		},
+		{
+			"name": "Paprika",
+			"focus_switch": true,
+			"txt": "Huh? Aile, are you..."
+		},
+		{
+			"name": "Aile",
+			"focus_switch": true,
+			"txt": "*shakes head*"
+		},
+		{
+			"name": "Paprika",
+			"focus_switch": true,
+			"txt": "Ah... hm!"
+		},
+		{
+			"txt": "Hang in there, girl! We got your back! We can get something nice and tasty after this, my treat, alright?"
+		},
+		{
+			"name": "Aile",
+			"focus_switch": true,
+			"txt": "O... okay! I have to at least try!"
+		},
+		{
+			"txt": "Let's go!"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_outro": [
+		{
+			"name": "Aile",
+			"charIn_l": "spr_aile_neutral",
+			"charIn_r": "spr_paprika_neutral",
+			"focus_l": true,
+			"focus_r": false,
+			"txt": "We... we did it! Let's keep going!"
+		},
+		{
+			"name": "Paprika",
+			"focus_switch": true,
+			"txt": "Going? That's the last one, where else are we going?"
+		},
+		{
+			"name": "Aile",
+			"focus_switch": true,
+			"txt": "Anywhere but here!"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	]
+}

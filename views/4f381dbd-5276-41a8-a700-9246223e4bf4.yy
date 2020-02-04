@@ -13,7 +13,9 @@
         "5b7c137d-476c-42ba-85b6-9f2ef68b1dd4",
         "e3955e34-6426-468b-9e13-199a0ff857aa",
         "cd50bd1f-45cd-4f27-86b8-e916cacf0c09",
-        "0569e325-27d6-4c34-b87e-81605a14d525"
+        "0569e325-27d6-4c34-b87e-81605a14d525",
+        "cf99a745-a9b8-4f60-888f-b01cd8a652a2",
+        "ce861275-d35b-49ec-8e0e-3389e82e4926"
     ],
     "filterType": "GMObject",
     "folderName": "handler_act",

@@ -42,8 +42,8 @@ switch(cEvent){
 	    break;
 	    
 	case EVENT_BATTLE_ENEMYKILLED:
-		event_inherited();
-	
+	    //inherited event at end to avoid deleting cArgs early
+	    
 	    var
 	    _src = cArgs[| 0],
 	    _tgt = cArgs[| 1];
@@ -99,6 +99,8 @@ switch(cEvent){
             scr_createEffectTxt(src,_txt[| _i]);
             scr_cEvent_id(src,EVENT_BATTLM_ICONREFRESH);
 	    }
+	    
+	    event_inherited();
 	    
 	    break;
 	    

@@ -29,8 +29,8 @@ fsCooldown = 0;
 
 wm_fMod = 1.5;
 
-stat_cap_base = .5;
-stat_cap_rate = .1;
+stat_cap_base = 50;
+stat_cap_rate = 10;
 
 #region //tier 1
 
@@ -69,7 +69,7 @@ stat_cap_rate = .1;
     grd_skillDesc[# _ix,_iy] = "A weak wide range Firearm attack that stuns and has a low chance to blind.";
     grd_skillTooltip[# _ix,_iy] = "Power: !\nBlind Chance: @%";
     grd_skillRate[# _ix,_iy] = .05;
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_fGrenade);
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_agnt_fGrenade);
     grd_skillIcon[# _ix,_iy] = spr_icon_grenadeLgt;
     
     _iy++;
@@ -79,7 +79,7 @@ stat_cap_rate = .1;
     grd_skillTooltip[# _ix,_iy] = "Aggro: !";
     grd_skillIcon[# _ix,_iy] = spr_icon_stance;
     grd_skillRate[# _ix,_iy] = -1;
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_hide);
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_agnt_hide);
     
     _iy++;
     
@@ -88,7 +88,7 @@ stat_cap_rate = .1;
     grd_skillTooltip[# _ix,_iy] = "Effect Duration: !sec";
     grd_skillRate[# _ix,_iy] = 2;
     grd_skillIcon[# _ix,_iy] = spr_icon_stance;
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_sTrap);
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_agnt_sTrap);
 
 #endregion
 
@@ -102,7 +102,7 @@ stat_cap_rate = .1;
     grd_skillTooltip[# _ix,_iy] = "Power: !\nPoison Chance: @%";
     grd_skillRate[# _ix,_iy] = .1;
     grd_skillIcon[# _ix,_iy] = spr_icon_grenadeDrk;
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_nGrenade);
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_agnt_nGrenade);
     
     _iy++;
     
@@ -111,7 +111,7 @@ stat_cap_rate = .1;
     grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
     grd_skillRate[# _ix,_iy] = 4;
     grd_skillIcon[# _ix,_iy] = spr_icon_enemyEvaDn;
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_analyze);
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_agnt_analyze);
     
     _iy++;
     
@@ -120,7 +120,7 @@ stat_cap_rate = .1;
     grd_skillTooltip[# _ix,_iy] = "Burn Chance: !%";
     grd_skillRate[# _ix,_iy] = .2;
     grd_skillIcon[# _ix,_iy] = spr_icon_stance;
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_bTrap);
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_agnt_bTrap);
 
 #endregion
 
@@ -142,7 +142,7 @@ stat_cap_rate = .1;
     grd_skillTooltip[# _ix,_iy] = "F-DEF: !%\nM/S-DEF: @%";
     grd_skillRate[# _ix,_iy] = -.06;
     grd_skillIcon[# _ix,_iy] = spr_icon_enemyDefDn;
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_wMark);
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_agnt_wMark);
     
     _iy++;
     
@@ -150,6 +150,6 @@ stat_cap_rate = .1;
     grd_skillDesc[# _ix,_iy] = "Charge via activating traps - Deal severe Firearm damage to a target. If this attack kills, a large amount of loot is collected.";
     grd_skillTooltip[# _ix,_iy] = "Accuracy: !"; //50-100
     grd_skillIcon[# _ix,_iy] = spr_icon_trap;
-    grd_skillAct[# _ix,_iy] = instance_create_depth(0,0,0,obj_handler_act_agnt_capture);
+    grd_skillAct[# _ix,_iy] = create(obj_handler_act_agnt_capture);
 
 #endregion

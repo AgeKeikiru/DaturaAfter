@@ -2,7 +2,21 @@
 
 [WARNING: NOT COMPATIBLE WITH PRE-v0.2.1 SAVES]
 
-By A.Kei.KI, in GameMaker Studio 2
+
+Made in GameMaker Studio 2
+
+-Art-
+A.Kei.KI
+CSKok
+PixelWorkstation
+Ahri
+
+-Music-
+Lewmoth (TBA)
+
+-Everything Else-
+A.Kei.KI
+
 
 Thank you for playing! I hope you come back for the next release <3
 
@@ -27,9 +41,12 @@ LeftShift - Shift Menu
 - Nerfed Imo'lei base F-ATK
 - Added [Wiki] option to party screen, a compendium for game info
 - Added ability to rebind keyboard controls to options menu
-- New classes: [Draker], [Newtype]
+- New classes: [Draker], [Newtype], [Ace], [Zodiac]
 - New character: [Jack]
+- New missions, now 12 total available (not counting tutorial and special)
 - Added option to change the function of [Down] during battle to select middle enemy instead of deselect
+- Settings are now saved in a seperate file from progress, so starting a new game will not revert settings to default
+- Party Formation menu updated, party members can now be freely placed in any slot, however at least 1 member must be in a Vanguard slot
 
 ==Known Bugs==
 

@@ -16,7 +16,6 @@ with obj_handler_dungeon{
         }
     }
     
-    battleChance = -1;
     state_battle = true;
     
     var SV_o = instance_create_depth(room_width / 2,room_height / 2,0,obj_fpo_battleBanner);

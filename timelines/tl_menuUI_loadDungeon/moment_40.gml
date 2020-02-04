@@ -2,8 +2,9 @@
 
 var
 SV_map = scr_data_getMap(global.grd_missions,global.missionCurr),
-SV_w = sprite_get_width(SV_map[? MSN_VAR_MAP_SPR]),
-SV_h = sprite_get_height(SV_map[? MSN_VAR_MAP_SPR]);
+_mspr = SV_map[? MSN_VAR_MAP_SPR], //map sprite
+SV_w = sprite_get_width(_mspr),
+SV_h = sprite_get_height(_mspr);
 
 if(global.missionCurr != MSN_SIM){
 	repeat(100){
@@ -32,8 +33,8 @@ if(global.missionCurr != MSN_SIM){
 	if(global.dMap_xPos < SV_w && global.dMap_yPos < SV_h){
 		timeline_position += -1;
 	}else{
-		global.dMap_xPos = sprite_get_xoffset(SV_map[? MSN_VAR_MAP_SPR]);
-		global.dMap_yPos = sprite_get_yoffset(SV_map[? MSN_VAR_MAP_SPR]);
+		global.dMap_xPos = sprite_get_xoffset(_mspr);
+		global.dMap_yPos = sprite_get_yoffset(_mspr);
 		global.dMap_xPosTgt = global.dMap_xPos;
 		global.dMap_yPosTgt = global.dMap_yPos;
 		

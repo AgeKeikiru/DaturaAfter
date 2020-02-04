@@ -7,8 +7,6 @@ used to keep track of tile-triggered events
 event_inherited();
 
 ds_grid_resize(grd_events,25,3);
-//ds_grid_set_region(grd_events,0,MHE_VAR_X,ds_grid_width(grd_events) + -1,MHE_VAR_X,-1);
-//ds_grid_set_region(grd_events,0,MHE_VAR_VIS,ds_grid_width(grd_events) + -1,MHE_VAR_VIS,false);
 
 var
 _x = [2,45,12,45],

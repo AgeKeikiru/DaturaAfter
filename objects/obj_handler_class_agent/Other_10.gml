@@ -243,6 +243,8 @@ switch(cEvent){
 					
 					fsCooldown = 3 * room_speed;
 				}
+				
+				ds_list_destroy(_lst);
 			}
 		
 			break;

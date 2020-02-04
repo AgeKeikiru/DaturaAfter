@@ -1,0 +1,151 @@
+{
+	"name": "Diversionary Attack",
+	"client": "Anonymous",
+	"reward": 0,
+	"opName": "Rorschach",
+	"opFor": "Leosocial Forces",
+	"esr": "65%",
+	"loc": "Zoram Desert",
+	"tgt": "N/A",
+	"obj": "Maintain attack on enemy force",
+	"map": "spr_map_zDesert_01",
+	"handler": "obj_handler_mission_zDesert_01",
+	"bgm": "tundra",
+	
+	"par_time": [4,6],
+	"par_dmg": [22000,15000],
+	"par_expl": [90,50],
+	
+	"loot_gold": [10,40],
+	"loot_rank": [0,2],
+	
+	"dia_brief": [
+		{
+			"name": "Tear",
+			"txt": "I've received a private transmission regarding an anonymous request specifically for you lot.",
+			"scr": "scr_dia_build_zDesert_01_brief_img01"
+		},
+		{
+			"name": "System",
+			"txt": "-PLAYING TRANSMISSION-"
+		},
+		{
+			"name": "",
+			"txt": "We are looking for adventurers that are... not concerned with working strictly within the regulations of the guild."
+		},
+		{
+			"txt": "There is a Leosocial research lab located in the Zoram Desert that we have a keen interest in, however it is no surprise that such a facility would be heavily guarded.",
+			"scr": "scr_dia_build_zDesert_01_brief_img02"
+		},
+		{
+			"txt": "This is where you come in. Approach the lab and cause as much of a panic as possible to draw out their defenses."
+		},
+		{
+			"txt": "We should only need a few minutes of distraction, but to ensure that you work sufficiently, your pay will be based on how much damage you cause to the lab."
+		},
+		{
+			"txt": "We hope for a swift reply, and more importantly - results."
+		},
+		{
+			"name": "System",
+			"txt": "-END TRANSMISSION-"
+		},
+		{
+			"name": "Tear",
+			"txt": "A request like this is highly suspect, however it is not my place to decide on your behalf."
+		},
+		{
+			"txt": "Whether you accept or not, I'll be sure to make the proper arrangements, but be sure not to tread lightly with private requests."
+		}
+	],
+	
+	"dia_intro": [
+		{
+			"name": "Tear",
+			"txt": "The research lab is just up ahead.",
+			"charIn_l": "spr_imo_neutral",
+			"focus_l": false
+		},
+		{
+			"txt": "A word of warning: getting caught in an act such as this can spell the end of your adventuring career."
+		},
+		{
+			"txt": "There are most likely drones equipped with cameras patrolling the area - given enough time they will be able to record your likeness in high detail and run an ID check with the guild."
+		},
+		{
+			"txt": "You must destroy any you encounter with extreme prejudice."
+		},
+		{
+			"txt": "I can facilitate an emergency escape should it be necessary, however it will result in you abandoning the mission."
+		},
+		{
+			"name": "Imo'lei",
+			"focus_l": true,
+			"txt": "I hate schemes like this, but getting out of your comfort zone is a part of adventuring. The sooner I get used to it, the better."
+		},
+		{
+			"name": "Paprika",
+			"charIn_r": "spr_paprika_neutral",
+			"txt": "It's fine! Work is work, right?"
+		},
+		{
+			"txt": "Besides, if we didn't do it somebody else would've anyways."
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "*sigh* Sometimes I almost wish I was as dumb as you. It has its perks."
+		},
+		{
+			"name": "Paprika",
+			"focus_switch": true,
+			"txt": "Heeheehee~ It's my super special ability!"
+		},
+		{
+			"txt": "...Hey wait a sec!"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_caught": [
+		{
+			"name": "Tear",
+			"txt": "Watch it! You've got a camera on you!"
+		},
+		{
+			"txt": "Damn- I'm getting you out of there!"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_outro": [
+		{
+			"name": "Tear",
+			"txt": "I just received word from our client - our work here is done. Get out of there before any trouble happens.",
+			"charIn_l": "spr_imo_neutral",
+			"charIn_r": "spr_paprika_neutral",
+			"focus_l": false,
+			"focus_r": false
+		},
+		{
+			"name": "Paprika",
+			"focus_r": true,
+			"txt": "I wonder if they found what they were looking for?"
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "Couldn't care less, all this sneaking around is making my skin crawl."
+		},
+		{
+			"txt": "You couldn't have chimed in at a better time Tear, get us home!"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	]
+}

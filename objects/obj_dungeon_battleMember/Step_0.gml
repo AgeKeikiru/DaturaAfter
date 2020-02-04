@@ -20,11 +20,16 @@ if( //check if outside of pause menus/events
 		}
 	}
 	
-	iFrames += -scr_timeMod(1);
+	if(iFrames >= 0){
+		iFrames += -scr_timeMod(1);
+	}
+	
+	swapCd += -scr_timeMod(1);
+	swapCd = clamp(swapCd,0,swapMax);
 }
 
 if(ailment[CHAR_SA_PAR] > 0){
-	if(scr_exists(stance,asset_object)){
+	if(scr_exists(stance)){
 		instance_destroy(stance);
 		stance = noone;
 	}
@@ -60,7 +65,7 @@ if(instance_exists(actUsing) && actUsing.cdCurr <= 0 && actUsing.usable){
 	for(var _i = 0;_i < 8;_i++){
 		var _act = act[_i];
 		
-		if(scr_exists(_act,asset_object) && !_act.xAct && _act.cdCurr < UNIVERSAL_COOLDOWN && !_act.agileAct && !actUsing.agileAct && !actUsing.tempAgile){
+		if(scr_exists(_act,asset_object) && !_act.xAct && _act.cdCurr < UNIVERSAL_COOLDOWN && !_act.agileAct && !_act.tempAgile && !actUsing.agileAct && !actUsing.tempAgile){
 			_act.cdCurr += UNIVERSAL_COOLDOWN;
 			_act.cdMax = _act.cdCurr;
 		}
@@ -151,6 +156,43 @@ if(hpCurr > 0){
 							break;
 					#endregion
 					
+					#region //bigslime
+						case CHAR_BIGSLIME:
+							if(random(1) < .5 && instance_exists(obj_handler_dungeon) && ds_list_empty(obj_handler_dungeon.lst_popcorn)){
+								_act = act[1];
+							}else{
+								_act = act[choose(0,0,2)];
+							}
+							
+							break;
+					#endregion
+					
+					#region //gDragon
+						case CHAR_GDRAGON:
+							if(random(1) < .4 && arr_ecd[0] <= 0){
+								_act = act[0];
+								
+								arr_ecd[0] = 5;
+							}else if(random(1) < .3){
+								_act = act[choose(1,2)];
+							}else{
+								_act = act[choose(3,4,5)];
+							}
+							
+							break;
+					#endregion
+					
+					#region //gDragonGlitch
+						case CHAR_GDRAGONGLITCH:
+							if(random(1) < .3){
+								_act = act[choose(0,1,2,3)];
+							}else{
+								_act = act[choose(4,5,6,7)];
+							}
+							
+							break;
+					#endregion
+					
 					default:
 						var lst_acts = ds_list_create();
 						
@@ -167,6 +209,12 @@ if(hpCurr > 0){
 						}
 						
 						break;
+				}
+				
+				for(var _i = 0;_i < array_length_1d(arr_ecd);_i++){
+					if(arr_ecd[_i] > 0){
+						arr_ecd[_i] += -1;
+					}
 				}
 				
 				ds_list_add(_tgts,

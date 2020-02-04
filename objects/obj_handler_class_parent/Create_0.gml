@@ -9,8 +9,22 @@ scr_trace(object_get_name(object_index) + " " + cName + " created");
 
 stat_basicStatRate = 5;
 stat_fineStatRate = 2;
-stat_dWield_base = 50;
-stat_dWield_rate = 5;
+
+stat_dWield_base = 0.5; //dual wield
+stat_dWield_rate = 0.05;
+
+stat_wLove_rate = 0.1; //weapon love
+
+stat_cmpAtk_rate = 0.1; //compound attack (spell imbue (+S), weapon throw (+F), weapon bash (+M))
+
+stat_soh_rate = 0.08; //sleight of hand (hasten)
+
+stat_inst_base = 5; //install
+stat_inst_rate = 1;
+
+stat_adr_rate = 5; //adrenaline/flawless
+
+stat_flict_rate = 0.06; //status imbue
 
 ds_grid_set_region(grd_skills,0,0,3,2,0);
 ds_grid_set_region(grd_skillRate,0,0,3,2,stat_basicStatRate);

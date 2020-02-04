@@ -1,27 +1,16 @@
 global.playerControl = false;
 
-ds_list_clear(global.lst_newFormation);
-
-for(var SV_i = 0;SV_i < 6;SV_i++){
-    var
-    SV_x = SV_i % 3,
-    SV_y = SV_i > 2,
-    SV_o = global.grd_party_player[# SV_x,SV_y];
-    
-    if(scr_exists(SV_o,asset_object)){
-        var SV_map = SV_o.src;
-        
-        ds_list_add(global.lst_newFormation,SV_map[? CHAR_VAR_ID]);
-    }
-}
+ds_grid_copy(global.grd_newFormation,global.grd_party_player);
 
 with scr_createSubmenu(500){
-	y += -100;
-	link_panel.y += -100;
-	
 	scr_refreshFormation();
 	
 	scr_cEvent_id(id,EVENT_MENU_RESIZEPANEL);
+	
+	tween_yPos = false;
+	link_panel.tween_yPos = false;
+	y += -80;
+	link_panel.y = y + -20;
 }
 
 with obj_handler_menuUI{

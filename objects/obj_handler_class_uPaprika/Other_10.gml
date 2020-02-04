@@ -4,10 +4,10 @@ switch(cEvent){
 	case EVENT_CLASS_BASESTATADD:
 	    event_inherited();
 	
-		if(src != undefined && instance_exists(src)){
-		    src.eva += grd_skills[# 0,0] * grd_skillRate[# 0,0];
-		    src.acc += grd_skills[# 0,1] * grd_skillRate[# 0,1];
-		    src.sDef += grd_skills[# 0,2] * grd_skillRate[# 0,2];
+		if(scr_exists(src)){
+		    src.hpMax += grd_skills[# 0,0] * grd_skillRate[# 0,0];
+		    src.ele_nat += grd_skills[# 0,1] * grd_skillRate[# 0,1];
+		    src.mDef += grd_skills[# 0,2] * grd_skillRate[# 0,2];
 		}
 		
 		break;

@@ -4,8 +4,6 @@
 switch(cEvent){
 	#region //battle_enemyKilled
 		case EVENT_BATTLE_ENEMYKILLED:
-		    event_inherited();
-		
 			var
 			_src = cArgs[| 0],
 			_tgt = cArgs[| 1],
@@ -20,6 +18,8 @@ switch(cEvent){
 				    scr_createSpark(src.x,src.y,spr_spark_dot,"");
 				}
 			}
+			
+			event_inherited();
 			
 			break;
 	#endregion

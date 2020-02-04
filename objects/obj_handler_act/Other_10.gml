@@ -9,6 +9,7 @@ switch(cEvent){
 			}
 			
 			scr_cEvent(EVENT_AGNT_FSCHECK,src,id);
+			scr_cEvent(EVENT_ACT_START,src,id);
 		
 			#region //special act effects
 				if(type == WTAG_TYPE_PAN || type == WTAG_TYPE_SLG){

@@ -1,0 +1,362 @@
+{
+	"name": "Investigate Aberration",
+	"client": "AG Venus",
+	"reward": 6600,
+	"opName": "Canary Two",
+	"opFor": "???",
+	"esr": "65%",
+	"loc": "Venus Woods",
+	"tgt": "???",
+	"obj": "Investigate the target",
+	"map": "spr_map_vWoods_03",
+	"handler": "obj_handler_mission_vWoods_03",
+	"bgm": "forest",
+	
+	"par_time": [4.5,6],
+	"par_dmg": [32000,25000],
+	"par_expl": [90,50],
+	
+	"loot_gold": [10,20],
+	"loot_rank": [0,1],
+	
+	"dia_brief": [
+		{
+			"name": "Tear",
+			"txt": "Reports are coming in from AG Venus of foreign, unidentifiable creatures being spotted in Venus Woods recently.",
+			"scr": "scr_dia_build_vWoods_01_brief_img01"
+		},
+		{
+			"txt": "Given the nature of several of the reports, as well as the location in question, I suspect these are most likely the same creatures you encountered in the canal."
+		},
+		{
+			"txt": "If that is the case, you must exercise extreme caution. We still know precious little of this threat aside from its overwhelming volume."
+		},
+		{
+			"txt": "That said, if the source is in the canal and they have spread to the forests from there, this is an invaluable opportunity to gain intel in a less dangerous environment."
+		},
+		{
+			"txt": "Use the open area to your advantage, and avoid getting ambushed or surrounded. Good luck."
+		}
+	],
+	
+	"dia_intro": [
+		{
+    		"name": "Imo'lei",
+    		"charIn_l": "spr_imo_neutral",
+    		"txt": "No running away this time..."
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_01": [
+		{
+    		"name": "Imo'lei",
+    		"charIn_l": "spr_imo_neutral",
+    		"txt": "Damn, we've fought a good deal of these things now and I still can't make heads or tails of 'em."
+		},
+		{
+    		"name": "Tear",
+    		"focus_l": false,
+    		"txt": "Watch it you lot - I've got an incoming spawn signal near your location, could be more of those creatures."
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_l": true,
+    		"txt": "Hmph, you wont get the jump on me twice!"
+		},
+		{
+    		"txt": "...Huh?"
+		},
+		{
+    		"name": "???",
+    		"focus_l": false,
+    		"txt": "Aya... this is worse than I thought..."
+		},
+		{
+    		"name": "Blaze",
+    		"charIn_r": "spr_blaze_neutral",
+    		"txt": "Altai, you're sure the source is around here?"
+		},
+		{
+    		"name": "Altai",
+    		"charIn_r": "spr_altai_neutral",
+    		"txt": "Yes, judging by the instance map, new invalid IDs are spreading from a specific point just north of here."
+		},{
+    		"name": "Witchy",
+    		"charIn_r": "spr_witchy_neutral",
+    		"txt": "So, we crash the bug party and do a big kill! I like this idea, yes."
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_switch": true,
+    		"txt": "Blaze..."
+		},
+		{
+    		"txt": "What are *you* doing here? Isn't this mission a little beneath you?"
+		},
+		{
+    		"name": "Blaze",
+    		"charIn_r": "spr_blaze_neutral",
+    		"txt": "Ah, sis, funny running into you here."
+		},
+		{
+    		"txt": "Trust me, you're right about that, and as much as I'd love to avoid butting in, this is official dev business."
+		},
+		{
+    		"name": "Paprika",
+    		"charIn_l": "spr_paprika_neutral",
+    		"txt": "*gasp* It's MPx! All of them this time! And they're on *official* business!"
+		},
+		{
+    		"txt": "Can we help!? Can we help pleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeease!"
+		},
+		{
+    		"name": "Blaze",
+    		"focus_switch": true,
+    		"txt": "Aww, it kills me to turn down a fan, but I'm afraid this might be a bit much for the likes of you guys."
+		},
+		{
+    		"txt": "I'd suggest getting outta here while you can - this isn't balanced for your level, so whatever your mission is, I don't think you'll be able to carry it out-"
+		},
+		{
+    		"name": "Imo'lei",
+    		"charIn_l": "spr_imo_neutral",
+    		"txt": "Absolutely not!"
+		},
+		{
+    		"txt": "I had to run from these things once, and I am not doing it again!"
+		},
+		{
+    		"txt": "If you want me to leave, feel free to try and make me."
+		},
+		{
+    		"name": "Blaze",
+    		"focus_switch": true,
+    		"txt": "Always looking for a fight, you little..."
+		},
+		{
+    		"txt": "..."
+		},
+		{
+    		"txt": "Hmm... actually, maybe this is for the best."
+		},
+		{
+    		"txt": "We'll back you up just to be safe. I wanna see what you can do."
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_switch": true,
+    		"txt": "...Hmph. Do what you want."
+		},
+		{
+    		"txt": "If you're gonna back me up, just stay outta the way."
+		},
+		{
+			"name": "",
+			"spr_l": "noone",
+			"spr_r": "noone",
+			"txt": "Blaze, Altai, and Witchy have temporarily joined the party!"
+		},
+		{
+    		"txt": "-About Reserve Party-"
+		},
+		{
+    		"txt": "Pairs of Vanguard and Reserve characters take up each party slot. During missions that permit the use of the Reserve Party, hold the Party:Swap key and press the appropriate direction for which party slot you wish to switch characters for."
+		},
+		{
+    		"txt": "While the Party:Swap key is held, [SWITCH OK!] will be displayed over any party slots that are able to switch characters."
+		},
+		{
+    		"txt": "Additional info on using the Reserve Party can be found in the Party menu under [Wiki > Tutorial > Reserve Party]."
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_02": [
+		{
+    		"name": "Blaze",
+    		"charIn_l": "spr_imo_neutral",
+    		"charIn_r": "spr_blaze_neutral",
+    		"focus_l": false,
+    		"focus_r": true,
+    		"txt": "Huh... looks like this is what we came here for. But it's suspiciously... stable."
+		},
+		{
+    		"name": "Aile + Altai",
+    		"charIn_l": "spr_aile_neutral",
+    		"charIn_r": "spr_altai_neutral",
+    		"focus_l": true,
+    		"focus_r": true,
+    		"txt": "What's a Green Dragon doing in a place like this?"
+		},
+		{
+    		"name": "Altai",
+    		"focus_l": false,
+    		"txt": "Oh!"
+		},
+		{
+    		"name": "Paprika",
+    		"charIn_l": "spr_paprika_neutral",
+    		"txt": "That's our Aile, she's a real bookworm! If I didn't know any better I'd think she was a dev herself!"
+		},
+		{
+    		"name": "Altai",
+    		"focus_switch": true,
+    		"txt": "Wonderful~ It's always good to know what you're getting into."
+		},
+		{
+    		"txt": "However, if this really is the source, I suspect it will be much more dangerous and unpredictable."
+		},
+		{
+    		"name": "Imo'lei + Witchy",
+    		"charIn_l": "spr_imo_neutral",
+    		"charIn_r": "spr_witchy_neutral",
+    		"focus_l": true,
+    		"focus_r": true,
+    		"txt": "Ha, doesn't look like much to me!"
+		},
+		{
+    		"name": "Altai",
+    		"spr_l": "noone",
+    		"charIn_r": "spr_altai_neutral",
+    		"txt": "*sigh* I can only heal so much, you guys..."
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_03": [
+		{
+    		"name": "Imo'lei",
+    		"charIn_l": "spr_imo_neutral",
+    		"charIn_r": "spr_blaze_neutral",
+    		"focus_l": true,
+    		"focus_r": false,
+    		"scr": "scr_dia_build_vWoods_03_cut03_setBossState",
+    		"txt": "Hah! See, what I tell ya? I can handle this on my own."
+		},
+		{
+    		"name": "Blaze",
+    		"focus_switch": true,
+    		"txt": "Give it a sec."
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_switch": true,
+    		"txt": "What are you-"
+		},
+		{
+    		"name": "",
+    		"focus_l": false,
+    		"txt": "*CRASH*"
+		},
+		{
+    		"name": "Blaze",
+    		"focus_r": true,
+    		"txt": "There it is."
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_switch": true,
+    		"txt": "W... what the hell... is that!?"
+		},
+		{
+    		"name": "Blaze",
+    		"focus_switch": true,
+    		"txt": "*That* is what we're here for. I'd get back if I were you, I mean it this time."
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_switch": true,
+    		"txt": "..."
+		},
+		{
+    		"txt": "...I-I don't care how ugly this thing gets. I'll just have to cut it down again!"
+		},
+		{
+    		"name": "Blaze",
+    		"focus_switch": true,
+    		"txt": "*Sigh* Be my guest..."
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_outro": [
+		{
+    		"name": "Blaze",
+    		"charIn_l": "spr_imo_neutral",
+    		"charIn_r": "spr_blaze_neutral",
+    		"focus_l": false,
+    		"focus_r": true,
+    		"txt": "Looks like you've got the hang of the game, but you still don't get it huh?"
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_switch": true,
+    		"txt": "Damnit... again..."
+		},
+		{
+    		"name": "Blaze",
+    		"focus_switch": true,
+    		"txt": "Idiot, you don't even have a subclass yet."
+		},
+		{
+    		"txt": "How do you think I knew you were gonna get trounced? Your level is way too low dude."
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_switch": true,
+    		"txt": "Idiot!? I'll make you eat those words you-"
+		},
+		{
+    		"name": "Blaze",
+    		"focus_switch": true,
+    		"txt": "Please, you can barely move. If you'll excuse me, I got logs to submit and reports to file."
+		},
+		{
+    		"txt": "Don't worry though, at the rate you're going I'm sure you'll do fine in the Invitational. I'd even put money on you making it past the first round~"
+		},
+		{
+    		"name": "Imo'lei",
+    		"spr_r": "noone",
+    		"focus_switch": true,
+    		"txt": "Will you quit walking away all the time!"
+		},
+		{
+    		"name": "Paprika",
+    		"charIn_r": "spr_paprika_neutral",
+    		"txt": "You can say that again! With how often people do that to you I'm starting to get how you can stay mad all the time."
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_switch": true,
+    		"txt": "Ah, quiet you."
+		},
+		{
+    		"txt": "Tch... well she wasn't totally useless, but she could've at least told me where I can get one of those subclasses."
+		},
+		{
+    		"name": "Aile",
+    		"charIn_r": "spr_aile_neutral",
+    		"txt": "Um, I think our operator has to make arrangements for unlocking subclasses, so we should ask Tear about it."
+		},
+		{
+    		"name": "Imo'lei",
+    		"focus_switch": true,
+    		"txt": "Sounds like a plan."
+		},
+		{
+    		"txt": "You wont be walking away next time, sis."
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	]
+}

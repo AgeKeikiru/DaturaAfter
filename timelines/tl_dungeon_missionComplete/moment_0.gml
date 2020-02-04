@@ -1,5 +1,8 @@
+var _phase = global.map_flags[? FG_MSNPHASE];
+
 global.playerControl = false;
 global.map_flags[? FG_MSNCLEARS] += 1;
+global.map_flags[? FG_MP + string(_phase)] += 1;
 
 scr_updateMsnList();
 
@@ -14,6 +17,10 @@ map_results[? MCS_TGT_BONUS] = 0;
 map_results[? MCS_DISP_BONUS] = 0;
 map_results[? MCS_TGT_GOLD] = _map[? MSN_VAR_REWARD];
 map_results[? MCS_DISP_GOLD] = 0;
+
+if(global.missionCurr == MSN_ZDESERT_01){
+    map_results[? MCS_TGT_GOLD] = round(missionDmg / 10) * 3;
+}
 
 var
 _expTotal = 0,

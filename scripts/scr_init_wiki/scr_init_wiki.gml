@@ -14,7 +14,7 @@ var _off = 0;
         
         "M-ATK/DEF: Melee Attack/Defense. The primary stats that affect damage from Weapon Chips and Class Skills related to martial arts and close combat.\n\n" +
         "F-ATK/DEF: Firearm Attack/Defense. The primary stats that affect damage from Weapon Chips and Class Skills related to ranged weapons and high-tech gear.\n\n" +
-        "S-ATK/DEF: Spell Attack/Defense. The primary stats that affect damage from Weapon Chips and Class Skills related to scrolls and the arcane.",
+        "S-ATK/DEF: Spell Attack/Defense. The primary stats that affect damage from Weapon Chips and Class Skills related to scrolls and the arcane. (NOTE: Healing skills scale based on S-DEF)",
         
         "ACC/EVA: Accuracy/Evasion. The primary stats that affect the probability of attacks landing successfully.\n\n" +
         "SPD: Speed. Determines how quickly Act Slots recover from cooldown.\n\n" +
@@ -84,6 +84,18 @@ var _off = 0;
         "Combat",
         
         "TBA"
+    ];
+    
+    global.map_wiki[? WIKI_TUT + string(en_wiki_tut.reserveParty + _off)] = [
+        "Reserve Party",
+        
+        "Special RAID Missions allow the use of a second set of party members known as the Reserve Party.\n\n" +
+        "Each party slot contains a Vanguard member and a Reserve member. These members can be set in the Gathering Hub under [Formation] at any time, however Reserve members will not take part in non-RAID missions.\n\n" +
+        "To switch members during a mission, hold the Party:Swap key and press Left/Up/Right to switch the members in the 1st/2nd/3rd party slot, respectively.\n\n",
+        
+        "Note: members of a slot can only be switched under certain conditions. When these conditions are met, [SWITCH OK!] will be displayed over that slot while the Party:Swap key is held.\n\n" +
+        "- There is a cooldown period after switching a slot before it can be switched again\n" +
+        "- A slot cannot be switched while any act is in use, or while that slot's Vanguard has an act queued"
     ];
     
     global.map_wiki[? WIKI_TUT + string(en_wiki_tut.missionRank + _off)] = [
@@ -166,6 +178,71 @@ var _off = 0;
         "Likes: \n- Exercise \n- Comics\n\n" +
         "Hates: \n- Talking politics \n- Plain food\n\n" +
         "Favorite Cat: Lynx"
+    ];
+
+#endregion
+
+#region //enemies
+
+    _off = -en_chars.slime;
+    global.map_wiki[? WIKI_ENEMY] = en_chars.LENGTH + _off;
+    
+    for(var _i = 0;_i < en_chars.LENGTH + _off;_i++){
+        global.map_wiki[? WIKI_ENEMY + string(_i)] = [
+            "???",
+            
+            "TBA"
+        ];
+    }
+    
+    global.map_wiki[? WIKI_ENEMY + string(en_chars.slime + _off)] = [
+        "Slime",
+        
+        "By and large the most widespread species of monster around the world, slimes are formed typically as a byproduct of magical processes and applications.\n\n" +
+        "The generic slime is mostly not a threat - slow, easy to dodge, and easier to hit, their only real strength is being relatively tanky among low-rank monsters.\n\n" +
+        "An inattentive or weakened party can still be wiped out by a pack of slimes, but generally speaking basic battle strategy is more than enough to take out even a horde of them.\n\n",
+        
+        "Has a basic melee attack."
+    ];
+    
+    global.map_wiki[? WIKI_ENEMY + string(en_chars.paraslime + _off)] = [
+        "Paraslime",
+        
+        "A subspecies of slime whose bodies appear to be almost entirely comprised of a structure very similar to that of the electric organ found in electrogenic animals.\n\n" +
+        "This electric variant is slightly more resilient, and near-fully immune to electric attacks, but is ultimately still a low-rank monster that shouldn't be worried about too much.\n\n",
+        
+        "Has a basic melee attack that will occasionally be charged with electricity for an added punch.\n\n" +
+        "The electric version has a chance to paralyze if it connects, so eliminating this enemy should be top priority for players who heavily rely on stances."
+    ];
+    
+    global.map_wiki[? WIKI_ENEMY + string(en_chars.froslime + _off)] = [
+        "Froslime",
+        
+        "A subspecies of slime whose bodies fluctuate freely between a semi-liquid and crystalline state.\n\n" +
+        "This frozen variant is noticeably more durable, and is dangerously cold to the touch - one of the few subspecies of slime that can pose an actual threat.\n\n",
+        
+        "Has a basic melee attack, but due to its ultra low body temperature this can inflict Slow on contact.\n\n" +
+        "Additionally, when sensing danger Froslimes will often attempt to shift into a completely solid state to defend itself."
+    ];
+    
+    global.map_wiki[? WIKI_ENEMY + string(en_chars.minislime + _off)] = [
+        "Mini Slime",
+        
+        "Like the slime, but smaller.\n\n" +
+        "The difference in size cuts their durability roughly in half, but also makes them more nimble.\n\n" +
+        "It's hardly an even trade however, and it makes them even less of a threat than regular slimes.\n\n",
+        
+        "Has a basic melee attack."
+    ];
+    
+    global.map_wiki[? WIKI_ENEMY + string(en_chars.candywing + _off)] = [
+        "Candywing",
+        
+        "One of several species of sentient candy created by a mage-turned-hobbyist-chef, Candywings are permanently in hunting season due to their seemingly infinite population.\n\n" +
+        "Candywings are a strange nuissance - aware of their severe fragility and lacking offensive power, they are normally a very passive entity, however at the sight of a battle a passing swarm is almost guaranteed to join in.\n\n" +
+        "Despite their weakness, Candywings are very nimble and will easily dodge attacks from cumbersome weapons.\n\n",
+        
+        "Has a basic melee attack."
     ];
 
 #endregion

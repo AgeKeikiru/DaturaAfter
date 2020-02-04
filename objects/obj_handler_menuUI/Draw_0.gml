@@ -76,12 +76,15 @@ if(title){
 	#region //draw party lead
 	
 		var
-		_lead = global.grd_party_player[# 0,0],
 		_leadX = 920 + -(100 * (transCurr + -1)),
 		_spr = noone;
 		
-		if(scr_exists(_lead,asset_object)){
-			_spr = _lead.src[? CHAR_VAR_SPR_NEUTRAL];
+		for(var _i = 2;_i >= 0;_i--){
+			var _lead = global.grd_party_player[# _i,0];
+			
+			if(scr_exists(_lead)){
+				_spr = _lead.src[? CHAR_VAR_SPR_NEUTRAL];
+			}
 		}
 		
 		switch(txt_title){
@@ -258,13 +261,30 @@ if(title){
 			
 			ktk_scr_draw_text_shadow(_d_hx,_d_hy2,_str,c_white,c_gray,3);
 			
-			var _skills = 0;
+			var
+			_skills = 0,
+			_cx = 850,
+			_cy = 550,
+			_cr = 12,
+			_cr2 = 8;
 								
 			for(var _xx = 0;_xx < ds_grid_width(global.labObj.grd_skills);_xx++){
 				for(var _yy = 0;_yy < ds_grid_height(global.labObj.grd_skills);_yy++){
 					_skills += sign(global.labObj.grd_skills[# _xx,_yy]);
 					
 					global.labMenu.grd_ex_str[# _xx + 1,_yy] = string(global.labObj.grd_skills[# _xx,_yy]) + "/5";
+				}
+			}
+			
+			for(var _xx = 0;_xx < ds_grid_width(global.labObj.grd_skills) + 1;_xx++){
+				draw_set_color(c_white);
+				
+				draw_circle(_cx + (_xx * _cr * 3),_cy,_cr,false);
+				
+				if(_xx != _ix){
+					draw_set_color(c_dkgray);
+					
+					draw_circle(_cx + (_xx * _cr * 3),_cy,_cr2,false);
 				}
 			}
 			
@@ -478,7 +498,8 @@ if(title){
 			for(var _i = 0;_i < ds_list_size(lst_ps_slots);_i++){
 				var
 				_s = lst_ps_slots[| _i],
-				_obj = global.grd_party_player[# _i,0];
+				_obj = global.grd_party_player[# _i,0],
+				_obj2 = global.grd_party_player[# _i,1];
 				
 				if(instance_exists(_s)){
 					draw_set_color(c_black);
@@ -493,12 +514,13 @@ if(title){
 						event_perform(ev_draw,0);
 					}
 					
-					if(instance_exists(_obj)){
+					if(scr_exists(_obj)){
 						var
 						_spr = _obj.src[? CHAR_VAR_SPR_NEUTRAL],
 						_ox = sprite_get_xoffset(_spr),
 						_oy = sprite_get_yoffset(_spr) + -(100 * (_s.image_alpha + -1)),
-						_str = _obj.src[? CHAR_VAR_NAMEDISP];
+						_str = _obj.src[? CHAR_VAR_NAMEDISP],
+						_pairOff = scr_exists(_obj2) * 20; //y offset when listing 2 names
 						
 						//portrait
 						draw_set_alpha(_s.image_alpha);
@@ -532,7 +554,7 @@ if(title){
 						draw_primitive_begin(pr_trianglefan);
 						
 						for(var _i2 = 0;_i2 < 5;_i2++){
-							draw_vertex(_x[_i2] + -2,_y[_i2] + -2);
+							draw_vertex(_x[_i2] + -2,_y[_i2] + -2 + ((_i2 < 2 || _i2 == 4) ? -_pairOff : 0));
 						}
 						
 						draw_primitive_end();
@@ -543,17 +565,27 @@ if(title){
 						draw_primitive_begin(pr_trianglefan);
 						
 						for(var _i2 = 0;_i2 < 5;_i2++){
-							draw_vertex(_x[_i2],_y[_i2]);
+							draw_vertex(_x[_i2],_y[_i2] + ((_i2 < 2 || _i2 == 4) ? -_pairOff : 0));
 						}
 						
 						draw_primitive_end();
 						
 						draw_set_color(c_dkgray);
 						
-						draw_text_transformed(_x[0],_y[0] + 5,_str,1,1,30);
+						draw_text_transformed(_x[0],_y[0] + 5 + -_pairOff,_str,1,1,30);
+						
+						if(_pairOff){
+							_str = "+" + _obj2.src[? CHAR_VAR_NAMEDISP];
+							
+							draw_text_transformed(_x[0],_y[0] + 5 + (_pairOff / 2),_str,0.5,0.5,30);
+						}
 						
 						//level
 						_str = "Lv." + string(_obj.level);
+						
+						if(_pairOff){
+							_str += " (+" + string(_obj2.level) + ")";
+						}
 						
 						for(var _i2 = 0;_i2 < 5;_i2++){
 							_y[_i2] += string_height(_str) + 2;
@@ -858,7 +890,7 @@ if(title){
 									_drawX = _hb_x + lengthdir_x(_hb_size + _hb_gap,_hb_angle),
 									_drawY = _hb_y + lengthdir_y(_hb_size + _hb_gap,_hb_angle),
 									_actIndex = _hb_order[_i] + _hb_iOffset,
-									_drawAct = ps_equipMem.src[? "char_var_hb" + string(_actIndex)],
+									_drawAct = ps_equipMem.src[? en_charVar.hb0 + _actIndex],
 									_selected = _actIndex == _menu.menu_y;
 									
 									if(_menu.link_panel.txt[0] == "party/equip/act/.."){
@@ -921,7 +953,7 @@ if(title){
 							
 							var _arm = _menu.link_panel.txt[0] == "party/equip/armor/.." ?
 								global.lst_inv_arms[| _menu.menu_y] :
-								ps_equipMem.src[? "char_var_arm" + string(_menu.menu_y + -8)];
+								ps_equipMem.src[? en_charVar.hb0 + _menu.menu_y];
 							
 							ps_tgtPortX = ps_equipMem.src[? CHAR_VAR_PSDO_ARM_X];
         					ps_tgtPortY = ps_equipMem.src[? CHAR_VAR_PSDO_ARM_Y];
@@ -1312,15 +1344,15 @@ if(title){
 					
 					_str += "\n\n\n\nARMORS\n";
 					
-					for(var _i = 0;_i < 2;_i++){
-						var _o = _mem.src[? "char_var_arm" + string(_i)];
+					for(var _i = en_charVar.arm0;_i <= en_charVar.arm1;_i++){
+						var _o = _mem.src[? _i];
 						_str += "\n      " + (scr_exists(_o,asset_object) ? _o.name : "--------");
 					}
 					
 					_str += "\n\n\n\nCLASS\n";
 					
-					for(var _i = 0;_i < 1;_i++){
-						var _o = _mem.src[? "char_var_cls" + string(_i)];
+					for(var _i = en_charVar.cls0;_i <= en_charVar.cls0;_i++){
+						var _o = _mem.src[? _i];
 						_str += "\n      " + (scr_exists(_o,asset_object) ? _o.name : "--------");
 					}
 					
@@ -1486,13 +1518,11 @@ if(title){
 				
 				draw_set_color(c_white);
 				
-				if(_i < ds_list_size(global.lst_newFormation)){
-					var
-					_id = global.lst_newFormation[| _i],
-					_map = scr_data_getMap(global.grd_chars,_id);
-					
-					draw_sprite_part_ext(_map[? CHAR_VAR_SPR_NEUTRAL],0,-_map[? CHAR_VAR_ABDO_X],_map[? CHAR_VAR_ABDO_Y],_pw * 2,_ph * 2,_px,_py,0.5,0.5,c_white,draw_get_alpha());
-					ktk_scr_draw_text_stroke(_px + _pw + -3,_py + _ph + 5,_map[? CHAR_VAR_NAMEDISP],c_white,c_dkgray,1,10);
+				var _char = global.grd_newFormation[# _i,0];
+				
+				if(_char != noone){
+					draw_sprite_part_ext(_char.src[? CHAR_VAR_SPR_NEUTRAL],0,-_char.src[? CHAR_VAR_ABDO_X],_char.src[? CHAR_VAR_ABDO_Y],_pw * 2,_ph * 2,_px,_py,0.5,0.5,c_white,draw_get_alpha());
+					ktk_scr_draw_text_stroke(_px + _pw + -3,_py + _ph + 5,_char.src[? CHAR_VAR_NAMEDISP],c_white,c_dkgray,1,10);
 					
 					draw_rectangle(_px,_py,_px + _pw,_py + _ph,true);
 				}
@@ -1507,20 +1537,18 @@ if(title){
 			_px = _x2;
 			_py = _y + -(_ph * .3);
 			
-			for(var _i = 3;_i < 6;_i++){
+			for(var _i = 0;_i < 3;_i++){
 				draw_set_color(c_gray);
 				
 				draw_rectangle(_px,_py,_px + _pw,_py + _ph,false);
 				
 				draw_set_color(c_white);
 				
-				if(_i < ds_list_size(global.lst_newFormation)){
-					var
-					_id = global.lst_newFormation[| _i],
-					_map = scr_data_getMap(global.grd_chars,_id);
-					
-					draw_sprite_part_ext(_map[? CHAR_VAR_SPR_NEUTRAL],0,-_map[? CHAR_VAR_ABDO_X],_map[? CHAR_VAR_ABDO_Y],_pw * 2,_ph * 2,_px,_py,0.5,0.5,c_white,draw_get_alpha());
-					ktk_scr_draw_text_stroke(_px + _pw + -3,_py + _ph + 5,_map[? CHAR_VAR_NAMEDISP],c_white,c_dkgray,1,10);
+				var _char = global.grd_newFormation[# _i,1];
+				
+				if(_char != noone){
+					draw_sprite_part_ext(_char.src[? CHAR_VAR_SPR_NEUTRAL],0,-_char.src[? CHAR_VAR_ABDO_X],_char.src[? CHAR_VAR_ABDO_Y],_pw * 2,_ph * 2,_px,_py,0.5,0.5,c_white,draw_get_alpha());
+					ktk_scr_draw_text_stroke(_px + _pw + -3,_py + _ph + 5,_char.src[? CHAR_VAR_NAMEDISP],c_white,c_dkgray,1,10);
 					
 					draw_rectangle(_px,_py,_px + _pw,_py + _ph,true);
 				}
@@ -1584,7 +1612,12 @@ if(title){
 		
 		var
 		_s = "",
-		_ctrlArr = ["[Z]","[X]","[C]","[BkSpc]"];
+		_ctrlArr = [
+			scr_keyToString(global.grd_controls[# en_ic_key.menuAccept,0]),
+			scr_keyToString(global.grd_controls[# en_ic_key.menuBack,0]),
+			scr_keyToString(global.grd_controls[# en_ic_key.menuExtra,0]),
+			scr_keyToString(global.grd_controls[# en_ic_key.pause,0])
+		];
 		
 		if(scr_exists(_m,asset_object) && !_m.submenu){
 			switch _m.extra_function{

@@ -70,13 +70,13 @@ switch(cEvent){
 	
 	#region //battle_enemyDebuffed
 		case EVENT_BATTLE_ENEMYDEBUFFED:
-			if(ds_list_size(special) > 4 && scr_exists(src) && _tgt.allyParty == src.allyParty){
+			if(ds_list_size(special) > 4){
 				var
 				_src = cArgs[| 0],
 				_tgt = cArgs[| 1],
 				_proc = special[| 4];
 				
-				if(random(1) < _proc){
+				if(scr_exists(src) && _tgt.allyParty == src.allyParty && random(1) < _proc){
 					scr_createEffectTxt(_tgt,"PROTECT");
 					global.tempFloat = -99;
 				}

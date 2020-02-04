@@ -1,12 +1,10 @@
-ds_grid_clear(global.grd_party_player,noone);
+ds_grid_copy(global.grd_party_player,global.grd_newFormation);
 
-for(var SV_i = 0;SV_i < ds_list_size(global.lst_newFormation);SV_i++){
-    var
-    SV_x = SV_i % 3,
-    SV_y = SV_i > 2,
-    SV_id = global.lst_newFormation[| SV_i];
-    
-    global.grd_party_player[# SV_x,SV_y] = global.map_chars[? SV_id];
+for(var _i = 0;_i < 3;_i++){
+    if(global.grd_party_player[# _i,0] == noone){
+        global.grd_party_player[# _i,0] = global.grd_party_player[# _i,1];
+        global.grd_party_player[# _i,1] = noone;
+    }
 }
 
 scr_cEvent(EVENT_BATTLM_INIT);

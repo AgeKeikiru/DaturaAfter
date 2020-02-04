@@ -49,7 +49,7 @@ with _m{
 	
 	grd_txt[# 0,SV_i] = "Bestiary";
 	grd_desc[# 0,SV_i] = "Information on enemies encountered.";
-	grd_scr[# 0,SV_i] = noone;
+	grd_scr[# 0,SV_i] = scr_menu_party_wiki_entry;
 	grd_equipSrc[# 0,SV_i] = WIKI_ENEMY;
 	
 	SV_i++;

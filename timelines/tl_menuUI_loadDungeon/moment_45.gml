@@ -3,11 +3,13 @@ with obj_handler_menuUI{
 	visible = false;
 }
 
-var SV_map = scr_data_getMap(global.grd_missions,global.missionCurr);
+var
+SV_map = scr_data_getMap(global.grd_missions,global.missionCurr),
+_bgm = SV_map[? MSN_VAR_BGM];
 
 if(!instance_exists(obj_handler_mission_parent)){
 	//load music
-	ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_" + SV_map[? MSN_VAR_BGM] + ".ogg"));
+	ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_" + _bgm + ".ogg"));
 	ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_battle.ogg"));
 	ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_eventBattle.ogg"));
 

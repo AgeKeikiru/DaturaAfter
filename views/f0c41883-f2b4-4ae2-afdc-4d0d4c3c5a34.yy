@@ -42,7 +42,10 @@
         "782f030c-b266-4ac2-a01a-596d076d1768",
         "84cfc62f-d3e6-49e2-bab2-fbf6ab286c99",
         "351ef58e-49fa-4e23-acbe-fc2a09ec4f08",
-        "e3212c28-3d3d-4734-8efc-241b3655b2d3"
+        "e3212c28-3d3d-4734-8efc-241b3655b2d3",
+        "1f291e1b-c225-4d20-b89b-03633e505831",
+        "9c67e5f4-ce09-4a09-a62f-ad650c1ff4f3",
+        "29833dac-60d3-478e-92a0-665c59cfea0a"
     ],
     "filterType": "GMSprite",
     "folderName": "genSkill",

@@ -80,9 +80,9 @@ if(instance_exists(talkbox)){
 		_x = [0,0,0,0],
 		_y = [0,0,0,0],
 		_str = [
-			"[Z]: Next",
-			"[X]: Skip",
-			"[C]: Log"
+			scr_keyToString(global.grd_controls[# en_ic_key.menuAccept,0]) + ": Next",
+			scr_keyToString(global.grd_controls[# en_ic_key.menuBack,0]) + ": Skip",
+			scr_keyToString(global.grd_controls[# en_ic_key.menuExtra,0]) + ": Log"
 		];
 		
 		_x[0] = talkbox.x + talkbox.image_xscale + 5;

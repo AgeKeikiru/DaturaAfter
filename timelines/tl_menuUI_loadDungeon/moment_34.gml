@@ -1,5 +1,6 @@
 
-var SV_map = scr_data_getMap(global.grd_missions,global.missionCurr);
+var
+SV_map = scr_data_getMap(global.grd_missions,global.missionCurr);
 
 if(load_step = 0){
 	var SV_o = instance_create_depth(100,600,0,obj_fpo_loadBanner);

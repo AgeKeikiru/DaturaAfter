@@ -20,7 +20,22 @@ with obj_fpo_actBanner{
 }
 
 if(global.tempBool && !missionFailed){
-	scr_cEvent(EVENT_DND_BATTLELOSE);
+	for(var _i = 0;_i < 3;_i++){
+		var
+		_mem = global.grd_party_player[# _i,0],
+		_mem2 = global.grd_party_player[# _i,1];
+		
+		if(scr_exists(_mem) && scr_exists(_mem2) && _mem.hpCurr <= 0 && _mem2.hpCurr > 0){
+			global.grd_party_player[# _i,0] = _mem2;
+			global.grd_party_player[# _i,1] = _mem;
+			
+			global.tempBool = false;
+		}
+	}
+	
+	if(global.tempBool){
+		scr_cEvent(EVENT_DND_BATTLELOSE);
+	}
 }
 
 //ow sprite handling
@@ -57,13 +72,18 @@ if(
 if(!state_event && !state_battle && !state_results && (missionComplete || missionFailed) && instance_number(obj_fpo_parent) == 0){
 	var
 	_dia = missionFailed ? MSN_VAR_FAIL_DIA : MSN_VAR_OUTRO_DIA,
-	_ev = missionFailed ? EVENT_DND_FAIL : EVENT_DND_CLEAR;
+	_ev = missionFailed ? EVENT_DND_FAIL : EVENT_DND_CLEAR,
+	_jf = _map[? MSN_VAR_JSON];
 	
 	state_results = true;
 	
 	scr_cEvent(_ev);
 	
-	if(script_exists(_map[? _dia])){
+	if(!missionFailed && _jf != ""){
+		scr_dia_importJson(_jf,MSN_JSON_DIA_OUTRO);
+		
+		instance_create_depth(0,0,0,obj_handler_dialogue);
+	}else if(script_exists(_map[? _dia])){
 		script_execute(_map[? _dia]);
 		
 		instance_create_depth(0,0,0,obj_handler_dialogue);
@@ -110,11 +130,11 @@ if(!state_event && !state_battle && !state_results && (missionComplete || missio
 					}
 					
 					scr_playSfx(sfx_loot);
-				}else if(random(1) < battleChance){
+				}else if(battleChance < 0){
 					scr_cEvent(EVENT_DND_ENCOUNTER);
+					battleChance = ENCOUNTER_RATE;
 				}else{
-					battleChance += .02;
-					battleChance = min(battleChance,.6);
+					battleChance--;
 				}
 			}
 			

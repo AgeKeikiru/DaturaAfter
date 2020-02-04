@@ -18,7 +18,11 @@ _gridGap = DH_MGRID_GAP; //how much space is between map grid squares
 
 	draw_set_alpha(1);
 	
-	draw_surface(global.sfc_map,_gridOffX,_gridOffY);
+	if(surface_exists(global.sfc_map)){
+		draw_surface(global.sfc_map,_gridOffX,_gridOffY);
+	}else{
+		scr_dungeon_refreshMap();
+	}
 
 #endregion
 
@@ -44,6 +48,8 @@ if(!state_event && !state_results){
 		
 		if(global.set_mmSize && surface_exists(global.sfc_minimap)){
 			draw_surface(global.sfc_minimap,5,5);
+		}else{
+			scr_dungeon_refreshMap();
 		}
 	
 	#endregion
@@ -65,9 +71,18 @@ if(!state_event && !state_results){
 	
 	#endregion
 	
-	draw_set_color(c_black);
-	draw_set_alpha(.7);
-	draw_rectangle(0,550 * battleTrans,1280,720,false);
+	gpu_set_blendmode(bm_subtract);
+	
+	var
+	_colA = make_color_hsv(0,0,255 * 0.7),
+	_h = 550 * battleTrans;
+	
+	draw_set_color(_colA);
+	draw_rectangle(0,_h,1280,720,false);
+	
+	draw_rectangle_color(0,_h,1280,_h + -50,c_black,c_black,_colA,_colA,false);
+	
+	gpu_set_blendmode(bm_normal);
 	
 	#region //draw enemies
 	
@@ -91,7 +106,8 @@ if(!state_event && !state_results){
 			
 			if(instance_exists(_o) && sprite_exists(_o.src[? CHAR_VAR_SPR_BATTLEPORT])){
 				var
-				_sh_rx = sprite_get_width(_o.src[? CHAR_VAR_SPR_BATTLEPORT]) * .45,
+				_spr = sprite_exists(_o.sprite_index) ? _o.sprite_index : _o.src[? CHAR_VAR_SPR_BATTLEPORT],
+				_sh_rx = sprite_get_width(_spr) * .45,
 				_sh_ry = 15;
 				
 				draw_set_alpha(_o.image_alpha * .8);
@@ -102,7 +118,7 @@ if(!state_event && !state_results){
 				draw_set_alpha(1);
 				draw_set_color(c_white);
 				
-				draw_sprite_ext(_o.src[? CHAR_VAR_SPR_BATTLEPORT],0,_x + (sin(_o.direction) * _o.hurtShake * 20),_y + ((1 + -_o.image_alpha) * -150) + (cos(_o.direction) * _o.hurtShake * 20) + ((_o.image_yscale + -1) * sprite_get_height(_o.src[? CHAR_VAR_SPR_BATTLEPORT]) * .5),_o.image_xscale,_o.image_yscale,0,make_color_rgb(255,255 * (1 + -_o.hurtShake),255 * (1 + -_o.hurtShake)),_o.image_alpha);
+				draw_sprite_ext(_spr,0,_x + (sin(_o.direction) * _o.hurtShake * 20),_y + ((1 + -_o.image_alpha) * -150) + (cos(_o.direction) * _o.hurtShake * 20) + ((_o.image_yscale + -1) * sprite_get_height(_spr) * .5),_o.image_xscale,_o.image_yscale,0,make_color_rgb(255,255 * (1 + -_o.hurtShake),255 * (1 + -_o.hurtShake)),_o.image_alpha);
 				
 				_o.image_alpha = ktk_scr_tween(_o.image_alpha,1,5,.2);
 				
@@ -254,7 +270,7 @@ if(!state_event && !state_results){
 			var
 			_om_str = "OBJECTIVE",
 			_om_w = 500,
-			_om_w2 = _om_w * (_h.specCurr / _h.specMax),
+			_om_w2 = _om_w * (clamp(_h.specCurr,0,_h.specMax) / _h.specMax),
 			_om_h = 15,
 			_om_b = 2,
 			_om_x = (room_width + -_om_w) / 2,
@@ -288,12 +304,16 @@ if(!state_event && !state_results){
 	#region //draw party
 	
 		var
+		_pairSize = 50,
 		_uiDrawX = 200,
 		_uiDrawY = 480,
 		_portX = _uiDrawX + -25,
 		_portY = _uiDrawY + 184,
 		_partyI = 0,
 		_highlight = -1, //if >=0, draw highlighted character menu;
+		_highOffY = 10,
+		_highOffX = _highOffY * -0.3, //highlight offset
+		_highShrink = -0.15, //highlight scale reduction
 		_uiCol = [
 			c_white,
 			c_dkgray
@@ -325,19 +345,21 @@ if(!state_event && !state_results){
 			_barGap = 8,
 			_barBS = 30, //side border
 			_barBB = 4, //bottom border
-			_drawX = 0,
+			_drawX = _pairSize + _hbGap,
 			_drawY = _hbSize + _hbGap + 20,
 			_drawSideX = 5,
 			_drawSideY = 5,
 			_drawW = _portW,
 			_drawH = _portH,
-			_mem = global.grd_party_player[# _partyI,0];
+			_mem = global.grd_party_player[# _partyI,0],
+			_mem2 = global.grd_party_player[# _partyI,1],
+			_colUse = _mem == noone;
 			
 			if(instance_exists(_mem)){
 				_uiCol[0] = make_color_rgb(255,255 * (1 + -(_mem.hurtShake)),255 * (1 + -(_mem.hurtShake)));
 			}
 			
-			draw_set_color(_mem != noone ? _uiCol[0] : _uiCol[1]);
+			draw_set_color(_uiCol[_colUse]);
 			draw_set_alpha(1);
 		
 			//portrait
@@ -347,7 +369,7 @@ if(!state_event && !state_results){
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_top);
 			
-			if(scr_exists(_mem,asset_object)){
+			if(scr_exists(_mem)){
 				var _name = _mem.src[? CHAR_VAR_NAMEDISP];
 				
 				if(_mem.aggro != 0){
@@ -356,6 +378,49 @@ if(!state_event && !state_results){
 				
 				draw_text(_drawX,_drawY + _portH + _hbGap,_name);
 			}
+			
+			//pair portrait
+			if(scr_exists(_mem2)){
+				var
+				_m2_x = _drawX + -_hbGap,
+				_m2_y = _drawY + _drawH + _hbGap,
+				_m2_spr = _mem2.src[? en_charVar.spr_neutral],
+				_m2_xOff = -_mem2.src[? en_charVar.abdo_x] + 70,
+				_m2_yOff = _mem2.src[? en_charVar.abdo_y],
+				_m2_scale = 0.25,
+				_m2_portSize = (_pairSize + -(_hbGap * 2)) / _m2_scale;
+				
+				draw_set_color(_uiCol[0]);
+				
+				draw_rectangle(_m2_x,_m2_y,_m2_x + -_pairSize,_m2_y + _pairSize,false);
+				
+				draw_set_color(c_red);
+				
+				draw_rectangle(_m2_x,_m2_y,_m2_x + -_pairSize,_m2_y + (_pairSize * (1 + -(_mem2.hpCurr / _mem2.hpMax))),false);
+				
+				draw_set_color(c_black);
+				draw_set_alpha(0.4);
+				
+				if(!scr_isSwitchOK(_partyI)){
+					draw_rectangle(_m2_x,_m2_y,_m2_x + -_pairSize,_m2_y + _pairSize,false);
+				}
+				
+				draw_set_color(c_dkgray);
+				draw_set_alpha(1);
+				
+				draw_rectangle(_m2_x + -_hbGap,_m2_y + _hbGap,_m2_x + -_pairSize + _hbGap,_m2_y + _pairSize + -_hbGap,false);
+				
+				draw_sprite_part_ext(_m2_spr,0,_m2_xOff,_m2_yOff,_m2_portSize,_m2_portSize,_m2_x + -_hbGap,_m2_y + _hbGap,-_m2_scale,_m2_scale,c_white,1);
+				
+				draw_set_color(c_black);
+				draw_set_alpha(0.4);
+				
+				draw_rectangle(_m2_x + -_hbGap,_m2_y + _hbGap,_m2_x + -_pairSize + _hbGap,_m2_y + _hbGap + ((_pairSize + -(_hbGap * 2)) * ((_mem2.swapCd / _mem2.swapMax))),false);
+				
+				draw_set_alpha(1);
+			}
+			
+			draw_set_color(_uiCol[_colUse]);
 		
 			_drawX += _portW + _hbGap;
 			_drawY = 20;
@@ -552,12 +617,12 @@ if(!state_event && !state_results){
 				_shakeY = (cos(_mem.direction) * _mem.hurtShake * 20);
 			}
 		
-			draw_surface_ext(sfc_party,_uiDrawX + _shakeX,_uiDrawY + _shakeY,1,1,-30,image_blend,1);
+			draw_surface_ext(sfc_party,_uiDrawX + lengthdir_x(_pairSize + _hbGap,150) + _shakeX,_uiDrawY + lengthdir_y(_pairSize + _hbGap,150) + _shakeY + (_highOffY * arr_slotOff[_partyI] * 4),1 + (_highShrink * arr_slotOff[_partyI]),1 + (_highShrink * arr_slotOff[_partyI]),-30,image_blend,1);
 			
-			if(scr_exists(_mem,asset_object) && ds_map_exists(_mem.src,CHAR_VAR_SPR_BATTLEPORT)){
+			if(scr_exists(_mem) && ds_map_exists(_mem.src,CHAR_VAR_SPR_BATTLEPORT)){
 				draw_set_alpha((_mem.iFrames > 0 && ceil(current_time / 10) mod 2 == 0) ? .6 : 1);
 				
-				draw_sprite_ext(_mem.src[? CHAR_VAR_SPR_BATTLEPORT],0,_portX + _shakeX,_portY + _shakeY,1,1,0,image_blend,draw_get_alpha());
+				draw_sprite_ext(_mem.src[? CHAR_VAR_SPR_BATTLEPORT],0,_portX + _shakeX + (_highOffX * arr_slotOff[_partyI]),_portY + _shakeY + (_highOffY * arr_slotOff[_partyI]),1 + (_highShrink * arr_slotOff[_partyI]),1 + (_highShrink * arr_slotOff[_partyI]),0,image_blend,draw_get_alpha());
 				
 				draw_set_alpha(1);
 				
@@ -571,7 +636,7 @@ if(!state_event && !state_results){
 				_tg_size = 0,
 				_tg_gap = 2;
 				
-				scr_cEvent_id(_mem,EVENT_BATTLM_ICONDRAW);
+				scr_cEvent_id(_mem,EVENT_BATTLM_ICONDRAW,_highOffY * arr_slotOff[_partyI] * 3,_highShrink * arr_slotOff[_partyI]);
 				
 				if(_partyI == tgtSlot){
 					draw_set_color(c_white);
@@ -650,16 +715,20 @@ if(!state_event && !state_results){
 			
 			image_blend = c_white;
 			
+			var
+			_crossX = _uiDrawX + 50,
+			_crossY = _uiDrawY + 90 + -(_highOffY * arr_slotOff[_partyI]),
+			_crossR = 70;
+			
 			if(_highlight == _partyI){	
 				var
 				_i = scr_checkInput(en_ic_check.down,en_ic_key.partyShift) * 4,
 				_a = 105,
-				_actArr = [0,1,3,2,4,5,7,6],
-				_crossX = _uiDrawX + 50,
-				_crossY = _uiDrawY + 60,
-				_crossR = 70;
+				_actArr = [0,1,3,2,4,5,7,6];
 				
-				draw_surface_ext(sfc_highlighted,_crossX + -15,_crossY + -155,1,1,-30,c_white,1);
+				draw_set_alpha(arr_slotOff[_partyI]);
+				
+				draw_surface_ext(sfc_highlighted,_crossX + -15,_crossY + -155,1,1,-30,c_white,draw_get_alpha());
 				
 				repeat(4){
 					var
@@ -678,11 +747,23 @@ if(!state_event && !state_results){
 					_i++;
 					_a += 90;
 				}
+				
+				draw_set_alpha(1);
+			}else if(scr_isSwitchOK(_partyI) && scr_checkInput(en_ic_check.down,en_ic_key.partySwap)){
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_bottom);
+				draw_set_font(ft_dungeonBoldLarge);
+				
+				ktk_scr_draw_text_shadow(_crossX,_crossY + -40,"SWITCH OK!",c_white,c_dkgray,2);
 			}
 			
 			_uiDrawX += 380;
 			_portX += 380;
 			_partyI++;
+		}
+		
+		for(var _i = 0;_i < 3;_i++){
+		    arr_slotOff[_i] = lerp(arr_slotOff[_i],_i == _highlight,0.3);
 		}
 		
 		#region //tutorial info

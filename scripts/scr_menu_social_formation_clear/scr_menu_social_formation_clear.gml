@@ -1,3 +1,3 @@
-ds_list_clear(global.lst_newFormation);
+ds_grid_clear(global.grd_newFormation,noone);
 
 scr_refreshFormation();

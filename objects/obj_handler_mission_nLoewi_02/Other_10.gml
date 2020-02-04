@@ -106,6 +106,14 @@ switch cEvent{
     
         break;
         
+    case EVENT_DND_CLEAR:
+    	event_inherited();
+    	
+    	scr_unlockMission(MSN_ZDESERT_01);
+    	scr_unlockMission(MSN_NABTUNDRA_02);
+    	
+    	break;
+        
     default:
         if(string_pos(MHE_ETILE,cEvent)){
             var _e = real(string_digits(cEvent));

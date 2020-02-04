@@ -20,6 +20,8 @@ ds_list_add(global.lst_inv_classes,
 	instance_create_depth(0,0,0,obj_handler_class_razer),
 	instance_create_depth(0,0,0,obj_handler_class_agent),
 	instance_create_depth(0,0,0,obj_handler_class_sanctum),
+	instance_create_depth(0,0,0,obj_handler_class_ace),
+	instance_create_depth(0,0,0,obj_handler_class_zodiac),
 	instance_create_depth(0,0,0,obj_handler_class_draker)
 );
 

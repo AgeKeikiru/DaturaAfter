@@ -36,6 +36,10 @@ if(!nonAttack){
 			_pX = _p.x,
 			_pY = _p.y;
 			
+			var _debug = 0;
+			
+			scr_trace(string(_debug++) + ": " + string(_dmg));
+			
 			//special act behaviors
 			switch(object_index){
 				case obj_handler_act_ange_hRend:
@@ -71,15 +75,20 @@ if(!nonAttack){
 			global.tempBool = false;
 			scr_cEvent(EVENT_NEWT_SAVECHECK,dc_dmgMax[| _i],dc_tgt[| _i],id);
 			
+			scr_trace(string(_debug++) + ": " + string(_dmg));
+			
 			if(global.tempBool){
 				_dmg = 0;
 				_chip = true;
 			}
 			
+			scr_trace(string(_debug++) + ": " + string(_dmg));
+			
 			scr_trace("\naimCheck " + string(_aimCheck) + " > " + string(100 + -acc));
 			
 			if(
-				(
+				scr_exists(dc_tgt[| _i])
+				&& (
 					_aimCheck > 100 + -acc
 					|| dc_tgt[| _i].ailment[CHAR_SA_PAR] > 0
 					|| dc_tgt[| _i].ailment[CHAR_SA_SLW] > 0
@@ -100,7 +109,11 @@ if(!nonAttack){
 					scr_cEvent(tgtEnemy ? EVENT_BATTLE_ENEMYHIT : EVENT_BATTLE_HEALED,src,dc_tgt[| _i],id,_dmg);
 				}
 				
+				scr_trace(string(_debug++) + ": " + string(_dmg));
+				
 				_dmg = ceil(_dmg * global.tempFloat);
+				
+				scr_trace(string(_debug++) + ": " + string(_dmg));
 				
 				global.critChance = clamp(dc_aim[| _i],0.01,0.1);
 				global.critBonus = 1.2;
@@ -108,6 +121,8 @@ if(!nonAttack){
 				scr_cEvent(EVENT_BATTLE_CRITMOD,src,dc_tgt[| _i],id);
 				
 				var _crit = random(1) < global.critChance;
+				
+				scr_trace(string(_debug++) + ": " + string(_dmg));
 				
 				_p.txt[0] = string(_dmg);
 				_p.txt_col[0] = tgtEnemy ? c_white : CC_HEALGREEN;
@@ -124,6 +139,8 @@ if(!nonAttack){
 					
 					_p.txt[0] = string(_dmg);
 				}
+				
+				scr_trace(string(_debug++) + ": " + string(_dmg));
 				
 				global.tempLst = ds_list_create();
 				ds_list_add(global.tempLst,
@@ -165,11 +182,21 @@ if(!nonAttack){
 				
 				var _overkill = (tgtEnemy && dc_tgt[| _i].hpCurr <= 0);
 				
+				scr_trace(string(_debug++) + ": " + string(_dmg));
+				
 				dc_tgt[| _i].hpCurr += tgtEnemy ? -_dmg : _dmg;
 				dc_tgt[| _i].hpCurr = clamp(dc_tgt[| _i].hpCurr,0,dc_tgt[| _i].hpMax);
 				
+				scr_trace(string(_debug++) + ": " + string(_dmg));
+				
 				if(!_overkill && dc_tgt[| _i].hpCurr <= 0){
 					scr_cEvent(EVENT_BATTLE_ENEMYKILLED,src,dc_tgt[| _i],id);
+				}
+				
+				if(abort){
+					abort = false;
+					using = false;
+					exit;
 				}
 				
 				var _tgt = eSelf_hit ? src : dc_tgt[| _i];
@@ -207,8 +234,7 @@ if(!nonAttack){
 		}
 		
 		if(dc_tgt[| _i].allyParty == global.grd_party_enemy && random(1) < stun_chance && (_hit || !stun_onHit)){
-			dc_tgt[| _i].enemyWait = dc_tgt[| _i].enemyWaitMax;
-			scr_createSpark(dc_tgt[| _i].x,dc_tgt[| _i].y,spr_spark_dotDn,"");
+			scr_stunMem(dc_tgt[| _i]);
 		}
 	}
 }

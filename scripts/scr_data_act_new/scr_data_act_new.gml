@@ -646,7 +646,7 @@ switch(SV_type){
 			SV_r.enBase *= 2;
 			SV_r.cdBase *= 6;
 			SV_r.basePwr *= 0;
-			SV_r.acc *= .4 + (.1 * SV_rare);
+			SV_r.acc *= 999;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
 			SV_r.atkScale = CHAR_VAR_SATK;
@@ -686,8 +686,8 @@ switch(SV_type){
 					break;
 			}
 			
-			SV_r.sa_chance[| SV_sa] = 1;
-			SV_r.sa_inflict[| SV_sa] = 5 + (1 * SV_rare);
+			SV_r.sa_chance[| SV_sa] = .4 + (.1 * SV_rare);
+			SV_r.sa_inflict[| SV_sa] = 3 + (1 * SV_rare);
 			
 			break;
 			
@@ -714,7 +714,7 @@ switch(SV_type){
 			SV_ele = "";
 			SV_r.enBase *= 3;
 			SV_r.cdBase *= 5;
-			SV_r.basePwr *= 2 + (.6 * SV_rare);
+			SV_r.basePwr *= 2 + (1.5 * SV_rare);
 			SV_r.acc = 999;
 			SV_r.hitCount = 1;
 			SV_r.hitGap *= 1;
@@ -971,6 +971,126 @@ switch(SV_type){
 				
 				break;
 		#endregion
+		
+		#region //barrier
+			case EACT_BARRIER:
+				SV_r.baseName = "Barrier";
+				SV_r.desc = "Slightly increases the DEF of self.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 1;
+				SV_r.basePwr *= 0;
+				SV_r.acc = 999;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_dot;
+				SV_r.tgtType = ACT_TGT_SELF;
+				SV_r.tgtEnemy = false;
+				SV_r.effect_start = obj_handler_actEffect_barrier;
+				
+				break;
+		#endregion
+		
+		#region //agility
+			case EACT_AGILITY:
+				SV_r.baseName = "Agility";
+				SV_r.desc = "Slightly increases the EVA of self.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 1;
+				SV_r.basePwr *= 0;
+				SV_r.acc = 999;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_dot;
+				SV_r.tgtType = ACT_TGT_SELF;
+				SV_r.tgtEnemy = false;
+				SV_r.effect_start = obj_handler_actEffect_agility;
+				
+				break;
+		#endregion
+		
+		#region //acidSpray
+			case EACT_ACIDSPRAY:
+				SV_r.baseName = "Acid Spray";
+				SV_r.desc = "Shoot a volatile mix at random, low chance to poison.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 3;
+				SV_r.basePwr *= .2;
+				SV_r.acc *= .60;
+				SV_r.hitCount = 5;
+				SV_r.hitGap *= .8;
+				SV_r.atkScale = CHAR_VAR_SATK;
+				SV_r.defScale = CHAR_VAR_SDEF;
+				SV_r.spark_hit = spr_spark_pierce;
+				SV_r.ele = CHAR_VAR_ELE_DRK;
+				SV_r.sa_inflict[| CHAR_SA_PSN] = 4;
+				SV_r.sa_chance[| CHAR_SA_PSN] = .2;
+				SV_r.tgtType = ACT_TGT_RANDOM;
+				
+				break;
+		#endregion
+		
+		#region //airburst
+			case EACT_AIRBURST:
+				SV_r.baseName = "Airburst";
+				SV_r.desc = "Shoot intense gusts of wind at random, low chance to silence.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 3;
+				SV_r.basePwr *= .2;
+				SV_r.acc *= .60;
+				SV_r.hitCount = 5;
+				SV_r.hitGap *= .8;
+				SV_r.atkScale = CHAR_VAR_SATK;
+				SV_r.defScale = CHAR_VAR_SDEF;
+				SV_r.spark_hit = spr_spark_slash;
+				SV_r.ele = CHAR_VAR_ELE_NAT;
+				SV_r.sa_inflict[| CHAR_SA_SLC] = 4;
+				SV_r.sa_chance[| CHAR_SA_SLC] = .2;
+				SV_r.tgtType = ACT_TGT_RANDOM;
+				
+				break;
+		#endregion
+		
+		#region //slimeSummon
+			case EACT_SLIMESUMMON:
+				SV_r.baseName = "Slime Summon";
+				SV_r.desc = "Summon 2 slime allies.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 0.5;
+				SV_r.basePwr *= 0;
+				SV_r.acc = 999;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_dot;
+				SV_r.tgtType = ACT_TGT_SELF;
+				SV_r.tgtEnemy = false;
+				SV_r.effect_start = obj_handler_actEffect_slimeSummon;
+				
+				break;
+		#endregion
+		
+		#region //quake
+			case EACT_QUAKE:
+				SV_r.baseName = "Quake";
+				SV_r.desc = "A powerful, brute force wide range attack.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 5;
+				SV_r.basePwr *= 1;
+				SV_r.acc *= .9;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_MATK;
+				SV_r.defScale = CHAR_VAR_MDEF;
+				SV_r.spark_hit = spr_spark_bash;
+				SV_r.tgtType = ACT_TGT_WIDE;
+				
+				break;
+		#endregion
 			
 		#region //bite
 			case EACT_BITE:
@@ -1002,6 +1122,7 @@ switch(SV_type){
 				SV_r.atkScale = CHAR_VAR_MATK;
 				SV_r.defScale = CHAR_VAR_MDEF;
 				SV_r.spark_hit = spr_spark_slash;
+				SV_r.tgtType = ACT_TGT_WIDE;
 				
 				break;
 		#endregion
@@ -1136,6 +1257,24 @@ switch(SV_type){
 				SV_r.sa_inflict[| CHAR_SA_BRN] = 6;
 				SV_r.sa_chance[| CHAR_SA_BRN] = .1;
 				SV_r.tgtType = ACT_TGT_WIDE;
+				
+				break;
+		#endregion
+		
+		#region //analyze
+			case EACT_ANALYZE:
+				SV_r.baseName = "Analyze";
+				SV_r.desc = "Stores movement patterns to reduce target's evasion.";
+				SV_r.enBase *= 0;
+				SV_r.cdBase *= 1;
+				SV_r.basePwr *= 0;
+				SV_r.acc *= 1;
+				SV_r.hitCount = 1;
+				SV_r.hitGap *= 1;
+				SV_r.atkScale = CHAR_VAR_FATK;
+				SV_r.defScale = CHAR_VAR_FDEF;
+				SV_r.spark_hit = spr_spark_dotDn;
+				SV_r.effect_start = obj_handler_actEffect_analyze;
 				
 				break;
 		#endregion

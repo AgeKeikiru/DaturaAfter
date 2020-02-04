@@ -158,12 +158,16 @@ if(scr_exists(_menu,asset_object) && scr_exists(SV_src,asset_object)){
             			_strArr[SV_i] = "SINGLE"
             			
             			break;
+            			
             		case ACT_TGT_WIDE:
             			_strArr[SV_i] = "WIDE"
             			
             			break;
+            			
             		case ACT_TGT_RANDOM:
             			_strArr[SV_i] = "RANDOM"
+            			
+            			break;
             			
             		case ACT_TGT_SELF:
             			_strArr[SV_i] = "SELF"

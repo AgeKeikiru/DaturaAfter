@@ -1,0 +1,190 @@
+{
+	"name": "Investigate Control Center",
+	"client": "AG Venus",
+	"reward": 6000,
+	"opName": "Canary One",
+	"opFor": "???",
+	"esr": "42%",
+	"loc": "Venus Canal",
+	"tgt": "???",
+	"obj": "Report status of control center",
+	"map": "spr_map_vCanal_03",
+	"handler": "obj_handler_mission_vCanal_03",
+	"bgm": "subway",
+	
+	"par_time": [4.5,6],
+	"par_dmg": [40000,20000],
+	"par_expl": [90,50],
+	
+	"loot_gold": [10,20],
+	"loot_rank": [1,4],
+	
+	"dia_brief": [
+		{
+			"name": "Tear",
+			"txt": "This is a high priority request from AG Venus. Venus City is reporting widespread power outages, and all attempts to contact staff at the underground canal have failed.",
+			"scr": "scr_dia_build_vCanal_01_brief_img01"
+		},
+		{
+			"txt": "Surveillance footage shows no visible signs of entry, however the entrance you lot took last time has been destroyed, suggesting that this may be an act of sabotage from one of the workers."
+		},
+		{
+			"txt": "There is far too little information on the situation at present, so your mission is purely to survey the area and report back.",
+			"scr": "scr_dia_build_nLoewi_02_brief_img02"
+		},
+		{
+			"txt": "Additionally, since there is no telling what you could encounter there, AG Venus has once again requested the assistance of Layered as well.",
+			"scr": "scr_dia_build_vCanal_03_brief_img03"
+		},
+		{
+			"txt": "Cooperate with their forces, and navigate the canals with extreme caution - the extent of the structural damage may very well extend beyond just the entrance. Good luck."
+		}
+	],
+	
+	"dia_intro": [
+		{
+			"name": "Tear",
+			"charIn_l": "spr_imo_neutral",
+			"focus_l": false,
+			"txt": "You've reached the control center. This entrance is on the opposite end to the one you've used before, so once you've reached the center you should start looking for familiar pathways to help orient yourselves."
+		},
+		{
+			"name": "Imo'lei",
+			"focus_l": true,
+			"txt": "Right. You said take it slow, but do we know if those knights beat us to the-"
+		},
+		{
+			"name": "???",
+			"focus_switch": true,
+			"txt": "Move it!"
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "Hah?"
+		},
+		{
+			"txt": "Oh, great. Guess that answers my question."
+		},
+		{
+			"name": "???",
+			"charIn_r": "spr_harzer_neutral",
+			"txt": "Oy, ya got ears, yea?"
+		},
+		{
+			"txt": "As a Knight of Layered I'll take your asses to the slammer on grounds of obstructing- ah, hang about."
+		},
+		{
+			"txt": "I getcha, you're the squad of ugly ducklings the guild sent to help, aincha?"
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "Finally clicked, huh?"
+		},
+		{
+			"txt": "Funny, your knight buddy I had to bail out last time didn't think much of me either."
+		},
+		{
+			"name": "???",
+			"focus_switch": true,
+			"txt": "...Heh, ya don't say? Guess I'll see for myself, but if ya really can keep up then we'll get on just peachy."
+		},
+		{
+			"name": "Harzer",
+			"txt": "Harzer Kurtzfelt. Still got half a mind to deck ya, but we can save it 'till we're off the clock, yea? Work before play and all that."
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "Likewise. Mind my business if you mind yours."
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_01": [
+		{
+			"name": "Imo'lei",
+			"charIn_l": "spr_imo_neutral",
+			"txt": "What the hell was that!?"
+		},
+		{
+			"name": "Aile",
+			"charIn_r": "spr_aile_neutral",
+			"txt": "I-I can't find anything like it on record... was it added recently?"
+		},
+		{
+			"name": "Paprika",
+			"charIn_r": "spr_paprika_neutral",
+			"txt": "I dunno Aile, that... doesn't look right..."
+		},
+		{
+			"name": "Harzer",
+			"focus_r": false,
+			"txt": "Oy, break's over! Hell of a lot more where that came from if you haven't noticed!"
+		},
+		{
+			"name": "Imo'lei",
+			"focus_l": true,
+			"txt": "Hmph, hell of a lot of me to go around, too!"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_outro": [
+		{
+			"name": "Imo'lei",
+			"charIn_l": "spr_imo_neutral",
+			"txt": "Tch, there's just no end to these things!"
+		},
+		{
+			"name": "Harzer",
+			"charIn_r": "spr_harzer_neutral",
+			"txt": "You got that right, I'm gettin' the hell outta dodge, I suggest ya do the same."
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "Oh? All that big talk and now you've got your tail between your legs?"
+		},
+		{
+			"name": "Harzer",
+			"focus_switch": true,
+			"txt": "Cut the crap, girlie! This mission's a goddamn wash, and we ALL need to beat it!"
+		},
+		{
+			"name": "Tear",
+			"focus_r": false,
+			"txt": "She's right. The mission was simply to investigate the situation, and we've seen more than enough to report back."
+		},
+		{
+			"name": "Imo'lei",
+			"focus_l": true,
+			"txt": "..."
+		},
+		{
+			"txt": "......"
+		},
+		{
+			"name": "Tear",
+			"focus_l": false,
+			"txt": "Imo we don't have time to-"
+		},
+		{
+			"name": "Imo'lei",
+			"focus_l": true,
+			"txt": "Damnit all! Fine!"
+		},
+		{
+			"name": "Imo'lei",
+			"txt": "Fine."
+		},
+		{
+			"scr": "scr_dia_build_vCanal_03_outro_fade"
+		}
+	]
+}

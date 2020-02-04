@@ -4,7 +4,7 @@
 event_inherited();
 
 name = "Ace";
-desc = "Stylish masters of every fighting discipline. A technical DPS, Aces not only are capable of effectively dealing any type of damage, they thrive and are most dangerous when alternating between Melee, Firearm, and Spell attacks.";
+desc = "Stylish masters of every fighting discipline. Highly technical, Aces not only effectively deal any type of damage, they thrive and are most dangerous when alternating between Melee, Firearm, and Spell attacks.";
 cName = "ACE_" + string(global.cid++);
 
 ms_name = "Weaponmaster";
@@ -20,30 +20,34 @@ ss_rate = 10;
 stat_ht_base = -.55;
 stat_ht_rate = .05;
 
-stat_xcd_base = 30000;
-stat_fl_base = stat_xcd_base * 1.5;
-
 #region //tier 1
 
     var
     _ix = 0,
     _iy = 0;
-
-    grd_skillName[# _ix,_iy] = "M-ATK+";
-    grd_skillDesc[# _ix,_iy] = "Increase base Melee Attack.";
-    grd_skillTooltip[# _ix,_iy] = "M-ATK: +!";
+    
+    //skill macro
+	#macro ACE_SK_MATK 0,0
+    grd_skillName[# ACE_SK_MATK] = "M-ATK+";
+    grd_skillDesc[# ACE_SK_MATK] = "Increase base Melee Attack.";
+    grd_skillTooltip[# ACE_SK_MATK] = "M-ATK: !";
+    grd_skillIcon[# ACE_SK_MATK] = spr_icon_mAtkUp;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "F-ATK+";
-    grd_skillDesc[# _ix,_iy] = "Increase base Firearm Attack.";
-    grd_skillTooltip[# _ix,_iy] = "F-ATK: +!";
+    #macro ACE_SK_FATK 0,1
+	grd_skillName[# ACE_SK_FATK] = "F-ATK+";
+    grd_skillDesc[# ACE_SK_FATK] = "Increase base Firearm Attack.";
+    grd_skillTooltip[# ACE_SK_FATK] = "F-ATK: !";
+    grd_skillIcon[# ACE_SK_FATK] = spr_icon_fAtkUp;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "S-ATK+";
-    grd_skillDesc[# _ix,_iy] = "Increase base Spell Attack.";
-    grd_skillTooltip[# _ix,_iy] = "S-ATK: +!";
+    #macro ACE_SK_SATK 0,2
+	grd_skillName[# ACE_SK_SATK] = "S-ATK+";
+    grd_skillDesc[# ACE_SK_SATK] = "Increase base Spell Attack.";
+    grd_skillTooltip[# ACE_SK_SATK] = "S-ATK: !";
+    grd_skillIcon[# ACE_SK_SATK] = spr_icon_sAtkUp;
 
 #endregion
 
@@ -52,24 +56,30 @@ stat_fl_base = stat_xcd_base * 1.5;
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Swords Dance";
-    grd_skillDesc[# _ix,_iy] = "On switch to <Weaponmaster:M>, briefly boost party ATK.";
-    grd_skillTooltip[# _ix,_iy] = "M/F/S-ATK: !%";
-    grd_skillRate[# _ix,_iy] = .04;
+    #macro ACE_SK_SDANCE 1,0
+	grd_skillName[# ACE_SK_SDANCE] = "Swords Dance";
+    grd_skillDesc[# ACE_SK_SDANCE] = "On switch to <Weaponmaster:M>, briefly boost party ATK.";
+    grd_skillTooltip[# ACE_SK_SDANCE] = "M/F/S-ATK: !%";
+    grd_skillRate[# ACE_SK_SDANCE] = .04;
+    grd_skillIcon[# ACE_SK_SDANCE] = spr_icon_stanceUpAlly;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Stratos";
-    grd_skillDesc[# _ix,_iy] = "With <Weaponmaster:F> active, gain a boost to SPD.";
-    grd_skillTooltip[# _ix,_iy] = "SPD: !%";
-    grd_skillRate[# _ix,_iy] = .2;
+    #macro ACE_SK_STRATOS 1,1
+	grd_skillName[# ACE_SK_STRATOS] = "Stratos";
+    grd_skillDesc[# ACE_SK_STRATOS] = "With <Weaponmaster:F> active, gain a boost to SPD.";
+    grd_skillTooltip[# ACE_SK_STRATOS] = "SPD: !%";
+    grd_skillRate[# ACE_SK_STRATOS] = .2;
+    grd_skillIcon[# ACE_SK_STRATOS] = spr_icon_stanceUp;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Mana Draw";
-    grd_skillDesc[# _ix,_iy] = "With <Weaponmaster:S> active, gain a boost to passive EN recovery.";
-    grd_skillTooltip[# _ix,_iy] = "EN Rec: !%";
-    grd_skillRate[# _ix,_iy] = .2;
+    #macro ACE_SK_MDRAW 1,2
+	grd_skillName[# ACE_SK_MDRAW] = "Mana Draw";
+    grd_skillDesc[# ACE_SK_MDRAW] = "With <Weaponmaster:S> active, gain a boost to passive EN recovery.";
+    grd_skillTooltip[# ACE_SK_MDRAW] = "EN Rec: !%";
+    grd_skillRate[# ACE_SK_MDRAW] = .1;
+    grd_skillIcon[# ACE_SK_MDRAW] = spr_icon_stanceUp;
 
 #endregion
 
@@ -78,23 +88,29 @@ stat_fl_base = stat_xcd_base * 1.5;
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Riposte";
-    grd_skillDesc[# _ix,_iy] = "With <Weaponmaster:Any> active, being attacked has a low chance to automatically trigger an equipped Melee weapon chip.";
-    grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
-    grd_skillRate[# _ix,_iy] = .04;
+    #macro ACE_SK_RIPO 2,0
+	grd_skillName[# ACE_SK_RIPO] = "Riposte";
+    grd_skillDesc[# ACE_SK_RIPO] = "With <Weaponmaster:Any> active, being attacked has a low chance to automatically trigger an equipped Melee weapon chip.";
+    grd_skillTooltip[# ACE_SK_RIPO] = "Proc Rate: !%";
+    grd_skillRate[# ACE_SK_RIPO] = .05;
+    grd_skillIcon[# ACE_SK_RIPO] = spr_icon_stanceUp;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Hair Trigger";
-    grd_skillDesc[# _ix,_iy] = "With <Weaponmaster:Any> active, Firearm weapon chips become [Agile] but suffer a damage/accuracy penalty.";
-    grd_skillTooltip[# _ix,_iy] = "PWR/ACC: !%";
+    #macro ACE_SK_HTRIG 2,1
+	grd_skillName[# ACE_SK_HTRIG] = "Hair Trigger";
+    grd_skillDesc[# ACE_SK_HTRIG] = "With <Weaponmaster:Any> active, Firearm weapon chips become [Agile] but suffer a damage/accuracy penalty.";
+    grd_skillTooltip[# ACE_SK_HTRIG] = "PWR/ACC: !%";
+    grd_skillIcon[# ACE_SK_HTRIG] = spr_icon_stanceUp;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Fireworks";
-    grd_skillDesc[# _ix,_iy] = "With <Weaponmaster:Any> active, Spell weapon chips gain stun chance and briefly increase aggro on hit.";
-    grd_skillTooltip[# _ix,_iy] = "Stun Chance: !%";
-    grd_skillRate[# _ix,_iy] = .06;
+    #macro ACE_SK_FWORK 2,2
+	grd_skillName[# ACE_SK_FWORK] = "Fireworks";
+    grd_skillDesc[# ACE_SK_FWORK] = "With <Weaponmaster:Any> active, Spell weapon chips gain stun chance and briefly increase aggro on hit.";
+    grd_skillTooltip[# ACE_SK_FWORK] = "Stun Chance: !%";
+    grd_skillRate[# ACE_SK_FWORK] = .06;
+    grd_skillIcon[# ACE_SK_FWORK] = spr_icon_stanceUp;
 
 #endregion
 
@@ -103,22 +119,31 @@ stat_fl_base = stat_xcd_base * 1.5;
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Cross Finish";
-    grd_skillDesc[# _ix,_iy] = "Charges while <Weaponmaster:M> is active - Unleash an intense flurry of melee strikes against all enemies at random. Resets cooldowns of other Ace X-Acts on use.";
-    grd_skillTooltip[# _ix,_iy] = "Power: !";
-    grd_skillRate[# _ix,_iy] = 10;
+    #macro ACE_SK_CFINISH 3,0
+	grd_skillName[# ACE_SK_CFINISH] = "Cross Finish";
+    grd_skillDesc[# ACE_SK_CFINISH] = "Charge by switching to <Weaponmaster:M> - Unleash an intense flurry of melee strikes against all enemies at random. Resets cooldowns of other Ace X-Acts on use.";
+    grd_skillTooltip[# ACE_SK_CFINISH] = "Power: !";
+    grd_skillRate[# ACE_SK_CFINISH] = 50;
+    grd_skillIcon[# ACE_SK_CFINISH] = spr_icon_stanceSlashEnemy;
+    grd_skillAct[# ACE_SK_CFINISH] = create(obj_handler_act_ace_cFinish);
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Full Lock";
-    grd_skillDesc[# _ix,_iy] = "Charges while <Weaponmaster:F> is active - Attacks from the user are guaranteed to hit for the rest of the battle. Resets cooldowns of other Ace X-Acts on use.";
-    grd_skillTooltip[# _ix,_iy] = "";
+    #macro ACE_SK_LOCK 3,1
+	grd_skillName[# ACE_SK_LOCK] = "Full Lock";
+    grd_skillDesc[# ACE_SK_LOCK] = "Charge by switching to <Weaponmaster:F> - Attacks from the user are guaranteed to hit for the rest of the mission. Resets cooldowns of other Ace X-Acts on use.";
+    grd_skillTooltip[# ACE_SK_LOCK] = "";
+    grd_skillIcon[# ACE_SK_LOCK] = spr_icon_stanceAimAlly;
+    grd_skillAct[# ACE_SK_LOCK] = create(obj_handler_act_ace_fLock);
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Dead Touch";
-    grd_skillDesc[# _ix,_iy] = "Charges while <Weaponmaster:S> is active - Inflict 3 long lasting random status effects on all enemies. Resets cooldowns of other Ace X-Acts on use.";
-    grd_skillTooltip[# _ix,_iy] = "Duration: !";
-    grd_skillRate[# _ix,_iy] = 10;
+    #macro ACE_SK_DTOUCH 3,2
+	grd_skillName[# ACE_SK_DTOUCH] = "Dead Touch";
+    grd_skillDesc[# ACE_SK_DTOUCH] = "Charge by switching to <Weaponmaster:S> - Inflict 2 long lasting random debuffs on all enemies. Resets cooldowns of other Ace X-Acts on use.";
+    grd_skillTooltip[# ACE_SK_DTOUCH] = "Duration: !sec";
+    grd_skillRate[# ACE_SK_DTOUCH] = 20;
+    grd_skillIcon[# ACE_SK_DTOUCH] = spr_icon_stanceDebuffEnemy;
+    grd_skillAct[# ACE_SK_DTOUCH] = create(obj_handler_act_ace_dTouch);
 
 #endregion

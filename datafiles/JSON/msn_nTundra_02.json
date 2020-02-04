@@ -1,0 +1,153 @@
+{
+	"name": "Destroy Prototype Equipment",
+	"client": "Leosocial",
+	"reward": 0,
+	"opName": "Repo Man",
+	"opFor": "Xerion",
+	"esr": "62%",
+	"loc": "Naiboros Tundra",
+	"tgt": "Xerion Tester (x1)",
+	"obj": "Eliminate all targets",
+	"map": "spr_map_nLoewi_01",
+	"handler": "obj_handler_mission_nTundra_02",
+	"bgm": "tundra",
+	
+	"par_time": [4.5,6],
+	"par_dmg": [2000,1000],
+	"par_expl": [2,1],
+	
+	"loot_gold": [60,60],
+	"loot_rank": [4,4],
+	
+	"dia_brief": [
+		{
+			"name": "Tear",
+			"txt": "I've received a private transmission from Leosocial Advancements. It would appear they have a request specifically for you lot.",
+			"scr": "scr_dia_build_nTundra_01_brief_img01"
+		},
+		{
+			"name": "System",
+			"txt": "-PLAYING TRANSMISSION-"
+		},
+		{
+			"name": "",
+			"txt": "This is an urgent request. Our reports indicate that Xerion will be conducting a test run of equipment they've built using technology stolen from several Leosocial transports."
+		},
+		{
+			"txt": "Surely you can understand, publicizing news of such a security breach and open hostilities with another company is not in our best interest, so we are forced to privately seek the intervention of a third party."
+		},
+		{
+			"scr": "scr_dia_build_nTundra_02_brief_img02",
+			"txt": "We need you to launch an ambush during the equipment test and destroy whatever tech is on display."
+		},
+		{
+			"txt": "Given your past performance assisting us, we are confident in relying on you again for such a task."
+		},
+		{
+			"txt": "Time is of the essence - please send your response without delay."
+		},
+		{
+			"name": "System",
+			"txt": "-END TRANSMISSION-"
+		},
+		{
+			"name": "Tear",
+			"txt": "Private requests from manufacturers don't come by very often. It's not my choice to make, but I'd consider your options carefully."
+		},
+		{
+			"txt": "Whether you accept or not, I'll be sure to make the proper arrangements."
+		}
+	],
+	
+	"dia_intro": [
+		{
+			"name": "Tear",
+			"txt": "You're almost at the target. To avoid any tracing I'm cutting off your comms. Don't turn them back on until you've fleed the area.",
+			"charIn_l": "spr_imo_neutral",
+			"focus_l": false
+		},
+		{
+			"name": "",
+			"txt": "*click*"
+		},
+		{
+			"name": "Imo'lei",
+			"focus_l": true,
+			"txt": "Well, not like we'll need much guidance from here, I can already see the test site."
+		},
+		{
+			"txt": "Hey! You, with the armor!"
+		},
+		{
+			"name": "Xerion Staff",
+			"focus_l": false,
+			"txt": "What's going on here!? This is a restricted area, you people need to-"
+		},
+		{
+			"name": "Xerion Tester",
+			"txt": "Relax guys. Just take cover, consider this a live fire exercise."
+		},
+		{
+			"txt": "With gear like this, it'd be a waste to just blow up some training dummies anyways."
+		},
+		{
+			"name": "Imo'lei",
+			"focus_l": true,
+			"txt": "Hah? Cocky, aren't you."
+		},
+		{
+			"name": "Aile",
+			"charIn_r": "spr_aile_neutral",
+			"txt": "Oh no, here she goes..."
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "Works for me. Wasn't planning on leaving without handing out at least 1 ass-kicking!"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_outro": [
+		{
+			"name": "Imo'lei",
+			"txt": "Hmph, not so tough after all.",
+			"charIn_l": "spr_imo_neutral",
+			"charIn_r": "spr_aile_neutral",
+			"focus_l": true,
+			"focus_r": false
+		},
+		{
+			"txt": "Looks like the observers all ran off too. We should get outta here before they grab security or something."
+		},
+		{
+			"txt": "Actually, hmm... this is definitely adventuring gear..."
+		},
+		{
+			"txt": "...Bingo! That fancy suit is just a bunch of scrap gear without this class chip, right Aile?"
+		},
+		{
+			"name": "Aile",
+			"focus_switch": true,
+			"txt": "Well, yes, but don't they want us to destroy it?"
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "What's the difference? If we bring it back, we still took it from Xerion, and Leosocial was never gonna see it again either way."
+		},
+		{
+			"txt": "C'mon, we're burning daylight. And if Tear asks, just say we got ripped off by a trader or something."
+		},
+		{
+			"name": "Aile",
+			"focus_switch": true,
+			"txt": "I don't like this..."
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	]
+}

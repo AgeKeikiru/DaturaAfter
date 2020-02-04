@@ -6,12 +6,6 @@ used to keep track of tile-triggered events
 
 event_inherited();
 
-var _key = SOC_FG_STATUS + SOC_BBULLETTIP;
-
-if(!global.map_flags[? _key]){
-	global.map_flags[? _key] = 1;
-}
-
 ds_grid_resize(grd_events,25,3);
 
 var

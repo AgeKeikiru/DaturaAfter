@@ -16,21 +16,21 @@ desc = "Aile only. Unique class chip focused on general buffs with a special sup
 
     grd_skillName[# _ix,_iy] = "EVA+";
     grd_skillDesc[# _ix,_iy] = "Increase Evasion.";
-    grd_skillTooltip[# _ix,_iy] = "EVA: +!";
+    grd_skillTooltip[# _ix,_iy] = "EVA: !";
     grd_skillRate[# _ix,_iy] = stat_fineStatRate;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "ACC+";
     grd_skillDesc[# _ix,_iy] = "Increase Accuracy.";
-    grd_skillTooltip[# _ix,_iy] = "ACC: +!";
+    grd_skillTooltip[# _ix,_iy] = "ACC: !";
     grd_skillRate[# _ix,_iy] = stat_fineStatRate;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "S-DEF+";
     grd_skillDesc[# _ix,_iy] = "Increase Spell Defense.";
-    grd_skillTooltip[# _ix,_iy] = "S-DEF: +!";
+    grd_skillTooltip[# _ix,_iy] = "S-DEF: !";
 
 #endregion
 
@@ -46,15 +46,15 @@ desc = "Aile only. Unique class chip focused on general buffs with a special sup
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Sword Love";
-    grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Swords.";
-    grd_skillTooltip[# _ix,_iy] = "SWD Damage: +!";
+    grd_skillName[# _ix,_iy] = "Hasten HGN/DGR";
+    grd_skillDesc[# _ix,_iy] = "Reduce universal cooldown after using Handguns or Daggers.";
+    grd_skillTooltip[# _ix,_iy] = "CD Reduction: !%";
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "Aile's Teamwork";
     grd_skillDesc[# _ix,_iy] = "When attacking with an ally simultaneously, restore a percentage of each party member's EN.";
     grd_skillTooltip[# _ix,_iy] = "EN Restored: !%";
-    grd_skillRate[# _ix,_iy] = 2;
+    grd_skillRate[# _ix,_iy] = 0.02;
 
 #endregion

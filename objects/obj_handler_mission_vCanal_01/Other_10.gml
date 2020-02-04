@@ -102,16 +102,6 @@ switch cEvent{
         instance_create_depth(0,0,0,obj_handler_dialogue);
         
         break;
-        
-    case EVENT_DND_CLEAR:
-    	global.map_flags[? FG_MP1] += 1;
-    
-    	if(global.map_flags[? FG_MP1] >= 3){
-	    	scr_unlockMission(MSN_NLOEWI_02);
-	    	scr_unlockMission(MSN_VCANAL_02);
-    	}
-    	
-    	break;
     
     default:
         event_inherited();

@@ -90,7 +90,7 @@ file_text_close(SV_f);
 		
 		SV_key = DATA_ACTELE + string(SV_i);
 		var SV_ele = SV_map[? SV_key];
-		scr_trace("loaded lst_inv_acts[" + string(SV_i) + "] ele: " + SV_map[? SV_key]);
+		scr_trace("loaded lst_inv_acts[" + string(SV_i) + "] ele: " + string(SV_map[? SV_key]));
 		
 		var SV_o = scr_data_act_new(SV_type,SV_ele,SV_rare,SV_plus);
 		
@@ -112,7 +112,7 @@ file_text_close(SV_f);
 	
 	while(ds_map_exists(SV_map,SV_key)){
 		var SV_type = SV_map[? SV_key];
-		scr_trace("loaded lst_inv_arms[" + string(SV_i) + "] type: " + SV_map[? SV_key]);
+		scr_trace("loaded lst_inv_arms[" + string(SV_i) + "] type: " + string(SV_map[? SV_key]));
 		
 		SV_key = DATA_ARMRARE + string(SV_i);
 		var SV_rare = SV_map[? SV_key];
@@ -188,29 +188,6 @@ file_text_close(SV_f);
 
 #endregion
 
-#region //controls
-
-	SV_key = DATA_KEYBIND;
-	ds_grid_read(global.grd_controls,SV_map[? SV_key]);
-	scr_trace("loaded keybinds");
-
-#endregion
-
-#region //settings
-
-	var SV_arr = DATA_SETTINGS;
-	
-	for(var SV_i = 0;SV_i < array_length_1d(SV_arr);SV_i++){
-		SV_key = SV_arr[SV_i];
-		
-		if(ds_map_exists(SV_map,SV_key)){
-			variable_global_set(SV_key,SV_map[? SV_key]);
-			scr_trace("loaded " + SV_key + ": " + string(SV_map[? SV_key]));
-		}
-	}
-	
-#endregion
-
 #region //flags
 
 	SV_key = DATA_FLAGS;
@@ -237,67 +214,62 @@ file_text_close(SV_f);
 
 #region //chars
 
-    var
-    SV_arr = [CHAR_IMOLEI,CHAR_AILE,CHAR_PAPRIKA,CHAR_BLAZE,CHAR_ARI,CHAR_JACK];
-    
-    scr_trace("");
-    scr_init_chars();
-    
-    for(var SV_i = 0;SV_i < array_length_1d(SV_arr);SV_i++){
-        SV_key = SV_arr[SV_i];
-        
-        if(ds_map_exists(SV_map,SV_key)){
-	        var
-	        SV_cm = scr_data_getMap(global.grd_chars,SV_key),
-	        SV_map2 = ds_map_create(),
-	        SV_lst = ["char_var_cls","char_var_hb","char_var_arm"],
-	        SV_lst2 = [global.lst_inv_classes,global.lst_inv_acts,global.lst_inv_arms];
-	        
-	        for(var SV_i2 = 0;SV_i2 < array_length_1d(SV_lst);SV_i2++){
-	        	var
-	        	SV_i3 = 0,
-	        	SV_key2 = SV_lst[SV_i2] + string(SV_i3);
-	        	
-	        	ds_map_clear(SV_map2);
-	        	ds_map_read(SV_map2,SV_map[? SV_key]);
-	        	
-	        	while(ds_map_exists(SV_cm,SV_key2)){
-		        	if(ds_map_exists(SV_map2,SV_key2)){
-		        	    if(is_real(SV_map2[? SV_key2])){
-		        	        SV_cm[? SV_key2] = ds_list_find_value(SV_lst2[SV_i2],SV_map2[? SV_key2]);
-		        	    }else{
-		        	        var SV_o = asset_get_index(SV_map2[? SV_key2]);
-		        	        scr_trace(SV_map2[? SV_key2]);
-		        	        scr_trace(object_get_name(SV_o));
-		        	        
-	                        for(var SV_ci = 0;ds_map_exists(SV_cm,"char_var_cls" + string(SV_ci));SV_ci++){
-	                            var SV_c = SV_cm[? "char_var_cls" + string(SV_ci)];
-	                            
-	                            if(scr_exists(SV_c,asset_object)){
-	                                for(var SV_x = 0;SV_x < ds_grid_width(SV_c.grd_skillAct);SV_x++){
-	                                    for(var SV_y = 0;SV_y < ds_grid_height(SV_c.grd_skillAct);SV_y++){
-	                                        var SV_o2 = SV_c.grd_skillAct[# SV_x,SV_y];
-	                                        
-	                                        if(scr_exists(SV_o2,asset_object) && SV_o2.object_index == SV_o){
-	                                            SV_cm[? SV_key2] = SV_o2;
-	                                            scr_trace("HIT");
-	                                        }
+    for(var _char = 0;_char < en_chars.slime;_char++){
+    	var _cm = global.grd_chars[# 1,_char]; //_cm: char map
+    	
+    	if(_cm != noone){
+	    	for(var _i = en_charVar.clsU;_i >= en_charVar.hb0;_i--){
+	    		var _inv = global.lst_inv_acts;
+	    		
+	    		if(_i >= en_charVar.arm0){
+	    			_inv = global.lst_inv_arms;
+	    		}
+	    		
+	    		if(_i >= en_charVar.cls0){
+	    			_inv = global.lst_inv_classes;
+	    		}
+	    		
+	    		SV_key = _cm[? en_charVar.charID] + string(_i);
+	    		
+	    		if(ds_map_exists(SV_map,SV_key)){
+	    			var _pos = SV_map[? SV_key];
+	    			
+	    			scr_trace(string(_pos));
+	    			
+	    			if(is_real(_pos)){
+	        	        _cm[? _i] = _inv[| _pos];
+	        	    }else{
+	        	        var _o = asset_get_index(_pos);
+	        	        scr_trace(_pos);
+	        	        scr_trace(object_get_name(_o));
+	        	        
+	                    for(var _ci = en_charVar.cls0;_ci <= en_charVar.clsU;_ci++){ //_ci: class index
+	                        var _c = _cm[? _ci]; //_c: class
+	                        
+	                        if(scr_exists(_c)){
+	                            for(var SV_x = 0;SV_x < ds_grid_width(_c.grd_skillAct);SV_x++){
+	                                for(var SV_y = 0;SV_y < ds_grid_height(_c.grd_skillAct);SV_y++){
+	                                    var SV_o2 = _c.grd_skillAct[# SV_x,SV_y];
+	                                    
+	                                    if(scr_exists(SV_o2) && SV_o2.object_index == _o){
+	                                        _cm[? _i] = SV_o2;
+	                                        scr_trace("HIT");
 	                                    }
 	                                }
 	                            }
-		        	        }
-		        	    }
-		        	    
-		        	    scr_trace("subloaded " + SV_key2 + ": " + SV_cm[? SV_key2].name);
-		        	}
-		        	
-		        	SV_key2 = SV_lst[SV_i2] + string(++SV_i3);
-	        	}
-	        }
-        }
-        
-        scr_trace("loaded " + SV_key);
-        scr_trace("");
+	                        }
+	        	        }
+	        	    }
+	    		}else{
+	    			_cm[? _i] = noone;
+	    		}
+	    		
+	    		scr_trace("loaded " + SV_key);
+	    		scr_trace("");
+	    	}
+    	}
+    	
+    	scr_trace("");
     }
 
 #endregion
@@ -325,7 +297,16 @@ file_text_close(SV_f);
 
 #endregion
 
+with obj_dungeon_battleMember{
+	allyParty = global.grd_party_player;
+	enemyParty = global.grd_party_enemy;
+}
+
+scr_loadSetting();
+
 scr_menuUI_clearPsElements();
 scr_menu_nextMenu();
+
+ds_map_destroy(SV_map);
 
 scr_writeLog();

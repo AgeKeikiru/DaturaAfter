@@ -27,5 +27,9 @@ rndTxt_ft = ft_menuSub;
 	suni_silhouette_grad = shader_get_uniform(shd_silhouette,"gradient");
 	suni_silhouette_bounds = shader_get_uniform(shd_silhouette,"v2_bounds");
 	suni_silhouette_boundMod = shader_get_uniform(shd_silhouette,"boundMod");
+	
+	suni_glitch_region = shader_get_uniform(shd_glitch, "region");
+	suni_glitch_uvs = shader_get_uniform(shd_glitch, "uvs");
+	suni_glitch_texel = shader_get_uniform(shd_glitch, "texel");
 
 #endregion

@@ -90,6 +90,8 @@ switch cEvent{
         break;
         
     case EVENT_DND_CLEAR:
+    	event_inherited();
+    	
     	ds_stack_push(global.stk_menuAlert,scr_unlockSim_tunnels);
     	
     	break;

@@ -123,6 +123,31 @@ switch(cEvent){
 								break;
 						#endregion
 						
+						#region //npc_newtype
+							case CHAR_NPC_NEWTYPE:
+								var _i = 0;
+								
+								act[_i] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(WTAG_TYPE_HGN,"",0,0);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(WTAG_TYPE_ASC_BRS,CHAR_VAR_ELE_ELC,0,0);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_GUARDSTIM);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(WTAG_TYPE_SSC_HEAL,"",0,0);
+								act[_i++].src = id;
+								
+								break;
+						#endregion
+						
 						#region //paraslime
 							case CHAR_PARASLIME:
 								act[0] = scr_data_act_new(EACT_TACKLE);
@@ -137,16 +162,82 @@ switch(cEvent){
 								break;
 						#endregion
 						
+						#region //flameslime
+							case CHAR_FLAMESLIME:
+								var _i = 0;
+								
+								act[_i] = scr_data_act_new(EACT_TACKLE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_TACKLE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_FLAMESWEEP);
+								act[_i++].src = id;
+								
+								break;
+						#endregion
+						
 						#region //froslime
 							case CHAR_FROSLIME:
-								act[0] = scr_data_act_new(EACT_TACKLE);
-								act[0].src = id;
+								var _i = 0;
 								
-								act[1] = scr_data_act_new(EACT_TACKLE);
-								act[1].src = id;
+								act[_i] = scr_data_act_new(EACT_TACKLE);
+								act[_i++].src = id;
 								
-								act[2] = scr_data_act_new(EACT_FROSTACKLE);
-								act[2].src = id;
+								act[_i] = scr_data_act_new(EACT_TACKLE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_FROSTACKLE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_BARRIER);
+								act[_i++].src = id;
+								
+								break;
+						#endregion
+						
+						#region //darkslime
+							case CHAR_DARKSLIME:
+								var _i = 0;
+								
+								act[_i] = scr_data_act_new(EACT_TACKLE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_TACKLE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_ACIDSPRAY);
+								act[_i++].src = id;
+								
+								break;
+						#endregion
+						
+						#region //brightslime
+							case CHAR_BRIGHTSLIME:
+								var _i = 0;
+								
+								act[_i] = scr_data_act_new(EACT_TACKLE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_LIFESTIM);
+								act[_i++].src = id;
+								
+								break;
+						#endregion
+						
+						#region //bigslime
+							case CHAR_BIGSLIME:
+								var _i = 0;
+								
+								act[_i] = scr_data_act_new(EACT_TACKLE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_SLIMESUMMON);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_QUAKE);
+								act[_i++].src = id;
 								
 								break;
 						#endregion
@@ -215,6 +306,14 @@ switch(cEvent){
 								
 								break;
 						#endregion
+						
+						#region //camDrone
+							case CHAR_CAMDRONE:
+								act[0] = scr_data_act_new(EACT_ANALYZE);
+								act[0].src = id;
+								
+								break;
+						#endregion
 							
 						#region //bleeding bullet
 							case CHAR_BLEEDINGBULLET:
@@ -254,6 +353,82 @@ switch(cEvent){
 								break;
 						#endregion
 						
+						#region //glitch
+							case CHAR_GLITCH:
+								var _i = 0;
+								
+								act[_i] = scr_data_act_new(choose(EACT_TACKLE,EACT_SVULCAN,EACT_FIREBALL));
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(choose(EACT_BARRIER,EACT_ACIDSPRAY,EACT_TOXICPETAL));
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(choose(EACT_BITE,EACT_ANALYZE,EACT_QUAKE));
+								act[_i++].src = id;
+								
+								sprite_index = scr_generateGlitchSpr();
+								
+								break;
+						#endregion
+						
+						#region //gDragon
+							case CHAR_GDRAGON:
+								var _i = 0;
+								
+								act[_i] = scr_data_act_new(EACT_AGILITY);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_AIRBURST);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_ACIDSPRAY);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_RAZORCLAW);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_PETALSNIPE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_TACKLE);
+								act[_i++].src = id;
+								
+								arr_ecd[0] = 2;
+								
+								break;
+						#endregion
+						
+						#region //gDragonGlitch
+							case CHAR_GDRAGONGLITCH:
+								var _i = 0;
+								
+								act[_i] = scr_data_act_new(EACT_QUAKE);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_AIRBURST);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_ACIDSPRAY);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_FLAMESWEEP);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_RAZORCLAW);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_SVULCAN);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_BARRIER);
+								act[_i++].src = id;
+								
+								act[_i] = scr_data_act_new(EACT_PARATACKLE);
+								act[_i++].src = id;
+								
+								break;
+						#endregion
+						
 						default:
 							act[0] = scr_data_act_new(EACT_TACKLE);
 							act[0].src = id;
@@ -267,16 +442,14 @@ switch(cEvent){
 						}
 					}
 				}else{
-					var _key = CHAR_VAR_HB;
-					
 					for(var _i = 0;_i < 8;_i++){
 						with act[_i]{
 							src = noone;
 						}
 						
-						act[_i] = src[? _key + string(_i)];
+						act[_i] = src[? en_charVar.hb0 + _i];
 						
-						if(scr_exists(act[_i],asset_object)){
+						if(scr_exists(act[_i])){
 							act[_i].src = id;
 							act[_i].abort = false;
 						}
@@ -284,10 +457,10 @@ switch(cEvent){
 				}
 				
 				//apply armor
-				for(var _i = 0;_i < 2;_i++){
-					var _arm = src[? "char_var_arm" + string(_i)];
+				for(var _i = en_charVar.arm0;_i <= en_charVar.arm1;_i++){
+					var _arm = src[? _i];
 					
-					if(scr_exists(_arm,asset_object)){
+					if(scr_exists(_arm)){
 						_arm.src = id;
 						
 						switch(_arm.type){
@@ -352,25 +525,15 @@ switch(cEvent){
 				//apply classes
 				var _i = 0;
 				
-				repeat(3){
-					class[_i] = src[? "char_var_cls" + string(_i)];
+				for(var _i = 0;_i < 4;_i++){
+					class[_i] = src[? en_charVar.cls0 + _i];
 					
-					if(scr_exists(class[_i],asset_object)){
+					if(scr_exists(class[_i])){
 						class[_i].src = id;
 						scr_cEvent_id(class[_i],EVENT_CLASS_SKILLREFRESH);
 						scr_cEvent_id(class[_i],EVENT_CLASS_BASESTATADD);
 						level += class[_i].level;
 					}
-					
-					_i++;
-				}
-				
-				class[_i] = src[? CHAR_VAR_UCLASS];
-				
-				if(scr_exists(class[_i],asset_object)){
-					class[_i].src = id;
-					scr_cEvent_id(class[_i],EVENT_CLASS_BASESTATADD);
-					level += class[_i].level;
 				}
 				
 				hpMax += round(src[? CHAR_VAR_HP] * .05 * level);
@@ -481,16 +644,20 @@ switch(cEvent){
 				}
 			}
 			
+			ds_map_destroy(_map);
+			
 			break;
 	#endregion
 		
 	#region //battlm_iconDraw
 		case EVENT_BATTLM_ICONDRAW:
 			var
-			_si_scale = 2,
-			_si_gap = 25,
+			_argY = ((ds_list_size(cArgs) > 1) && allyParty == global.grd_party_player) ? cArgs[| 0] : 0,
+			_argScale = ((ds_list_size(cArgs) > 1) && allyParty == global.grd_party_player) ? cArgs[| 1] : 0,
+			_si_scale = (1 + _argScale) * 2,
+			_si_gap = (1 + _argScale) * 25,
 			_si_startX = x + -160,
-			_si_startY = y + (allyParty == global.grd_party_player ? -120 : 0),
+			_si_startY = y + ((allyParty == global.grd_party_player) ? -140 : 0) + (_argY),
 			_si_maxX = 12;
 			
 			//status icons

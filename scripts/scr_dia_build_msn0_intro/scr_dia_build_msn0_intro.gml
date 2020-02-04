@@ -69,7 +69,7 @@ with obj_handler_dungeon{
     grd_mobPool[# 0,DH_MOB_ID3] = CHAR_PVP_PAPRIKA;
     
     grd_mobPool[# 0,DH_MOB_PMIN] = 0;
-    grd_mobPool[# 0,DH_MOB_PMIN] = 0;
+    grd_mobPool[# 0,DH_MOB_PMAX] = 0;
     
     grd_mobPool[# 0,DH_MOB_LV1] = 0;
     grd_mobPool[# 0,DH_MOB_LV2] = 0;

@@ -1,21 +1,18 @@
 add [Debuff Love] effect to debuffs
-add bestiary
 buff demoBoss
-en cost/cd balance
 implement mission condition icons next to minimap
 make demoboss unlock when no other missions are available
-add "control party lead only" option
 adjust tutorial to show one step at a time
 
+add mina unlock social
+lock later classes behind mission phases
+add mission handler flag for switchOK
 add burn secondary effect
-add silence effect
 nerf imo base f-atk
 add en recover stat to acts
-add item usage
-new missions
-make menu controls reflect custom keybinds
 add options menu to title screen
-make a seperate save file for settings
+show stat change preview for class equip
+fix sling permanent ailment bug
 
 investigate crash after idling on mission clear screen (noticed on tree mission)
 
@@ -24,70 +21,44 @@ fixed(?) bugs:
 	fixed crash from wiping during simulator
 	fixed fail dia not activating
 	Fire Support no longer activates class skills
+	silence status now works
 		
 fixed bugs:
+	have shield effects and bloodthirst destroyed on battle end
 	fix newgame-market crash
 	fix class acts being replaced with ??? on load
 	investigate crash after post mission save (noticed in demoBoss)
 		apparently always crashes after clearing demoBoss a 2nd time, suspected to be tied to heldGold overflow
 
 mission idea
-	aptitude test proctor
-		"when no appropriate missions are available for new adventurers, a standardized aptitude test is conducted"
-		"escort adventurer to goal and prevent them from getting overwhelmed"
-		simple mission, get to the end of a linear path
+	
+	remove foreign slime (nTundra_03)
+		poison slime type out of its element, determine and eliminate source
+		boss: corrosion wolfeant
 		
-	Investigate Control Center (canal)
-		"the town is reporting power outage issues and attempts to contact control center staff have all failed"
-		"surveilance shows no visible entry, but the entrance you normally take has been blocked due to damage, suggesting an attack from within"
-		introduce glitch enemies, NPC is Harzer
-		group retreats at end of mission
-		
-	Investigate Aberration Sighting (woods)
-		"creatues similar to the glitches, now referred to as GDEs (Garbage Data Entities) have appeared"
-		mission is interrupted by Blaze's team when a massive GDE appears
-		Blaze's team replaces party for boss fight
-		
-	Retake Control Center (canal)
+	Retake Control Center (vCanal_04)
 		"now that we know how to stop GDEs from spawning, we can eliminate the infestation in the Control Center"
-		new missions in the area will not appear until this mission is completed
 		
-	Diversionary Attack (desert)
-		"launch an attack on a Leosocial Research Lab to draw out their defensive forces"
-		reward based on enemies defeated in alloted time
-		unique enemy effect: camera drone - if it lands an attack on the party the mission ends early
-		
-	Destroy Prototype Equipment (tundra)
-		"Xerion will be testing equipment made using tech stolen from Leosocial, interrupt the test and destroy the equipment"
-		enemies are Newtypes
-		reward: class chip [Newtype(D)]: a damaged newtype chip that only has tier 1-2 skills
-		
-	Rout Incursion (lowee)
+	Rout Incursion (cLoewi_02)
 		"monsters have been summoned in lowee's financial district around a specific building"
 		"the area is not well equipped to deal with monsters from the inside, the workers are in danger"
 		target: 4+2 enemies
-		during target battles the objective meter displays hostage HP, decreases by 1 whenever a party member is hit
+		during target battles the objective meter displays hostage HP, decreases by 1 whenever an enemy attack misses
 		
-	Destroy Warp Points (lowee)
+	Destroy Warp Points (cLoewi_03)
 		"during the chaos of Rout Incursion warp points were placed in the building to continue spawning monsters"
 		"beware of traps to slow you down"
 		same map as Rout Incursion
 		introduce damage floors
 		9 warps
 		
-	Assist Layered Forces (desert)
+	Assist Layered Forces (zDesert_02)
 		"Layered has found the location of the sorcerer that attacked the Control Center and Financial District"
 		"weaken the defenses around the stronghold to allow Layered forces to breach the entrance"
 		destroy a certain number of enemies to complete the mission
-		introduce mana charged terrain effect
-		
-	Eliminate Infestation (lowee)
-		"a control rod in one of lowee's mana reactors has malfunctioned, and slime is being generated at an alarming rate"
-		"eliminate the slimes so workers can repair the control rod, but avoid damaging the facility"
 		mana charged
-		objective meter shows facility HP, decreases by 1 when a party member attack misses
 		
-	Layered Training Exercise (tundra)
+	Layered Training Exercise (nTundra_04)
 		"a group of Layered squires are on a training patrol, ambush them to test their abilities"
 		battle starts immediately
 		5 layered theme enemies (gun/shield/mage + gun,mage)
@@ -114,6 +85,8 @@ class idea:
 		s-atk+ skill
 		heal+ skill
 		make sub-class friendly
+	Ace
+		class focused on using all 3 dmaage types
 
 R6 Weapons:
 	AC2-MNLT
@@ -165,34 +138,22 @@ unlocking characters
 	Blaze/Witchy/Altai:
 		join after clearing invitational
 	Seethe/Levia:
-		Levia will join temporarily if encountered during a dungeon, return her to Seethe in that dungeon to complete the first part
+		Levia will join temporarily if encountered during a sim run, return her to Seethe in that dungeon to complete the first part
 		After part 1 and having Ari in your party, Seethe will be available in social area
 		Complete Seethe's quest chain and both will join
 	Mina:
-		
+		Available in social area if <Aptitude Test Proctor> is completed
+		Joins immediately
 	Jack:
-		Trade with her 10 times at the trader to unlock her quest chain, complete the chain and she will join
+		Available in social area once Main Phase 3 is completed
+		Complete Jack's quest chain and she'll join
 	Harzer:
 		Will encounter during invitational preliminary
 		If helped, joins temporarily to bring her to her team, and joins after defeating her team in invitational
 		If fought, her team does not get into invitational and does not join
 	Ari:
-		Available in social area after unlocking Factory zone
+		Available in social area after unlocking Underground sim zone
 		Complete Ari's quest chain and she'll join
-		
-request missions
-	Ari's Final Exam
-		Zone: Factory
-		Depth: 300m
-		Boss: Ari
-		Party Reqs: Aile only
-	Scavenger Hunt: Forest I
-	Scavenger Hunt: Forest II
-	Scavenger Hunt: Factory I
-	Scavenger Hunt: Factory II
-	Scavenger Hunt: Tundra I
-	Scavenger Hunt: Tundra II
-	Scavenger Hunt: Tundra III
 		
 quests
 	Tear
@@ -202,25 +163,31 @@ quests
 			Se Powder (x3)
 		AC Module Calibration
 			Sell 10 Armor Chips
+		Subclass Authorization
+			Have any class chip at lv30
 	
 	Ari
-		Show Me the Forest Was No Fluke!
-			Clear any exploration or request mission in Factory
-		A Show of Power Unyielding!
-			Clear Factory Exploration on Heavy difficulty or higher with an A rank or higher in Damage
-		A Sibling Rivalry Burning Pink Hot!
-			Clear [Ari's Final Exam]
+		Ari's Test
+			Clear any mission with an A rank or higher in Damage
+			Clear 1 floor in the Simulator
+		Sibling Rivalry(?)
+			Clear [Special Request: Ari Ferrox]
+				Aile only
+				Immediate fight against Ari, who matches Aile's level
 			Reward: Ari joins party
+			
 	Jack
-		Jack of All Trades I
-			Clear [Scavenger Hunt: Forest I]
-			Clear [Scavenger Hunt: Forest II]
-		Jack of All Trades II
-			Clear [Scavenger Hunt: Factory I]
-			Clear [Scavenger Hunt: Factory II]
-		Jack of All Trades III
-			Clear [Scavenger Hunt: Tundra I]
-			Clear [Scavenger Hunt: Tundra II]
-		Jack of All Trades IV
-			Clear [Scavenger Hunt: Tundra III]
+		Jack of All Trades
+			1 of each elemental shard
 			Reward: Jack joins party
+			
+	Eschira
+		Performance Evaluation
+			Clear any mission with an S Rank in Time
+			Clear any mission with an S Rank in Damage
+			Clear any mission with an S Rank in Exploration
+		Fitness Examination
+			Clear [Special Request: Eschira]
+				Large open forest map, darkness
+				Boss: Eschira, who matches party avg level
+			Reward: Escira joins party

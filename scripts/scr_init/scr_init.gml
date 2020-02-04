@@ -59,7 +59,8 @@ global.manualDebug = false;
 	    "grd_party_enemy",
 	    "grd_dMap_terrain",
 	    "grd_dMap_visible",
-	    "grd_controls"
+	    "grd_controls",
+	    "grd_newFormation"
 	];
 	
 	for(var _i = 0;_i < array_length_1d(_arr);_i++){
@@ -75,7 +76,6 @@ global.manualDebug = false;
 	    "lst_missionIndex",
 	    "lst_missionLoot_table",
 	    "lst_missionLoot_queue",
-	    "lst_newFormation",
 	    "lst_inv_acts",
 	    "lst_inv_arms",
 	    "lst_inv_classes",
@@ -108,7 +108,10 @@ global.manualDebug = false;
 	//mission phases
 	global.map_flags[? FG_MSNCLEARS] = 0;
 	global.map_flags[? FG_MSNPHASE] = 0;
-	global.map_flags[? FG_MP1] = 0;
+	
+	for(var _i = 0;_i <= 5;_i++){
+		global.map_flags[? FG_MP + string(_i)] = 0;
+	}
 	
 	//character unlock status
 	global.map_flags[? CHAR_IMOLEI] = true;
@@ -169,6 +172,7 @@ global.manualDebug = false;
 	global.dMap_yPosTgt = global.dMap_yPos;
 	
 	global.missionCurr = "";
+	global.missionJson = -1;
 	global.simFloor = 0;
 	global.simArea = 0;
 	
@@ -235,10 +239,10 @@ global.manualDebug = false;
 	global.grd_controls[# en_ic_key.partyShift,2] = "PARTY:SHIFT";
 	global.grd_controls[# en_ic_key.partyShift,3] = "Switch to Shift slots on act bar. (Can overlap with MENU controls)";
 	
-	global.grd_controls[# en_ic_key.partyItem,0] = vk_space;
-	//global.grd_controls[# en_ic_key.partyItem,1] = vk_up;
-	global.grd_controls[# en_ic_key.partyItem,2] = "PARTY:ITEM";
-	global.grd_controls[# en_ic_key.partyItem,3] = "Select items in battle. (Can overlap with MENU controls)";
+	global.grd_controls[# en_ic_key.partySwap,0] = vk_space;
+	//global.grd_controls[# en_ic_key.partySwap,1] = vk_space;
+	global.grd_controls[# en_ic_key.partySwap,2] = "PARTY:SWAP";
+	global.grd_controls[# en_ic_key.partySwap,3] = "Switch Vanguard/Reserve members. (Can overlap with MENU controls)";
 	
 	global.grd_controls[# en_ic_key.menuAccept,0] = ord("Z");
 	//global.grd_controls[# en_ic_key.menuAccept,1] = vk_up;
@@ -268,6 +272,7 @@ global.manualDebug = false;
 	global.sfc_temp = surface_create(1,1);
 	global.sfc_map = noone;
 	global.sfc_minimap = noone;
+	global.sfc_glitch = noone;
 	global.buff_temp = buffer_create(1,buffer_fixed,1);
 	
 	global.stk_menu = ds_stack_create();
@@ -343,7 +348,9 @@ scr_menuUI_clearPsElements();
 
 //testing
 if(DEBUG){
-	global.set_volBgm = 0;
+	//global.set_volBgm = 0;
 	global.heldGold = GCAP;
 	global.map_flags[? FG_FREEPLAY] = true;
 }
+
+scr_loadSetting();

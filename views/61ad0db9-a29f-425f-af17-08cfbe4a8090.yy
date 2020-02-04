@@ -12,7 +12,8 @@
         "83e87953-ef6f-44fa-89f1-6c3ec743903d",
         "65a5eacd-7561-4fe3-bbe2-9b9090a12a3c",
         "b193ac4e-a5e3-48a0-8936-e7c8bc5b8912",
-        "eb264af2-576e-40a1-a695-9f83bb436a4b"
+        "eb264af2-576e-40a1-a695-9f83bb436a4b",
+        "a0be085f-e0fd-445e-8b36-3b3364598ba8"
     ],
     "filterType": "GMSprite",
     "folderName": "bg",

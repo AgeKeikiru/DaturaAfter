@@ -20,9 +20,10 @@ with SV_m{
 		
 		if((SV_mission[? MSN_VAR_STATUS] == 1 || global.map_flags[? FG_FREEPLAY] || DEBUG) && ds_list_find_index(SV_lst,SV_mission[? MSN_VAR_ID]) == -1){
 			ds_list_add(global.lst_missionIndex,SV_mission[? MSN_VAR_ID]);
-		
+			
 			grd_txt[# 0,SV_i] = SV_mission[? MSN_VAR_NAME];
 			grd_desc[# 0,SV_i] = "Client: " + SV_mission[? MSN_VAR_CLIENT] + "\nReward: " + string(SV_mission[? MSN_VAR_REWARD]) + "g";
+			
 			grd_descLabel[# 0,SV_i] = "Commission";
 			grd_scr[# 0,SV_i] = scr_menu_mission_brief;
 	

@@ -6,13 +6,10 @@ event_inherited();
 ds_grid_resize(grd_skills,2,3);
 
 name = "U.Paprika";
-desc = "Paprika only. Unique class chip focused on .";
+desc = "Paprika only. Unique class chip focused on defense with a racial class skill.";
 
 stat_rb_base = 5;
 stat_rb_rate = 1;
-
-stat_wi_base = 5;
-stat_wi_rate = 1;
 
 #region //tier 1
 
@@ -22,20 +19,20 @@ stat_wi_rate = 1;
 
     grd_skillName[# _ix,_iy] = "HP+";
     grd_skillDesc[# _ix,_iy] = "Increase base HP.";
-    grd_skillTooltip[# _ix,_iy] = "HP: +!";
+    grd_skillTooltip[# _ix,_iy] = "HP: !";
     grd_skillRate[# _ix,_iy] = 100;
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "NAT RES+";
     grd_skillDesc[# _ix,_iy] = "Increase base Nature Resistance.";
-    grd_skillTooltip[# _ix,_iy] = "NAT Res: +!";
+    grd_skillTooltip[# _ix,_iy] = "NAT Res: !";
     
     _iy++;
     
     grd_skillName[# _ix,_iy] = "M-DEF+";
     grd_skillDesc[# _ix,_iy] = "Increase base Melee Defense.";
-    grd_skillTooltip[# _ix,_iy] = "M-DEF: +!";
+    grd_skillTooltip[# _ix,_iy] = "M-DEF: !";
 
 #endregion
 
@@ -46,13 +43,12 @@ stat_wi_rate = 1;
 
     grd_skillName[# _ix,_iy] = "Shield Love";
     grd_skillDesc[# _ix,_iy] = "Increase damage cut with Shields.";
-    grd_skillTooltip[# _ix,_iy] = "SHD Defense: +!%";
-    grd_skillRate[# _ix,_iy] = .04;
+    grd_skillTooltip[# _ix,_iy] = "SHD Defense: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Wild Install";
-    grd_skillDesc[# _ix,_iy] = "[X Stance] Charge via taking damage. Briefly boost attack power and speed at the cost of defense and manual targetting.";
+    grd_skillName[# _ix,_iy] = "Wild Install"; //x stance
+    grd_skillDesc[# _ix,_iy] = "Charge via taking damage. Briefly boost attack power and speed at the cost of defense and manual targetting.";
     grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
     
     _iy++;

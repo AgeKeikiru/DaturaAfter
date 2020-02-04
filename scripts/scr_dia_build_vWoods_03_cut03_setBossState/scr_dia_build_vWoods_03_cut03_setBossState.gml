@@ -1,0 +1,1 @@
+obj_handler_dungeon.state_boss = true;

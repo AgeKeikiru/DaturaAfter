@@ -1,5 +1,7 @@
 /// @description Custom events
 
+var _mmap = scr_data_getMap(global.grd_missions,global.missionCurr);
+
 switch cEvent{
     case MHE_INIT:
         layer_background_sprite(global.ly_bg[0],bg_forest);
@@ -126,7 +128,7 @@ switch cEvent{
                 state_event = true;
             }
             
-            scr_dia_build_nLoewi_01_cut02();
+            scr_dia_importJson(_mmap[? MSN_VAR_JSON],"dia_01");
             
             instance_create_depth(0,0,0,obj_handler_dialogue);
         }
@@ -145,7 +147,7 @@ switch cEvent{
             grd_mobPool[# 0,DH_MOB_ID3] = CHAR_PARASLIME;
             
             grd_mobPool[# 0,DH_MOB_PMIN] = 0;
-            grd_mobPool[# 0,DH_MOB_PMIN] = 0;
+            grd_mobPool[# 0,DH_MOB_PMAX] = 0;
             
             grd_mobPool[# 0,DH_MOB_LV1] = 0;
             grd_mobPool[# 0,DH_MOB_LV2] = 8;
@@ -157,7 +159,7 @@ switch cEvent{
             endDia_battle = true;
         }
         
-        scr_dia_build_nLoewi_01_cut03();
+        scr_dia_importJson(_mmap[? MSN_VAR_JSON],"dia_02");
         
         instance_create_depth(0,0,0,obj_handler_dialogue);
     
@@ -171,23 +173,9 @@ switch cEvent{
         break;
         
     case EVENT_DND_CLEAR:
-    	scr_unlockMission(MSN_VWOODS_01);
-    	scr_unlockMission(MSN_VCANAL_01);
-    	scr_unlockMission(MSN_NABTUNDRA_01);
+    	event_inherited();
     	
     	ds_stack_push(global.stk_menuAlert,scr_unlockSim_forest);
-    	
-    	var _arr = [
-			SOC_FG_STATUS + SOC_ARI_JOIN1
-		];
-		
-		for(var _i = 0;_i < array_length_1d(_arr);_i++){
-			var _key = _arr[_i];
-			
-			if(!global.map_flags[? _key]){
-				global.map_flags[? _key] = 1;
-			}
-		}
     	
     	break;
     

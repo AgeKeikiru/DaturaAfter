@@ -40,19 +40,11 @@ if(object_index == obj_handler_menu_parent){
             break;
     }
     
-    if(scr_exists(G_tmp,asset_object) && scr_exists(G_tmp.src,asset_object)){
+    if(scr_exists(G_tmp) && scr_exists(G_tmp.src)){
         with G_tmp.src{
-            var SV_key = "";
-            
-            switch global.buyLst{
-                case global.lst_inv_acts: SV_key = CHAR_VAR_HB; break;
-                case global.lst_inv_arms: SV_key = CHAR_VAR_ARM; break;
-                case global.lst_inv_classes: SV_key = CHAR_VAR_CLS; break;
-            }
-            
-            for(var SV_i = 0;ds_map_exists(src,SV_key + string(SV_i));SV_i++){
-                if(src[? SV_key + string(SV_i)] == G_tmp){
-                    src[? SV_key + string(SV_i)] = noone;
+            for(var SV_i = en_charVar.hb0;SV_i <= en_charVar.clsU;SV_i++){
+                if(src[? SV_i] == G_tmp){
+                    src[? SV_i] = noone;
                 }
             }
         }
@@ -66,47 +58,38 @@ if(object_index == obj_handler_menu_parent){
     SV_menu = ds_stack_top(global.stk_menu),
     SV_memX = global.lst_activePartySlots[| SV_menu.menu_x],
     SV_mem = global.grd_party_player[# SV_memX % 3,SV_memX > 2],
-    SV_y = SV_menu.menu_y;
+    SV_y = SV_menu.menu_y,
+    _o = SV_mem.src[? en_charVar.hb0 + SV_y];
     
     scr_trace(SV_y);
     
-    if(SV_y < 8){
-        //act
-        var SV_act = SV_mem.src[? "char_var_hb" + string(SV_y)];
-        
-        if(instance_exists(SV_act)){
-            SV_act.src = noone;
-        }
-        
-        SV_mem.src[? "char_var_hb" + string(SV_y)] = G_tmp;
-    }else if(SV_y < 10){
-        //armor
-        var SV_arm = SV_mem.src[? "char_var_arm" + string(SV_y + -8)];
-        
-        if(instance_exists(SV_arm)){
-            SV_arm.src = noone;
-        }
-        
-        SV_mem.src[? "char_var_arm" + string(SV_y + -8)] = G_tmp;
-    }else if(SV_y < ds_grid_height(SV_menu.grd_txt)){
-        //class
-        var SV_cls = SV_mem.src[? "char_var_cls" + string(SV_y + -10)];
-        
-        if(instance_exists(SV_cls)){
-            for(var SV_i = 0;SV_i < 8;SV_i++){
-                var SV_act = SV_mem.src[? "char_var_hb" + string(SV_i)];
+    if(instance_exists(_o)){
+        if(SV_y >= 10){
+            //class chip specific handling
+            for(var _i = en_charVar.hb0;_i <= en_charVar.hb7;_i++){
+                var SV_act = SV_mem.src[? _i];
                 
-                if(scr_exists(SV_act,asset_object) && ds_grid_value_exists(SV_cls.grd_skillAct,0,0,ds_grid_width(SV_cls.grd_skillAct) + -1,ds_grid_height(SV_cls.grd_skillAct) + -1,SV_act)){
+                if(scr_exists(SV_act) && ds_grid_value_exists(_o.grd_skillAct,0,0,ds_grid_width(_o.grd_skillAct) + -1,ds_grid_height(_o.grd_skillAct) + -1,SV_act)){
                     SV_act.src = noone;
-                    SV_mem.src[? "char_var_hb" + string(SV_i)] = noone;
+                    SV_mem.src[? _i] = noone;
                 }
             }
-            
-            SV_cls.src = noone;
         }
         
-        SV_mem.src[? "char_var_cls" + string(SV_y + -10)] = G_tmp;
+        _o.src = noone;
     }
+    
+    if(scr_exists(G_tmp)){
+        with G_tmp.src{
+            for(var _i = en_charVar.hb0;_i <= en_charVar.clsU;_i++){
+                if(src[? _i] == G_tmp){
+                    src[? _i] = noone;
+                }
+            }
+        }
+    }
+    
+    SV_mem.src[? en_charVar.hb0 + SV_y] = G_tmp;
     
     scr_playSfx(sfx_equip);
     scr_playSfx(sfx_cutin);

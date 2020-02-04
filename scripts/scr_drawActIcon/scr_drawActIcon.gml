@@ -15,7 +15,8 @@ SV_act = argument3,
 SV_col1 = argument4,
 SV_col2 = argument5,
 SV_a = argument6,
-SV_using = argument7;
+SV_using = argument7,
+_aaBorder = 2;
 
 if(SV_using){
 	var
@@ -36,7 +37,13 @@ if(SV_using){
 draw_set_alpha(1);
 draw_set_color(instance_exists(SV_act) ? SV_col1 : SV_col2);
 
-if(scr_exists(SV_act,asset_object)){
+if(scr_exists(SV_act)){
+    if(SV_act.agileAct || SV_act.tempAgile){
+        draw_set_color(CC_NATGREEN);
+        
+        scr_drawDiamond(SV_x + -_aaBorder,SV_y + -_aaBorder,SV_size + (_aaBorder * 2),SV_size + (_aaBorder * 2),SV_a);
+    }
+    
 	draw_set_color(!SV_act.usable ? c_red : (SV_act.xAct ? CC_STANCE_EVOK : SV_col1));
 }else{
 	draw_set_color(SV_col2);

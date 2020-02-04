@@ -1,5 +1,17 @@
 /// @description Insert description here
 
+if(!ds_list_empty(lst_summonPool)){
+	repeat(summonCount){
+		ds_list_shuffle(lst_summonPool);
+		global.tempStr = lst_summonPool[| 0];
+		
+		with obj_handler_dungeon{
+			ds_list_add(lst_popcorn,global.tempStr);
+			popcornTimer = .5 * room_speed;
+		}
+	}
+}
+
 if(scr_exists(src,asset_object)){
     if(effectTxt != ""){
         scr_createEffectTxt(src,effectTxt);

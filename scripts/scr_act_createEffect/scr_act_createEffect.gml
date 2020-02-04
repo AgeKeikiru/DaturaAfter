@@ -23,7 +23,7 @@ if(object_exists(argument0) && random(1) < SV_chance){
 	
 	var SV_special = ds_list_create();
 	
-	ds_list_copy(SV_special,argument5);
+	ds_list_copy(SV_r.special,argument5);
 	
 	for(var SV_i = ds_list_size(SV_src.lst_effects) + -1;SV_i >= 0;SV_i--){
 		var SV_obj = SV_src.lst_effects[| SV_i];
@@ -45,7 +45,6 @@ if(object_exists(argument0) && random(1) < SV_chance){
 	SV_r.name = name;
 	SV_r.src = SV_src;
 	SV_r.rare = SV_rare;
-	SV_r.special = SV_special;
 	
 	if(SV_stance){
 		if(global.tempBool){
@@ -56,6 +55,8 @@ if(object_exists(argument0) && random(1) < SV_chance){
 			SV_src.stance = SV_r;
 		}
 	}
+	
+	ds_list_destroy(SV_special);
 }
 
 return SV_r;

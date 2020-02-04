@@ -422,6 +422,8 @@ SV_chSize = 6;
 		create(obj_handler_class_sanctum),
 		
 		create(obj_handler_class_draker),
+		create(obj_handler_class_ace),
+		create(obj_handler_class_zodiac),
 		create(obj_handler_class_newtype)
 	);
 

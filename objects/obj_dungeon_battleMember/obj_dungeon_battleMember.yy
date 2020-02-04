@@ -9,9 +9,9 @@
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
-            "eventtype": 0,
-            "enumb": 0,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
             "m_owner": "df520995-f703-419e-8f4d-90f131daf754"
         },
         {
@@ -42,6 +42,16 @@
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 10,
             "eventtype": 7,
+            "m_owner": "df520995-f703-419e-8f4d-90f131daf754"
+        },
+        {
+            "id": "b26dd24e-0852-e643-5a4c-d2470e4378f3",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 12,
             "m_owner": "df520995-f703-419e-8f4d-90f131daf754"
         }
     ],
@@ -397,6 +407,20 @@
             "value": "\"\"",
             "varName": "cEvent",
             "varType": 2
+        },
+        {
+            "id": "d183c1fa-1e7a-4082-aac8-d1c701b5ba23",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "ds_list_create()",
+            "varName": "cArgs",
+            "varType": 4
         },
         {
             "id": "75da6308-5d0a-4f1f-b51c-51ae675747b3",

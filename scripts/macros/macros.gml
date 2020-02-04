@@ -8,6 +8,8 @@
 	#macro GCAP 999999
 	#macro SELLPRICE .5
 	#macro AUTOSCROLLTHRESH (room_speed * .1)
+	#macro ENCOUNTER_RATE irandom_range(45,50)
+	#macro SWAPCD_RATE (room_speed * 5)
 	
 	#macro SFX_SCROLLTICK sfx_tick1
 	#macro SFX_ACCEPTTICK sfx_tick3
@@ -17,6 +19,7 @@
 #region //data handling
 
 	#macro DATA_FNAME working_directory + "SAVg3\\"
+	#macro DATA_FSETTINGS working_directory + "SETTING"
 	#macro DATA_LOG working_directory + "log.txt"
 	
 	#macro DATA_ITEMSET "data_itemSet"
@@ -28,6 +31,7 @@
 	#macro DATA_MSNSTATUS "data_msnStatus"
 	
 	#macro DATA_PARTY "data_party"
+	#macro DATA_CHARMOD 1000 //used to seperate char id from var id in save data
 	
 	#macro DATA_CID "data_cid"
 	
@@ -51,6 +55,7 @@
 	
 	#macro DATA_SETTINGS ["set_txtSpeed", \
 	"set_winTrans", \
+	"set_altDownTgt", \
 	"set_volBgm", \
 	"set_volSfx", \
 	"set_atbSpeed", \
@@ -99,6 +104,7 @@
 		actProperties,
 		explore,
 		combat,
+		reserveParty,
 		missionRank,
 		
 		LENGTH
@@ -142,7 +148,7 @@
 #endregion
 
 #region //char data
-
+	
 	enum en_chars{
 		//players
 		imolei,
@@ -162,7 +168,10 @@
 		//enemies
 		slime,
 		paraslime,
+		flameslime,
 		froslime,
+		darkslime,
+		brightslime,
 		minislime,
 		bigslime,
 		
@@ -172,6 +181,7 @@
 		bleedingBullet,
 		dartLily,
 		wolfeant,
+		cWolf,
 		wolfierce,
 		
 		wanderer,
@@ -186,19 +196,31 @@
 		rnd_drone,
 		gunDrone,
 		firDrone,
+		camDrone,
 		
 		timbercat,
 		arcmine,
 		
 		npc_agent,
 		npc_evoker,
-		
-		greenDragon,
+		npc_newtype,
+		xerion_newt,
 		
 		pvp_imo,
 		pvp_aile,
 		pvp_paprika,
 		pvp_blaze,
+		
+		glitch,
+		
+		gDragon,
+		gDragonGlitch,
+		
+		//temp characters
+		guest_mina,
+		guest_blaze,
+		guest_altai,
+		guest_witchy,
 		
 		LENGTH
 	}
@@ -224,18 +246,21 @@
 	#region //enemies
 	
 		#macro CHAR_SLIME "char_slime"
+		#macro CHAR_PARASLIME "char_paraSlime"
+		#macro CHAR_FLAMESLIME "char_flameSlime"
+		#macro CHAR_FROSLIME "char_froSlime"
+		#macro CHAR_DARKSLIME "char_darkSlime"
+		#macro CHAR_BRIGHTSLIME "char_brightSlime"
+		#macro CHAR_BIGSLIME "char_bigSlime"
+		#macro CHAR_MINISLIME "char_miniSlime"
 		#macro CHAR_CANDYWING "char_candywing"
 		#macro CHAR_WOLFEANT "char_wolfeant"
+		#macro CHAR_CWOLF "char_cWolf"
 		#macro CHAR_WOLFIERCE "char_wolfierce"
 		#macro CHAR_WANDERER "char_wanderer"
 		#macro CHAR_TRAPPED "char_trapped"
 		#macro CHAR_BLEEDINGBULLET "char_bleedingBullet"
 		#macro CHAR_DARTLILY "char_dartLily"
-		#macro CHAR_PARASLIME "char_paraSlime"
-		#macro CHAR_FROSLIME "char_froSlime"
-		#macro CHAR_BIGSLIME "char_bigSlime"
-		#macro CHAR_MINISLIME "char_miniSlime"
-		#macro CHAR_GREENDRAGON "char_greenDragon"
 		
 		#macro CHAR_RND_CONDUIT "char_rnd_conduit"
 		#macro CHAR_LICONDUIT "char_liConduit"
@@ -245,6 +270,7 @@
 		#macro CHAR_RND_DRONE "char_rnd_drone"
 		#macro CHAR_GUNNERDRONE "char_gunnerDrone"
 		#macro CHAR_FLAMERDRONE "char_flamerDrone"
+		#macro CHAR_CAMDRONE "char_camDrone"
 		
 		#macro CHAR_TIMBERCAT "char_timberCat"
 		#macro CHAR_SKULLURKER "char_skullurker" //skeleton spider
@@ -252,10 +278,22 @@
 		#macro CHAR_ARCMINE "char_arcmine"
 		#macro CHAR_NPC_AGENT "char_npc_agent"
 		#macro CHAR_NPC_EVOKER "char_npc_evoker"
+		#macro CHAR_NPC_NEWTYPE "char_npc_newtype"
+		#macro CHAR_XERION_NEWT "char_xerion_newt"
 		#macro CHAR_PVP_IMO "char_pvp_imo"
 		#macro CHAR_PVP_AILE "char_pvp_aile"
 		#macro CHAR_PVP_PAPRIKA "char_pvp_paprika"
 		#macro CHAR_PVP_BLAZE "char_pvp_blaze"
+		
+		#macro CHAR_GLITCH "char_glitch"
+		
+		#macro CHAR_GDRAGON "char_gDragon"
+		#macro CHAR_GDRAGONGLITCH "char_gDragonGlitch"
+		
+		#macro CHAR_GUEST_MINA "char_guest_mina"
+		#macro CHAR_GUEST_BLAZE "char_guest_blaze"
+		#macro CHAR_GUEST_ALTAI "char_guest_altai"
+		#macro CHAR_GUEST_WITCHY "char_guest_witchy"
 		
 	#endregion
 	
@@ -331,6 +369,8 @@
 			psdo_cls_x,
 			psdo_cls_y,
 			
+			guest,
+			
 			LENGTH
 		}
 		
@@ -368,87 +408,90 @@
 		}
 		
 		//general
-		#macro CHAR_VAR_ID "char_var_id"
-		#macro CHAR_VAR_NAMEFULL "char_var_nameFull"
-		#macro CHAR_VAR_NAMEDISP "char_var_nameDisp"
-		#macro CHAR_VAR_DESC "char_var_desc"
-		#macro CHAR_VAR_DESCFULL "char_var_descFull"
-		#macro CHAR_VAR_RACE "char_var_race"
+		#macro CHAR_VAR_ID en_charVar.charID
+		#macro CHAR_VAR_NAMEFULL en_charVar.nameFull
+		#macro CHAR_VAR_NAMEDISP en_charVar.nameDisp
+		#macro CHAR_VAR_DESC en_charVar.desc
+		#macro CHAR_VAR_DESCFULL en_charVar.descFull
+		#macro CHAR_VAR_RACE en_charVar.race
 		
 		//stats
-		#macro CHAR_VAR_LEVEL "char_var_level"
-		#macro CHAR_VAR_HP "char_var_hp"
-		#macro CHAR_VAR_EN "char_var_en"
-		#macro CHAR_VAR_MATK "char_var_mAtk"
-		#macro CHAR_VAR_MDEF "char_var_mDef"
-		#macro CHAR_VAR_FATK "char_var_fAtk"
-		#macro CHAR_VAR_FDEF "char_var_fDef"
-		#macro CHAR_VAR_SATK "char_var_sAtk"
-		#macro CHAR_VAR_SDEF "char_var_sDef"
-		#macro CHAR_VAR_ACC	"char_var_acc"
-		#macro CHAR_VAR_EVA "char_var_eva"
-		#macro CHAR_VAR_SPD "char_var_spd"
-		#macro CHAR_VAR_MISC "char_var_misc" //miscellaneous stat, the luck stat
+		#macro CHAR_VAR_LEVEL en_charVar.level
+		#macro CHAR_VAR_HP en_charVar.hp
+		#macro CHAR_VAR_EN en_charVar.en
+		#macro CHAR_VAR_MATK en_charVar.mAtk
+		#macro CHAR_VAR_MDEF en_charVar.mDef
+		#macro CHAR_VAR_FATK en_charVar.fAtk
+		#macro CHAR_VAR_FDEF en_charVar.fDef
+		#macro CHAR_VAR_SATK en_charVar.sAtk
+		#macro CHAR_VAR_SDEF en_charVar.sDef
+		#macro CHAR_VAR_ACC	en_charVar.acc
+		#macro CHAR_VAR_EVA en_charVar.eva
+		#macro CHAR_VAR_SPD en_charVar.spd
+		#macro CHAR_VAR_MISC en_charVar.misc //miscellaneous stat, the luck stat
 		
 		//resistances
-		#macro CHAR_VAR_ELE_FIR "char_var_ele_fir"
-		#macro CHAR_VAR_ELE_ICE "char_var_ele_ice"
-		#macro CHAR_VAR_ELE_NAT "char_var_ele_nat"
-		#macro CHAR_VAR_ELE_ELC "char_var_ele_elc"
-		#macro CHAR_VAR_ELE_DRK "char_var_ele_drk"
-		#macro CHAR_VAR_ELE_LGT "char_var_ele_lgt"
+		#macro CHAR_VAR_ELE_FIR en_charVar.ele_fir
+		#macro CHAR_VAR_ELE_ICE en_charVar.ele_ice
+		#macro CHAR_VAR_ELE_NAT en_charVar.ele_nat
+		#macro CHAR_VAR_ELE_ELC en_charVar.ele_elc
+		#macro CHAR_VAR_ELE_DRK en_charVar.ele_drk
+		#macro CHAR_VAR_ELE_LGT en_charVar.ele_lgt
 		
 		//hotbar
-		#macro CHAR_VAR_HB "char_var_hb"
-		#macro CHAR_VAR_HB0 "char_var_hb0"
-		#macro CHAR_VAR_HB1 "char_var_hb1"
-		#macro CHAR_VAR_HB2 "char_var_hb2"
-		#macro CHAR_VAR_HB3 "char_var_hb3"
-		#macro CHAR_VAR_HB4 "char_var_hb4"
-		#macro CHAR_VAR_HB5 "char_var_hb5"
-		#macro CHAR_VAR_HB6 "char_var_hb6"
-		#macro CHAR_VAR_HB7 "char_var_hb7"
+		#macro CHAR_VAR_HB "char_var_hb" //depreceated
+		#macro CHAR_VAR_HB0 en_charVar.hb0
+		#macro CHAR_VAR_HB1 en_charVar.hb1
+		#macro CHAR_VAR_HB2 en_charVar.hb2
+		#macro CHAR_VAR_HB3 en_charVar.hb3
+		#macro CHAR_VAR_HB4 en_charVar.hb4
+		#macro CHAR_VAR_HB5 en_charVar.hb5
+		#macro CHAR_VAR_HB6 en_charVar.hb6
+		#macro CHAR_VAR_HB7 en_charVar.hb7
 		
 		//armors
-		#macro CHAR_VAR_ARM "char_var_arm"
-		#macro CHAR_VAR_ARM0 "char_var_arm0"
-		#macro CHAR_VAR_ARM1 "char_var_arm1"
+		#macro CHAR_VAR_ARM "char_var_arm" //depreceated
+		#macro CHAR_VAR_ARM0 en_charVar.arm0
+		#macro CHAR_VAR_ARM1 en_charVar.arm1
 		
 		//classes
-		#macro CHAR_VAR_CLS "char_var_cls"
-		#macro CHAR_VAR_CLS0 "char_var_cls0"
-		#macro CHAR_VAR_CLS1 "char_var_cls1"
-		#macro CHAR_VAR_CLS2 "char_var_cls2"
-		#macro CHAR_VAR_UCLASS "char_var_cls3" //unique class
+		#macro CHAR_VAR_CLS "char_var_cls" //depreceated
+		#macro CHAR_VAR_CLS0 en_charVar.cls0
+		#macro CHAR_VAR_CLS1 en_charVar.cls1
+		#macro CHAR_VAR_CLS2 en_charVar.cls2
+		#macro CHAR_VAR_UCLASS en_charVar.clsU //unique class
 		
 		//sprites
-		#macro CHAR_VAR_SPR_BATTLEPORT "char_var_spr_battlePort"
-		#macro CHAR_VAR_SPR_NEUTRAL "char_var_spr_neutral"
+		#macro CHAR_VAR_SPR_BATTLEPORT en_charVar.spr_battlePort
+		#macro CHAR_VAR_SPR_NEUTRAL en_charVar.spr_neutral
 		
 		//act banner drawing offsets
-		#macro CHAR_VAR_ABDO_X "char_var_abdo_x"
-		#macro CHAR_VAR_ABDO_Y "char_var_abdo_y"
+		#macro CHAR_VAR_ABDO_X en_charVar.abdo_x
+		#macro CHAR_VAR_ABDO_Y en_charVar.abdo_y
 		
 		//party screen drawing offsets
-		#macro CHAR_VAR_PSDO_ACT_X "char_var_psdo_act_x"
-		#macro CHAR_VAR_PSDO_ACT_Y "char_var_psdo_act_y"
+		#macro CHAR_VAR_PSDO_ACT_X en_charVar.psdo_act_x
+		#macro CHAR_VAR_PSDO_ACT_Y en_charVar.psdo_act_y
 		
-		#macro CHAR_VAR_PSDO_ARM_X "char_var_psdo_arm_x"
-		#macro CHAR_VAR_PSDO_ARM_Y "char_var_psdo_arm_y"
+		#macro CHAR_VAR_PSDO_ARM_X en_charVar.psdo_arm_x
+		#macro CHAR_VAR_PSDO_ARM_Y en_charVar.psdo_arm_y
 		
-		#macro CHAR_VAR_PSDO_CLS_X "char_var_psdo_cls_x"
-		#macro CHAR_VAR_PSDO_CLS_Y "char_var_psdo_cls_y"
+		#macro CHAR_VAR_PSDO_CLS_X en_charVar.psdo_cls_x
+		#macro CHAR_VAR_PSDO_CLS_Y en_charVar.psdo_cls_y
+		
+		#macro CHAR_VAR_GUEST en_charVar.guest
 		
 	#endregion
 	
 	#region //status ailments
 	
 		#macro CHAR_SA_BRN 0
-		#macro CHAR_SA_SLW 1
-		#macro CHAR_SA_SLC 2
-		#macro CHAR_SA_PAR 3
-		#macro CHAR_SA_PSN 4
-		#macro CHAR_SA_BLD 5
+		#macro CHAR_SA_SLC 1
+		#macro CHAR_SA_BLD 2
+		#macro CHAR_SA_SLW 3
+		#macro CHAR_SA_PAR 4
+		#macro CHAR_SA_PSN 5
+		
 	
 	#endregion
 	
@@ -545,17 +588,25 @@
 		#macro EACT_BITE "eact_bite"
 		#macro EACT_PARATACKLE "eact_paratackle"
 		#macro EACT_FROSTACKLE "eact_frostackle"
+		#macro EACT_ACIDSPRAY "eact_acidSpray"
+		#macro EACT_QUAKE "eact_quake"
 		#macro EACT_PETALSNIPE "eact_petalSnipe"
 		#macro EACT_TOXICPETAL "eact_toxicPetal"
 		#macro EACT_WAVECANNON "eact_waveCannon"
 		#macro EACT_RAZORCLAW "eact_razorClaw"
 		#macro EACT_DETONATE "eact_detonate"
-		#macro EACT_LIFESTIM "eact_lifeStim"
-		#macro EACT_BLASTSTIM "eact_blastStim"
-		#macro EACT_GUARDSTIM "eact_guardStim"
 		#macro EACT_SVULCAN "eact_sVulcan"
 		#macro EACT_FLAMESWEEP "eact_flameSweep"
 		#macro EACT_FIREBALL "eact_fireball"
+		#macro EACT_AIRBURST "eact_airburst"
+		
+		#macro EACT_BARRIER "eact_barrier"
+		#macro EACT_ANALYZE "eact_analyze"
+		#macro EACT_SLIMESUMMON "eact_slimeSummon"
+		#macro EACT_LIFESTIM "eact_lifeStim"
+		#macro EACT_BLASTSTIM "eact_blastStim"
+		#macro EACT_GUARDSTIM "eact_guardStim"
+		#macro EACT_AGILITY "eact_agility"
 	
 	#endregion
 	
@@ -672,22 +723,32 @@
 		#macro MSN_NLOEWI_01 "msn_nLoewi_01"
 		#macro MSN_NLOEWI_02 "msn_nLoewi_02"
 		
+		//central loewi
+		#macro MSN_CLOEWI_01 "msn_cLoewi_01"
+		
 		//venus woods
 		#macro MSN_VWOODS_01 "msn_vWoods_01"
 		#macro MSN_VWOODS_02 "msn_vWoods_02"
+		#macro MSN_VWOODS_03 "msn_vWoods_03"
 		
 		//venus canal
 		#macro MSN_VCANAL_01 "msn_vCanal_01"
 		#macro MSN_VCANAL_02 "msn_vCanal_02"
+		#macro MSN_VCANAL_03 "msn_vCanal_03"
 		
 		//naiboros tundra
 		#macro MSN_NABTUNDRA_01 "msn_nabTundra_01"
+		#macro MSN_NABTUNDRA_02 "msn_nabTundra_02"
+		
+		//zoram desert
+		#macro MSN_ZDESERT_01 "msn_zDesert_01"
 	
 	#endregion
 	
 	#region //mission vars
 	
 		#macro MSN_VAR_ID "msn_var_id"
+		#macro MSN_VAR_JSON "msn_var_json"
 		#macro MSN_VAR_NAME "msn_var_name"
 		#macro MSN_VAR_CLIENT "msn_var_client"
 		#macro MSN_VAR_REWARD "msn_var_reward"
@@ -708,7 +769,6 @@
 		#macro MSN_VAR_OUTRO_DIA "msn_var_outro_dia"
 		#macro MSN_VAR_FAIL_DIA "msn_var_fail_dia"
 		#macro MSN_VAR_HANDLER "msn_var_handler"
-		#macro MSN_VAR_TIMER "msn_var_timer" //time limit
 		#macro MSN_VAR_STATUS "msn_var_status" //0: not yet available, 1: available, 2: completed, 3: incomplete/failed - no longer available
 	
 		#macro MSN_VAR_PAR_TIME_S "msn_var_par_time_s" //time rank, in seconds
@@ -722,6 +782,28 @@
 		#macro MSN_VAR_LOOT_GOLDMAX "msn_var_loot_goldMax"
 		#macro MSN_VAR_LOOT_RANKMIN "msn_var_loot_rankMin"
 		#macro MSN_VAR_LOOT_RANKMAX "msn_var_loot_rankMax"
+		
+		#macro MSN_JSON_NAME "name"
+		#macro MSN_JSON_CLIENT "client"
+		#macro MSN_JSON_REWARD "reward"
+		#macro MSN_JSON_OPNAME "opName"
+		#macro MSN_JSON_OPFOR "opFor"
+		#macro MSN_JSON_ESR "esr"
+		#macro MSN_JSON_LOC "loc"
+		#macro MSN_JSON_TGT "tgt"
+		#macro MSN_JSON_OBJECTIVE "obj"
+		#macro MSN_JSON_MAP "map"
+		#macro MSN_JSON_HANDLER "handler"
+		#macro MSN_JSON_TIMER "timer"
+		#macro MSN_JSON_BGM "bgm"
+		#macro MSN_JSON_PAR_TIME "par_time"
+		#macro MSN_JSON_PAR_DMG "par_dmg"
+		#macro MSN_JSON_PAR_EXPL "par_expl"
+		#macro MSN_JSON_LOOT_GOLD "loot_gold"
+		#macro MSN_JSON_LOOT_RANK "loot_rank"
+		#macro MSN_JSON_DIA_BRIEF "dia_brief"
+		#macro MSN_JSON_DIA_INTRO "dia_intro"
+		#macro MSN_JSON_DIA_OUTRO "dia_outro"
 		
 	#endregion
 	
@@ -795,6 +877,7 @@
 	#macro EVENT_DND_FAIL "event_dnd_fail"
 	
 	#macro EVENT_ACT_USE "event_act_use"
+	#macro EVENT_ACT_START "event_act_start"
 	#macro EVENT_ACT_ABORT "event_act_abort"
 	#macro EVENT_ACT_REFRESHINFO "event_act_refreshInfo"
 	
@@ -872,6 +955,9 @@
 		#macro SOC_SRAZER "soc_sRazer"
 		#macro SOC_MENTOR "soc_mentor"
 		#macro SOC_SKNIGHT "soc_sKnight"
+		#macro SOC_VACE "soc_vAce"
+		#macro SOC_NACE "soc_nAce"
+		#macro SOC_AZOD "soc_aZod"
 		
 		#macro SOC_WANDERERTIP "soc_wandererTip"
 		#macro SOC_BBULLETTIP "soc_bBulletTip"
@@ -962,7 +1048,7 @@
 		party1,
 		party2,
 		party3,
-		partyItem,
+		partySwap,
 		partyShift,
 		
 		menuAccept,
@@ -993,7 +1079,8 @@
 	//mission phases
 	#macro FG_MSNCLEARS "fg_msnClears"
 	#macro FG_MSNPHASE "fg_msnPhase"
-	#macro FG_MP1 "fg_mp1" //intro 3 missions, clear all 3 to progress
+	#macro FG_MP "fg_mp"
+	#macro FG_MP1 "fg_mp1"
 	
 	#macro FG_TUT_QUEST "fg_tut_quest"
 	#macro FG_TUT_FORMATION "fg_tut_formation"

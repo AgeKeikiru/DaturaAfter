@@ -9,4 +9,6 @@ if(CS_AUTOSTANCECHECK){
 	ds_list_add(_lst,grd_skills[# 0,1] * grd_skillRate[# 0,1]);
 	
 	scr_act_createEffect(obj_handler_actEffect_idol_hype,1,src,0,true,_lst);
+	
+	ds_list_destroy(_lst);
 }

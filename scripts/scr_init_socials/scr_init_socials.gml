@@ -6,26 +6,34 @@ var SV_map;
 SV_map = scr_data_social_new(SOC_EEVOKER);
 SV_map[? SOC_VAR_NAME] = "Excited Evoker";
 SV_map[? SOC_VAR_DIA] = scr_dia_build_social_excitedEvoker;
-global.map_flags[? SOC_FG_STATUS + SOC_EEVOKER] = 1;
 
 SV_map = scr_data_social_new(SOC_DCHEF);
 SV_map[? SOC_VAR_NAME] = "Disgruntled Chef";
 SV_map[? SOC_VAR_DIA] = scr_dia_build_social_disgruntledChef;
-global.map_flags[? SOC_FG_STATUS + SOC_DCHEF] = 1;
 
 SV_map = scr_data_social_new(SOC_SRAZER);
 SV_map[? SOC_VAR_NAME] = "Serious Razer";
 SV_map[? SOC_VAR_DIA] = scr_dia_build_social_seriousRazer;
-global.map_flags[? SOC_FG_STATUS + SOC_SRAZER] = 1;
 
 SV_map = scr_data_social_new(SOC_MENTOR);
 SV_map[? SOC_VAR_NAME] = "Mentor Player";
 SV_map[? SOC_VAR_DIA] = scr_dia_build_social_mentorPlayer;
-global.map_flags[? SOC_FG_STATUS + SOC_MENTOR] = 1;
 
 SV_map = scr_data_social_new(SOC_SKNIGHT);
 SV_map[? SOC_VAR_NAME] = "Sulking Knight";
 SV_map[? SOC_VAR_DIA] = scr_dia_build_social_sulkingKnight;
+
+SV_map = scr_data_social_new(SOC_VACE);
+SV_map[? SOC_VAR_NAME] = "Veteran Ace";
+SV_map[? SOC_VAR_DIA] = scr_dia_build_social_vetAce;
+
+SV_map = scr_data_social_new(SOC_NACE);
+SV_map[? SOC_VAR_NAME] = "Novice Ace";
+SV_map[? SOC_VAR_DIA] = scr_dia_build_social_noviceAce;
+
+SV_map = scr_data_social_new(SOC_AZOD);
+SV_map[? SOC_VAR_NAME] = "Annoyed Zodiac";
+SV_map[? SOC_VAR_DIA] = scr_dia_build_social_annoyedZodiac;
 
 SV_map = scr_data_social_new(SOC_WANDERERTIP);
 SV_map[? SOC_VAR_NAME] = "Lethargic Hunter";

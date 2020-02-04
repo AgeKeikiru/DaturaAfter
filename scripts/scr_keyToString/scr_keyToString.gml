@@ -1,4 +1,4 @@
-///@arg key
+/// @arg _key
 
 var _key = argument0;
 
@@ -37,5 +37,5 @@ switch _key{
         return "[DOWN]";
     
     default:
-        return string_lettersdigits(chr(_key));
+        return "[" + string_lettersdigits(chr(_key)) + "]";
 }

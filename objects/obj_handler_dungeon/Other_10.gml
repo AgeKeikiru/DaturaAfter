@@ -35,6 +35,14 @@ switch(cEvent){
 				tgtSlot = -1;
 			}
 			
+			with obj_handler_actEffect_shd{
+				duration = 1;
+			}
+			
+			with obj_handler_actEffect_raze_bLust{
+				duration = 1;
+			}
+			
 			with obj_handler_act{
 				using = false;
 			}
@@ -52,6 +60,14 @@ switch(cEvent){
 			missionComplete = false;
 			missionFailed = true;
 			
+			with obj_handler_mission_parent{
+				if(oneTry){
+					var _map = scr_data_getMap(global.grd_missions,global.missionCurr);
+	        
+	        		_map[? MSN_VAR_STATUS] = 3;
+				}
+			}
+			
 			with obj_dungeon_battleMember{
 				if(allyParty == global.grd_party_enemy){
 					instance_destroy();
@@ -64,6 +80,7 @@ switch(cEvent){
 			
 			with obj_handler_act{
 				abort = true;
+				using = false;
 			}
 			
 			with obj_handler_actEffect{

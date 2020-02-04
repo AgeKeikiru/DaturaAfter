@@ -1,0 +1,147 @@
+{
+	"name": "Aptitude Test Proctor",
+	"client": "AG International",
+	"reward": 5200,
+	"opName": "Raven's Nest",
+	"opFor": "Wildlife",
+	"esr": "85%",
+	"loc": "Venus Woods",
+	"tgt": "N/A",
+	"obj": "Keep examinee alive during test",
+	"map": "spr_map_vWoods_02",
+	"handler": "obj_handler_mission_vWoods_02",
+	"bgm": "forest",
+	
+	"par_time": [4.5,6],
+	"par_dmg": [32000,25000],
+	"par_expl": [90,50],
+	
+	"loot_gold": [10,20],
+	"loot_rank": [0,1],
+	
+	"dia_brief": [
+		{
+			"name": "Tear",
+			"txt": "This mission is a direct request to you from Lainarch's international Adventurer Guild branch, AG-I.",
+			"scr": "scr_dia_build_vWoods_01_brief_img01"
+		},
+		{
+			"txt": "As you know, the Adventurer's Guild must gauge the ability of new adventurers before assigning them further mission opportunities."
+		},
+		{
+			"txt": "Generally, this is done via a low risk assignment in an area close to a guild hall. However, when no such tasks are available, a simple aptitude test will be conducted."
+		},
+		{
+			"txt": "Registered adventurers are approached at random for the opportunity to oversee and report the results of the test, which is where you lot come in."
+		},
+		{
+			"txt": "AG-I will send additional details on the format of the test upon acceptance of this mission."
+		},
+		{
+			"txt": "Do note - the examinee will replace the 3rd member in your party, so prepare accordingly."
+		}
+	],
+	
+	"dia_intro": [
+		{
+			"name": "Imo'lei",
+			"charIn_l": "spr_imo_neutral",
+			"charIn_r": "spr_mina_neutral",
+			"focus_l": true,
+			"focus_r": false,
+			"txt": "Alright, let's get this over with."
+		},
+		{
+			"txt": "The test is simple - head to the area marked on the map, take out the boss there, and you'll be a full fledged adventurer."
+		},
+		{
+			"name": "Novice Idol",
+			"focus_switch": true,
+			"txt": "Okay, fifth time's the charm, I can do this... I can do this!"
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "Fifth...?"
+		},
+		{
+			"txt": "*Ahem* Well, today's your lucky day. With a crew like us watching your back, you'd have to be trying to get yourself killed to fail this time!"
+		},
+		{
+			"name": "Novice Idol",
+			"focus_switch": true,
+			"txt": "Right! I've got your back too, lead the way!"
+		},
+		{
+			"name": "",
+			"spr_l": "noone",
+			"spr_r": "noone",
+			"txt": "Warning: The mission will end in failure if a battle ends while the examinee is KO'd."
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_outro": [
+		{
+			"name": "Imo'lei",
+			"charIn_l": "spr_imo_neutral",
+			"charIn_r": "spr_mina_neutral",
+			"focus_l": true,
+			"focus_r": false,
+			"txt": "Yeah, that went about as expected."
+		},
+		{
+			"txt": "Seriously, how in the hell did you manage to fail this test four times before?"
+		},
+		{
+			"name": "Novice Idol",
+			"focus_switch": true,
+			"txt": "I did it!? I feel like I'm dreaming right now!"
+		},
+		{
+			"txt": "Thank you so much! You were soooo much more helpful than the other proctors!"
+		},
+		{
+			"txt": "They were all saying something like, um, something about \"I'll accompany you as an observer, but only in that capacity\", whatever that means. Some help they were!"
+		},
+		{
+			"name": "Imo'lei",
+			"focus_switch": true,
+			"txt": "Ack-"
+		},
+		{
+			"txt": "A-Ah, don't mention it, glad to help!"
+		},
+		{
+			"txt": "Literally, don't mention anything about us helping you."
+		},
+		{
+			"name": "Novice Idol",
+			"focus_switch": true,
+			"txt": "Oh, sure thing?"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_fail": [
+	    {
+			"name": "Imo'lei",
+			"charIn_l": "spr_imo_neutral",
+			"charIn_r": "spr_mina_neutral",
+			"focus_l": true,
+			"focus_r": false,
+			"charIn_l": "spr_imo_neutral",
+			"txt": "So, giving up just like that, huh?"
+		},
+		{
+			"txt": "You might not be cut out for this sorta thing."
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	]
+}

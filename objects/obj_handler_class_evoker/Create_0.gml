@@ -17,10 +17,10 @@ ss_icon = spr_icon_evaUp;
 ss_toolTip = "EVA: !";
 ss_rate = .5;
 
-stat_sf_penaltyBase = -.15;
-stat_sf_penaltyRate = .02;
-stat_sf_boostBase = 1;
-stat_sf_boostRate = 1;
+stat_sf_penaltyBase = -.2;
+stat_sf_penaltyRate = .01;
+stat_sf_boostBase = 0;
+stat_sf_boostRate = 0.5;
 
 stat_tf_penaltyBase = -.3;
 stat_tf_penaltyRate = .03;

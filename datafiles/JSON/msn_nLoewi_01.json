@@ -1,0 +1,204 @@
+{
+	"name": "Eliminate Invasive Pest",
+	"client": "AG Loewi",
+	"reward": 2000,
+	"opName": "Sitting Duck",
+	"opFor": "Wildlife",
+	"esr": "75%",
+	"loc": "North Loewi",
+	"tgt": "Paraslime (x7)",
+	"obj": "Eliminate all targets",
+	"map": "spr_map_nLoewi_01",
+	"handler": "obj_handler_mission_nLoewi_01",
+	"bgm": "forest",
+	
+	"par_time": [4.5,6],
+	"par_dmg": [40000,20000],
+	"par_expl": [90,50],
+	
+	"loot_gold": [10,20],
+	"loot_rank": [0,0],
+	
+	"dia_brief": [
+		{
+			"name": "Tear",
+			"txt": "Alright you lot, proceed to Northern Loewi's railway hub. A foreign breed of Slime has been reported in the area, likely smuggled in from a neighboring region.",
+			"scr": "scr_dia_build_nLoewi_01_brief_img01"
+		},
+		{
+			"txt": "With mutations to counter any possible natural predators, these augmented Slimes will destroy the ecosystem in a matter of days if left undealt with.",
+			"scr": "scr_dia_build_nLoewi_01_brief_img02"
+		},
+		{
+			"txt": "The objective is simple: eliminate all mutated Slimes. The Adventurer's Guild thinks this is a good way to prove your worth, so try to make a good first impression out there."
+		},
+		{
+			"txt": "They may just be slimes, but anything can happen in the field. This request should pose little difficulty, as long as you keep your guard up.\nGood luck."
+		}
+	],
+	
+	"dia_intro": [
+		{
+			"name": "Imo'lei",
+			"txt": "Looks like this is the place.",
+			"charIn_l": "spr_imo_neutral"
+		},
+		{
+			"txt": "About time too, I was about to fall asleep. Can we get a mission a little closer to home next time?"
+		},
+		{
+			"name": "Tear",
+			"txt": "I'll file a request to have the smugglers send their next batch of invasive species directly to your doorstep. In the meantime, get started on tracking down those slimes.",
+			"focus_l": false
+		},
+		{
+			"txt": "The residue left behind by slimes - especially a foreign species such as this - should be fairly easy to notice. Just follow the trails, they couldn't have gotten far."
+		},
+		{
+			"name": "Aile",
+			"txt": "Um... oh! Is this a trail?",
+			"charIn_r": "spr_aile_neutral"
+		},
+		{
+			"name": "Paprika",
+			"txt": "Aww yeah! We'll get this done lickity-split with your fancy scanners Aile!",
+			"charIn_r": "spr_paprika_neutral"
+		},
+		{
+			"name": "Imo'lei",
+			"txt": "Right, let's get this over with. I gotta hurry up and get some levels before the tournament...",
+			"focus_switch": true
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_01": [
+		{
+			"name": "Imo'lei",
+			"txt": "No doubt about it, that's our little bastard.",
+			"charIn_l": "spr_imo_neutral"
+		},
+		{
+			"name": "Paprika",
+			"txt": "Ha! Get ready to get butt-whooped mister slime!",
+			"charIn_r": "spr_paprika_neutral"
+		},
+		{
+			"name": "Imo'lei",
+			"txt": "Hmph, you just focus on keeping it distracted, chef-girl.",
+			"focus_switch": true
+		},
+		{
+			"txt": "*I'll* be the one turning this thing into mince-meat."
+		},
+		{
+			"name": "Paprika",
+			"txt": "Mince-slime?",
+			"focus_switch": true
+		},
+		{
+			"name": "Imo'lei",
+			"txt": "Mince-slime, whatever, just hurry up and pull already!",
+			"focus_switch": true
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_02": [
+		{
+			"name": "Imo'lei",
+			"txt": "...Huh? Wait a sec, we've pretty much checked all over now right? But we've only found like half of them.",
+			"charIn_l": "spr_imo_neutral",
+			"charIn_r": "spr_aile_neutral",
+			"focus_l": true,
+			"focus_r": false
+		},
+		{
+			"txt": "Aile, you sure you didn't miss anything? It's gonna be a real pain in the ass if some of 'em got away."
+		},
+		{
+			"name": "Aile",
+			"txt": "I'm double-checking now!",
+			"focus_switch": true
+		},
+		{
+			"txt": "Oh... u-um..."
+		},
+		{
+			"name": "Imo'lei",
+			"txt": "Spit it out, we're listening.",
+			"focus_switch": true
+		},
+		{
+			"name": "Aile",
+			"txt": "I-I think I found the rest...",
+			"focus_switch": true
+		},
+		{
+			"name": "Imo'lei",
+			"txt": "...",
+			"focus_switch": true
+		},
+		{
+			"txt": "Tch... ganging up on us now, huh?",
+			"scr": "scr_dia_build_nLoewi_01_cut03_bgm"
+		},
+		{
+			"txt": "Fine, I was starting to get bored!"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	],
+	
+	"dia_outro": [
+		{
+			"name": "Imo'lei",
+			"txt": "Alright, that should be the last of 'em, right?",
+			"charIn_l": "spr_imo_neutral"
+		},
+		{
+			"name": "Tear",
+			"txt": "Mm, indeed. All targets confirmed routed.",
+			"focus_l": false
+		},
+		{
+			"name": "Aile",
+			"txt": "We did it?",
+			"charIn_r": "spr_aile_neutral"
+		},
+		{
+			"name": "Paprika",
+			"txt": "We did it! We diiiiiiiiiid it!",
+			"charIn_r": "spr_paprika_neutral"
+		},
+		{
+			"name": "Imo'lei",
+			"txt": "Relax, would you? That was child's play, I was practically falling asleep over here.",
+			"focus_switch": true
+		},
+		{
+			"name": "Tear",
+			"txt": "She's right - requests will only get more difficult from here on out.",
+			"focus_l": false
+		},
+		{
+			"txt": "But still, for your first mission you all performed quite well. It looks like you'll make for fine adventurers after all."
+		},
+		{
+			"name": "Imo'lei",
+			"txt": "Heh, damn right I will. Let's get outta here.",
+			"focus_l": true
+		},
+		{
+			"txt": "(Just \"quite well\" huh? Hmph...)"
+		},
+		{
+			"scr": "scr_dungeon_endDia"
+		}
+	]
+}
