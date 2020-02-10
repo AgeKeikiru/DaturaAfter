@@ -103,6 +103,13 @@ switch cEvent{
         }
         
         break;
+        
+    case EVENT_DND_CLEAR:
+        event_inherited();
+        
+        scr_unlockSocial(SOC_MINA_JOIN);
+    
+        break;
     
     default:
         event_inherited();

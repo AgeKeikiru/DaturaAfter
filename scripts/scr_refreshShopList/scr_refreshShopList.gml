@@ -411,20 +411,24 @@ SV_chSize = 6;
 #region //classes
 
 	global.cid = ds_list_size(global.lst_inv_classes);
-
+	
+	if(global.map_flags[? FG_MSNPHASE] > 1){
+	    ds_list_add(global.lst_shop_classes,
+    		create(obj_handler_class_agent),
+    		create(obj_handler_class_draker),
+    		create(obj_handler_class_ace),
+    		create(obj_handler_class_zodiac),
+    		create(obj_handler_class_newtype)
+    	);
+	}
+	
 	ds_list_add(global.lst_shop_classes,
 		create(obj_handler_class_evoker),
 		create(obj_handler_class_angel),
 		create(obj_handler_class_chef),
 		create(obj_handler_class_razer),
 		create(obj_handler_class_idol),
-		create(obj_handler_class_agent),
 		create(obj_handler_class_sanctum),
-		
-		create(obj_handler_class_draker),
-		create(obj_handler_class_ace),
-		create(obj_handler_class_zodiac),
-		create(obj_handler_class_newtype)
 	);
 
 #endregion

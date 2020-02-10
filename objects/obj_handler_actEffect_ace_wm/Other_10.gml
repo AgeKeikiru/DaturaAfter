@@ -130,9 +130,7 @@ switch(cEvent){
 					
 					with obj_handler_act_ace_xActParent{
 						if(ds_list_size(special) > 0 && src == G_obj && G_type == special[| 0]){
-                            cdCurr--;
-                        				
-                        	cdCurr = max(cdCurr,0);
+                            cdCurr = max(cdCurr + -1,0);
                         }
 					}
 					

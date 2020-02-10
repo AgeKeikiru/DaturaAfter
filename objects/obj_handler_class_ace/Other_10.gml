@@ -51,20 +51,17 @@ switch(cEvent){
 				_str = grd_skillName[# _x,_y] + " Lv." + string(grd_skills[# _x,_y] + 1) + "\n\n" + grd_skillTooltip[# _x,_y];
 				_act = grd_skillAct[# _x,_y];
 				
-				switch grd_skillName[# _x,_y]{
-    				#region //hair trigger
-    					//"PWR/ACC: !%"
-    					case grd_skillName[# ACE_SK_HTRIG]:
-    						global.tempStr = _str;
+				#region //hair trigger
+    				//"PWR/ACC: !%"
+    				if(grd_skillName[# _x,_y] == grd_skillName[# ACE_SK_HTRIG]){
+    					global.tempStr = _str;
     						
-    						_num[0] = stat_ht_base + (grd_skills[# _x,_y] * stat_ht_rate);
-    						_num[1] = stat_ht_base + ((grd_skills[# _x,_y] + 1) * stat_ht_rate);
-    						_substr = scr_class_generateSkillTTStat(_num[0],_num[1],true,!grd_skills[# _x,_y]);
-    						global.tempStr = string_replace_all(global.tempStr,"!",_substr);
-    					    
-    					    break;
-    				#endregion
-				}
+    					_num[0] = stat_ht_base + (grd_skills[# _x,_y] * stat_ht_rate);
+    					_num[1] = stat_ht_base + ((grd_skills[# _x,_y] + 1) * stat_ht_rate);
+    					_substr = scr_class_generateSkillTTStat(_num[0],_num[1],true,!grd_skills[# _x,_y]);
+    					global.tempStr = string_replace_all(global.tempStr,"!",_substr);
+					}
+    			#endregion
 			}
 			
 			event_inherited();

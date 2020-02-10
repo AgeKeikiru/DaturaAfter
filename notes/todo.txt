@@ -4,15 +4,12 @@ implement mission condition icons next to minimap
 make demoboss unlock when no other missions are available
 adjust tutorial to show one step at a time
 
-add mina unlock social
-lock later classes behind mission phases
 add mission handler flag for switchOK
 add burn secondary effect
 nerf imo base f-atk
 add en recover stat to acts
 add options menu to title screen
 show stat change preview for class equip
-fix sling permanent ailment bug
 
 investigate crash after idling on mission clear screen (noticed on tree mission)
 
@@ -71,22 +68,6 @@ class idea:
 			act that deactivates stance for element burst
 		stances that make future attacks scale against a specific defense stat, or scale with the target's atk stat
 			levelling up increases how many attacks use this property before the stance deactivates
-	Strider
-		explorer type class, has utility skills
-		skill that heals party after battles
-		skill that increases drop rate
-		escape battle skill
-		heal share skill
-	Battery
-		more straightforward s-atk dps
-		[chain cast]: add tempAgile to all spell attacks
-		when a spell attack is "weak" effective, heal user slightly
-		en+ skill
-		s-atk+ skill
-		heal+ skill
-		make sub-class friendly
-	Ace
-		class focused on using all 3 dmaage types
 
 R6 Weapons:
 	AC2-MNLT

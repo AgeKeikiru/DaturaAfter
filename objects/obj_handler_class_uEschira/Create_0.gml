@@ -39,19 +39,19 @@ desc = "Eschira only. Unique class chip focused on powerful and efficient firear
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Dual Wield F";
+    grd_skillName[# _ix,_iy] = "Dual Wield F";//
     grd_skillDesc[# _ix,_iy] = "Double hit count of firearm weapons, at reduced damage.";
     grd_skillTooltip[# _ix,_iy] = "Damage Rate: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Hasten RFL/DGR";
+    grd_skillName[# _ix,_iy] = "Hasten RFL/DGR";//
     grd_skillDesc[# _ix,_iy] = "Reduce universal cooldown after using Rifles or Daggers.";
     grd_skillTooltip[# _ix,_iy] = "CD Reduction: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Weapon Throw M";
+    grd_skillName[# _ix,_iy] = "Weapon Throw M";//
     grd_skillDesc[# _ix,_iy] = "Add a portion of Firearm Attack stat to Melee Attack-based damage.";
     grd_skillTooltip[# _ix,_iy] = "F-ATK Added: !%";
 

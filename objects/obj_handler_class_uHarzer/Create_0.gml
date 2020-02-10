@@ -39,20 +39,20 @@ desc = "Harzer only. Unique class chip focused on hitting fast and hard with a r
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Smug Aura";
+    grd_skillName[# _ix,_iy] = "Smug Aura";//
     grd_skillDesc[# _ix,_iy] = "Prevent aggro from being dropped below a certain level.";
     grd_skillTooltip[# _ix,_iy] = "Max Aggro: !";
     grd_skillRate[# _ix,_iy] = 1;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Adrenaline SPD";
+    grd_skillName[# _ix,_iy] = "Adrenaline SPD";//
     grd_skillDesc[# _ix,_iy] = "Boost Speed while HP is under 30%.";
     grd_skillTooltip[# _ix,_iy] = "SPD: !";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Dual Wield F";
+    grd_skillName[# _ix,_iy] = "Dual Wield F";//
     grd_skillDesc[# _ix,_iy] = "Double hit count of firearm weapons, at reduced damage.";
     grd_skillTooltip[# _ix,_iy] = "Damage Rate: !%";
 

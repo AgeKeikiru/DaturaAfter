@@ -44,7 +44,7 @@ SV_i = scr_dia_newStep();
 global.grd_dia[# DIA_TXT,SV_i] = "As a streamer, I'll be spreading the word of the next big thing to hit Babel XR!";
 
 SV_i = scr_dia_newStep(CHAR_AILE,true);
-global.grd_dia[# DIA_TXT,SV_i] = "Oh, I see, I guess you wont have time to play with us then...";
+global.grd_dia[# DIA_TXT,SV_i] = "Oh, I see, I guess you won't have time to play with us then...";
 CS_SWITCHDIAFOCUS;
 
 SV_i = scr_dia_newStep(CHAR_ARI,false);

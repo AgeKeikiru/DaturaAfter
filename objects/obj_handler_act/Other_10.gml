@@ -20,7 +20,15 @@ switch(cEvent){
 					nonAttack = false;
 					effect_start = noone;
 					spark_hit = type == WTAG_TYPE_PAN ? spr_spark_bash : spr_spark_pierce;
+					
 					ds_list_clear(special);
+					ds_list_clear(sa_inflict);
+					ds_list_clear(sa_chance);
+					
+					repeat(6){
+					    ds_list_add(sa_inflict,0);
+					    ds_list_add(sa_chance,0);
+					}
 					
 					if(scr_exists(src.stance,asset_object) && src.stance.object_index == obj_handler_actEffect_chef_messKit && ds_list_size(src.stance.lst_food) > 0){
 						pwr = (type == WTAG_TYPE_SLG) * 50;
@@ -240,26 +248,36 @@ switch(cEvent){
 					scr_cEvent(EVENT_BATTLE_ATKMOD,src,dc_tgt[| _i],id);
 					
 					if(tgtEnemy){
+						var
+						_val = 0,
+						_str = "";
+						
 						switch(defScale){
 							case CHAR_VAR_MDEF:
-								_dmgBonus += -dc_tgt[| _i].mDef / 100;
-								_defDiff += dc_tgt[| _i].mDef;
-								scr_trace("dmg -mDef: " + string(dc_tgt[| _i].mDef) + "%");
+								_val = dc_tgt[| _i].mDef;
+								_str = "m";
 								
 								break;
 							case CHAR_VAR_FDEF:
-								_dmgBonus += -dc_tgt[| _i].fDef / 100;
-								_defDiff += dc_tgt[| _i].fDef;
-								scr_trace("dmg -fDef: " + string(dc_tgt[| _i].fDef) + "%");
+								_val = dc_tgt[| _i].fDef;
+								_str = "f";
 								
 								break;
 							case CHAR_VAR_SDEF:
-								_dmgBonus += -dc_tgt[| _i].sDef / 100;
-								_defDiff += dc_tgt[| _i].sDef;
-								scr_trace("dmg -sDef: " + string(dc_tgt[| _i].sDef) + "%");
+								_val = dc_tgt[| _i].sDef;
+								_str = "s";
 								
 								break;
+    					}
+    					
+    					if(object_index == obj_handler_act_zodc_orphan){
+						    _val = -abs(_val);
+						    scr_trace("Six Orphans: invert spell resist");
 						}
+						
+						_dmgBonus += -_val / 100;
+						_defDiff += _val;
+						scr_trace(_str + "Def effect: " + string(_val) + "%");
 					}
 					
 					scr_cEvent(EVENT_BATTLE_DEFMOD,src,dc_tgt[| _i],id);

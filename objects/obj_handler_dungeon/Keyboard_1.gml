@@ -9,6 +9,12 @@ if(DEBUG){
 		with(obj_handler_actEffect_idol_hype){
 			charge = 6;
 		}
+		
+		with obj_handler_act{
+		    if(xAct){
+		        cdCurr = 0;
+		    }
+		}
 	}
 }
 

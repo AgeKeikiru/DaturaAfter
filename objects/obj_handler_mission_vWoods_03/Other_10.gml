@@ -169,6 +169,13 @@ switch cEvent{
         }
         
         break;
+        
+    case EVENT_DND_CLEAR:
+        event_inherited();
+        
+        ds_stack_push(global.stk_menuDia,scr_dia_build_home_subclass);
+        
+        break;
     
     default:
         event_inherited();

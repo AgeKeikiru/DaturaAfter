@@ -72,7 +72,8 @@
 		{
     		"name": "???",
     		"focus_l": false,
-    		"txt": "Aya... this is worse than I thought..."
+    		"txt": "Aya... this is worse than I thought...",
+    		"scr": "scr_dia_build_vWoods_03_rivalBgm"
 		},
 		{
     		"name": "Blaze",
@@ -340,7 +341,7 @@
     		"txt": "Ah, quiet you."
 		},
 		{
-    		"txt": "Tch... well she wasn't totally useless, but she could've at least told me where I can get one of those subclasses."
+    		"txt": "Tch... well, she wasn't totally useless, but she could've at least told me where I can get one of those subclasses."
 		},
 		{
     		"name": "Aile",

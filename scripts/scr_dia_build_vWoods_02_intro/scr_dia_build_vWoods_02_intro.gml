@@ -20,7 +20,7 @@ SV_i = scr_dia_newStep();
 global.grd_dia[# DIA_TXT,SV_i] = "Do that, and you'll be registered as an Adventurer in the Guild.";
 
 SV_i = scr_dia_newStep(CHAR_PAPRIKA,true);
-global.grd_dia[# DIA_TXT,SV_i] = "If you fail... well, you wont get registered I guess.";
+global.grd_dia[# DIA_TXT,SV_i] = "If you fail... well, you won't get registered I guess.";
 
 SV_i = scr_dia_newStep(CHAR_IMOLEI,true);
 global.grd_dia[# DIA_TXT,SV_i] = "We're here to make sure you don't get caught off guard, but if you pull something you fight it, got it?";

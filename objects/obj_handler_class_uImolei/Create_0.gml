@@ -38,19 +38,19 @@ desc = "Imo'lei only. Unique class chip focused on melee damage and speed with s
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Dual Wield M";
+    grd_skillName[# _ix,_iy] = "Dual Wield M";//
     grd_skillDesc[# _ix,_iy] = "Double hit count of melee weapons, at reduced damage.";
     grd_skillTooltip[# _ix,_iy] = "Damage Rate: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Sword Love";
+    grd_skillName[# _ix,_iy] = "Sword Love";//
     grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Swords.";
     grd_skillTooltip[# _ix,_iy] = "SWD Damage: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Spell Imbue M";
+    grd_skillName[# _ix,_iy] = "Spell Imbue M";//
     grd_skillDesc[# _ix,_iy] = "Add a portion of Spell Attack stat to Melee Attack-based damage.";
     grd_skillTooltip[# _ix,_iy] = "S-ATK Added: !%";
 

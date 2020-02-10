@@ -20,6 +20,50 @@ rndTxt_tgt = "";
 rndTxt_draw = 0;
 rndTxt_ft = ft_menuSub;
 
+lst_titlePattern = ds_list_create();
+
+enum en_tPattern{
+    x,
+    y,
+    gap,
+    length,
+    width,
+    color,
+    alpha,
+    speed,
+    offset
+}
+
+//fat
+repeat(5){
+    ds_list_add(lst_titlePattern,[
+        random_range(200,800),
+        random_range(0,720),
+        random_range(10,100),
+        random_range(100,700),
+        random_range(50,100),
+        choose(c_gray,c_black,CC_ENBLUE),
+        random_range(0.02,0.2),
+        random_range(0.1,1),
+        random_range(0,1000)
+    ]);
+}
+
+//thin
+repeat(5){
+    ds_list_add(lst_titlePattern,[
+        random_range(0,1280),
+        random_range(0,720),
+        random_range(10,100),
+        random_range(100,700),
+        random_range(2,10),
+        choose(c_gray,c_black,CC_ENBLUE),
+        random_range(0.02,0.2),
+        random_range(0.8,2),
+        random_range(0,1000)
+    ]);
+}
+
 #region //shader uniforms
 
 	suni_silhouette_col = shader_get_uniform(shd_silhouette,"v4_col");

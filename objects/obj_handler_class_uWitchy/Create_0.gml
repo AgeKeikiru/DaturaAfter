@@ -42,7 +42,7 @@ stat_c9_rate = -0.04;
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Smug Aura";
+    grd_skillName[# _ix,_iy] = "Smug Aura";//
     grd_skillDesc[# _ix,_iy] = "Prevent aggro from being dropped below a certain level.";
     grd_skillTooltip[# _ix,_iy] = "Max Aggro: !";
     grd_skillRate[# _ix,_iy] = 1;
@@ -55,7 +55,7 @@ stat_c9_rate = -0.04;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Cloud 9";
+    grd_skillName[# _ix,_iy] = "Cloud 9";//
     grd_skillDesc[# _ix,_iy] = "Immune to status ailments while HP is above a certain value.";
     grd_skillTooltip[# _ix,_iy] = "Threshold: !%";
 

@@ -18,6 +18,11 @@ if(!instance_exists(obj_handler_mission_parent)){
 		case MSN_DEMOBOSS:
 			ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_rivalBattle.ogg"));
 			break;
+			
+		case MSN_VWOODS_03:
+		    ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_boss.ogg"));
+		    ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_rival.ogg"));
+		    break;
 		
 		default:
 			ds_list_add(global.lst_bgmStream,audio_create_stream("BGM/bgm_boss.ogg"));

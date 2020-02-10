@@ -38,20 +38,20 @@ desc = "Jack only. Unique class chip focused on utilizing fire with a special Dr
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Flawless M-ATK";
+    grd_skillName[# _ix,_iy] = "Flawless M-ATK";//
     grd_skillDesc[# _ix,_iy] = "Boost Melee Attack while HP is Above 80%.";
     grd_skillTooltip[# _ix,_iy] = "M-ATK: !";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Adrenaline Drake";
+    grd_skillName[# _ix,_iy] = "Adrenaline Drake";//
     grd_skillDesc[# _ix,_iy] = "<Draco Install> duration increased while HP is below 30%.";
     grd_skillTooltip[# _ix,_iy] = "Duration Boost: !%";
     grd_skillRate[# _ix,_iy] = 0.2;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Burn Imbue";
+    grd_skillName[# _ix,_iy] = "Burn Imbue";//
     grd_skillDesc[# _ix,_iy] = "All weapon attacks have a chance of inflicting Burn.";
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
 

@@ -8,7 +8,7 @@
 	#macro GCAP 999999
 	#macro SELLPRICE .5
 	#macro AUTOSCROLLTHRESH (room_speed * .1)
-	#macro ENCOUNTER_RATE irandom_range(45,50)
+	#macro ENCOUNTER_RATE irandom_range(35,45)
 	#macro SWAPCD_RATE (room_speed * 5)
 	
 	#macro SFX_SCROLLTICK sfx_tick1
@@ -958,12 +958,17 @@
 		#macro SOC_VACE "soc_vAce"
 		#macro SOC_NACE "soc_nAce"
 		#macro SOC_AZOD "soc_aZod"
+		#macro SOC_GLITCHCONCERN1 "soc_glitchConcern1"
+		#macro SOC_GLITCHCONCERN2 "soc_glitchConcern2"
+		#macro SOC_FDRAKE "soc_fDrake"
 		
 		#macro SOC_WANDERERTIP "soc_wandererTip"
 		#macro SOC_BBULLETTIP "soc_bBulletTip"
 		#macro SOC_WOLFEANTTIP "soc_wolfeantTip"
+		#macro SOC_SUBCLASSTIP "soc_subclassTip"
 		
 		#macro SOC_ARI_JOIN1 "soc_ari_join1"
+		#macro SOC_MINA_JOIN "soc_mina_join"
 		
 	#endregion
 	

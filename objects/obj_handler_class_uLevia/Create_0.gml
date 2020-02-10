@@ -42,20 +42,20 @@ stat_soh_rate = -0.06;
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Go For Broke";
+    grd_skillName[# _ix,_iy] = "Go For Broke";//
     grd_skillDesc[# _ix,_iy] = "Reset all cooldowns when HP drops below a certain value.";
     grd_skillTooltip[# _ix,_iy] = "Threshold: !%";
     grd_skillRate[# _ix,_iy] = 0.06;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Vampirism M";
+    grd_skillName[# _ix,_iy] = "Vampirism M";//
     grd_skillDesc[# _ix,_iy] = "Melee attacks have a chance to lifesteal.";
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "EX Hasten DGR";
+    grd_skillName[# _ix,_iy] = "EX Hasten DGR";//
     grd_skillDesc[# _ix,_iy] = "Daggers gain the [Agile] property, at increased EN cost.";
     grd_skillTooltip[# _ix,_iy] = "EN Cost: !%";
 

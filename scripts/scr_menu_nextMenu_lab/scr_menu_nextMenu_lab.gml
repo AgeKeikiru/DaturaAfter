@@ -12,7 +12,7 @@ with SV_m{
 	var SV_i = 0;
 	
 	grd_txt[# 0,SV_i] = "Upgrade Class";
-	grd_desc[# 0,SV_i] = "\"You wont get far without Skills. I can install new ones here.\"";
+	grd_desc[# 0,SV_i] = "\"You won't get far without Skills. I can install new ones here.\"";
 	grd_descLabel[# 0,SV_i] = "CC Module";
 	grd_scr[# 0,SV_i] = scr_menu_lab_class;
 	

@@ -40,19 +40,19 @@ desc = "Mina only. Unique class chip focused on niche stats with ultra-rare skil
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Hasten ALL";
+    grd_skillName[# _ix,_iy] = "Hasten ALL";//
     grd_skillDesc[# _ix,_iy] = "Reduce universal cooldown after using any weapon.";
     grd_skillTooltip[# _ix,_iy] = "CD Reduction: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Dual Wield ALL";
+    grd_skillName[# _ix,_iy] = "Dual Wield ALL";//
     grd_skillDesc[# _ix,_iy] = "Double hit count of all weapons, at reduced damage.";
     grd_skillTooltip[# _ix,_iy] = "Damage Rate: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "True Synergy";
+    grd_skillName[# _ix,_iy] = "True Synergy";//
     grd_skillDesc[# _ix,_iy] = "Add a portion of all Attack stats to all damage.";
     grd_skillTooltip[# _ix,_iy] = "M/F/S-ATK Added: !%";
 

@@ -37,19 +37,19 @@ desc = "Ari only. Unique class chip focused on proficiency in all forms of damag
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Gauntlet Love";
+    grd_skillName[# _ix,_iy] = "Gauntlet Love";//
     grd_skillDesc[# _ix,_iy] = "Increase damage dealt with Gauntlets.";
     grd_skillTooltip[# _ix,_iy] = "GNT Damage: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Hasten RPG/LMG";
+    grd_skillName[# _ix,_iy] = "Hasten RPG/LMG";//
     grd_skillDesc[# _ix,_iy] = "Reduce universal cooldown after using RPGs or LMGs.";
     grd_skillTooltip[# _ix,_iy] = "CD Reduction: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Weapon Bash S";
+    grd_skillName[# _ix,_iy] = "Weapon Bash S";//
     grd_skillDesc[# _ix,_iy] = "Add a portion of Melee Attack stat to Spell Attack-based damage.";
     grd_skillTooltip[# _ix,_iy] = "M-ATK Added: !%";
 

@@ -45,7 +45,7 @@ _map[? en_charVar.hb1] = scr_data_act_new(WTAG_TYPE_SMG,"",2,0);
 _map[? en_charVar.hb2] = scr_data_act_new(WTAG_TYPE_ASC_VRT,CHAR_VAR_ELE_ELC,2,0);
 _map[? en_charVar.hb3] = _cls.grd_skillAct[# 1,2];
 _map[? en_charVar.arm0] = scr_data_armor_new(en_charVar.spd,3,0);
-_map[? en_charVar.arm1] = scr_data_armor_new(en_charVar.misc);
+_map[? en_charVar.arm1] = scr_data_armor_new(en_charVar.misc,0,0);
 _map[? en_charVar.cls0] = _cls;
 
 guest = create(obj_dungeon_battleMember);

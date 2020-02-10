@@ -100,21 +100,24 @@ stat_xcd_rate = -1;
 #region //tier 4
 
     #macro ZODC_SK_ORPHAN 3,0
-	grd_skillName[# ZODC_SK_ORPHAN] = "Six Orphans";//
+	grd_skillName[# ZODC_SK_ORPHAN] = "Six Orphans";
 	grd_skillDesc[# ZODC_SK_ORPHAN] = "Charge via using <Expel> with all 6 elements, one use per mission. A wide, severe spell attack that treats Spell attack resistance as weakness.";
 	grd_skillTooltip[# ZODC_SK_ORPHAN] = "";
 	grd_skillIcon[# ZODC_SK_ORPHAN] = spr_icon_rCross;
+	grd_skillAct[# ZODC_SK_ORPHAN] = create(obj_handler_act_zodc_orphan);
     
     #macro ZODC_SK_RELOAD 3,1
-	grd_skillName[# ZODC_SK_RELOAD] = "Reload Draw";//
+	grd_skillName[# ZODC_SK_RELOAD] = "Reload Draw";
 	grd_skillDesc[# ZODC_SK_RELOAD] = "Restore Arcane Deck to the state it was in prior to the last time cards were consumed.";
 	grd_skillTooltip[# ZODC_SK_RELOAD] = "";
 	grd_skillIcon[# ZODC_SK_RELOAD] = spr_icon_cycle;
+	grd_skillAct[# ZODC_SK_RELOAD] = create(obj_handler_act_zodc_rDraw);
     
     #macro ZODC_SK_FLUSH 3,2
-	grd_skillName[# ZODC_SK_FLUSH] = "Miracle Flush";//
+	grd_skillName[# ZODC_SK_FLUSH] = "Miracle Flush";
 	grd_skillDesc[# ZODC_SK_FLUSH] = "Charge via using <Expel> with 6 matching cards, one use per mission. Fully restore all ally HP/EN and remove debuffs/ailments.";
 	grd_skillTooltip[# ZODC_SK_FLUSH] = "";
 	grd_skillIcon[# ZODC_SK_FLUSH] = spr_icon_stanceRaise;
+	grd_skillAct[# ZODC_SK_FLUSH] = create(obj_handler_act_zodc_miracle);
 
 #endregion

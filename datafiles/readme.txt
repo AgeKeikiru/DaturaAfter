@@ -1,4 +1,4 @@
-==DateND After v0.2.1==
+==Datura After v0.2.1==
 
 [WARNING: NOT COMPATIBLE WITH PRE-v0.2.1 SAVES]
 
@@ -57,7 +57,7 @@ LeftShift - Shift Menu
 - None yet
 
 =Fixed, needs further testing=
-- None yet
+- Slings maintained food effects permanently
 
 =Fixed, no further sign of bug=
 - Crits ignoring minimum damage limit

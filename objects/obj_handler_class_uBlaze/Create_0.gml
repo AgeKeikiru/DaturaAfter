@@ -38,19 +38,19 @@ desc = "Blaze only. Unique class chip focused on dealing damage and debuffing en
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Hasten HGN/SHG";
+    grd_skillName[# _ix,_iy] = "Hasten HGN/SHG";//
     grd_skillDesc[# _ix,_iy] = "Reduce universal cooldown after using Handguns or Shotguns.";
     grd_skillTooltip[# _ix,_iy] = "CD Reduction: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Slow Imbue";
+    grd_skillName[# _ix,_iy] = "Slow Imbue";//
     grd_skillDesc[# _ix,_iy] = "All weapon attacks have a chance of inflicting Slow.";
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Wide Flict";
+    grd_skillName[# _ix,_iy] = "Wide Flict";//
     grd_skillDesc[# _ix,_iy] = "Status ailments have a chance of affecting all enemies.";
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
 

@@ -117,9 +117,9 @@ global.manualDebug = false;
 	global.map_flags[? CHAR_IMOLEI] = true;
 	global.map_flags[? CHAR_AILE] = true;
 	global.map_flags[? CHAR_PAPRIKA] = true;
-	global.map_flags[? CHAR_BLAZE] = false;
-	global.map_flags[? CHAR_ARI] = false;
-	global.map_flags[? CHAR_JACK] = true;
+	//global.map_flags[? CHAR_BLAZE] = false;
+	//global.map_flags[? CHAR_ARI] = false;
+	//global.map_flags[? CHAR_JACK] = true;
 	
 	//bg colors, used for dialogue lighting
 	global.map_bgCol[? bg_city] = make_color_hsv(0,0,255);

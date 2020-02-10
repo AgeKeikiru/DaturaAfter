@@ -1,0 +1,1 @@
+scr_playBgm(global.lst_bgmStream[| 4],0);

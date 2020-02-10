@@ -5,16 +5,53 @@ var _m = ds_stack_top(global.stk_menu);
 if(title){
 	var _str = "[A.Kei.KI] [" + GAMEVER + "]" + (CANARY ? " [CANARY BUILD]" : "") + (DEBUG ? " [DEBUG ACTIVE]" : "");
 	
-	draw_set_color(c_black);
+	draw_set_color(c_white);
+	draw_set_alpha(1);
 		
 	draw_rectangle(0,0,room_width,room_height,false);
+	
+	//background stripes
+	for(var _i = 0;_i < ds_list_size(lst_titlePattern);_i++){
+	    var
+	    _arr = lst_titlePattern[| _i], //stripe info array
+	    _wrap = room_height,
+	    _s_dir = -50,
+	    _s_len = _arr[en_tPattern.length],
+	    _s_gap = _arr[en_tPattern.gap],
+	    _off = _arr[en_tPattern.offset] mod (_s_len + _s_gap),
+	    _s_x1 = _arr[en_tPattern.x] + -lengthdir_x((room_height * 2) + _off,_s_dir),
+	    _s_y1 = _arr[en_tPattern.y] + -lengthdir_y((room_height * 2) + _off,_s_dir),
+	    _s_x2 = _s_x1 + lengthdir_x(_s_len,_s_dir),
+	    _s_y2 = _s_y1 + lengthdir_y(_s_len,_s_dir);
+	    
+	    draw_set_color(_arr[en_tPattern.color]);
+	    draw_set_alpha(_arr[en_tPattern.alpha]);
+	    
+	    while(_s_y1 < room_height){
+    	    for(var _x = 0;_x < _arr[en_tPattern.width];_x += 0.5){
+    	        draw_line(_s_x1 + _x,_s_y1,_s_x2 + _x,_s_y2);
+    	    }
+    	    
+    	    _s_x1 = _s_x2 + lengthdir_x(_s_gap,_s_dir);
+    	    _s_y1 = _s_y2 + lengthdir_y(_s_gap,_s_dir);
+    	    
+    	    _s_x2 = _s_x1 + lengthdir_x(_s_len,_s_dir);
+    	    _s_y2 = _s_y1 + lengthdir_y(_s_len,_s_dir);
+	    }
+	    
+	    _arr[@ en_tPattern.offset] += -_arr[en_tPattern.speed];
+	}
+	
+	draw_set_color(c_black);
+	draw_set_alpha(1);
+		
+	draw_rectangle(0,0,room_width,30,false);
+	draw_rectangle(0,room_height,room_width,room_height + -30,false);
 	
 	draw_set_color(c_white);
 	draw_set_font(ft_menuSub);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_bottom);
-	
-	draw_rectangle(0,30,room_width,room_height + -30,false);
 	
 	draw_sprite(spr_title,0,0,0);
 	draw_text(10,room_height + -3,_str);
@@ -536,8 +573,8 @@ if(title){
 						_x[0] = _s.x + -5;
 						_y[0] = 490;
 						
-						_x[1] = _x[0] + lengthdir_x(string_width(_str) + 20,30);
-						_y[1] = _y[0] + lengthdir_y(string_width(_str) + 20,30);
+						_x[1] = _x[0] + lengthdir_x(max(string_width(_str),80) + 20,30);
+						_y[1] = _y[0] + lengthdir_y(max(string_width(_str),80) + 20,30);
 						
 						_x[2] = _x[1];
 						_y[2] = _y[1] + string_height(_str);

@@ -35,6 +35,18 @@ SV_map = scr_data_social_new(SOC_AZOD);
 SV_map[? SOC_VAR_NAME] = "Annoyed Zodiac";
 SV_map[? SOC_VAR_DIA] = scr_dia_build_social_annoyedZodiac;
 
+SV_map = scr_data_social_new(SOC_GLITCHCONCERN1);
+SV_map[? SOC_VAR_NAME] = "Curious Agent";
+SV_map[? SOC_VAR_DIA] = scr_dia_build_social_glitchConcern1;
+
+SV_map = scr_data_social_new(SOC_GLITCHCONCERN2);
+SV_map[? SOC_VAR_NAME] = "Know-it-all";
+SV_map[? SOC_VAR_DIA] = scr_dia_build_social_glitchConcern2;
+
+SV_map = scr_data_social_new(SOC_FDRAKE);
+SV_map[? SOC_VAR_NAME] = "Fashionable Draker";
+SV_map[? SOC_VAR_DIA] = scr_dia_build_social_fashionDrake;
+
 SV_map = scr_data_social_new(SOC_WANDERERTIP);
 SV_map[? SOC_VAR_NAME] = "Lethargic Hunter";
 SV_map[? SOC_VAR_DIA] = scr_dia_build_social_wandererTip;
@@ -47,8 +59,16 @@ SV_map = scr_data_social_new(SOC_WOLFEANTTIP);
 SV_map[? SOC_VAR_NAME] = "Scared Hunter";
 SV_map[? SOC_VAR_DIA] = scr_dia_build_social_wolfeantTip;
 
+SV_map = scr_data_social_new(SOC_SUBCLASSTIP);
+SV_map[? SOC_VAR_NAME] = "Analytical Hunter";
+SV_map[? SOC_VAR_DIA] = scr_dia_build_social_subclassTip;
+
 SV_map = scr_data_social_new(SOC_ARI_JOIN1);
 SV_map[? SOC_VAR_NAME] = "Ari";
 SV_map[? SOC_VAR_DIA] = scr_dia_build_social_ari_joinQuestStart;
+
+SV_map = scr_data_social_new(SOC_MINA_JOIN);
+SV_map[? SOC_VAR_NAME] = "Mina";
+SV_map[? SOC_VAR_DIA] = scr_dia_build_social_mina_join;
 
 ds_grid_resize(global.grd_socials,ds_grid_width(global.grd_socials),ds_grid_height(global.grd_socials) + -1);

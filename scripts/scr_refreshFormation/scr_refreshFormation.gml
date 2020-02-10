@@ -2,8 +2,7 @@ var SV_m = ds_stack_top(global.stk_menu);
 
 with SV_m{
     var
-	_y = 0,
-	SV_lst = ds_list_create();
+	_y = 0;
 	
 	back_function = scr_menu_social_formation_confirm;
 	
@@ -12,27 +11,12 @@ with SV_m{
 	ds_grid_resize(grd_txt,1,1);
 	scr_menu_matchGrids(id,true);
 	
-	ds_list_add(SV_lst,
-	    CHAR_IMOLEI,
-	    CHAR_AILE,
-	    CHAR_PAPRIKA,
-	    CHAR_ARI,
-	    CHAR_BLAZE,
-	    CHAR_JACK
-	);
-	
-	for(SV_i = ds_list_size(SV_lst) + -1;SV_i >= 0;SV_i--){
-	    var SV_key = SV_lst[| SV_i];
-	    
-	    if(!global.map_flags[? SV_key] && !DEBUG){
-	        ds_list_delete(SV_lst,SV_i);
-	    }
-	}
-	
 	for(_char = 0;_char < en_chars.slime;_char++){
-    	var _map = global.grd_chars[# 1,_char];
+    	var
+    	_map = global.grd_chars[# 1,_char],
+    	_key = global.grd_chars[# 0,_char];
     	
-    	if(_map != noone){
+    	if(_map != noone && (global.map_flags[? _key] || DEBUG)){
 	    	var
 	    	_id = _map[? en_charVar.charID],
 	    	_mem = global.map_chars[? _id],

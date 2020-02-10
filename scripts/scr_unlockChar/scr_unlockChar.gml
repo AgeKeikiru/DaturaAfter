@@ -34,6 +34,41 @@ if(!global.map_flags[? SV_id]){
                 
                 break;
         #endregion
+        
+        #region
+            case CHAR_MINA:
+                SV_o = scr_data_act_new(WTAG_TYPE_SWD,"",2,0);
+                SV_map[? CHAR_VAR_HB0] = SV_o;
+                ds_list_add(global.lst_inv_acts,SV_o);
+                
+                SV_o = scr_data_act_new(WTAG_TYPE_SMG,"",2,0);
+                SV_map[? CHAR_VAR_HB1] = SV_o;
+                ds_list_add(global.lst_inv_acts,SV_o);
+                
+                SV_o = scr_data_act_new(WTAG_TYPE_ASC_VRT,CHAR_VAR_ELE_ELC,2,0);
+                SV_map[? CHAR_VAR_HB2] = SV_o;
+                ds_list_add(global.lst_inv_acts,SV_o);
+                
+                SV_o = scr_data_armor_new(en_charVar.spd,3,0);
+                SV_map[? CHAR_VAR_ARM0] = SV_o;
+                ds_list_add(global.lst_inv_arms,SV_o);
+                
+                SV_o = scr_data_armor_new(en_charVar.misc,0,0);
+                SV_map[? CHAR_VAR_ARM1] = SV_o;
+                ds_list_add(global.lst_inv_arms,SV_o);
+                
+                SV_o = instance_create_depth(0,0,0,obj_handler_class_idol);
+                SV_map[? CHAR_VAR_CLS0] = SV_o;
+                ds_list_add(global.lst_inv_classes,SV_o);
+                
+                with SV_o{
+                    grd_skills[# 0,1] = 5;
+                    grd_skills[# 0,2] = 5;
+                    grd_skills[# 1,2] = 5;
+                }
+                
+                break;
+        #endregion
     }
     
     scr_cEvent_id(global.map_chars[? SV_id],EVENT_BATTLM_INIT);

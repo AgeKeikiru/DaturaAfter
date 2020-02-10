@@ -41,7 +41,7 @@ stat_rb_rate = 1;
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Shield Love";
+    grd_skillName[# _ix,_iy] = "Shield Love";//
     grd_skillDesc[# _ix,_iy] = "Increase damage cut with Shields.";
     grd_skillTooltip[# _ix,_iy] = "SHD Defense: !%";
     
@@ -53,7 +53,7 @@ stat_rb_rate = 1;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Refresh Boost";
+    grd_skillName[# _ix,_iy] = "Refresh Boost";//
     grd_skillDesc[# _ix,_iy] = "Boost stats when healed.";
     grd_skillTooltip[# _ix,_iy] = "Duration: !sec";
 

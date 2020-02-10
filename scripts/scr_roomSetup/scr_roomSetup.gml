@@ -3,7 +3,7 @@ view_set_visible(0, true);
 view_set_wport(0, 1280);
 view_set_hport(0, 720);
 */
-window_set_caption((CANARY ? "[CANARY] " : "") + "DateND After " + GAMEVER);
+window_set_caption((CANARY ? "[CANARY] " : "") + "Datura After " + GAMEVER);
 
 global.lyid_bg[0] = layer_create(10000);
 global.lyid_bg[1] = layer_create(9000);

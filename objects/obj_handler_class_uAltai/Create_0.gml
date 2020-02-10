@@ -39,20 +39,20 @@ desc = "Altai only. Unique class chip focused on support capability with some of
     _ix++;
     _iy = 0;
 
-    grd_skillName[# _ix,_iy] = "Adrenaline REC";
+    grd_skillName[# _ix,_iy] = "Adrenaline REC";//
     grd_skillDesc[# _ix,_iy] = "Boost EN Recovery while HP is under 30%.";
     grd_skillTooltip[# _ix,_iy] = "REC: !%";
     grd_skillRate[# _ix,_iy] = 0.1;
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Dual Wield S";
+    grd_skillName[# _ix,_iy] = "Dual Wield S";//
     grd_skillDesc[# _ix,_iy] = "Double hit count of spell weapons, at reduced damage.";
     grd_skillTooltip[# _ix,_iy] = "Damage Rate: !%";
     
     _iy++;
     
-    grd_skillName[# _ix,_iy] = "Wide Heal";
+    grd_skillName[# _ix,_iy] = "Wide Heal";//
     grd_skillDesc[# _ix,_iy] = "Heals have a chance of affecting the entire party.";
     grd_skillTooltip[# _ix,_iy] = "Proc Rate: !%";
 

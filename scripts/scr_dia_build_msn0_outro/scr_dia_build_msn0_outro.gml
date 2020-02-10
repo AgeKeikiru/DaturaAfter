@@ -29,7 +29,7 @@ SV_i = scr_dia_newStep();
 global.grd_dia[# DIA_TXT,SV_i] = "Level up a bit, there's a PvP tournament coming up for endgame players in eeeh about a month or so.";
 
 SV_i = scr_dia_newStep();
-global.grd_dia[# DIA_TXT,SV_i] = "Winner gets a crack at me, so if you can get through that I'll know you wont waste my time.";
+global.grd_dia[# DIA_TXT,SV_i] = "Winner gets a crack at me, so if you can get through that I'll know you won't waste my time.";
 
 SV_i = scr_dia_newStep();
 global.grd_dia[# DIA_TXT,SV_i] = "And more importantly: we'll have a nice audience. No point in kicking your ass for it's own sake, I already knew I could do that.";

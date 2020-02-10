@@ -1,0 +1,1 @@
+scr_unlockChar(CHAR_MINA);
